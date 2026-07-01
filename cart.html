@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cart | Blue Nile Group — KIFARU™ Steel</title>
+  <link rel="icon" href="assets/logo-2.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar-left">
+      <span><i class="fa-solid fa-phone"></i><a href="tel:+254202013800">(+254) 202 013 800</a></span>
+      <span><i class="fa-solid fa-envelope"></i><a href="mailto:saleskifarusteel@gmail.com">saleskifarusteel@gmail.com</a></span>
+    </div>
+    <div class="top-bar-right">
+      <span><i class="fa-solid fa-certificate"></i> 100% KEBS Approved — Direct from the Mill</span>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <div class="header-main">
+      <a href="index.html" class="header-logo"><img src="assets/logo-2.png" alt="Blue Nile Group"></a>
+      <div class="header-search">
+        <input type="text" id="header-search-input" placeholder="Search for TMT bars, mesh, nails...">
+        <button id="header-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+      <div class="header-actions">
+        <a href="tel:+254755724090" class="header-action-btn"><i class="fa-solid fa-phone"></i><span>Call Sales</span></a>
+        <a href="https://wa.me/254755724090" target="_blank" class="header-action-btn"><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i><span>WhatsApp</span></a>
+        <button class="header-action-btn" id="cart-icon-btn" style="position:relative;">
+          <i class="fa-solid fa-cart-shopping"></i><span>Cart</span>
+          <span class="cart-count" style="display:none;">0</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <nav class="header-nav">
+    <div class="container">
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="shop.html"><i class="fa-solid fa-store"></i> Shop</a></li>
+        <li><a href="cart.html" class="active"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+        <li><a href="index.html#contact"><i class="fa-solid fa-phone-volume"></i> Contact</a></li>
+      </ul>
+      <button class="mobile-nav-toggle" id="mobile-nav-toggle"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <ol><li><a href="index.html">Home</a></li><li>My Cart</li></ol>
+  </div>
+</div>
+
+<!-- CART PAGE -->
+<section class="section">
+  <div class="container">
+    <h1 style="font-size:1.6rem;font-weight:700;color:var(--primary);margin-bottom:24px;"><i class="fa-solid fa-cart-shopping" style="color:var(--accent);"></i> My Cart</h1>
+    <div class="cart-page-layout" id="cart-page-layout">
+      <!-- Rendered by JS -->
+    </div>
+    <div id="cart-empty-page" style="display:none;text-align:center;padding:60px 20px;">
+      <i class="fa-solid fa-cart-shopping" style="font-size:4rem;color:var(--border);display:block;margin-bottom:16px;"></i>
+      <h2 style="color:var(--muted);margin-bottom:12px;">Your cart is empty</h2>
+      <p style="color:var(--muted);margin-bottom:24px;">You haven't added any products yet. Browse our catalogue and add items to order.</p>
+      <a href="shop.html" class="btn btn-accent"><i class="fa-solid fa-store"></i> Browse Products</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-2.png" alt="Blue Nile Group Logo">
+        <p>Kenya's leading manufacturer of KEBS-approved KIFARU™ construction steel and wire products.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html"><i class="fa-solid fa-chevron-right"></i>Home</a></li>
+          <li><a href="shop.html"><i class="fa-solid fa-chevron-right"></i>Shop</a></li>
+          <li><a href="cart.html"><i class="fa-solid fa-chevron-right"></i>My Cart</a></li>
+          <li><a href="index.html#contact"><i class="fa-solid fa-chevron-right"></i>Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li><a href="tel:+254755724090"><i class="fa-solid fa-phone"></i>(+254) 755 724 090</a></li>
+          <li><a href="tel:+254762270475"><i class="fa-solid fa-phone"></i>(+254) 762 270 475</a></li>
+          <li><a href="mailto:saleskifarusteel@gmail.com"><i class="fa-solid fa-envelope"></i>saleskifarusteel@gmail.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Order via WhatsApp</h4>
+        <p style="color:rgba(255,255,255,0.55);font-size:13px;margin-bottom:12px;">Add products to your cart, then click "Order via WhatsApp" to send your order directly to our sales team!</p>
+        <a href="https://wa.me/254755724090" target="_blank" class="btn btn-accent" style="justify-content:center;"><i class="fa-brands fa-whatsapp"></i> Chat Now</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Blue Nile Group of Companies. All Rights Reserved.</p>
+      <span style="background:var(--accent);color:#fff;padding:3px 10px;border-radius:3px;font-size:11px;font-weight:700;">KEBS APPROVED</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER (still available on this page) -->
+<div class="cart-overlay" id="cart-overlay"></div>
+<aside class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3><i class="fa-solid fa-cart-shopping"></i> Your Cart</h3>
+    <button class="cart-close-btn" id="cart-close-btn"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="cart-drawer-items" id="cart-drawer-items"></div>
+  <div class="cart-drawer-footer">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cart-subtotal-amount">Ksh 0</span></div>
+    <button class="cart-wa-btn" id="drawer-wa-btn"><i class="fa-brands fa-whatsapp"></i> Order via WhatsApp</button>
+    <button class="cart-view-btn" id="cart-view-btn"><i class="fa-solid fa-cart-shopping"></i> View Full Cart</button>
+  </div>
+</aside>
+
+<div class="wa-float">
+  <a href="https://wa.me/254755724090?text=Hello%20KIFARU%20Steel!%20I%20would%20like%20to%20place%20an%20order." target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
+
+<script src="script.js"></script>
+<script>
+function renderCartPage() {
+  const layout = document.getElementById('cart-page-layout');
+  const empty = document.getElementById('cart-empty-page');
+  if (!layout) return;
+  const items = Cart.get();
+  if (!items.length) {
+    layout.style.display = 'none';
+    if (empty) empty.style.display = 'block';
+    return;
+  }
+  layout.style.display = 'grid';
+  if (empty) empty.style.display = 'none';
+  const total = Cart.total();
+  layout.innerHTML = `
+    <div class="cart-table">
+      <table>
+        <thead><tr>
+          <th>Product</th>
+          <th>Size / Type</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr></thead>
+        <tbody>
+          ${items.map(item => `
+          <tr>
+            <td>
+              <div class="ct-product">
+                <img src="${item.image}" alt="${item.name}" onerror="this.src='assets/logo-2.png'">
+                <div>
+                  <div class="ct-product-name">${item.name}</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="ct-product-var">${item.variant}</span></td>
+            <td><span class="ct-price">${fmtPrice(item.price)}</span></td>
+            <td>
+              <div class="ct-qty">
+                <button onclick="Cart.updateQty('${item.key}',${item.qty-1})">−</button>
+                <input type="number" value="${item.qty}" min="1" onchange="Cart.updateQty('${item.key}',parseInt(this.value)||1)">
+                <button onclick="Cart.updateQty('${item.key}',${item.qty+1})">+</button>
+              </div>
+            </td>
+            <td><span class="ct-price">${fmtPrice(item.price*item.qty)}</span></td>
+            <td><button class="ct-remove" onclick="Cart.remove('${item.key}')" title="Remove"><i class="fa-solid fa-trash"></i></button></td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+    <div class="cart-summary-box">
+      <div class="cart-summary-header">Order Summary</div>
+      <div class="cart-summary-body">
+        <div class="summary-row"><span class="label">Items (${Cart.count()})</span><span class="value">${fmtPrice(total)}</span></div>
+        <div class="summary-row"><span class="label">Delivery</span><span class="value">To be confirmed</span></div>
+        <div class="summary-row total"><span class="label">Total</span><span class="value">${fmtPrice(total)}</span></div>
+        <button class="wa-order-btn" id="wa-order-btn" onclick="Cart.openWhatsApp()">
+          <i class="fa-brands fa-whatsapp"></i> Order via WhatsApp
+        </button>
+        <p class="wa-note">
+          <i class="fa-solid fa-circle-info"></i>
+          Clicking the button will open WhatsApp with your complete order details pre-filled. Our sales team will confirm your order and arrange delivery.
+        </p>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);">
+          <p style="font-size:12px;color:var(--muted);margin-bottom:8px;font-weight:600;">OR CALL SALES DIRECTLY:</p>
+          <a href="tel:+254755724090" style="display:block;font-size:13px;color:var(--primary);font-weight:700;margin-bottom:4px;"><i class="fa-solid fa-phone" style="color:var(--accent);"></i> (+254) 755 724 090</a>
+          <a href="tel:+254762270475" style="display:block;font-size:13px;color:var(--primary);font-weight:700;"><i class="fa-solid fa-phone" style="color:var(--accent);"></i> (+254) 762 270 475</a>
+        </div>
+      </div>
+    </div>`;
+}
+renderCartPage();
+</script>
+</body>
+</html>

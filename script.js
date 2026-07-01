@@ -1,336 +1,201 @@
-/* ==========================================================================
-   BLUE NILE GROUP & KIFARU STEEL - INTERACTIVE BEHAVIOR CONTROLLER
-   ========================================================================== */
+/* =========================================================
+   BLUE NILE GROUP | KIFARU STEEL — Main JavaScript
+   ========================================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
-  
-  /* --------------------------------------------------------------------------
-     1. Hamburger Menu Controller (Mobile Navigation Toggle)
-     -------------------------------------------------------------------------- */
-  const navToggle = document.querySelector('.mobile-nav-toggle');
-  const primaryNav = document.querySelector('.primary-nav');
-  const navLinks = document.querySelectorAll('.nav-link');
 
-  if (navToggle && primaryNav) {
-    navToggle.addEventListener('click', () => {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
-      navToggle.setAttribute('aria-expanded', !isExpanded);
-      primaryNav.classList.toggle('active');
-    });
+  /* ------------------------------------------------------------------
+     1. Dark Mode Toggle
+  ------------------------------------------------------------------ */
+  const themeToggle = document.getElementById('theme-toggle');
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateThemeIcon(savedTheme);
 
-    // Close mobile nav when clicking any nav link
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.setAttribute('aria-expanded', 'false');
-        primaryNav.classList.remove('active');
-      });
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
     });
   }
 
-  /* --------------------------------------------------------------------------
-     2. Sticky Header & Scroll To Top Actions
-     -------------------------------------------------------------------------- */
+  function updateThemeIcon(theme) {
+    if (!themeToggle) return;
+    themeToggle.innerHTML = theme === 'dark'
+      ? '<i class="fa-solid fa-sun"></i>'
+      : '<i class="fa-solid fa-moon"></i>';
+    themeToggle.title = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+  }
+
+  /* ------------------------------------------------------------------
+     2. Header — Glassmorphism on scroll
+  ------------------------------------------------------------------ */
   const header = document.getElementById('header');
-  const scrollTopBtn = document.getElementById('scroll-to-top');
-
   window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY;
-
-    // Sticky header background transition
-    if (header) {
-      if (scrollPos > 50) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }
-
-    // Toggle visibility of Scroll-To-Top button
-    if (scrollTopBtn) {
-      if (scrollPos > 300) {
-        scrollTopBtn.classList.add('active');
-      } else {
-        scrollTopBtn.classList.remove('active');
-      }
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
     }
   });
 
-  // Smooth scroll to top on button click
-  if (scrollTopBtn) {
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+  /* ------------------------------------------------------------------
+     3. Mobile Menu Toggle
+  ------------------------------------------------------------------ */
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const primaryNav = document.getElementById('primary-nav');
+  if (mobileToggle && primaryNav) {
+    mobileToggle.addEventListener('click', () => {
+      primaryNav.classList.toggle('mobile-open');
+      mobileToggle.innerHTML = primaryNav.classList.contains('mobile-open')
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '&#9776;';
     });
   }
 
-  /* --------------------------------------------------------------------------
-     3. Hero Section Image Slider (Auto-rotating carousel with indicators)
-     -------------------------------------------------------------------------- */
-  const slides = document.querySelectorAll('.slide');
-  const dots = document.querySelectorAll('.slider-dot');
-  const prevBtn = document.querySelector('.prev-btn');
-  const nextBtn = document.querySelector('.next-btn');
-  const sliderContainer = document.querySelector('.hero-slider');
-  
-  let currentSlideIndex = 0;
-  let sliderTimer = null;
-  const slideDuration = 5000; // Time in milliseconds per slide
+  // Close menu when a link is clicked
+  document.querySelectorAll('#primary-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      if (primaryNav) primaryNav.classList.remove('mobile-open');
+      if (mobileToggle) mobileToggle.innerHTML = '&#9776;';
+    });
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.offsetTop - 72, behavior: 'smooth' });
+      }
+    });
+  });
+
+  /* ------------------------------------------------------------------
+     4. Hero Slider
+  ------------------------------------------------------------------ */
+  const heroSlides = document.querySelectorAll('.hero .slide');
+  const heroDots  = document.querySelectorAll('.hero > .dots .dot');
+  let currentSlide = 0;
+  let heroTimer;
 
   function showSlide(index) {
-    if (slides.length === 0) return;
+    heroSlides.forEach(s => s.classList.remove('active'));
+    heroDots.forEach(d => d.classList.remove('active'));
+    currentSlide = (index + heroSlides.length) % heroSlides.length;
+    if (heroSlides[currentSlide]) heroSlides[currentSlide].classList.add('active');
+    if (heroDots[currentSlide])  heroDots[currentSlide].classList.add('active');
+  }
 
-    // Boundary check
-    if (index >= slides.length) {
-      currentSlideIndex = 0;
-    } else if (index < 0) {
-      currentSlideIndex = slides.length - 1;
-    } else {
-      currentSlideIndex = index;
+  function startHeroTimer() {
+    clearInterval(heroTimer);
+    heroTimer = setInterval(() => showSlide(currentSlide + 1), 5500);
+  }
+
+  document.querySelector('.hero .next')?.addEventListener('click', () => { showSlide(currentSlide + 1); startHeroTimer(); });
+  document.querySelector('.hero .prev')?.addEventListener('click', () => { showSlide(currentSlide - 1); startHeroTimer(); });
+  heroDots.forEach((dot, idx) => dot.addEventListener('click', () => { showSlide(idx); startHeroTimer(); }));
+
+  startHeroTimer();
+
+  /* ------------------------------------------------------------------
+     5. Product Card Carousels
+  ------------------------------------------------------------------ */
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const imgs = carousel.querySelectorAll('img');
+    const dots = carousel.querySelectorAll('.dot');
+    const prev = carousel.querySelector('.prev');
+    const next = carousel.querySelector('.next');
+    let idx = 0;
+
+    function showImg(i) {
+      imgs.forEach(im => im.classList.remove('active'));
+      dots.forEach(d  => d.classList.remove('active'));
+      idx = (i + imgs.length) % imgs.length;
+      if (imgs[idx]) imgs[idx].classList.add('active');
+      if (dots[idx]) dots[idx].classList.add('active');
     }
 
-    // Reset all slides and indicator dots
-    slides.forEach(slide => slide.classList.remove('active'));
-    dots.forEach(dot => dot.classList.remove('active'));
-
-    // Activate the current slide and dot
-    slides[currentSlideIndex].classList.add('active');
-    if (dots[currentSlideIndex]) {
-      dots[currentSlideIndex].classList.add('active');
-    }
-  }
-
-  function nextSlide() {
-    showSlide(currentSlideIndex + 1);
-  }
-
-  function prevSlide() {
-    showSlide(currentSlideIndex - 1);
-  }
-
-  function startAutoPlay() {
-    if (!sliderTimer) {
-      sliderTimer = setInterval(nextSlide, slideDuration);
-    }
-  }
-
-  function stopAutoPlay() {
-    if (sliderTimer) {
-      clearInterval(sliderTimer);
-      sliderTimer = null;
-    }
-  }
-
-  // Set up event listeners for arrows
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      stopAutoPlay();
-      startAutoPlay(); // Restart timer on click
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      stopAutoPlay();
-      startAutoPlay(); // Restart timer on click
-    });
-  }
-
-  // Set up indicator dots navigation
-  dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      showSlide(index);
-      stopAutoPlay();
-      startAutoPlay(); // Restart timer on click
-    });
+    prev?.addEventListener('click', e => { e.stopPropagation(); showImg(idx - 1); });
+    next?.addEventListener('click', e => { e.stopPropagation(); showImg(idx + 1); });
+    dots.forEach((dot, dIdx) => dot.addEventListener('click', () => showImg(dIdx)));
   });
 
-  // Pause carousel rotation when hover on slider
-  if (sliderContainer) {
-    sliderContainer.addEventListener('mouseenter', stopAutoPlay);
-    sliderContainer.addEventListener('mouseleave', startAutoPlay);
-  }
+  /* ------------------------------------------------------------------
+     6. Category Filter
+  ------------------------------------------------------------------ */
+  const filterBtns = document.querySelectorAll('.filter button');
+  const allCards   = document.querySelectorAll('.card');
 
-  // Initialize Slider autoplay
-  startAutoPlay();
-
-  /* --------------------------------------------------------------------------
-     4. Scrollspy (Highlight nav links as user scrolls)
-     -------------------------------------------------------------------------- */
-  const sections = document.querySelectorAll('.scroll-spy');
-  
-  if ('IntersectionObserver' in window && sections.length > 0) {
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -60% 0px', // Center viewport triggers
-      threshold: 0
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const sectionId = entry.target.getAttribute('id');
-          
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${sectionId}`) {
-              link.classList.add('active');
-            }
-          });
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => {
-      sectionObserver.observe(section);
-    });
-
-    // Special rule for Home (top scroll)
-    window.addEventListener('scroll', () => {
-      if (window.scrollY < 100) {
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#') {
-            link.classList.add('active');
-          }
-        });
-      }
-    });
-  }
-
-  /* --------------------------------------------------------------------------
-     5. Product Inquiries Link Setup (Auto-select category in contact form)
-     -------------------------------------------------------------------------- */
-  const productSelect = document.getElementById('form-product');
-  const cardInquireButtons = document.querySelectorAll('.card-action-btn, .division-link');
-
-  cardInquireButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      // Find matching value
-      const targetProduct = btn.getAttribute('data-product');
-      const targetDivision = btn.getAttribute('data-division');
-      const selectedValue = targetProduct || targetDivision;
-
-      if (productSelect && selectedValue) {
-        // Find option that contains or matches selectedValue
-        for (let i = 0; i < productSelect.options.length; i++) {
-          const option = productSelect.options[i];
-          if (option.value === selectedValue || option.text.includes(selectedValue)) {
-            productSelect.selectedIndex = i;
-            break;
-          }
-        }
-      }
-    });
-  });
-
-  /* --------------------------------------------------------------------------
-     6. Custom Form Validation & Visual Success Banner
-     -------------------------------------------------------------------------- */
-  const contactForm = document.getElementById('inquiry-form');
-  const feedbackBlock = document.getElementById('form-feedback');
-  const feedbackProduct = document.getElementById('feedback-product');
-  const feedbackContact = document.getElementById('feedback-contact-point');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      let formIsValid = true;
-      const formFields = contactForm.querySelectorAll('input[required], textarea[required]');
-
-      // Validate required elements
-      formFields.forEach(field => {
-        const parent = field.closest('.form-control-group');
-        
-        if (!field.value.trim()) {
-          parent.classList.add('invalid');
-          formIsValid = false;
-        } else if (field.type === 'email' && !validateEmail(field.value)) {
-          parent.classList.add('invalid');
-          formIsValid = false;
-        } else {
-          parent.classList.remove('invalid');
-        }
-
-        // Add dynamically updated keyup event listeners for field cleaning
-        field.addEventListener('input', () => {
-          if (field.value.trim()) {
-            if (field.type === 'email') {
-              if (validateEmail(field.value)) {
-                parent.classList.remove('invalid');
-              }
-            } else {
-              parent.classList.remove('invalid');
-            }
-          }
-        });
-      });
-
-      if (formIsValid) {
-        const submitBtn = contactForm.querySelector('.form-submit-btn');
-        submitBtn.classList.add('loading');
-
-        // Simulate submission request processing delay (1.2 seconds)
-        setTimeout(() => {
-          // Gather info for response card
-          const senderName = document.getElementById('form-name').value;
-          const senderEmail = document.getElementById('form-email').value;
-          const selectedProductText = productSelect.options[productSelect.selectedIndex].text;
-
-          // Populate receipt panel
-          if (feedbackProduct) {
-            feedbackProduct.textContent = productSelect.value ? selectedProductText : 'Kifaru products';
-          }
-          if (feedbackContact) {
-            feedbackContact.textContent = senderEmail;
-          }
-
-          // Reset forms and loading triggers
-          contactForm.reset();
-          submitBtn.classList.remove('loading');
-
-          // Reveal receipt feedback block
-          if (feedbackBlock) {
-            feedbackBlock.classList.add('active');
-            feedbackBlock.setAttribute('aria-hidden', 'false');
-            
-            // Smoothly scroll the feedback block into central view
-            feedbackBlock.scrollIntoView({
-              behavior: 'smooth',
-              block: 'nearest'
-            });
-          }
-        }, 1200);
-      }
-    });
-  }
-
-  // Simple Regex email check helper
-  function validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-  }
-
-  /* --------------------------------------------------------------------------
-     7. Price Table Toggle (Show/Hide pricing on product cards)
-     -------------------------------------------------------------------------- */
-  const priceToggleButtons = document.querySelectorAll('.price-toggle');
-
-  priceToggleButtons.forEach(btn => {
+  filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      const targetEl = document.getElementById(targetId);
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      allCards.forEach(card => {
+        const matches = filter === 'All' || card.dataset.category === filter;
+        card.style.display = matches ? '' : 'none';
+      });
+    });
+  });
 
-      if (targetEl) {
-        const isOpen = targetEl.classList.contains('open');
-        targetEl.classList.toggle('open');
-        btn.textContent = isOpen ? 'Show Prices' : 'Hide Prices';
+  /* ------------------------------------------------------------------
+     7. Live Search
+  ------------------------------------------------------------------ */
+  const searchInput = document.getElementById('product-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.toLowerCase().trim();
+      // Reset filter buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      document.querySelector('.filter button[data-filter="All"]')?.classList.add('active');
+
+      allCards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = !q || text.includes(q) ? '' : 'none';
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     8. Price Table Toggle
+  ------------------------------------------------------------------ */
+  document.querySelectorAll('.price-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const table = btn.nextElementSibling;
+      if (!table) return;
+      const open = table.style.display === 'block';
+      table.style.display = open ? 'none' : 'block';
+      btn.innerHTML = open
+        ? '<i class="fa-solid fa-tag"></i> View Prices'
+        : '<i class="fa-solid fa-tag"></i> Hide Prices';
+    });
+  });
+
+  /* ------------------------------------------------------------------
+     9. Scroll Reveal Animation (IntersectionObserver)
+  ------------------------------------------------------------------ */
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target); // animate once
       }
     });
+  }, { threshold: 0.12 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  /* ------------------------------------------------------------------
+     10. Stagger card animations
+  ------------------------------------------------------------------ */
+  document.querySelectorAll('.card').forEach((card, i) => {
+    card.style.transitionDelay = `${(i % 4) * 0.08}s`;
   });
 
 });

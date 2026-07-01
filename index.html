@@ -1,200 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blue Nile Group of Companies — Kenya's leading manufacturer of KEBS-approved KIFARU™ steel and wire products. TMT Bars, BRC Mesh, Chain Link, Nails and more.">
+  <meta property="og:title" content="Blue Nile Group of Companies | Kifaru Steel">
+  <meta property="og:description" content="Kenya's leading manufacturer of KEBS-approved construction steel. Wholesale prices direct from the mill.">
+  <meta property="og:type" content="website">
   <title>Blue Nile Group of Companies | Kifaru Steel</title>
   <link rel="icon" href="assets/logo-2.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap"
-        rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --color-primary:#0d1b2a;
-      --color-accent:#f5a623;
-      --color-white:#ffffff;
-      --color-grey:#f4f6f8;
-      --color-link:#1a4fba;
-      --font-body:'Inter',sans-serif;
-      --font-head:'Poppins',sans-serif;
-      --transition:0.3s ease;
-    }
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:var(--font-body);background:#fff;color:#222;line-height:1.6;}
-    a{text-decoration:none;color:inherit;transition:var(--transition);}
-    img{max-width:100%;display:block;}
-    button{cursor:pointer;background:none;border:none;font:inherit;}
-    /* ==== HEADER ==== */
-    .header{position:fixed;top:0;left:0;width:100%;background:var(--color-primary);color:#fff;
-      display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:1000;height:70px;transition:var(--transition);}
-    .header .logo img{height:60px;}
-    .nav{display:flex;gap:15px;align-items:center;}
-    .nav a{color:#fff;padding:8px 16px;border-radius:20px;background:var(--color-accent);font-weight:600;}
-    .nav a.active{background:var(--color-accent);}
-    .nav .pill{background:var(--color-accent);color:#fff;}
-    .nav .pill:hover{background:#e5941c;}
-    .mobile-toggle{display:none;}
-    /* ==== HERO ==== */
-    .hero{position:relative;height:100vh;min-height:600px;overflow:hidden;}
-    .hero .slide{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;
-      background-position:center;opacity:0;transition:opacity .8s var(--transition);}
-    .hero .slide.active{opacity:1;}
-    .hero .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);}
-    .hero .content{position:relative;z-index:2;max-width:800px;padding:0 20px;color:#fff;
-      top:50%;transform:translateY(-50%);margin:auto;text-align:center;}
-    .hero h1{font-family:var(--font-head);font-size:2.5rem;font-weight:800;margin-bottom:15px;}
-    .hero p{font-size:1.1rem;margin-bottom:25px;}
-    .hero .cta{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;}
-    .hero .btn{padding:12px 24px;border-radius:30px;font-weight:600;}
-    .hero .btn.gold{background:var(--color-accent);color:#fff;}
-    .hero .btn.white{background:transparent;border:2px solid #fff;color:#fff;}
-    .hero .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);
-      color:#fff;width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:2;}
-    .hero .prev{left:20px;}
-    .hero .next{right:20px;}
-    .hero .dots{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:2;}
-    .hero .dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;}
-    .hero .dot.active{background:var(--color-accent);width:30px;}
-    /* ==== ABOUT ==== */
-    .about{padding:80px 20px;background:#fff;display:grid;gap:40px;grid-template-columns:1fr 1fr;align-items:center;}
-    .about img{width:100%;height:450px;object-fit:cover;object-position:center;}
-    .about .badge{position:absolute;bottom:15px;left:15px;background:var(--color-primary);color:#fff;
-      padding:8px 16px;border-radius:8px;font-size:.9rem;}
-    .about .text{max-width:600px;}
-    .about h2{font-family:var(--font-head);font-size:2rem;margin-bottom:10px;color:#222;}
-    .about .sub{color:var(--color-accent);font-weight:600;margin-bottom:20px;}
-    .about .bullets{display:grid;gap:20px;margin-top:30px;}
-    .about .bullet{display:flex;gap:15px;align-items:start;}
-    .about .bullet i{font-size:1.5rem;color:var(--color-accent);}
-    /* ==== PRODUCTS ==== */
-    .products{padding:80px 20px;background:#f4f6f8;}
-    .products h2{font-family:var(--font-head);font-size:2rem;text-align:center;margin-bottom:10px;}
-    .products .sub{font-weight:600;color:var(--color-accent);text-align:center;margin-bottom:30px;}
-    .filter{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:30px;}
-    .filter button{padding:8px 16px;border-radius:20px;background:transparent;border:2px solid var(--color-primary);
-      color:var(--color-primary);font-weight:600;transition:var(--transition);}
-    .filter button.active{background:var(--color-accent);color:#fff;border-color:var(--color-accent);}
-    .grid{display:grid;gap:25px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-    .card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 5px rgba(0,0,0,.1);position:relative;}
-    .card .badge{position:absolute;top:10px;right:10px;background:var(--color-accent);color:#fff;padding:4px 8px;
-      border-radius:4px;font-size:.8rem;z-index:2;}
-    .card .carousel{position:relative;height:280px;overflow:hidden;}
-    .card .carousel img{width:100%;height:100%;object-fit:cover;object-position:center;display:none;}
-    .card .carousel img.active{display:block;}
-    .card .carousel .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.3);
-      color:#fff;width:35px;height:35px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
-    .card .carousel .prev{left:8px;}
-    .card .carousel .next{right:8px;}
-    .card .carousel .dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:4px;}
-    .card .carousel .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.6);cursor:pointer;}
-    .card .carousel .dot.active{background:#fff;}
-    .card-body{padding:15px;}
-    .card-body h3{font-family:var(--font-head);font-size:1.1rem;margin-bottom:5px;}
-    .card-body p{font-size:.9rem;margin-bottom:10px;color:#555;}
-    .card-body .spec{display:flex;gap:5px;flex-wrap:wrap;font-size:.8rem;}
-    .card-body .spec span{background:#eaeaea;padding:2px 6px;border-radius:4px;}
-    .card-body .price-toggle{background:transparent;color:var(--color-primary);font-weight:600;}
-    .price-table{display:none;margin-top:10px;overflow-x:auto;}
-    .price-table table{width:100%;border-collapse:collapse;}
-    .price-table th,.price-table td{border:1px solid #ddd;padding:6px;text-align:left;font-size:.85rem;}
-    .price-table th{background:#f0f0f0;}
-    .card-body .inquire{display:block;margin-top:10px;padding:8px 12px;background:var(--color-primary);
-      color:#fff;text-align:center;border-radius:4px;font-weight:600;}
-    /* ==== CONTACT ==== */
-    .contact{padding:80px 20px;background:#fff;display:grid;gap:30px;grid-template-columns:1fr 1fr;align-items:start;}
-    .contact .details{font-size:.95rem;}
-    .contact .details a{color:var(--color-link);}
-    .contact form{background:#f9f9f9;padding:20px;border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.1);}
-    .contact .field{margin-bottom:15px;display:flex;flex-direction:column;}
-    .contact label{margin-bottom:5px;font-weight:600;}
-    .contact input,.contact textarea{padding:10px;border:1px solid #ccc;border-radius:4px;}
-    .contact button{padding:10px 20px;background:var(--color-accent);color:#fff;border:none;border-radius:4px;}
-    /* ==== FOOTER ==== */
-    .footer{background:var(--color-primary);color:#fff;padding:40px 20px;}
-    .footer .cols{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:1200px;margin:auto;}
-    .footer a{color:#fff;}
-    .footer h4{margin-bottom:15px;}
-    .footer .bottom{margin-top:40px;font-size:.85rem;text-align:center;border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;}
-    /* ==== UTILS ==== */
-    .fixed-btn{position:fixed;right:20px;bottom:20px;background:var(--color-accent);color:#fff;
-      padding:12px;border-radius:50%;display:none;z-index:1000;cursor:pointer;}
-    /* ==== RESPONSIVE ==== */
-    body { overflow-x: hidden; width: 100%; }
-    @media (max-width:768px){
-      .about, .contact, .products {grid-template-columns:1fr; padding-left:15px; padding-right:15px;}
-      .header {padding: 0 15px;}
-      .header .logo img {height: 45px;}
-      .header .nav{display:none;flex-direction:column;background:var(--color-primary);position:absolute;top:70px;left:0;
-        width:100%;padding:20px;box-sizing:border-box;}
-      .header .nav.active{display:flex;}
-      .mobile-toggle{display:block;background:none;color:#fff;font-size:1.8rem;}
-      .hero h1 {font-size: 1.8rem; line-height: 1.3;}
-      .hero p {font-size: 1rem;}
-      .hero .content {padding: 0 15px;}
-      .about img {height: 250px;}
-      .about h2 {font-size: 1.6rem;}
-      .footer .cols {grid-template-columns: 1fr;}
-    }
-    @media (max-width:480px){
-      .hero h1 {font-size: 1.5rem;}
-      .card .carousel {height: 220px;}
-      .filter button {padding: 6px 12px; font-size: 0.85rem;}
-      .hero .cta {flex-direction: column; width: 100%; align-items: center;}
-      .hero .btn {width: 100%; max-width: 300px;}
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- ===================== HEADER ===================== -->
   <header class="header" id="header">
-    <div class="logo"><a href="#"><img src="assets/logo-2.png" alt="Blue Nile Group"></a></div>
-    <nav class="nav" id="primary-nav">
-      <a href="#home" class="pill">Home</a>
-      <a href="#about" class="pill">About Us</a>
-      <a href="#products" class="pill">Products</a>
-      <a href="#contact" class="pill">Contact Us</a>
-    </nav>
-    <button class="mobile-toggle" aria-label="Menu">&#9776;</button>
+    <div class="logo">
+      <a href="#home"><img src="assets/logo-2.png" alt="Blue Nile Group of Companies"></a>
+    </div>
+    <div class="header-right">
+      <nav class="nav" id="primary-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" title="Toggle Dark Mode">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Open Menu">&#9776;</button>
+    </div>
   </header>
 
-  <!-- Hero Slider -->
+  <!-- ===================== HERO ===================== -->
   <section class="hero" id="home">
     <div class="slide active" style="background-image:url('assets/products/tmt-bars-2.png');">
       <div class="overlay"></div>
       <div class="content">
+        <span class="tag">KEBS Approved · Kenya's #1 Steel Mill</span>
         <h1>Welcome to Blue Nile Group of Companies</h1>
-        <p>Kenya's leading manufacturer of high-grade construction steel and wire products. KEBS Approved.</p>
+        <p>Kenya's leading manufacturer of high-grade KIFARU™ construction steel and wire products. Trusted by top contractors since inception.</p>
         <div class="cta">
-          <a href="#products"><button class="btn gold">View Products</button></a>
-          <a href="#contact"><button class="btn white">Contact Us</button></a>
+          <a href="#products" class="btn btn-gold"><i class="fa-solid fa-layer-group"></i> View Products</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-phone"></i> Contact Us</a>
         </div>
       </div>
     </div>
     <div class="slide" style="background-image:url('assets/products/round-bars-2.jpg');">
       <div class="overlay"></div>
       <div class="content">
+        <span class="tag">Grade BS 4449 · Thermo-Mechanically Treated</span>
         <h1>KIFARU™ Steel — Built for Kenya</h1>
-        <p>Precision-engineered round bars, TMT bars and mesh products trusted by contractors nationwide.</p>
+        <p>Precision-engineered round bars, TMT bars and mesh products trusted by contractors and developers nationwide.</p>
         <div class="cta">
-          <a href="#products"><button class="btn gold">View Products</button></a>
-          <a href="#contact"><button class="btn white">Contact Us</button></a>
+          <a href="#products" class="btn btn-gold"><i class="fa-solid fa-layer-group"></i> View Products</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-phone"></i> Contact Sales</a>
         </div>
       </div>
     </div>
     <div class="slide" style="background-image:url('assets/products/kifaru-brc-mesh-2.jpeg');">
       <div class="overlay"></div>
       <div class="content">
-        <h1>Wholesale Prices. Direct from the Mill.</h1>
-        <p>Browse our full product catalog and inquire directly for bulk orders.</p>
+        <span class="tag">Wholesale · Direct from the Mill</span>
+        <h1>The Best Prices. Direct from the Source.</h1>
+        <p>Browse our full product catalogue and inquire directly for bulk orders and competitive wholesale pricing.</p>
         <div class="cta">
-          <a href="#products"><button class="btn gold">View Products</button></a>
-          <a href="#contact"><button class="btn white">Contact Us</button></a>
+          <a href="#products" class="btn btn-gold"><i class="fa-solid fa-layer-group"></i> View Products</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-regular fa-envelope"></i> Get a Quote</a>
         </div>
       </div>
     </div>
-    <button class="arrow prev">&#10094;</button>
-    <button class="arrow next">&#10095;</button>
+    <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
     <div class="dots">
       <span class="dot active"></span>
       <span class="dot"></span>
@@ -202,753 +80,742 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div style="position:relative;">
-      <img src="assets/about.jpg" alt="About Image">
-      <div class="badge">100% KEBS APPROVED QUALITY</div>
+  <!-- ===================== STATS BAR ===================== -->
+  <div class="stats-bar">
+    <div class="stat reveal"><strong>30+</strong><span>Years in Operation</span></div>
+    <div class="stat reveal"><strong>500+</strong><span>Products &amp; Variants</span></div>
+    <div class="stat reveal"><strong>100%</strong><span>KEBS Certified</span></div>
+    <div class="stat reveal"><strong>24/7</strong><span>Sales Support</span></div>
+  </div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-img-wrap reveal-left">
+        <img src="assets/about.jpg" alt="Blue Nile Rolling Mills Manufacturing Facility">
+        <div class="about-badge">100% KEBS APPROVED QUALITY</div>
+      </div>
+      <div class="about-text reveal-right">
+        <span class="kicker">About Blue Nile Group</span>
+        <h2>Kenya's Most Trusted Steel Manufacturer</h2>
+        <p>Blue Nile Rolling Mills is a well-known success story among the steel manufacturing sector in Kenya. We believe in installing state-of-the-art technology and keeping on upgrading machinery in due time. This helps us to produce high quality steel and maintain the safety standards required.</p>
+        <p>Our products are K.E.B.S approved. Over the years the group has developed a large regular client base which includes some of the top business houses and contractors in the country.</p>
+        <div class="bullets">
+          <div class="bullet-item">
+            <div class="bullet-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="bullet-text">
+              <strong>Certified Safety Standards</strong>
+              <p>Fully compliant with Kenya Bureau of Standards, ensuring zero structural defects in every product.</p>
+            </div>
+          </div>
+          <div class="bullet-item">
+            <div class="bullet-icon"><i class="fa-solid fa-industry"></i></div>
+            <div class="bullet-text">
+              <strong>State-Of-The-Art Technology</strong>
+              <p>Equipped with modern machinery and continuous mill upgrades to boost output and structural precision.</p>
+            </div>
+          </div>
+          <div class="bullet-item">
+            <div class="bullet-icon"><i class="fa-solid fa-certificate"></i></div>
+            <div class="bullet-text">
+              <strong>KEBS Approved Products</strong>
+              <p>Every product carries Kenya Bureau of Standards certification for guaranteed quality assurance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="text">
-      <h2>Why We Are Known</h2>
-      <div class="sub">OUR ETHICS &amp; VALUE</div>
-      <p>Blue Nile Rolling Mills is a well-known success story among the steel manufacturing sector in Kenya. We believe in installing state of the art technology and keeping on upgrading machinery in due time. This helps us to produce high quality steel and maintain the safety standards. Our products are K.E.B.S approved. Over the years the group has developed a large regular client base which includes some of the top business houses of the country.</p>
-      <div class="bullets">
-        <div class="bullet"><i class="fa-solid fa-shield-halved"></i><div>
-          <strong>Certified Safety Standards</strong>
-          <p>Fully compliant with regional regulatory requirements, ensuring zero structural defects.</p>
-        </div></div>
-        <div class="bullet"><i class="fa-solid fa-gear"></i><div>
-          <strong>State-Of-The-Art Tech</strong>
-          <p>Equipped with modern machinery and continuous mill upgrades to boost output and structural precision.</p>
-        </div></div>
-        <div class="bullet"><i class="fa-solid fa-certificate"></i><div>
-          <strong>KEBS Approved Products</strong>
-          <p>All products certified under Kenya Bureau of Standards for guaranteed quality assurance.</p>
-        </div></div>
+  </section>
+
+  <!-- ===================== PRODUCTS ===================== -->
+  <section class="products-section" id="products">
+    <div class="products-inner">
+      <div class="section-header reveal">
+        <span class="kicker">Our Product Range</span>
+        <h2>KIFARU™ Steel &amp; Wire Products</h2>
+        <p>A complete suite of KEBS-approved steel and wire products tailored for industrial, residential, and infrastructural projects across Kenya and East Africa.</p>
+        <div class="divider"></div>
+      </div>
+
+      <!-- Live Search -->
+      <div class="search-wrap reveal">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="product-search" placeholder="Search products (e.g. TMT, mesh, nails...)">
+      </div>
+
+      <!-- Category Filters -->
+      <div class="filter reveal">
+        <button class="active" data-filter="All">All</button>
+        <button data-filter="TMT Bars">TMT Bars</button>
+        <button data-filter="TMT Rings">TMT Rings</button>
+        <button data-filter="BRC Mesh">BRC Mesh</button>
+        <button data-filter="Chain Link">Chain Link</button>
+        <button data-filter="Round Bars">Round Bars</button>
+        <button data-filter="Chicken Mesh">Chicken Mesh</button>
+        <button data-filter="Mild Plate">Mild Plate</button>
+        <button data-filter="Common Nails">Common Nails</button>
+        <button data-filter="Roofing Nails">Roofing Nails</button>
+        <button data-filter="U-Nails">U-Nails</button>
+        <button data-filter="Anti-Climb Fence">Anti-Climb Fence</button>
+        <button data-filter="Wire Rods">Wire Rods</button>
+        <button data-filter="Concrete Nails">Concrete Nails</button>
+        <button data-filter="Weld Mesh">Weld Mesh</button>
+        <button data-filter="Expanded Metal">Expanded Metal</button>
+        <button data-filter="Copper Gas Rods">Copper Gas Rods</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div class="grid">
+
+        <!-- 1. TMT Bars -->
+        <div class="card reveal" data-category="TMT Bars">
+          <span class="badge">Grade BS 4449</span>
+          <div class="carousel">
+            <img src="assets/products/tmt-bars-1.jpg" class="active" alt="KIFARU TMT Bars">
+            <img src="assets/products/tmt-bars-2.png" alt="KIFARU TMT Bars - Bundle">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>KIFARU™ TMT Bars</h3>
+            <p>Premium concrete reinforcement rebars with thermo-mechanical treatment for superior strength and seismic resistance.</p>
+            <div class="spec"><span>Grade BS 4449</span><span>8mm – 32mm</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Size</th><th>Price/Piece (12m)</th><th>Price/Bundle</th></tr></thead>
+                <tbody>
+                  <tr><td>D8 (8mm)</td><td>Ksh 430</td><td>Ksh 4,300</td></tr>
+                  <tr><td>D10 (10mm)</td><td>Ksh 650</td><td>Ksh 6,500</td></tr>
+                  <tr><td>D12 (12mm)</td><td>Ksh 850</td><td>Ksh 8,500</td></tr>
+                  <tr><td>D16 (16mm)</td><td>Ksh 1,490</td><td>Ksh 14,900</td></tr>
+                  <tr><td>D20 (20mm)</td><td>Ksh 2,250</td><td>Ksh 22,500</td></tr>
+                  <tr><td>D25 (25mm)</td><td>Ksh 3,190</td><td>Ksh 31,900</td></tr>
+                  <tr><td>D32 (32mm)</td><td>Ksh 4,390</td><td>Ksh 43,900</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 2. TMT Rings -->
+        <div class="card reveal" data-category="TMT Rings">
+          <span class="badge">KEBS Certified</span>
+          <div class="carousel">
+            <img src="assets/products/tmt-rings-1.jpg" class="active" alt="KIFARU TMT Rings">
+            <img src="assets/products/tmt-rings-2.jpg" alt="KIFARU Column Rings">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>KIFARU™ TMT Rings / Stirrups</h3>
+            <p>Pre-bent column rings and stirrups for structural concrete reinforcement in columns and beams.</p>
+            <div class="spec"><span>KEBS Certified</span><span>6×6" – 18×18"</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Size</th><th>Price/Pc</th><th>Price/Doz</th><th>Price/50pcs</th></tr></thead>
+                <tbody>
+                  <tr><td>6×6"</td><td>Ksh 30</td><td>Ksh 360</td><td>Ksh 1,500</td></tr>
+                  <tr><td>8×8"</td><td>Ksh 40</td><td>Ksh 480</td><td>Ksh 2,000</td></tr>
+                  <tr><td>9×9"</td><td>Ksh 50</td><td>Ksh 600</td><td>Ksh 2,500</td></tr>
+                  <tr><td>10×10"</td><td>Ksh 60</td><td>Ksh 720</td><td>Ksh 3,000</td></tr>
+                  <tr><td>12×12"</td><td>Ksh 70</td><td>Ksh 840</td><td>Ksh 3,500</td></tr>
+                  <tr><td>16×16"</td><td>Ksh 80</td><td>Ksh 960</td><td>Ksh 4,000</td></tr>
+                  <tr><td>18×18"</td><td>Ksh 90</td><td>Ksh 1,080</td><td>Ksh 4,500</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 3. BRC Mesh -->
+        <div class="card reveal" data-category="BRC Mesh">
+          <span class="badge">2.4m × 4.8m</span>
+          <div class="carousel">
+            <img src="assets/products/kifaru-brc-mesh-1.jpeg" class="active" alt="KIFARU BRC Mesh">
+            <img src="assets/products/kifaru-brc-mesh-2.jpeg" alt="KIFARU BRC Mesh Sheet">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>KIFARU™ BRC Mesh</h3>
+            <p>Reinforced concrete mesh panels for slabs, floors and structural reinforcement applications.</p>
+            <div class="spec"><span>2.4m × 4.8m</span><span>A610 – A142</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Grade</th><th>Wire Diameter</th><th>Price/Sheet</th></tr></thead>
+                <tbody>
+                  <tr><td>A610</td><td>2.5mm</td><td>Ksh 5,700</td></tr>
+                  <tr><td>A66</td><td>3.0mm</td><td>Ksh 7,900</td></tr>
+                  <tr><td>A65</td><td>4.0mm</td><td>Ksh 9,800</td></tr>
+                  <tr><td>A98</td><td>5.0mm</td><td>Ksh 11,900</td></tr>
+                  <tr><td>A142</td><td>6.0mm</td><td>Ksh 15,900</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 4. Chain Link -->
+        <div class="card reveal" data-category="Chain Link">
+          <span class="badge">18m Rolls</span>
+          <div class="carousel">
+            <img src="assets/products/chainlink-galvanized-1.jpg" class="active" alt="Galvanized Chain Link">
+            <img src="assets/products/chainlink-galvanized-2.jpg" alt="Chain Link Fencing">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>KIFARU™ Chain Link</h3>
+            <p>Galvanized and PVC-coated chain link fencing for security perimeters and boundary applications.</p>
+            <div class="spec"><span>18m Rolls</span><span>5ft – 11ft</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Gauge</th><th>Height</th><th>Price/Roll</th></tr></thead>
+                <tbody>
+                  <tr><td>16G (1.6mm)</td><td>5ft</td><td>Ksh 1,150</td></tr>
+                  <tr><td>16G (1.6mm)</td><td>8ft</td><td>Ksh 1,450</td></tr>
+                  <tr><td>16G (1.6mm)</td><td>11ft</td><td>Ksh 1,850</td></tr>
+                  <tr><td>15G (1.8mm)</td><td>5ft</td><td>Ksh 1,450</td></tr>
+                  <tr><td>15G (1.8mm)</td><td>8ft</td><td>Ksh 1,750</td></tr>
+                  <tr><td>14G (2.0mm)</td><td>5ft</td><td>Ksh 1,750</td></tr>
+                  <tr><td>14G (2.0mm)</td><td>8ft</td><td>Ksh 2,130</td></tr>
+                  <tr><td>12.5G (2.5mm)</td><td>5ft</td><td>Ksh 2,650</td></tr>
+                  <tr><td>12.5G (2.5mm)</td><td>8ft</td><td>Ksh 2,950</td></tr>
+                  <tr><td>PVC 10G</td><td>5ft</td><td>Ksh 3,100</td></tr>
+                  <tr><td>PVC 8G</td><td>5ft</td><td>Ksh 4,200</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 5. Round Bars -->
+        <div class="card reveal" data-category="Round Bars">
+          <span class="badge">12m Pieces</span>
+          <div class="carousel">
+            <img src="assets/products/round-bars-1.jpeg" class="active" alt="KIFARU Round Bars">
+            <img src="assets/products/round-bars-2.jpg" alt="Mild Steel Round Bars">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>KIFARU™ Round Bars</h3>
+            <p>High-quality mild steel round bars for fabrication, fencing, and general construction purposes.</p>
+            <div class="spec"><span>12m Pieces</span><span>6mm – 32mm</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Size</th><th>Price/Piece</th><th>Price/Bundle</th></tr></thead>
+                <tbody>
+                  <tr><td>R6 (6mm)</td><td>Ksh 130</td><td>Ksh 1,300</td></tr>
+                  <tr><td>R8 (8mm)</td><td>Ksh 330</td><td>Ksh 3,300</td></tr>
+                  <tr><td>R10 (10mm)</td><td>Ksh 480</td><td>Ksh 4,800</td></tr>
+                  <tr><td>R12 (12mm)</td><td>Ksh 680</td><td>Ksh 6,800</td></tr>
+                  <tr><td>R16 (16mm)</td><td>Ksh 860</td><td>Ksh 8,600</td></tr>
+                  <tr><td>R20 (20mm)</td><td>Ksh 1,180</td><td>Ksh 11,800</td></tr>
+                  <tr><td>R25 (25mm)</td><td>Ksh 1,790</td><td>Ksh 17,900</td></tr>
+                  <tr><td>R32 (32mm)</td><td>Ksh 2,350</td><td>Ksh 23,500</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 6. Chicken Mesh -->
+        <div class="card reveal" data-category="Chicken Mesh">
+          <span class="badge">KEBS Certified</span>
+          <div class="carousel">
+            <img src="assets/products/chicken-mesh-1.jpg" class="active" alt="Galvanized Chicken Mesh">
+            <img src="assets/products/chicken-mesh-2.jpg" alt="Hexagonal Chicken Mesh">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>Chicken Mesh — Galvanized Hexagonal</h3>
+            <p>Lightweight galvanized hexagonal mesh for poultry enclosures and agricultural fencing applications.</p>
+            <div class="spec"><span>KEBS Certified</span><span>½" – 2"</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Type</th><th>Roll Size</th><th>Price/Roll</th></tr></thead>
+                <tbody>
+                  <tr><td>½" G22</td><td>3ft × 30m</td><td>Ksh 1,180</td></tr>
+                  <tr><td>½" G22</td><td>4ft × 30m</td><td>Ksh 1,650</td></tr>
+                  <tr><td>1" G20</td><td>3ft × 30m</td><td>Ksh 1,080</td></tr>
+                  <tr><td>1" G20</td><td>4ft × 30m</td><td>Ksh 1,550</td></tr>
+                  <tr><td>1" G20</td><td>6ft × 30m</td><td>Ksh 2,150</td></tr>
+                  <tr><td>2" 18G</td><td>4ft × 30m</td><td>Ksh 2,100</td></tr>
+                  <tr><td>Plastic HDPE</td><td>1m × 25m</td><td>Ksh 3,500</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 7. Mild Plate -->
+        <div class="card reveal" data-category="Mild Plate">
+          <span class="badge">4ft × 8ft</span>
+          <div class="carousel">
+            <img src="assets/products/mild-plate-1.jpg" class="active" alt="Mild Steel Plate">
+            <img src="assets/products/mild-plate-2.jpg" alt="KIFARU Mild Plate">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>KIFARU™ Mild Plate</h3>
+            <p>Versatile mild steel plates for fabrication, construction, and industrial applications.</p>
+            <div class="spec"><span>4ft × 8ft Sheets</span><span>16G – 8G</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Gauge</th><th>Thickness</th><th>Price/Sheet</th></tr></thead>
+                <tbody>
+                  <tr><td>16G</td><td>1.6mm</td><td>Ksh 2,970</td></tr>
+                  <tr><td>14G</td><td>2.0mm</td><td>Ksh 3,780</td></tr>
+                  <tr><td>13G</td><td>2.5mm</td><td>Ksh 4,850</td></tr>
+                  <tr><td>11G</td><td>3.0mm</td><td>Ksh 5,900</td></tr>
+                  <tr><td>8G</td><td>4.0mm</td><td>Ksh 6,500</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 8. Common Nails -->
+        <div class="card reveal" data-category="Common Nails">
+          <span class="badge">Bulk Wholesale</span>
+          <div class="carousel">
+            <img src="assets/products/common-nails-1.jpg" class="active" alt="Common Wire Nails">
+            <img src="assets/products/common-nails-2.jpg" alt="Bulk Common Nails">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>Common Wire Nails</h3>
+            <p>High-tensile common wire nails for general construction and carpentry. Available in bulk.</p>
+            <div class="spec"><span>Bulk Wholesale</span><span>1" – 4"</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Size</th><th>Price/kg</th><th>Price/25kg</th><th>Price/50kg</th></tr></thead>
+                <tbody>
+                  <tr><td>1 inch</td><td>Ksh 90</td><td>Ksh 2,250</td><td>Ksh 4,500</td></tr>
+                  <tr><td>4 inch</td><td>Ksh 140</td><td>Ksh 3,500</td><td>Ksh 7,000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 9. Roofing Nails -->
+        <div class="card reveal" data-category="Roofing Nails">
+          <span class="badge">Galvanized</span>
+          <div class="carousel">
+            <img src="assets/products/roofing-nails-1.jpg" class="active" alt="Roofing Nails">
+            <img src="assets/products/roofing-nails-2.jpg" alt="Galvanized Roofing Nails">
+            <img src="assets/products/roofing-nails-3.jpg" alt="Roofing Nails Bulk">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>Roofing Nails</h3>
+            <p>Galvanized roofing nails with rubber washers for iron sheet and tile roofing installation.</p>
+            <div class="spec"><span>Galvanized</span><span>2½ inch</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Size</th><th>Price/kg</th><th>Price/25kg</th><th>Price/50kg</th></tr></thead>
+                <tbody>
+                  <tr><td>2½ inch</td><td>Ksh 190</td><td>Ksh 4,750</td><td>Ksh 9,500</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 10. U-Nails -->
+        <div class="card reveal" data-category="U-Nails">
+          <span class="badge">Sizes 1"–3"</span>
+          <div class="carousel">
+            <img src="assets/products/u-nails-1.jpg" class="active" alt="U-Nails Staple Nails">
+            <img src="assets/products/u-nails-2.jpg" alt="Galvanized U-Nails">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>U-Nails (Staple Nails)</h3>
+            <p>Galvanized U-shaped staple nails for fencing wire attachment and general agricultural use.</p>
+            <div class="spec"><span>Sizes 1"– 3"</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Size</th><th>Price/kg</th><th>Price/25kg</th><th>Price/50kg</th></tr></thead>
+                <tbody>
+                  <tr><td>1"– 3"</td><td>Ksh 240</td><td>Ksh 6,000</td><td>Ksh 12,000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 11. Anti-Climb Fence -->
+        <div class="card reveal" data-category="Anti-Climb Fence">
+          <span class="badge">High Security</span>
+          <div class="carousel">
+            <img src="assets/products/anti-climb-fence-1.jpg" class="active" alt="Anti-Climb Security Fence">
+            <img src="assets/products/anti-climb-fence-2.jpg" alt="Anti-Climb Fence Panel">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>Anti-Climb Security Fence</h3>
+            <p>High-security anti-climb perimeter fencing panels for institutions, estates, and industrial facilities.</p>
+            <div class="spec"><span>3.0m Wide Panels</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Height</th><th>Price/Panel</th></tr></thead>
+                <tbody>
+                  <tr><td>1.8m</td><td>Ksh 5,800</td></tr>
+                  <tr><td>2.1m</td><td>Ksh 7,900</td></tr>
+                  <tr><td>2.4m</td><td>Ksh 10,900</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 12. Wire Rods -->
+        <div class="card reveal" data-category="Wire Rods">
+          <span class="badge">Per Coil</span>
+          <div class="carousel">
+            <img src="assets/products/wire-rods-1.jpg" class="active" alt="Wire Rods">
+            <img src="assets/products/wire-rods-2.jpg" alt="Hot Rolled Wire Rods">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>Wire Rods</h3>
+            <p>Hot-rolled wire rods used as raw material for nail, mesh, and wire manufacturing industries.</p>
+            <div class="spec"><span>5.5mm – 8mm</span><span>Per kg / Coil</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Diameter</th><th>Price/kg</th><th>Price/Coil</th></tr></thead>
+                <tbody>
+                  <tr><td>5.5mm</td><td>Ksh 97</td><td>Ksh 127,000</td></tr>
+                  <tr><td>6.0mm</td><td>Ksh 101</td><td>Ksh 140,000</td></tr>
+                  <tr><td>6.5mm</td><td>Ksh 107</td><td>Ksh 175,000</td></tr>
+                  <tr><td>8.0mm</td><td>Ksh 114</td><td>On Request</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 13. Concrete Nails -->
+        <div class="card reveal" data-category="Concrete Nails">
+          <span class="badge">Hardened Steel</span>
+          <div class="carousel">
+            <img src="assets/products/concrete-nails-1.jpg" class="active" alt="Concrete Nails">
+            <img src="assets/products/concrete-nails-2.jpg" alt="Masonry Concrete Nails">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>Concrete Nails</h3>
+            <p>Hardened high-carbon steel concrete nails for masonry, concrete, and general fixing applications.</p>
+            <div class="spec"><span>Sizes 1"– 4"</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Size</th><th>Price/kg</th><th>Price/25kg</th><th>Price/50kg</th></tr></thead>
+                <tbody>
+                  <tr><td>1"– 4"</td><td>Ksh 245</td><td>Ksh 6,125</td><td>Ksh 12,250</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 14. Weld Mesh -->
+        <div class="card reveal" data-category="Weld Mesh">
+          <span class="badge">2.4m × 1.2m</span>
+          <div class="carousel">
+            <img src="assets/products/kifaru-weld-mesh-1.jpg" class="active" alt="KIFARU Weld Mesh">
+            <img src="assets/products/kifaru-weld-mesh-2.jpg" alt="Welded Wire Mesh">
+            <img src="assets/products/kifaru-weld-mesh-3.jpg" alt="Weld Mesh Panel">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>KIFARU™ Weld Mesh</h3>
+            <p>Welded wire mesh panels for partitions, cages, security grilles, and concrete reinforcement.</p>
+            <div class="spec"><span>2.4m × 1.2m</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Grade</th><th>Wire Diameter</th><th>Price/Sheet</th></tr></thead>
+                <tbody>
+                  <tr><td>Light</td><td>2.0mm</td><td>Ksh 350</td></tr>
+                  <tr><td>Medium</td><td>2.5mm</td><td>Ksh 450</td></tr>
+                  <tr><td>Heavy</td><td>3.0mm</td><td>Ksh 650</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 15. Expanded Metal -->
+        <div class="card reveal" data-category="Expanded Metal">
+          <span class="badge">8ft × 4ft</span>
+          <div class="carousel">
+            <img src="assets/products/kifaru-expanded-metal-1.jpg" class="active" alt="KIFARU Expanded Metal">
+            <img src="assets/products/kifaru-expanded-metal-2.jpg" alt="Expanded Metal Sheet">
+            <img src="assets/products/kifaru-expanded-metal-3.jpg" alt="Heavy Duty Expanded Metal">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>KIFARU™ Expanded Metal</h3>
+            <p>Heavy-duty expanded metal sheets for security doors, grilles, and industrial walkway flooring.</p>
+            <div class="spec"><span>8ft × 4ft Sheets</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Type</th><th>Thickness</th><th>Price/Sheet</th></tr></thead>
+                <tbody>
+                  <tr><td>Standard</td><td>2.0mm</td><td>Ksh 1,500</td></tr>
+                  <tr><td>Heavy Duty</td><td>3.0mm</td><td>Ksh 2,500</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+        <!-- 16. Copper Gas Rods -->
+        <div class="card reveal" data-category="Copper Gas Rods">
+          <span class="badge">Premium Grade</span>
+          <div class="carousel">
+            <img src="assets/products/copper-gas-rods-1.jpg" class="active" alt="Copper Gas Welding Rods">
+            <img src="assets/products/copper-gas-rods-2.jpg" alt="Copper Rods">
+            <img src="assets/products/copper-gas-rods-3.jpg" alt="Gas Welding Rods">
+            <button class="arrow prev"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="arrow next"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+          </div>
+          <div class="card-body">
+            <h3>KIFARU™ Copper Gas Rods</h3>
+            <p>High-quality copper-coated gas welding rods for professional industrial fabrication and welding.</p>
+            <div class="spec"><span>Premium Grade</span><span>1.6mm – 2.4mm</span></div>
+            <button class="price-toggle"><i class="fa-solid fa-tag"></i> View Prices</button>
+            <div class="price-table">
+              <table>
+                <thead><tr><th>Size</th><th>Pack Size</th><th>Price/Pack</th></tr></thead>
+                <tbody>
+                  <tr><td>1.6mm</td><td>5kg</td><td>Ksh 1,200</td></tr>
+                  <tr><td>2.4mm</td><td>5kg</td><td>Ksh 1,200</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="#contact" class="inquire"><i class="fa-solid fa-paper-plane"></i> Inquire Now</a>
+          </div>
+        </div>
+
+      </div><!-- /grid -->
+    </div><!-- /products-inner -->
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-info reveal-left">
+        <h3>Talk to Our Sales Team</h3>
+        <p>Our dedicated sales executives are available to assist you with product inquiries, bulk pricing, and delivery logistics across Kenya.</p>
+
+        <div class="info-card">
+          <div class="ic-icon"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="ic-body">
+            <strong>Sales Executive 1</strong>
+            <a href="tel:+254755724090">(+254) 755 724 090</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="ic-body">
+            <strong>Sales Executive 2</strong>
+            <a href="tel:+254762270475">(+254) 762 270 475</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon"><i class="fa-solid fa-headset"></i></div>
+          <div class="ic-body">
+            <strong>Helpline</strong>
+            <a href="tel:+254202013800">(+254) 202 013 800</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <div class="ic-body">
+            <strong>WhatsApp Sales</strong>
+            <a href="https://wa.me/254755724090" target="_blank">(+254) 755 724 090</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div class="ic-body">
+            <strong>Email</strong>
+            <a href="mailto:saleskifarusteel@gmail.com">saleskifarusteel@gmail.com</a>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="ic-body">
+            <strong>Location</strong>
+            <span>Blue Nile Rolling Mills Ltd, Thika, Kenya</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal-right">
+        <h3>Send Us a Message</h3>
+        <form action="mailto:saleskifarusteel@gmail.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="John Kamau" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+254 700 000 000">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john@company.co.ke" required>
+          </div>
+          <div class="field">
+            <label for="product">Product of Interest</label>
+            <select id="product" name="product">
+              <option value="">— Select a Product —</option>
+              <option>TMT Bars</option>
+              <option>TMT Rings / Stirrups</option>
+              <option>BRC Mesh</option>
+              <option>Chain Link Fencing</option>
+              <option>Round Bars</option>
+              <option>Chicken Mesh</option>
+              <option>Mild Plate</option>
+              <option>Common Nails</option>
+              <option>Roofing Nails</option>
+              <option>U-Nails</option>
+              <option>Anti-Climb Fence</option>
+              <option>Wire Rods</option>
+              <option>Concrete Nails</option>
+              <option>Weld Mesh</option>
+              <option>Expanded Metal</option>
+              <option>Copper Gas Rods</option>
+              <option>Other / Multiple Products</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Message / Quantity Required</label>
+            <textarea id="message" name="message" placeholder="I would like to order 50 bundles of D12 TMT Bars..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Products Section -->
-  <section class="products" id="products">
-    <h2>Our KIFARU™ Product Range</h2>
-    <div class="sub">We supply a complete suite of KEBS‑approved steel and wire products tailored for industrial, residential, and infrastructural projects across Kenya.</div>
-
-    <div class="filter">
-      <button class="active" data-filter="All">All</button>
-      <button data-filter="TMT Bars">TMT Bars</button>
-      <button data-filter="TMT Rings">TMT Rings</button>
-      <button data-filter="BRC Mesh">BRC Mesh</button>
-      <button data-filter="Chain Link">Chain Link</button>
-      <button data-filter="Round Bars">Round Bars</button>
-      <button data-filter="Chicken Mesh">Chicken Mesh</button>
-      <button data-filter="Mild Plate">Mild Plate</button>
-      <button data-filter="Common Nails">Common Nails</button>
-      <button data-filter="Roofing Nails">Roofing Nails</button>
-      <button data-filter="U-Nails">U-Nails</button>
-      <button data-filter="Anti-Climb Fence">Anti-Climb Fence</button>
-      <button data-filter="Wire Rods">Wire Rods</button>
-      <button data-filter="Concrete Nails">Concrete Nails</button>
-      <button data-filter="Weld Mesh">Weld Mesh</button>
-      <button data-filter="Expanded Metal">Expanded Metal</button>
-      <button data-filter="Copper Gas Rods">Copper Gas Rods</button>
-    </div>
-
-    <div class="grid">
-
-      <!-- PRODUCT 1: TMT Bars -->
-      <div class="card" data-category="TMT Bars">
-        <div class="badge">Grade BS 4449</div>
-        <div class="carousel">
-          <img src="assets/products/tmt-bars-1.jpg" class="active" alt="TMT Bars">
-          <img src="assets/products/tmt-bars-2.png" alt="TMT Bars">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>KIFARU™ TMT Bars</h3>
-          <p>Premium concrete reinforcement rebars with thermo‑mechanical treatment for superior strength and seismic resistance.</p>
-          <div class="spec"><span>Grade BS 4449</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Size</th><th>Price/Piece (12m)</th><th>Price/Bundle (10pcs)</th></tr></thead>
-              <tbody>
-                <tr><td>D8 (8mm)</td><td>Ksh 430</td><td>Ksh 4,300</td></tr>
-                <tr><td>D10 (10mm)</td><td>Ksh 650</td><td>Ksh 6,500</td></tr>
-                <tr><td>D12 (12mm)</td><td>Ksh 850</td><td>Ksh 8,500</td></tr>
-                <tr><td>D16 (16mm)</td><td>Ksh 1,490</td><td>Ksh 14,900</td></tr>
-                <tr><td>D20 (20mm)</td><td>Ksh 2,250</td><td>Ksh 22,500</td></tr>
-                <tr><td>D25 (25mm)</td><td>Ksh 3,190</td><td>Ksh 31,900</td></tr>
-                <tr><td>D32 (32mm)</td><td>Ksh 4,390</td><td>Ksh 43,900</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 2: TMT Rings -->
-      <div class="card" data-category="TMT Rings">
-        <div class="badge">KEBS Certified</div>
-        <div class="carousel">
-          <img src="assets/products/tmt-rings-1.jpg" class="active" alt="TMT Rings">
-          <img src="assets/products/tmt-rings-2.jpg" alt="TMT Rings">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>KIFARU™ TMT Rings / Column Rings / Stirrups</h3>
-          <p>Pre‑bent column rings and stirrups for structural concrete reinforcement.</p>
-          <div class="spec"><span>KEBS Certified</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Size</th><th>Price/Piece</th><th>Price/Dozen (12pcs)</th><th>Price/Bundle (50pcs)</th></tr></thead>
-              <tbody>
-                <tr><td>6×6"</td><td>Ksh 30</td><td>Ksh 360</td><td>Ksh 1,500</td></tr>
-                <tr><td>8×8"</td><td>Ksh 40</td><td>Ksh 480</td><td>Ksh 2,000</td></tr>
-                <tr><td>9×9"</td><td>Ksh 50</td><td>Ksh 600</td><td>Ksh 2,500</td></tr>
-                <tr><td>10×10"</td><td>Ksh 60</td><td>Ksh 720</td><td>Ksh 3,000</td></tr>
-                <tr><td>12×12"</td><td>Ksh 70</td><td>Ksh 840</td><td>Ksh 3,500</td></tr>
-                <tr><td>16×16"</td><td>Ksh 80</td><td>Ksh 960</td><td>Ksh 4,000</td></tr>
-                <tr><td>18×18"</td><td>Ksh 90</td><td>Ksh 1,080</td><td>Ksh 4,500</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 3: BRC Mesh -->
-      <div class="card" data-category="BRC Mesh">
-        <div class="badge">Standard 2.4m × 4.8m sheets</div>
-        <div class="carousel">
-          <img src="assets/products/kifaru-brc-mesh-1.jpeg" class="active" alt="BRC Mesh">
-          <img src="assets/products/kifaru-brc-mesh-2.jpeg" alt="BRC Mesh">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>KIFARU™ BRC Mesh</h3>
-          <p>Reinforced concrete mesh panels for slabs, floors and structural reinforcement.</p>
-          <div class="spec"><span>2.4m×4.8m</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Grade</th><th>Wire Diameter</th><th>Price/Sheet</th></tr></thead>
-              <tbody>
-                <tr><td>A610</td><td>2.5mm</td><td>Ksh 5,700</td></tr>
-                <tr><td>A66</td><td>3.0mm</td><td>Ksh 7,900</td></tr>
-                <tr><td>A65</td><td>4.0mm</td><td>Ksh 9,800</td></tr>
-                <tr><td>A98</td><td>5.0mm</td><td>Ksh 11,900</td></tr>
-                <tr><td>A142</td><td>6.0mm</td><td>Ksh 15,900</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 4: Chain Link -->
-      <div class="card" data-category="Chain Link">
-        <div class="badge">18m Rolls</div>
-        <div class="carousel">
-          <img src="assets/products/chainlink-galvanized-1.jpg" class="active" alt="Chain Link">
-          <img src="assets/products/chainlink-galvanized-2.jpg" alt="Chain Link">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>KIFARU™ Chain Link</h3>
-          <p>Galvanized and PVC‑coated chain link fencing for security and boundary applications.</p>
-          <div class="spec"><span>18m Rolls</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Gauge</th><th>Wire Diameter</th><th>Height</th><th>Price/Roll</th></tr></thead>
-              <tbody>
-                <tr><td>16G</td><td>1.6mm</td><td>5ft</td><td>Ksh 1,150</td></tr>
-                <tr><td>16G</td><td>1.6mm</td><td>8ft</td><td>Ksh 1,450</td></tr>
-                <tr><td>16G</td><td>1.6mm</td><td>11ft</td><td>Ksh 1,850</td></tr>
-                <tr><td>15G</td><td>1.8mm</td><td>5ft</td><td>Ksh 1,450</td></tr>
-                <tr><td>15G</td><td>1.8mm</td><td>8ft</td><td>Ksh 1,750</td></tr>
-                <tr><td>15G</td><td>1.8mm</td><td>11ft</td><td>Ksh 2,150</td></tr>
-                <tr><td>14G</td><td>2.0mm</td><td>5ft</td><td>Ksh 1,750</td></tr>
-                <tr><td>14G</td><td>2.0mm</td><td>8ft</td><td>Ksh 2,130</td></tr>
-                <tr><td>14G</td><td>2.0mm</td><td>11ft</td><td>Ksh 2,450</td></tr>
-                <tr><td>12.5G</td><td>2.5mm</td><td>5ft</td><td>Ksh 2,650</td></tr>
-                <tr><td>12.5G</td><td>2.5mm</td><td>8ft</td><td>Ksh 2,950</td></tr>
-                <tr><td>12.5G</td><td>2.5mm</td><td>11ft</td><td>Ksh 3,350</td></tr>
-                <tr><td>PVC 10G</td><td>3.2mm</td><td>5ft</td><td>Ksh 3,100</td></tr>
-                <tr><td>PVC 10G</td><td>3.2mm</td><td>8ft</td><td>Ksh 3,800</td></tr>
-                <tr><td>PVC 10G</td><td>3.2mm</td><td>11ft</td><td>Ksh 4,350</td></tr>
-                <tr><td>PVC 8G</td><td>4.0mm</td><td>5ft</td><td>Ksh 4,200</td></tr>
-                <tr><td>PVC 8G</td><td>4.0mm</td><td>8ft</td><td>Ksh 4,900</td></tr>
-                <tr><td>PVC 8G</td><td>4.0mm</td><td>11ft</td><td>Ksh 5,750</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 5: Round Bars -->
-      <div class="card" data-category="Round Bars">
-        <div class="badge">12m pieces</div>
-        <div class="carousel">
-          <img src="assets/products/round-bars-1.jpeg" class="active" alt="Round Bars">
-          <img src="assets/products/round-bars-2.jpg" alt="Round Bars">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>KIFARU™ Round Bars</h3>
-          <p>High‑quality mild steel round bars for fabrication, fencing and general construction.</p>
-          <div class="spec"><span>12m pieces</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Size</th><th>Price/Piece (12m)</th><th>Price/Bundle (10pcs)</th></tr></thead>
-              <tbody>
-                <tr><td>R6 (6mm)</td><td>Ksh 130</td><td>Ksh 1,300</td></tr>
-                <tr><td>R8 (8mm)</td><td>Ksh 330</td><td>Ksh 3,300</td></tr>
-                <tr><td>R10 (10mm)</td><td>Ksh 480</td><td>Ksh 4,800</td></tr>
-                <tr><td>R12 (12mm)</td><td>Ksh 680</td><td>Ksh 6,800</td></tr>
-                <tr><td>R16 (16mm)</td><td>Ksh 860</td><td>Ksh 8,600</td></tr>
-                <tr><td>R20 (20mm)</td><td>Ksh 1,180</td><td>Ksh 11,800</td></tr>
-                <tr><td>R25 (25mm)</td><td>Ksh 1,790</td><td>Ksh 17,900</td></tr>
-                <tr><td>R32 (32mm)</td><td>Ksh 2,350</td><td>Ksh 23,500</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 6: Chicken Mesh -->
-      <div class="card" data-category="Chicken Mesh">
-        <div class="badge">KEBS Certified</div>
-        <div class="carousel">
-          <img src="assets/products/chicken-mesh-1.jpg" class="active" alt="Chicken Mesh">
-          <img src="assets/products/chicken-mesh-2.jpg" alt="Chicken Mesh">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>Chicken Mesh — Galvanized Hexagonal</h3>
-          <p>Lightweight galvanized hexagonal mesh for poultry enclosures and agricultural fencing.</p>
-          <div class="spec"><span>KEBS Certified</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Type</th><th>Roll Size</th><th>Price/Roll</th></tr></thead>
-              <tbody>
-                <tr><td>½" (13mm) G22</td><td>3ft × 30m</td><td>Ksh 1,180</td></tr>
-                <tr><td>½" (13mm) G22</td><td>4ft × 30m</td><td>Ksh 1,650</td></tr>
-                <tr><td>1" (25mm) G20</td><td>3ft × 30m</td><td>Ksh 1,080</td></tr>
-                <tr><td>1" (25mm) G20</td><td>4ft × 30m</td><td>Ksh 1,550</td></tr>
-                <tr><td>1" (25mm) G20</td><td>6ft × 30m</td><td>Ksh 2,150</td></tr>
-                <tr><td>2" (50mm) 18G</td><td>4ft × 30m</td><td>Ksh 2,100</td></tr>
-                <tr><td>2" (50mm) 18G</td><td>6ft × 30m</td><td>Ksh 2,950</td></tr>
-                <tr><td>Plastic HDPE</td><td>1m × 25m</td><td>Ksh 3,500</td></tr>
-                <tr><td>Plastic HDPE</td><td>1m × 50m</td><td>Ksh 4,800</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 7: Mild Plate -->
-      <div class="card" data-category="Mild Plate">
-        <div class="badge">4ft × 8ft Sheets</div>
-        <div class="carousel">
-          <img src="assets/products/mild-plate-1.jpg" class="active" alt="Mild Plate">
-          <img src="assets/products/mild-plate-2.jpg" alt="Mild Plate">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>KIFARU™ Mild Plate</h3>
-          <p>Versatile mild steel plates for fabrication, construction and industrial applications.</p>
-          <div class="spec"><span>4ft × 8ft Sheets</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Gauge</th><th>Thickness</th><th>Price/Sheet</th></tr></thead>
-              <tbody>
-                <tr><td>16G</td><td>1.6mm</td><td>Ksh 2,970</td></tr>
-                <tr><td>14G</td><td>2.0mm</td><td>Ksh 3,780</td></tr>
-                <tr><td>13G</td><td>2.5mm</td><td>Ksh 4,850</td></tr>
-                <tr><td>11G</td><td>3.0mm</td><td>Ksh 5,900</td></tr>
-                <tr><td>8G</td><td>4.0mm</td><td>Ksh 6,500</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 8: Common Nails -->
-      <div class="card" data-category="Common Nails">
-        <div class="badge">Bulk Wholesale</div>
-        <div class="carousel">
-          <img src="assets/products/common-nails-1.jpg" class="active" alt="Common Nails">
-          <img src="assets/products/common-nails-2.jpg" alt="Common Nails">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>Common Nails</h3>
-          <p>High‑tensile common wire nails for general construction and carpentry.</p>
-          <div class="spec"><span>Bulk Wholesale</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Size</th><th>Price/kg</th><th>Price/25kg</th><th>Price/50kg</th></tr></thead>
-              <tbody>
-                <tr><td>1 inch</td><td>Ksh 90</td><td>Ksh 2,250</td><td>Ksh 4,500</td></tr>
-                <tr><td>4 inch</td><td>Ksh 140</td><td>Ksh 3,500</td><td>Ksh 7,000</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 9: Roofing Nails -->
-      <div class="card" data-category="Roofing Nails">
-        <div class="badge">Bulk Wholesale</div>
-        <div class="carousel">
-          <img src="assets/products/roofing-nails-1.jpg" class="active" alt="Roofing Nails">
-          <img src="assets/products/roofing-nails-2.jpg" alt="Roofing Nails">
-          <img src="assets/products/roofing-nails-3.jpg" alt="Roofing Nails">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>Roofing Nails</h3>
-          <p>Galvanized roofing nails with washers for iron sheet and tile roofing.</p>
-          <div class="spec"><span>Bulk Wholesale</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Size</th><th>Price/kg</th><th>Price/25kg</th><th>Price/50kg</th></tr></thead>
-              <tbody>
-                <tr><td>2½ inch</td><td>Ksh 190</td><td>Ksh 4,750</td><td>Ksh 9,500</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 10: U-Nails -->
-      <div class="card" data-category="U-Nails">
-        <div class="badge">Sizes 1"– 3"</div>
-        <div class="carousel">
-          <img src="assets/products/u-nails-1.jpg" class="active" alt="U-Nails">
-          <img src="assets/products/u-nails-2.jpg" alt="U-Nails">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>U-Nails</h3>
-          <p>Galvanized U-shaped staple nails for fencing and wire attachment.</p>
-          <div class="spec"><span>Sizes 1"– 3"</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Size</th><th>Price/kg</th><th>Price/25kg</th><th>Price/50kg</th></tr></thead>
-              <tbody>
-                <tr><td>1"– 3"</td><td>Ksh 240</td><td>Ksh 6,000</td><td>Ksh 12,000</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 11: Anti-Climb Fence -->
-      <div class="card" data-category="Anti-Climb Fence">
-        <div class="badge">3.0m Wide Panels</div>
-        <div class="carousel">
-          <img src="assets/products/anti-climb-fence-1.jpg" class="active" alt="Anti-Climb Fence">
-          <img src="assets/products/anti-climb-fence-2.jpg" alt="Anti-Climb Fence">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>Anti-Climb Fence</h3>
-          <p>High-security anti-climb perimeter fencing panels for institutions and estates.</p>
-          <div class="spec"><span>3.0m Wide Panels</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Height</th><th>Price/Panel</th></tr></thead>
-              <tbody>
-                <tr><td>1.8m</td><td>Ksh 5,800</td></tr>
-                <tr><td>2.1m</td><td>Ksh 7,900</td></tr>
-                <tr><td>2.4m</td><td>Ksh 10,900</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 12: Wire Rods -->
-      <div class="card" data-category="Wire Rods">
-        <div class="badge">Per kg / Per Coil</div>
-        <div class="carousel">
-          <img src="assets/products/wire-rods-1.jpg" class="active" alt="Wire Rods">
-          <img src="assets/products/wire-rods-2.jpg" alt="Wire Rods">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>Wire Rods</h3>
-          <p>Hot-rolled wire rods used as raw material for nail, mesh and wire manufacturing.</p>
-          <div class="spec"><span>Per kg / Per Coil</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Diameter</th><th>Price/kg</th><th>Coil Weight</th><th>Price/Coil</th></tr></thead>
-              <tbody>
-                <tr><td>5.5mm</td><td>Ksh 97</td><td>1.8MT</td><td>Ksh 127,000</td></tr>
-                <tr><td>6.0mm</td><td>Ksh 101</td><td>2.0MT</td><td>Ksh 140,000</td></tr>
-                <tr><td>6.5mm</td><td>Ksh 107</td><td>2.2MT</td><td>Ksh 175,000</td></tr>
-                <tr><td>8.0mm</td><td>Ksh 114</td><td>—</td><td>—</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 13: Concrete Nails -->
-      <div class="card" data-category="Concrete Nails">
-        <div class="badge">Sizes 1"– 4"</div>
-        <div class="carousel">
-          <img src="assets/products/concrete-nails-1.jpg" class="active" alt="Concrete Nails">
-          <img src="assets/products/concrete-nails-2.jpg" alt="Concrete Nails">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>Concrete Nails</h3>
-          <p>Hardened steel concrete nails for masonry and concrete fixing.</p>
-          <div class="spec"><span>Sizes 1"– 4"</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Size</th><th>Price/kg</th><th>Price/25kg</th><th>Price/50kg</th></tr></thead>
-              <tbody>
-                <tr><td>1"– 4"</td><td>Ksh 245</td><td>Ksh 6,125</td><td>Ksh 12,250</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 14: Weld Mesh -->
-      <div class="card" data-category="Weld Mesh">
-        <div class="badge">2.4m × 1.2m Sheets</div>
-        <div class="carousel">
-          <img src="assets/products/kifaru-weld-mesh-1.jpg" class="active" alt="Weld Mesh">
-          <img src="assets/products/kifaru-weld-mesh-2.jpg" alt="Weld Mesh">
-          <img src="assets/products/kifaru-weld-mesh-3.jpg" alt="Weld Mesh">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>KIFARU™ Weld Mesh</h3>
-          <p>Welded wire mesh panels for partitions, cages, security grilles and concrete reinforcement.</p>
-          <div class="spec"><span>2.4m × 1.2m Sheets</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Grade</th><th>Wire Diameter</th><th>Price/Sheet</th></tr></thead>
-              <tbody>
-                <tr><td>Light</td><td>2.0mm</td><td>Ksh 350</td></tr>
-                <tr><td>Medium</td><td>2.5mm</td><td>Ksh 450</td></tr>
-                <tr><td>Heavy</td><td>3.0mm</td><td>Ksh 650</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 15: Expanded Metal -->
-      <div class="card" data-category="Expanded Metal">
-        <div class="badge">8ft × 4ft Sheets</div>
-        <div class="carousel">
-          <img src="assets/products/kifaru-expanded-metal-1.jpg" class="active" alt="Expanded Metal">
-          <img src="assets/products/kifaru-expanded-metal-2.jpg" alt="Expanded Metal">
-          <img src="assets/products/kifaru-expanded-metal-3.jpg" alt="Expanded Metal">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>KIFARU™ Expanded Metal</h3>
-          <p>Heavy-duty expanded metal sheets for security doors, grilles, and industrial walkways.</p>
-          <div class="spec"><span>8ft × 4ft Sheets</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Type</th><th>Thickness</th><th>Price/Sheet</th></tr></thead>
-              <tbody>
-                <tr><td>Standard</td><td>2.0mm</td><td>Ksh 1,500</td></tr>
-                <tr><td>Heavy Duty</td><td>3.0mm</td><td>Ksh 2,500</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-      <!-- PRODUCT 16: Copper Gas Rods -->
-      <div class="card" data-category="Copper Gas Rods">
-        <div class="badge">Premium Grade</div>
-        <div class="carousel">
-          <img src="assets/products/copper-gas-rods-1.jpg" class="active" alt="Copper Gas Rods">
-          <img src="assets/products/copper-gas-rods-2.jpg" alt="Copper Gas Rods">
-          <img src="assets/products/copper-gas-rods-3.jpg" alt="Copper Gas Rods">
-          <button class="arrow prev">&#10094;</button>
-          <button class="arrow next">&#10095;</button>
-          <div class="dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
-        </div>
-        <div class="card-body">
-          <h3>KIFARU™ Copper Gas Rods</h3>
-          <p>High-quality copper coated gas welding rods for industrial fabrication.</p>
-          <div class="spec"><span>Premium Grade</span></div>
-          <button class="price-toggle">View Prices ▼</button>
-          <div class="price-table">
-            <table>
-              <thead><tr><th>Size</th><th>Pack Size</th><th>Price/Pack</th></tr></thead>
-              <tbody>
-                <tr><td>1.6mm</td><td>5kg</td><td>Ksh 1,200</td></tr>
-                <tr><td>2.4mm</td><td>5kg</td><td>Ksh 1,200</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <a href="#contact" class="inquire">INQUIRE →</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact" id="contact">
-    <div class="details">
-      <h2>Get In Touch</h2>
-      <p style="margin-bottom: 20px;">Ready to place an order or need a custom quote? Contact our sales team today.</p>
-      <p><strong><i class="fa-solid fa-location-dot"></i> Address:</strong><br>Blue Nile Rolling Mills Ltd<br>Thika, Kenya</p>
-      <p style="margin-top:15px;"><strong><i class="fa-solid fa-phone"></i> Phone:</strong><br><a href="tel:+254700000000">+254 700 000 000</a></p>
-      <p style="margin-top:15px;"><strong><i class="fa-solid fa-envelope"></i> Email:</strong><br><a href="mailto:sales@bluenile-group.com">sales@bluenile-group.com</a></p>
-    </div>
-    <form action="#" method="POST">
-      <div class="field">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required placeholder="John Doe">
-      </div>
-      <div class="field">
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" required placeholder="john@example.com">
-      </div>
-      <div class="field">
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" rows="4" required placeholder="I would like to inquire about..."></textarea>
-      </div>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-    <div class="cols">
-      <div class="col">
-        <img src="assets/logo-2.png" alt="Blue Nile Group Logo" style="height:50px; margin-bottom:15px;">
-        <p>Kenya's leading manufacturer of high-grade construction steel and wire products. Anchored in quality, driven by state-of-the-art technology.</p>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/logo-2.png" alt="Blue Nile Group Logo">
+        <p>Kenya's leading manufacturer of high-grade KIFARU™ construction steel and wire products. Anchored in quality, driven by technology. KEBS Approved since inception.</p>
       </div>
-      <div class="col">
+      <div class="footer-col">
         <h4>Quick Links</h4>
-        <ul style="list-style:none; padding:0;">
-          <li style="margin-bottom:8px;"><a href="#home">Home</a></li>
-          <li style="margin-bottom:8px;"><a href="#about">About Us</a></li>
-          <li style="margin-bottom:8px;"><a href="#products">Products</a></li>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
           <li><a href="#contact">Contact Us</a></li>
         </ul>
       </div>
-      <div class="col">
-        <h4>Our Products</h4>
-        <ul style="list-style:none; padding:0;">
-          <li style="margin-bottom:8px;"><a href="#products">KIFARU™ TMT Bars</a></li>
-          <li style="margin-bottom:8px;"><a href="#products">KIFARU™ BRC Mesh</a></li>
-          <li style="margin-bottom:8px;"><a href="#products">Wire Products</a></li>
-          <li><a href="#products">Nails</a></li>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">KIFARU™ TMT Bars</a></li>
+          <li><a href="#products">KIFARU™ BRC Mesh</a></li>
+          <li><a href="#products">Chain Link Fencing</a></li>
+          <li><a href="#products">Wire Rods</a></li>
+          <li><a href="#products">Nails &amp; Staples</a></li>
         </ul>
       </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <div class="contact-line"><i class="fa-solid fa-phone"></i><a href="tel:+254755724090">(+254) 755 724 090</a></div>
+        <div class="contact-line"><i class="fa-solid fa-phone"></i><a href="tel:+254762270475">(+254) 762 270 475</a></div>
+        <div class="contact-line"><i class="fa-solid fa-headset"></i><a href="tel:+254202013800">(+254) 202 013 800</a></div>
+        <div class="contact-line"><i class="fa-solid fa-envelope"></i><a href="mailto:saleskifarusteel@gmail.com">saleskifarusteel@gmail.com</a></div>
+        <div class="contact-line"><i class="fa-solid fa-location-dot"></i><span>Thika, Kenya</span></div>
+      </div>
     </div>
-    <div class="bottom">
-      &copy; 2026 Blue Nile Group of Companies. All Rights Reserved. | KIFARU™ is a registered trademark of Blue Nile Rolling Mills Ltd.
+    <div class="footer-bottom">
+      <p>&copy; 2026 Blue Nile Group of Companies. All Rights Reserved. | <a href="#home">KIFARU™</a> is a registered trademark of Blue Nile Rolling Mills Ltd.</p>
+      <div class="footer-kebs">
+        <span class="kebs-badge">KEBS</span>
+        <span style="color:rgba(255,255,255,0.45);font-size:0.8rem;">Approved Products</span>
+      </div>
     </div>
   </footer>
 
-  <script>
-    // Mobile Menu Toggle
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const primaryNav = document.getElementById('primary-nav');
-    if(mobileToggle && primaryNav) {
-      mobileToggle.addEventListener('click', () => {
-        primaryNav.classList.toggle('active');
-      });
-    }
+  <!-- ===================== WHATSAPP FLOAT ===================== -->
+  <div class="whatsapp-float">
+    <span class="whatsapp-tooltip">Chat with Sales</span>
+    <a href="https://wa.me/254755724090?text=Hello%20KIFARU%20Steel%2C%20I%20would%20like%20to%20inquire%20about%20your%20products."
+       target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
 
-    // Smooth Scrolling for Nav Links
-    document.querySelectorAll('.nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if(target) {
-          primaryNav.classList.remove('active');
-          window.scrollTo({
-            top: target.offsetTop - 70,
-            behavior: 'smooth'
-          });
-        }
-      });
-    });
-
-    // Hero Slider
-    const heroSlides = document.querySelectorAll('.hero .slide');
-    const heroDots = document.querySelectorAll('.hero .dot');
-    let currentHeroSlide = 0;
-    
-    function showHeroSlide(index) {
-      heroSlides.forEach(s => s.classList.remove('active'));
-      heroDots.forEach(d => d.classList.remove('active'));
-      heroSlides[index].classList.add('active');
-      heroDots[index].classList.add('active');
-    }
-    
-    const heroNext = document.querySelector('.hero .next');
-    if (heroNext) {
-      heroNext.addEventListener('click', () => {
-        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-        showHeroSlide(currentHeroSlide);
-      });
-    }
-    
-    const heroPrev = document.querySelector('.hero .prev');
-    if (heroPrev) {
-      heroPrev.addEventListener('click', () => {
-        currentHeroSlide = (currentHeroSlide - 1 + heroSlides.length) % heroSlides.length;
-        showHeroSlide(currentHeroSlide);
-      });
-    }
-
-    heroDots.forEach((dot, idx) => {
-      dot.addEventListener('click', () => {
-        currentHeroSlide = idx;
-        showHeroSlide(currentHeroSlide);
-      });
-    });
-    
-    // Auto advance hero slider
-    setInterval(() => {
-      if(heroSlides.length > 0) {
-        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-        showHeroSlide(currentHeroSlide);
-      }
-    }, 5000);
-
-    // Product Category Filter
-    const filterBtns = document.querySelectorAll('.filter button');
-    const cards = document.querySelectorAll('.card');
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.getAttribute('data-filter');
-        cards.forEach(card => {
-          if(filter === 'All' || card.getAttribute('data-category') === filter) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
-
-    // Price Table Toggles
-    const priceToggles = document.querySelectorAll('.price-toggle');
-    priceToggles.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const table = btn.nextElementSibling;
-        if(table.style.display === 'block') {
-          table.style.display = 'none';
-          btn.textContent = 'View Prices ▼';
-        } else {
-          table.style.display = 'block';
-          btn.textContent = 'Hide Prices ▲';
-        }
-      });
-    });
-
-    // Product Card Image Carousels
-    document.querySelectorAll('.carousel').forEach(carousel => {
-      const imgs = carousel.querySelectorAll('img');
-      const dots = carousel.querySelectorAll('.dot');
-      const prev = carousel.querySelector('.prev');
-      const next = carousel.querySelector('.next');
-      let idx = 0;
-      
-      function showImg(i) {
-        imgs.forEach(im => im.classList.remove('active'));
-        dots.forEach(d => d.classList.remove('active'));
-        if(imgs[i]) imgs[i].classList.add('active');
-        if(dots[i]) dots[i].classList.add('active');
-      }
-      
-      if(next) {
-        next.addEventListener('click', () => {
-          idx = (idx + 1) % imgs.length;
-          showImg(idx);
-        });
-      }
-      if(prev) {
-        prev.addEventListener('click', () => {
-          idx = (idx - 1 + imgs.length) % imgs.length;
-          showImg(idx);
-        });
-      }
-      dots.forEach((dot, dIdx) => {
-        dot.addEventListener('click', () => {
-          idx = dIdx;
-          showImg(idx);
-        });
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -357,9 +357,17 @@ function openQuickView(productId) {
   if (!prod) return;
   const modal = document.getElementById('quick-view-modal');
   if (!modal) return;
+  const prodImages = prod.images && prod.images.length > 0 ? prod.images : [prod.image];
+  modal.querySelector('.modal-img-wrap').innerHTML = `
+    <div style="position:relative; width:100%; height:100%;">
+      <img src="${prod.image}" alt="${prod.name}" class="modal-main-img" data-images="${prodImages.join(',')}" data-index="0" style="width:100%;height:100%;object-fit:cover;">
+      ${prodImages.length > 1 ? `
+      <button onclick="nextImg(event, -1)" class="carousel-nav-btn left" style="width:36px;height:36px;font-size:16px;">&#10094;</button>
+      <button onclick="nextImg(event, 1)" class="carousel-nav-btn right" style="width:36px;height:36px;font-size:16px;">&#10095;</button>
+      ` : ''}
+    </div>
+  `;
 
-  modal.querySelector('.modal-img-wrap img').src = prod.image;
-  modal.querySelector('.modal-img-wrap img').alt = prod.name;
   modal.querySelector('.modal-title').textContent = prod.name;
   modal.querySelector('.modal-price').textContent = `From ${fmtPrice(prod.fromPrice)}`;
   modal.querySelector('.modal-desc').textContent = prod.description;

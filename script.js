@@ -384,6 +384,19 @@ function closeQuickView() {
   document.body.style.overflow = '';
 }
 
+function nextImg(event, delta) {
+  const btn = event.currentTarget;
+  // Try to find the image in the quick view modal first
+  const modal = btn.closest('#quick-view-modal');
+  const img = modal?.querySelector('.modal-main-img') ?? btn.closest('.product-img-wrap')?.querySelector('img');
+  if (!img) return;
+  const images = img.dataset.images ? img.dataset.images.split(',') : [img.src];
+  let idx = parseInt(img.dataset.index || '0', 10);
+  idx = (idx + delta + images.length) % images.length;
+  img.dataset.index = idx;
+  img.src = images[idx];
+}
+
 // ============================================================
 // MAIN DOMContentLoaded
 // ============================================================

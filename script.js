@@ -333,6 +333,26 @@ const PRODUCTS = [
       {label:'8 Gauge (4.0mm) — 11 ft', price:5750},
       {label:'8 Gauge (4.0mm) — 12 ft', price:5750},
     ]
+  },
+  {
+    id: 24, category: 'Cement', name: 'Savannah Cement', badge: 'High Quality',
+    image: 'assets/products/savannah-cement-1.jpg',
+    images: ['assets/products/savannah-cement-1.jpg'],
+    description: 'High quality Savannah cement for reliable construction.',
+    fromPrice: 550,
+    variants: [
+      {label:'Savannah Cement', price:550},
+    ]
+  },
+  {
+    id: 25, category: 'Cement', name: 'Rai Cement', badge: 'Premium',
+    image: 'assets/products/rai-cement-1.jpg',
+    images: ['assets/products/rai-cement-1.jpg'],
+    description: 'Premium quality Rai cement.',
+    fromPrice: 480,
+    variants: [
+      {label:'Rai Cement', price:480},
+    ]
   }
 ];
 

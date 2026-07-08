@@ -261,6 +261,30 @@ const PRODUCTS = [
       {label:'75×75 mm 2.5 mm — 6m piece', price:2980},
       {label:'100×100 mm 3.0 mm — 6m piece', price:3470},
     ]
+  },
+  {
+    id: 19, category: 'Corrugated Mabati', name: 'KIFARU Corrugated Mabati (Gauge 30)', badge: 'Gauge 30',
+    image: 'assets/products/corrugated-mabati-1.jpg',
+    images: ['assets/products/corrugated-mabati-1.jpg'],
+    description: 'High-quality corrugated roofing sheets. Gauge 30.',
+    fromPrice: 600,
+    variants: [
+      {label:'2 meter', price:600},
+      {label:'2.5 meter', price:750},
+      {label:'3 meter', price:900},
+    ]
+  },
+  {
+    id: 20, category: 'Box Profile', name: 'KIFARU Box Profile (Gauge 30)', badge: 'Gauge 30',
+    image: 'assets/products/box-profile-1.jpg',
+    images: ['assets/products/box-profile-1.jpg','assets/products/box-profile-2.jpg'],
+    description: 'Durable box profile roofing sheets for modern designs. Gauge 30.',
+    fromPrice: 700,
+    variants: [
+      {label:'2 meter', price:700},
+      {label:'2.5 meter', price:875},
+      {label:'3 meter', price:1050},
+    ]
   }
 ];
 

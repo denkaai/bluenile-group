@@ -220,6 +220,47 @@ const PRODUCTS = [
       {label:'1.6mm — 5kg pack', price:1200},
       {label:'2.4mm — 5kg pack', price:1200},
     ]
+  },
+  {
+    id: 17, category: 'Rectangular Hollow Sections', name: 'Kifaru Rectangular Hollow Sections (RHS)', badge: 'RHS',
+    image: 'assets/products/kifaru-rectangular-hallow-1.jpeg',
+    images: ['assets/products/kifaru-rectangular-hallow-1.jpeg','assets/products/kifaru-rectangular-hallow-2.jpg','assets/products/kifaru-rectangular-hallow-3.jpg'],
+    description: 'High-quality Rectangular Hollow Sections (RHS) for structural applications and fabrication.',
+    fromPrice: 790,
+    variants: [
+      {label:'20×40 mm 1.5 mm — 6m piece', price:790},
+      {label:'20×40 mm 2.0 mm — 6m piece', price:970},
+      {label:'25×50 mm 1.5 mm — 6m piece', price:970},
+      {label:'25×50 mm 2.0 mm — 6m piece', price:1350},
+      {label:'40×40 mm 1.5 mm — 6m piece', price:1350},
+      {label:'40×40 mm 2.0 mm — 6m piece', price:1670},
+      {label:'40×60 mm 2.0 mm — 6m piece', price:1890},
+      {label:'50×50 mm 2.0 mm — 6m piece', price:2150},
+      {label:'50×75 mm 2.5 mm — 6m piece', price:2650},
+      {label:'75×75 mm 2.5 mm — 6m piece', price:2950},
+      {label:'100×50 mm 2.5 mm — 6m piece', price:3150},
+      {label:'100×100 mm 3.0 mm — 6m piece', price:3870},
+    ]
+  },
+  {
+    id: 18, category: 'Square Hollow Sections', name: 'Kifaru Square Hollow Sections (SHS)', badge: 'SHS',
+    image: 'assets/products/kifaru-square-hallow-1.jpeg',
+    images: ['assets/products/kifaru-square-hallow-1.jpeg','assets/products/kifaru-square-hallow-2.jpeg','assets/products/kifaru-square-hallow-3.jpeg'],
+    description: 'Durable Square Hollow Sections (SHS) ideal for construction and structural frameworks.',
+    fromPrice: 490,
+    variants: [
+      {label:'20×20 mm 1.5 mm — 6m piece', price:490},
+      {label:'25×25 mm 1.5 mm — 6m piece', price:550},
+      {label:'25×25 mm 2.0 mm — 6m piece', price:690},
+      {label:'30×30 mm 1.5 mm — 6m piece', price:790},
+      {label:'30×30 mm 2.0 mm — 6m piece', price:930},
+      {label:'40×40 mm 1.5 mm — 6m piece', price:1090},
+      {label:'40×40 mm 2.0 mm — 6m piece', price:1490},
+      {label:'50×50 mm 2.0 mm — 6m piece', price:1850},
+      {label:'60×60 mm 2.5 mm — 6m piece', price:2490},
+      {label:'75×75 mm 2.5 mm — 6m piece', price:2980},
+      {label:'100×100 mm 3.0 mm — 6m piece', price:3470},
+    ]
   }
 ];
 

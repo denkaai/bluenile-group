@@ -306,6 +306,33 @@ const PRODUCTS = [
     variants: [
       {label:'Bamburi Cement', price:570},
     ]
+  },
+  {
+    id: 23, category: 'Chain Link', name: 'PVC Coated Chain Link', badge: '18m Length',
+    image: 'assets/products/pvc-chainlink-1.jpg',
+    images: ['assets/products/pvc-chainlink-1.jpg', 'assets/products/pvc-chainlink-2.jpg'],
+    description: 'High quality PVC coated chain link fence, 18 meters length roll.',
+    fromPrice: 3100,
+    variants: [
+      {label:'10 Gauge (3.2mm) — 4 ft', price:3100},
+      {label:'10 Gauge (3.2mm) — 5 ft', price:3100},
+      {label:'10 Gauge (3.2mm) — 6 ft', price:3100},
+      {label:'10 Gauge (3.2mm) — 7 ft', price:3800},
+      {label:'10 Gauge (3.2mm) — 8 ft', price:3800},
+      {label:'10 Gauge (3.2mm) — 9 ft', price:3800},
+      {label:'10 Gauge (3.2mm) — 10 ft', price:4350},
+      {label:'10 Gauge (3.2mm) — 11 ft', price:4350},
+      {label:'10 Gauge (3.2mm) — 12 ft', price:4350},
+      {label:'8 Gauge (4.0mm) — 4 ft', price:4200},
+      {label:'8 Gauge (4.0mm) — 5 ft', price:4200},
+      {label:'8 Gauge (4.0mm) — 6 ft', price:4200},
+      {label:'8 Gauge (4.0mm) — 7 ft', price:4900},
+      {label:'8 Gauge (4.0mm) — 8 ft', price:4900},
+      {label:'8 Gauge (4.0mm) — 9 ft', price:4900},
+      {label:'8 Gauge (4.0mm) — 10 ft', price:5750},
+      {label:'8 Gauge (4.0mm) — 11 ft', price:5750},
+      {label:'8 Gauge (4.0mm) — 12 ft', price:5750},
+    ]
   }
 ];
 

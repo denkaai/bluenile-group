@@ -353,6 +353,43 @@ const PRODUCTS = [
     variants: [
       {label:'Rai Cement', price:480},
     ]
+  },
+  {
+    id: 26, category: 'Tile Mabati', name: 'Roman, Elegant & Eurotile Mabati', badge: 'Gauge 28',
+    image: 'assets/products/roman-tile-1.jpg',
+    images: ['assets/products/roman-tile-1.jpg', 'assets/products/roman-tile-2.jpg', 'assets/products/roman-tile-3.jpg', 'assets/products/roman-tile-4.jpg'],
+    description: 'High-quality Roman tile, Elegant tile, and Eurotile Mabati. Gauge 28.',
+    fromPrice: 900,
+    variants: [
+      {label:'2 meter', price:900},
+      {label:'2.5 meter', price:1125},
+      {label:'3 meter', price:1350},
+    ]
+  },
+  {
+    id: 27, category: 'Versatile Mabati', name: 'Charcoal Grey Versatile Mabati', badge: 'Gauge 28',
+    image: 'assets/products/charcoal-grey-mabati-1.jpg',
+    images: ['assets/products/charcoal-grey-mabati-1.jpg', 'assets/products/charcoal-grey-mabati-2.jpg', 'assets/products/charcoal-grey-mabati-3.jpg'],
+    description: 'Charcoal Grey, Versatile Mabati. Gauge 28.',
+    fromPrice: 1100,
+    variants: [
+      {label:'2 meter', price:1100},
+      {label:'2.5 meter', price:1375},
+      {label:'3 meter', price:1650},
+    ]
+  },
+  {
+    id: 28, category: 'Roofing Accessories', name: 'Ridges & Valleys', badge: 'Gauge 28',
+    image: 'assets/products/ridge-valley-mabati-1.jpg',
+    images: ['assets/products/ridge-valley-mabati-1.jpg', 'assets/products/ridge-valley-mabati-2.jpg', 'assets/products/ridge-valley-mabati-3.jpg', 'assets/products/ridge-valley-mabati-4.jpg'],
+    description: 'Ridge and Valley Gauge 28. Glazed, Flat, Trays, and Plain sheets.',
+    fromPrice: 350,
+    variants: [
+      {label:'Glazed Ridges (per piece)', price:450},
+      {label:'Flat Ridges (per piece)', price:400},
+      {label:'Valley Trays (per piece)', price:350},
+      {label:'Plain Sheets (per meter)', price:350},
+    ]
   }
 ];
 

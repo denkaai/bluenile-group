@@ -285,6 +285,27 @@ const PRODUCTS = [
       {label:'2.5 meter', price:875},
       {label:'3 meter', price:1050},
     ]
+  },
+  {
+    id: 21, category: 'Cement', name: 'Simba Cement', badge: 'High Quality',
+    image: 'assets/products/simba-cement-1.jpg',
+    images: ['assets/products/simba-cement-1.jpg', 'assets/products/simba-cement-2.jpg', 'assets/products/simba-cement-3.jpg', 'assets/products/simba-cement-4.jpg'],
+    description: 'National Cement - Simba Brand. High quality cement for construction.',
+    fromPrice: 480,
+    variants: [
+      {label:'National Cement (Simba 32.5R)', price:480},
+      {label:'National Cement (Simba Power 42.5N)', price:530},
+    ]
+  },
+  {
+    id: 22, category: 'Cement', name: 'Bamburi Cement', badge: 'Premium',
+    image: 'assets/products/bamburi-cement-1.jpg',
+    images: ['assets/products/bamburi-cement-1.jpg', 'assets/products/bamburi-cement-2.jpg', 'assets/products/bamburi-cement-3.jpg', 'assets/products/bamburi-cement-4.jpg'],
+    description: 'Premium quality Bamburi cement for all your construction needs.',
+    fromPrice: 570,
+    variants: [
+      {label:'Bamburi Cement', price:570},
+    ]
   }
 ];
 

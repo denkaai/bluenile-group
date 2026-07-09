@@ -390,6 +390,102 @@ const PRODUCTS = [
       {label:'Valley Trays (per piece)', price:350},
       {label:'Plain Sheets (per meter)', price:350},
     ]
+  },
+  {
+    id: 29, category: 'Hoop Iron', name: 'Standard Hoop Iron Roll', badge: 'Standard',
+    image: 'assets/products/standard-hoop-iron-roll-1.jpg',
+    images: ['assets/products/standard-hoop-iron-roll-1.jpg', 'assets/products/standard-hoop-iron-roll-2.jpg'],
+    description: 'Standard Hoop Iron Roll.',
+    fromPrice: 2100,
+    variants: [
+      {label:'Standard Hoop Iron Roll', price:2100}
+    ]
+  },
+  {
+    id: 30, category: 'Binding Wire', name: 'Binding Wire', badge: 'High Quality',
+    image: 'assets/products/binding-wire-1.jpg',
+    images: ['assets/products/binding-wire-1.jpg', 'assets/products/binding-wire-2.jpg'],
+    description: 'High quality binding wire available in various gauges and sizes.',
+    fromPrice: 90,
+    variants: [
+      {label:'18G 1.2mm (Price per kg)', price:90},
+      {label:'18G 1.2mm (Price per Roll)', price:2250},
+      {label:'16G 1.6mm (Price per kg)', price:109},
+      {label:'16G 1.6mm (Price per Roll)', price:2725},
+      {label:'14G 2.0mm (Price per kg)', price:124},
+      {label:'14G 2.0mm (Price per Roll)', price:3100},
+      {label:'12G 2.5mm (Price per kg)', price:156},
+      {label:'12G 2.5mm (Price per Roll)', price:3900}
+    ]
+  },
+  {
+    id: 31, category: 'Gabion Boxes', name: 'Gabion Boxes', badge: 'Typical Mesh',
+    image: 'assets/products/Gabion-boxes-1.jpg',
+    images: ['assets/products/Gabion-boxes-1.jpg', 'assets/products/Gabion-boxes-2.jpg'],
+    description: 'Gabion Boxes (Typical Mesh 80x100mm)',
+    fromPrice: 1350,
+    variants: [
+      {label:'1 × 1 × 1 meter', price:1350},
+      {label:'2 × 1 × 0.5 meter', price:1850},
+      {label:'2 × 1 × 1 meter', price:2350},
+      {label:'3 × 1 × 1 meter', price:3150},
+      {label:'4 × 1 × 1 meter', price:4250}
+    ]
+  },
+  {
+    id: 32, category: 'Razor Wire', name: 'Razor Wire', badge: 'Security',
+    image: 'assets/products/razor-wire-1.jpg',
+    images: ['assets/products/razor-wire-1.jpg', 'assets/products/razor-wire-2.jpg'],
+    description: 'High quality razor wire for perimeter security.',
+    fromPrice: 1050,
+    variants: [
+      {label:'Galvanized 450mm - 8mtrs', price:1050},
+      {label:'PVC-Coated 450mm - 10mtrs', price:1250},
+      {label:'Galvanized Heavy Duty 730mm - 8mtrs', price:1800},
+      {label:'PVC-Coated Heavy Duty 730mm - 10mtrs', price:2300},
+      {label:'Industrial Razor Wire 980mm - (7mtrs)', price:3100}
+    ]
+  },
+  {
+    id: 33, category: 'Barbed Wire', name: 'Barbed Wire', badge: 'High Quality',
+    image: 'assets/products/barbed-wire-1.png',
+    images: ['assets/products/barbed-wire-1.png', 'assets/products/barbed-wire-2.jpg', 'assets/products/barbed-wire-3.jpg'],
+    description: 'Durable barbed wire for fencing.',
+    fromPrice: 1150,
+    variants: [
+      {label:'12.5G - 20Kgs (240m)', price:1150},
+      {label:'12.5G - 25Kgs (480m)', price:2450},
+      {label:'12.5G - 30kgs (610m)', price:3150},
+      {label:'16G - 20Kgs (240m)', price:1580},
+      {label:'16G - 25Kgs (480m)', price:2850},
+      {label:'16G - 30kgs (610m)', price:3750}
+    ]
+  },
+  {
+    id: 34, category: 'Wire Rods', name: 'Wire Rods', badge: 'Coils',
+    image: 'assets/products/wire-rods-1.jpg',
+    images: ['assets/products/wire-rods-1.jpg', 'assets/products/wire-rods-2.jpg'],
+    description: 'High quality wire rods.',
+    fromPrice: 97,
+    variants: [
+      {label:'5.5mm (Price Per Kg)', price:97},
+      {label:'6.0mm (Price Per Kg)', price:101},
+      {label:'6.5mm (Price Per Kg)', price:107},
+      {label:'8.0mm (Price Per Kg)', price:114},
+      {label:'1.8 (MT) Metric tonnes (Per Coil)', price:127000},
+      {label:'2.0 (MT) Metric tonnes (Per Coil)', price:140000},
+      {label:'2.2 (MT) Metric tonnes (Per Coil)', price:175000}
+    ]
+  },
+  {
+    id: 35, category: 'Galvanized Wire', name: 'Galvanized Wire', badge: 'Standard',
+    image: 'assets/products/Galvanized-wire-1.jpg',
+    images: ['assets/products/Galvanized-wire-1.jpg', 'assets/products/Galvanized-wire-2.jpg'],
+    description: 'Galvanized Wire.',
+    fromPrice: 0,
+    variants: [
+      {label:'Galvanized Wire (Inquire)', price:0}
+    ]
   }
 ];
 

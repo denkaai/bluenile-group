@@ -482,9 +482,18 @@ const PRODUCTS = [
     image: 'assets/products/Galvanized-wire-1.jpg',
     images: ['assets/products/Galvanized-wire-1.jpg', 'assets/products/Galvanized-wire-2.jpg'],
     description: 'Galvanized Wire.',
-    fromPrice: 0,
+    fromPrice: 85,
     variants: [
-      {label:'Galvanized Wire (Inquire)', price:0}
+      {label:'16G 1.6mm (Price per kg)', price:120},
+      {label:'16G 1.6mm (Price per 50kg Roll)', price:6000},
+      {label:'14G 2.0mm (Price per kg)', price:112},
+      {label:'14G 2.0mm (Price per 50kg Roll)', price:5600},
+      {label:'12.5G 2.5mm (Price per kg)', price:105},
+      {label:'12.5G 2.5mm (Price per 50kg Roll)', price:5250},
+      {label:'10G 3.2mm (Price per kg)', price:95},
+      {label:'10G 3.2mm (Price per 50kg Roll)', price:4750},
+      {label:'8G 4.0mm (Price per kg)', price:85},
+      {label:'8G 4.0mm (Price per 50kg Roll)', price:4250}
     ]
   }
 ];

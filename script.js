@@ -837,45 +837,119 @@ document.addEventListener('DOMContentLoaded', () => {
   heroDots.forEach((dot, i) => dot.addEventListener('click', () => { showHeroSlide(i); startHeroTimer(); }));
   if (heroSlides.length) { showHeroSlide(0); startHeroTimer(); }
 
-  // Shop page category filter
+  // Shop page pagination, category filter, search, and sort
+  let currentCat = 'all';
+  let currentSearch = '';
+  let currentSort = 'default';
+  let currentPage = 1;
+  const itemsPerPage = 20;
+
   const filterLinks = document.querySelectorAll('.sidebar-cats a[data-cat]');
-  const shopCards = document.querySelectorAll('.shop-grid .product-card');
+  const searchInput = document.getElementById('shop-search');
+  const sortSelect = document.getElementById('shop-sort');
+  const shopGrid = document.querySelector('.shop-grid');
+  const paginationContainer = document.querySelector('.pagination');
+  
+  function applyFilters() {
+    if (!shopGrid) return;
+    let shopCards = Array.from(document.querySelectorAll('.shop-grid .product-card'));
+    
+    // 1. Filter
+    let visibleCards = [];
+    shopCards.forEach(card => {
+      const matchCat = currentCat === 'all' || card.dataset.category === currentCat;
+      const matchSearch = card.textContent.toLowerCase().includes(currentSearch);
+      if (matchCat && matchSearch) {
+        visibleCards.push(card);
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // 2. Sort visible cards
+    visibleCards.sort((a, b) => {
+      const pa = parseInt(a.dataset.price || 0);
+      const pb = parseInt(b.dataset.price || 0);
+      if (currentSort === 'price-asc') return pa - pb;
+      if (currentSort === 'price-desc') return pb - pa;
+      return parseInt(a.dataset.id || 0) - parseInt(b.dataset.id || 0); // stable sort fallback
+    });
+
+    // Re-append to preserve sort order in DOM
+    visibleCards.forEach(c => shopGrid.appendChild(c));
+
+    // 3. Paginate
+    const totalPages = Math.ceil(visibleCards.length / itemsPerPage) || 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+    
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+
+    visibleCards.forEach((card, index) => {
+      if (index >= startIndex && index < endIndex) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // 4. Update Pagination UI
+    if (paginationContainer) {
+      let html = '';
+      for (let i = 1; i <= totalPages; i++) {
+        html += `<span class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}" style="cursor:pointer">${i}</span>`;
+      }
+      paginationContainer.innerHTML = html;
+      
+      // Attach events
+      paginationContainer.querySelectorAll('.page-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          currentPage = parseInt(btn.dataset.page);
+          applyFilters();
+          window.scrollTo({ top: shopGrid.offsetTop - 100, behavior: 'smooth' });
+        });
+      });
+    }
+
+    // 5. Update Toolbar Count
+    const shopCount = document.querySelector('.shop-count');
+    if (shopCount) {
+      if (visibleCards.length === 0) {
+        shopCount.innerHTML = `Showing <strong>0</strong> products`;
+      } else {
+        shopCount.innerHTML = `Showing <strong>${startIndex + 1}-${Math.min(endIndex, visibleCards.length)}</strong> of <strong>${visibleCards.length}</strong> products`;
+      }
+    }
+  }
+
   filterLinks.forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
       filterLinks.forEach(l => l.classList.remove('active'));
       link.classList.add('active');
-      const cat = link.dataset.cat;
-      shopCards.forEach(card => {
-        card.style.display = cat === 'all' || card.dataset.category === cat ? '' : 'none';
-      });
+      currentCat = link.dataset.cat;
+      currentPage = 1;
+      applyFilters();
     });
   });
 
-  // Search bar (shop page)
-  const searchInput = document.getElementById('shop-search');
   searchInput?.addEventListener('input', () => {
-    const q = searchInput.value.toLowerCase();
-    shopCards.forEach(card => {
-      card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
-    });
+    currentSearch = searchInput.value.toLowerCase();
+    currentPage = 1;
+    applyFilters();
   });
 
-  // Sort
-  document.getElementById('shop-sort')?.addEventListener('change', e => {
-    const val = e.target.value;
-    const grid = document.querySelector('.shop-grid');
-    if (!grid) return;
-    const cards = [...grid.children];
-    cards.sort((a, b) => {
-      const pa = parseInt(a.dataset.price || 0);
-      const pb = parseInt(b.dataset.price || 0);
-      if (val === 'price-asc') return pa - pb;
-      if (val === 'price-desc') return pb - pa;
-      return 0;
-    });
-    cards.forEach(c => grid.appendChild(c));
+  sortSelect?.addEventListener('change', e => {
+    currentSort = e.target.value;
+    currentPage = 1;
+    applyFilters();
   });
+
+  // Since DOMContentLoaded fires after shop.html inline script,
+  // the cards are already in the DOM. We can just call applyFilters!
+  setTimeout(() => {
+    applyFilters();
+  }, 100);
 
   // Cart page render
   if (typeof renderCartPage === 'function') renderCartPage();

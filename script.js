@@ -495,6 +495,82 @@ const PRODUCTS = [
       {label:'8G 4.0mm (Price per kg)', price:85},
       {label:'8G 4.0mm (Price per 50kg Roll)', price:4250}
     ]
+  },
+  {
+    id: 36, category: 'Angle Lines', name: 'Angle Lines', badge: '6m Long',
+    image: 'assets/products/angle-lines-1.jpg',
+    images: ['assets/products/angle-lines-1.jpg', 'assets/products/angle-lines-2.jpg'],
+    description: 'High quality Angle Lines. Factory price per 6m long.',
+    fromPrice: 280,
+    variants: [
+      {label:'20 × 20 mm (3 mm)', price:280},
+      {label:'25 × 25 mm (3 mm)', price:375},
+      {label:'30 × 30 mm (3 mm)', price:495},
+      {label:'40 × 40 mm (4 mm)', price:740},
+      {label:'50 × 50 mm (5 mm)', price:965},
+      {label:'65 × 65 mm (6 mm)', price:1487},
+      {label:'75 × 75 mm (6 mm)', price:1939},
+      {label:'90 × 90 mm (8 mm)', price:2680},
+      {label:'100 × 100 mm (10 mm)', price:3470}
+    ]
+  },
+  {
+    id: 37, category: 'Round Pipes', name: 'Round Pipes', badge: '6m Long',
+    image: 'assets/products/round-pipes-1.jpg',
+    images: ['assets/products/round-pipes-1.jpg', 'assets/products/round-pipes-2.jpg'],
+    description: 'Durable Round pipes. Factory price per 6m long.',
+    fromPrice: 250,
+    variants: [
+      {label:'½" (18G)', price:250},
+      {label:'¾" (18G)', price:330},
+      {label:'1" (16G)', price:480},
+      {label:'1¼" (16G)', price:640},
+      {label:'1½" (16G)', price:880},
+      {label:'2" (14G)', price:1080},
+      {label:'2½" (14G)', price:1390},
+      {label:'3" (14G)', price:1840},
+      {label:'4" (12G)', price:2450}
+    ]
+  },
+  {
+    id: 38, category: 'Stainless Steel Chrome Pipes', name: 'Stainless Steel Chrome Pipes', badge: '6m Long',
+    image: 'assets/products/stainless-steel-chrome-pipes-1.jpg',
+    images: ['assets/products/stainless-steel-chrome-pipes-1.jpg', 'assets/products/stainless-steel-chrome-pipes-2.jpg', 'assets/products/stainless-steel-chrome-pipes-3.jpg'],
+    description: 'Stainless Steel Chrome Pipes. Factory price per 6m long.',
+    fromPrice: 580,
+    variants: [
+      {label:'19 mm / ¾" (0.8 mm)', price:580},
+      {label:'25 mm / 1" (0.8 mm)', price:780},
+      {label:'32 mm / 1¼" (1.0 mm)', price:990},
+      {label:'38 mm / 1½" (1.0 mm)', price:1340},
+      {label:'50 mm / 2" (1.2 mm)', price:1870},
+      {label:'63 mm / 2½" (1.2 mm)', price:2390},
+      {label:'76 mm / 3" (1.5 mm)', price:2830}
+    ]
+  },
+  {
+    id: 39, category: 'Floor Tile', name: 'Floor Tile', badge: 'Tiles',
+    image: 'assets/products/floor-tile-1.jpg',
+    images: ['assets/products/floor-tile-1.jpg', 'assets/products/floor-tile-2.jpg', 'assets/products/floor-tile-3.jpg', 'assets/products/floor-tile-4.jpg'],
+    description: 'High quality Floor Tiles.',
+    fromPrice: 470,
+    variants: [
+      {label:'30*30 (17Pcs)', price:470},
+      {label:'40*40 (12Pcs)', price:640},
+      {label:'50*50 (7Pcs)', price:830},
+      {label:'60*60 (4Pcs)', price:1150}
+    ]
+  },
+  {
+    id: 40, category: 'Wall Tile', name: 'Wall Tile', badge: 'Tiles',
+    image: 'assets/products/wall-tile-1.jpg',
+    images: ['assets/products/wall-tile-1.jpg', 'assets/products/wall-tile-2.jpg'],
+    description: 'Beautiful Wall Tiles.',
+    fromPrice: 530,
+    variants: [
+      {label:'25*40 (15Pcs)', price:530},
+      {label:'30*60 (8Pcs)', price:790}
+    ]
   }
 ];
 

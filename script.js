@@ -571,6 +571,28 @@ const PRODUCTS = [
       {label:'25*40 (15Pcs)', price:530},
       {label:'30*60 (8Pcs)', price:790}
     ]
+  },
+  {
+    id: 41, category: 'Tanks', name: 'Water Tanks', badge: 'Various Brands',
+    image: 'assets/products/tank-1.jpg',
+    images: ['assets/products/tank-1.jpg', 'assets/products/tank-2.jpg', 'assets/products/tank-3.jpg', 'assets/products/tank-4.jpg', 'assets/products/tank-5.jpg', 'assets/products/tank-6.jpg', 'assets/products/tank-7.jpg', 'assets/products/tank-8.jpg'],
+    description: 'High quality water tanks. Available brands: Kentank, Roto, Polytanks, Reliance & Royal Tanks.',
+    fromPrice: 3300,
+    variants: [
+      {label:'500 Ltrs', price:3300},
+      {label:'1000 Ltrs', price:6500},
+      {label:'1500 Ltrs', price:8500},
+      {label:'2000 Ltrs', price:10500},
+      {label:'3000 Ltrs', price:14500},
+      {label:'4000 Ltrs', price:18500},
+      {label:'5000 Ltrs', price:26500},
+      {label:'6000 Ltrs', price:28500},
+      {label:'8000 Ltrs', price:32500},
+      {label:'10000 Ltrs', price:48500},
+      {label:'16000 Ltrs', price:69500},
+      {label:'20000 Ltrs', price:99500},
+      {label:'24000 Ltrs', price:146500}
+    ]
   }
 ];
 

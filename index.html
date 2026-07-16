@@ -7,6 +7,7 @@
   <title>Blue Nile Group | KIFARU™ Steel &amp; Wire Products — Kenya</title>
   <link rel="icon" href="assets/logo-2.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -341,6 +342,7 @@
   <a href="https://wa.me/254755724090?text=Hello%20KIFARU%20Steel!%20I%20would%20like%20to%20inquire%20about%20your%20products." target="_blank" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="script.js"></script>
 <script>
 // Render 8 featured products on homepage
@@ -351,7 +353,7 @@ if (grid) {
     const p = PRODUCTS.find(x => x.id === id);
     if (!p) return '';
     return `
-    <div class="product-card reveal" data-category="${p.category}" data-price="${p.fromPrice}">
+    <div class="product-card reveal" data-category="${p.category}" data-price="${p.fromPrice}" data-aos="fade-up">
       <div class="product-img-wrap">
         <span class="product-badge">${p.badge}</span>
         <div style="position:relative; width:100%; height:100%;">

@@ -996,4 +996,13 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.value = urlQ;
     searchInput.dispatchEvent(new Event('input'));
   }
+
+  // Initialize AOS
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 50
+    });
+  }
 });

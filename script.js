@@ -1006,3 +1006,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+/* =========================================================
+   CUSTOMER DELIVERY & PAYMENT INFORMATION FORM LOGIC
+   ========================================================= */
+(function () {
+  var WHATSAPP_NUMBER = "254755724090";
+  var form = document.getElementById('bnDeliveryForm');
+  if (!form) return;
+  var status = document.getElementById('bnStatus');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      status.textContent = "Please fill in all required fields.";
+      status.className = "bn-status bn-error";
+      return;
+    }
+    var v = Object.fromEntries(new FormData(form).entries());
+    var lines = [
+      "*New Delivery & Payment Info Request*", "",
+      "*Company:* " + v.company,
+      "*KRA PIN:* " + v.kraPin,
+      "*Contact Person:* " + v.contactPerson,
+      "*Phone:* " + v.phone,
+      "*Email:* " + v.email, "",
+      "*Delivery Address:* " + v.address,
+      "*Landmarks:* " + v.landmarks,
+      "*County:* " + v.county,
+      "*Preferred Delivery Date:* " + v.date, "",
+      "I confirm the above information is accurate and I agree to Blue Nile Rolling Mills' Terms & Conditions."
+    ].join("\n");
+    var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines);
+    window.open(url, "_blank");
+    status.textContent = "Opening WhatsApp…";
+    status.className = "bn-status bn-ok";
+  });
+})();
+

@@ -666,9 +666,25 @@ const Cart = {
   },
 
   openWhatsApp() {
-    const msg = this.buildWhatsAppMessage();
-    if (!msg) { alert('Your cart is empty. Please add items before ordering.'); return; }
-    window.open(`https://wa.me/254755724090?text=${msg}`, '_blank');
+    const items = this.get();
+    if (!items.length) {
+      alert('Your cart is empty. Please add items before ordering.');
+      return;
+    }
+    const form = document.getElementById('bnDeliveryForm');
+    if (form) {
+      if (typeof closeCartDrawer === 'function') closeCartDrawer();
+      form.scrollIntoView({ behavior: 'smooth' });
+      const status = document.getElementById('bnStatus');
+      if (status) {
+        status.textContent = "Please fill in your Company & Contact details below to complete your order via WhatsApp.";
+        status.className = "bn-status bn-error";
+      }
+      const firstInput = document.getElementById('bnCompany');
+      if (firstInput) firstInput.focus();
+    } else {
+      window.location.href = 'index.html#contact';
+    }
   }
 };
 
@@ -1024,23 +1040,44 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     var v = Object.fromEntries(new FormData(form).entries());
+    var cartItems = (typeof Cart !== 'undefined') ? Cart.get() : [];
+    
     var lines = [
-      "*New Delivery & Payment Info Request*", "",
+      cartItems.length > 0 ? "*New Order & Delivery Request*" : "*New Delivery & Payment Info Request*", "",
+      "*COMPANY & CONTACT DETAILS*",
       "*Company:* " + v.company,
       "*KRA PIN:* " + v.kraPin,
       "*Contact Person:* " + v.contactPerson,
       "*Phone:* " + v.phone,
       "*Email:* " + v.email, "",
-      "*Delivery Address:* " + v.address,
+      "*DELIVERY DETAILS*",
+      "*Address:* " + v.address,
       "*Landmarks:* " + v.landmarks,
       "*County:* " + v.county,
-      "*Preferred Delivery Date:* " + v.date, "",
-      "I confirm the above information is accurate and I agree to Blue Nile Rolling Mills' Terms & Conditions."
-    ].join("\n");
-    var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines);
+      "*Preferred Delivery Date:* " + v.date, ""
+    ];
+
+    if (cartItems.length > 0) {
+      lines.push("*ORDER ITEMS*");
+      cartItems.forEach(function (item, i) {
+        lines.push((i + 1) + ". *" + item.name + "*");
+        lines.push("   Size/Type: " + item.variant);
+        lines.push("   Qty: " + item.qty);
+        lines.push("   Unit Price: Ksh " + item.price.toLocaleString());
+        lines.push("   Subtotal: Ksh " + (item.price * item.qty).toLocaleString());
+        lines.push("");
+      });
+      lines.push("*TOTAL ORDER VALUE: Ksh " + Cart.total().toLocaleString() + "*");
+      lines.push("");
+    }
+
+    lines.push("I confirm the above information is accurate and I agree to Blue Nile Rolling Mills' Terms & Conditions.");
+
+    var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
     window.open(url, "_blank");
-    status.textContent = "Opening WhatsApp…";
+    status.textContent = "Opening WhatsApp… Order details sent!";
     status.className = "bn-status bn-ok";
   });
 })();
+
 

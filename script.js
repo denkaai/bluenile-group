@@ -683,7 +683,7 @@ const Cart = {
       const firstInput = document.getElementById('bnFirstName') || document.getElementById('bnCompany');
       if (firstInput) firstInput.focus();
     } else {
-      window.location.href = 'index.html#contact';
+      window.location.href = 'cart.html#checkout';
     }
   }
 };

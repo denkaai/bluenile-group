@@ -680,7 +680,7 @@ const Cart = {
         status.textContent = "Please fill in your Company & Contact details below to complete your order via WhatsApp.";
         status.className = "bn-status bn-error";
       }
-      const firstInput = document.getElementById('bnCompany');
+      const firstInput = document.getElementById('bnFirstName') || document.getElementById('bnCompany');
       if (firstInput) firstInput.focus();
     } else {
       window.location.href = 'index.html#contact';
@@ -1024,12 +1024,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================================
-   CUSTOMER DELIVERY & PAYMENT INFORMATION FORM LOGIC
+   BILLING & DELIVERY INFORMATION FORM LOGIC
    ========================================================= */
 (function () {
   var WHATSAPP_NUMBER = "254755724090";
   var form = document.getElementById('bnDeliveryForm');
   if (!form) return;
+
+  var shipToggle = document.getElementById('bnShipDifferent');
+  var shipFields = document.getElementById('bnShippingFields');
+  if (shipToggle && shipFields) {
+    shipToggle.addEventListener('change', function () {
+      shipFields.style.display = this.checked ? 'block' : 'none';
+    });
+  }
+
   var status = document.getElementById('bnStatus');
   form.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -1043,21 +1052,36 @@ document.addEventListener('DOMContentLoaded', () => {
     var cartItems = (typeof Cart !== 'undefined') ? Cart.get() : [];
     
     var lines = [
-      cartItems.length > 0 ? "*New Order & Delivery Request*" : "*New Delivery & Payment Info Request*", "",
-      "*COMPANY & CONTACT DETAILS*",
-      "*Company:* " + v.company,
-      "*KRA PIN:* " + v.kraPin,
-      "*Contact Person:* " + v.contactPerson,
-      "*Phone:* " + v.phone,
-      "*Email:* " + v.email, "",
-      "*DELIVERY DETAILS*",
-      "*Address:* " + v.address,
-      "*Landmarks:* " + v.landmarks,
+      cartItems.length > 0 ? "*New Order & Billing Request*" : "*New Billing & Delivery Information*", "",
+      "*BILLING DETAILS*",
+      "*Name:* " + v.firstName + " " + v.lastName,
+      v.company ? "*Company:* " + v.company : null,
+      "*Company PIN:* " + v.kraPin,
+      "*Country:* Kenya",
+      "*Street Address:* " + v.address1 + (v.address2 ? ", " + v.address2 : ""),
+      "*Town / City:* " + v.city,
       "*County:* " + v.county,
-      "*Preferred Delivery Date:* " + v.date, ""
-    ];
+      v.postcode ? "*Postcode / ZIP:* " + v.postcode : null,
+      "*Phone:* " + v.phone,
+      "*Email:* " + v.email
+    ].filter(Boolean);
+
+    if (v.shipDifferent) {
+      lines.push("");
+      lines.push("*SHIPPING DETAILS (Different Address)*");
+      if (v.shipFirstName || v.shipLastName) lines.push("*Recipient Name:* " + (v.shipFirstName || "") + " " + (v.shipLastName || ""));
+      if (v.shipCompany) lines.push("*Company:* " + v.shipCompany);
+      if (v.shipKraPin) lines.push("*Company PIN:* " + v.shipKraPin);
+      lines.push("*Country:* Kenya");
+      if (v.shipAddress1) lines.push("*Street Address:* " + v.shipAddress1 + (v.shipAddress2 ? ", " + v.shipAddress2 : ""));
+      if (v.shipCity) lines.push("*Town / City:* " + v.shipCity);
+      if (v.shipCounty) lines.push("*County:* " + v.shipCounty);
+      if (v.shipPostcode) lines.push("*Postcode / ZIP:* " + v.shipPostcode);
+      if (v.recipientPhone) lines.push("*Recipient Phone:* " + v.recipientPhone);
+    }
 
     if (cartItems.length > 0) {
+      lines.push("");
       lines.push("*ORDER ITEMS*");
       cartItems.forEach(function (item, i) {
         lines.push((i + 1) + ". *" + item.name + "*");
@@ -1068,9 +1092,9 @@ document.addEventListener('DOMContentLoaded', () => {
         lines.push("");
       });
       lines.push("*TOTAL ORDER VALUE: Ksh " + Cart.total().toLocaleString() + "*");
-      lines.push("");
     }
 
+    lines.push("");
     lines.push("I confirm the above information is accurate and I agree to Blue Nile Rolling Mills' Terms & Conditions.");
 
     var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));

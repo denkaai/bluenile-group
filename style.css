@@ -1511,6 +1511,23 @@ input,select,textarea{font:inherit;}
 .bn-status.bn-ok {
   color: #27ae60;
 }
+.bn-req {
+  color: #e74c3c;
+  font-weight: 700;
+}
+.bn-opt {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 12px;
+}
+.bn-country-val {
+  padding: 10px 14px;
+  background: var(--body-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--primary);
+}
 
 @media (max-width: 768px) {
   .bn-row {

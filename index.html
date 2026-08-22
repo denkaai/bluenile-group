@@ -204,59 +204,61 @@
   </div>
 </div>
 
-<!-- ===================== CUSTOMER DELIVERY & PAYMENT FORM ===================== -->
+<!-- ===================== BILLING & DELIVERY INFORMATION FORM ===================== -->
 <section class="bn-delivery-form" id="contact">
   <div class="container">
-    <h2>Customer Delivery & Payment Information</h2>
-    <p class="bn-subtitle">Fill in your delivery details below and confirm the terms & conditions. We'll send your information straight to our sales team on WhatsApp so we can process your order and delivery.</p>
+    <h2>Billing & Delivery Information</h2>
+    <p class="bn-subtitle">Please enter your billing details and delivery address below. We'll send your details and order summary straight to our sales team on WhatsApp.</p>
     <form id="bnDeliveryForm">
+      
+      <!-- CARD 1: BILLING DETAILS -->
       <div class="bn-card">
-        <p class="bn-section-label">Company & Contact Details</p>
-        <div class="bn-row">
-          <div class="bn-field bn-full">
-            <label for="bnCompany">Full Company Name</label>
-            <input type="text" id="bnCompany" name="company" placeholder="e.g. Acme Hardware Ltd" required>
-          </div>
-        </div>
+        <p class="bn-section-label">Billing Details</p>
         <div class="bn-row">
           <div class="bn-field">
-            <label for="bnKraPin">KRA PIN Number</label>
+            <label for="bnFirstName">First name <span class="bn-req">*</span></label>
+            <input type="text" id="bnFirstName" name="firstName" placeholder="First name" required>
+          </div>
+          <div class="bn-field">
+            <label for="bnLastName">Last name <span class="bn-req">*</span></label>
+            <input type="text" id="bnLastName" name="lastName" placeholder="Last name" required>
+          </div>
+        </div>
+
+        <div class="bn-row">
+          <div class="bn-field">
+            <label for="bnCompany">Company name <span class="bn-opt">(optional)</span></label>
+            <input type="text" id="bnCompany" name="company" placeholder="e.g. Acme Hardware Ltd">
+          </div>
+          <div class="bn-field">
+            <label for="bnKraPin">Company PIN / KRA PIN <span class="bn-req">*</span></label>
             <input type="text" id="bnKraPin" name="kraPin" placeholder="P0XXXXXXXXX" required>
           </div>
-          <div class="bn-field">
-            <label for="bnContactPerson">Contact Person</label>
-            <input type="text" id="bnContactPerson" name="contactPerson" placeholder="Full name" required>
-          </div>
         </div>
-        <div class="bn-row">
-          <div class="bn-field">
-            <label for="bnPhone">Phone Number</label>
-            <input type="tel" id="bnPhone" name="phone" placeholder="+254 7XX XXX XXX" required>
-          </div>
-          <div class="bn-field">
-            <label for="bnEmail">Email Address</label>
-            <input type="email" id="bnEmail" name="email" placeholder="you@company.com" required>
-          </div>
-        </div>
-      </div>
 
-      <div class="bn-card">
-        <p class="bn-section-label">Delivery Details</p>
         <div class="bn-row">
           <div class="bn-field bn-full">
-            <label for="bnAddress">Exact Delivery Address</label>
-            <textarea id="bnAddress" name="address" placeholder="Building, street, estate…" required></textarea>
+            <label>Country / Region <span class="bn-req">*</span></label>
+            <div class="bn-country-val"><strong>Kenya</strong></div>
+            <input type="hidden" name="country" value="Kenya">
           </div>
         </div>
+
         <div class="bn-row">
           <div class="bn-field bn-full">
-            <label for="bnLandmarks">Nearby Landmarks (school, church, mosque, shopping centre, market, petrol station, etc.)</label>
-            <textarea id="bnLandmarks" name="landmarks" placeholder="e.g. Next to Total petrol station, opposite ABC Church" required></textarea>
+            <label for="bnAddress1">Street address <span class="bn-req">*</span></label>
+            <input type="text" id="bnAddress1" name="address1" placeholder="House number and street name" required>
+            <input type="text" id="bnAddress2" name="address2" placeholder="Apartment, suite, unit, etc. (optional)" style="margin-top:10px;">
           </div>
         </div>
+
         <div class="bn-row">
           <div class="bn-field">
-            <label for="bnCounty">County</label>
+            <label for="bnCity">Town / City <span class="bn-req">*</span></label>
+            <input type="text" id="bnCity" name="city" placeholder="e.g. Nairobi / Thika" required>
+          </div>
+          <div class="bn-field">
+            <label for="bnCounty">State / County <span class="bn-req">*</span></label>
             <select id="bnCounty" name="county" required>
               <option value="" disabled selected>Select county</option>
               <option>Baringo</option><option>Bomet</option><option>Bungoma</option><option>Busia</option>
@@ -273,13 +275,114 @@
               <option>Vihiga</option><option>Wajir</option><option>West Pokot</option>
             </select>
           </div>
+        </div>
+
+        <div class="bn-row">
           <div class="bn-field">
-            <label for="bnDate">Preferred Delivery Date</label>
-            <input type="date" id="bnDate" name="date" required>
+            <label for="bnPostcode">Postcode / ZIP <span class="bn-opt">(optional)</span></label>
+            <input type="text" id="bnPostcode" name="postcode" placeholder="00100">
+          </div>
+          <div class="bn-field">
+            <label for="bnPhone">Phone Number <span class="bn-req">*</span></label>
+            <input type="tel" id="bnPhone" name="phone" placeholder="+254 7XX XXX XXX" required>
+          </div>
+        </div>
+
+        <div class="bn-row">
+          <div class="bn-field bn-full">
+            <label for="bnEmail">Email address <span class="bn-req">*</span></label>
+            <input type="email" id="bnEmail" name="email" placeholder="you@company.com" required>
           </div>
         </div>
       </div>
 
+      <!-- CARD 2: DELIVER TO A DIFFERENT ADDRESS TOGGLE -->
+      <div class="bn-card">
+        <div class="bn-ship-toggle">
+          <label for="bnShipDifferent" style="display:flex;align-items:center;gap:10px;cursor:pointer;font-size:1.1rem;font-weight:700;color:var(--primary);">
+            <input type="checkbox" id="bnShipDifferent" name="shipDifferent" style="width:18px;height:18px;accent-color:var(--accent);">
+            Deliver to a different address?
+          </label>
+        </div>
+
+        <div id="bnShippingFields" style="display:none;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);">
+          <p class="bn-section-label" style="font-size:1rem;">Shipping Address Details</p>
+          <div class="bn-row">
+            <div class="bn-field">
+              <label for="bnShipFirstName">First name</label>
+              <input type="text" id="bnShipFirstName" name="shipFirstName" placeholder="First name">
+            </div>
+            <div class="bn-field">
+              <label for="bnShipLastName">Last name</label>
+              <input type="text" id="bnShipLastName" name="shipLastName" placeholder="Last name">
+            </div>
+          </div>
+
+          <div class="bn-row">
+            <div class="bn-field">
+              <label for="bnShipCompany">Company name <span class="bn-opt">(optional)</span></label>
+              <input type="text" id="bnShipCompany" name="shipCompany" placeholder="Company name">
+            </div>
+            <div class="bn-field">
+              <label for="bnShipKraPin">Company PIN</label>
+              <input type="text" id="bnShipKraPin" name="shipKraPin" placeholder="P0XXXXXXXXX">
+            </div>
+          </div>
+
+          <div class="bn-row">
+            <div class="bn-field bn-full">
+              <label>Country / Region</label>
+              <div class="bn-country-val"><strong>Kenya</strong></div>
+            </div>
+          </div>
+
+          <div class="bn-row">
+            <div class="bn-field bn-full">
+              <label for="bnShipAddress1">Street address</label>
+              <input type="text" id="bnShipAddress1" name="shipAddress1" placeholder="House number and street name">
+              <input type="text" id="bnShipAddress2" name="shipAddress2" placeholder="Apartment, suite, unit, etc. (optional)" style="margin-top:10px;">
+            </div>
+          </div>
+
+          <div class="bn-row">
+            <div class="bn-field">
+              <label for="bnShipCity">Town / City</label>
+              <input type="text" id="bnShipCity" name="shipCity" placeholder="Town / City">
+            </div>
+            <div class="bn-field">
+              <label for="bnShipCounty">State / County</label>
+              <select id="bnShipCounty" name="shipCounty">
+                <option value="" disabled selected>Select county</option>
+                <option>Baringo</option><option>Bomet</option><option>Bungoma</option><option>Busia</option>
+                <option>Elgeyo-Marakwet</option><option>Embu</option><option>Garissa</option><option>Homa Bay</option>
+                <option>Isiolo</option><option>Kajiado</option><option>Kakamega</option><option>Kericho</option>
+                <option>Kiambu</option><option>Kilifi</option><option>Kirinyaga</option><option>Kisii</option>
+                <option>Kisumu</option><option>Kitui</option><option>Kwale</option><option>Laikipia</option>
+                <option>Lamu</option><option>Machakos</option><option>Makueni</option><option>Mandera</option>
+                <option>Marsabit</option><option>Meru</option><option>Migori</option><option>Mombasa</option>
+                <option>Murang'a</option><option>Nairobi</option><option>Nakuru</option><option>Nandi</option>
+                <option>Narok</option><option>Nyamira</option><option>Nyandarua</option><option>Nyeri</option>
+                <option>Samburu</option><option>Siaya</option><option>Taita-Taveta</option><option>Tana River</option>
+                <option>Tharaka-Nithi</option><option>Trans Nzoia</option><option>Turkana</option><option>Uasin Gishu</option>
+                <option>Vihiga</option><option>Wajir</option><option>West Pokot</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="bn-row">
+            <div class="bn-field">
+              <label for="bnShipPostcode">Postcode / ZIP <span class="bn-opt">(optional)</span></label>
+              <input type="text" id="bnShipPostcode" name="shipPostcode" placeholder="Postcode / ZIP">
+            </div>
+            <div class="bn-field">
+              <label for="bnRecipientPhone">Recipient Phone Number <span class="bn-opt">(optional)</span></label>
+              <input type="tel" id="bnRecipientPhone" name="recipientPhone" placeholder="+254 7XX XXX XXX">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: TERMS & SUBMIT -->
       <div class="bn-card">
         <details class="bn-terms">
           <summary>Terms & Conditions</summary>

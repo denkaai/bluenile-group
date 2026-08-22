@@ -1056,7 +1056,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "*BILLING DETAILS*",
       "*Name:* " + v.firstName + " " + v.lastName,
       v.company ? "*Company:* " + v.company : null,
-      "*Company PIN:* " + v.kraPin,
+      v.kraPin ? "*Company PIN:* " + v.kraPin : null,
       "*Country:* Kenya",
       "*Street Address:* " + v.address1 + (v.address2 ? ", " + v.address2 : ""),
       "*Town / City:* " + v.city,

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout | Blue Nile Group</title>
+  <title>Checkout | Blue Nile Group — KIFARU™ Steel</title>
   <link rel="icon" href="assets/logo-2.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
@@ -27,8 +27,8 @@
     </div>
   </header>
 
-  <!-- MAIN CHECKOUT CONTENT -->
-  <main class="checkout-main-content">
+  <!-- MAIN CHECKOUT CONTENT (Steps 1, 2, 3) -->
+  <main class="checkout-main-content" id="checkout-main-flow">
     <div class="checkout-grid">
       
       <!-- LEFT COLUMN: MULTI-STEP FORMS -->
@@ -212,7 +212,7 @@
           </form>
         </section>
 
-        <!-- STEP 3: PAYMENT (Screenshot 5) -->
+        <!-- STEP 3: PAYMENT (Screenshot 3 / 5) -->
         <section id="step-3-view" class="checkout-step-view" style="display:none;">
           <h1 class="checkout-step-title">How would you like to pay?</h1>
           <p class="checkout-step-subtitle">Choose a payment option to proceed.</p>
@@ -270,7 +270,7 @@
                 <li>Enter Total Amount: <strong id="mpesa-amount-val">KES 0</strong></li>
                 <li>Enter your M-PESA PIN and submit.</li>
               </ul>
-              <p style="margin-top:8px; font-size:12px; color:#64748b;">Submitting this order sends your complete reservation details to our WhatsApp sales desk for immediate allocation and receipt confirmation.</p>
+              <p style="margin-top:8px; font-size:12px; color:#64748b;">Submitting this order sends your reservation details to our WhatsApp sales desk for immediate allocation and receipt confirmation.</p>
             </div>
 
             <div class="coupon-toggle-wrap" style="margin-top:0; border-top:none; padding-top:0;">
@@ -293,7 +293,7 @@
       </div>
 
       <!-- RIGHT COLUMN: ORDER SUMMARY SIDEBAR (Screenshots 3 & 5) -->
-      <aside class="order-summary-card">
+      <aside class="order-summary-card" id="checkout-sidebar-card">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
           <h3 style="margin-bottom:0;">Order Summary</h3>
           <span style="font-size:12px; color:#64748b; font-weight:600;" id="sidebar-ref-tag">Ref: 4954047LVA</span>
@@ -327,7 +327,145 @@
     </div>
   </main>
 
-  <!-- MINIMAL CHECKOUT FOOTER (Screenshots 3 & 5) -->
+  <!-- STEP 4: ORDER CONFIRMED & E-RECEIPT PAGE (Screenshot 4) -->
+  <main class="success-container" id="order-success-view" style="display:none;">
+    
+    <!-- Hero Banner -->
+    <div class="success-hero-header">
+      <div class="success-check-badge">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <h1 class="success-hero-title">Complete your purchase and secure your stock</h1>
+    </div>
+
+    <div class="success-greeting" id="success-greeting-text">Hi Tiffany Kiprono,</div>
+    <div class="success-greeting-sub">To secure your order, complete your payment.</div>
+
+    <!-- Payment Details Box (Screenshot 4) -->
+    <div class="payment-details-card">
+      <div class="payment-details-card-title">Payment Details</div>
+      <table class="payment-table">
+        <tbody>
+          <tr>
+            <td class="label-col">M-Pesa:</td>
+            <td class="val-col" id="pay-summary-method">Lipa na M-Pesa (Buy Goods / Paybill)</td>
+          </tr>
+          <tr>
+            <td class="label-col">Account Name:</td>
+            <td class="val-col">Blue Nile Webstore / Buy Goods</td>
+          </tr>
+          <tr>
+            <td class="label-col">Account / Paybill:</td>
+            <td class="val-col">
+              <span id="pay-summary-paybill">Paybill: 522522 / Acc: 7887821VYG</span>
+              <button type="button" class="btn-copy-tag" onclick="copyText('522522', this)"><i class="fa-regular fa-copy"></i> Copy</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="label-col">Reference:</td>
+            <td class="val-col">
+              <span id="pay-summary-ref">7887821VYG</span>
+              <button type="button" class="btn-copy-tag" onclick="copyText(document.getElementById('pay-summary-ref').textContent, this)"><i class="fa-regular fa-copy"></i> Copy</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="label-col">Amount:</td>
+            <td class="val-col">
+              <span id="pay-summary-amt">KES 2,350</span>
+              <button type="button" class="btn-copy-tag" onclick="copyText(document.getElementById('pay-summary-amt').textContent.replace(/[^0-9]/g,''), this)"><i class="fa-regular fa-copy"></i> Copy</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Official Blue Nile E-Receipt Card (Screenshot 4) -->
+    <div class="ereceipt-card" id="ereceipt-printable">
+      <div class="ereceipt-header-banner">
+        <div class="ereceipt-header-title">
+          <i class="fa-solid fa-lock" style="color:#f59e0b; font-size:16px;"></i> Official Blue Nile E-Receipt
+        </div>
+        <div class="ereceipt-header-sub">
+          Verified electronic receipt issued by Blue Nile Rolling Mills Ltd. Includes official merchant reference and KEBS certification.
+        </div>
+      </div>
+
+      <div class="ereceipt-body">
+        <div class="ereceipt-meta-grid">
+          <div class="ereceipt-meta-item">
+            <span class="ereceipt-meta-label">Order Reference:</span>
+            <span class="ereceipt-meta-val" id="receipt-ref-code">#7887821VYG</span>
+          </div>
+          <div class="ereceipt-meta-item">
+            <span class="ereceipt-meta-label">Issued Date & Time:</span>
+            <span class="ereceipt-meta-val" id="receipt-date-time">30 Aug 2026, 00:05</span>
+          </div>
+          <div class="ereceipt-meta-item">
+            <span class="ereceipt-meta-label">Customer Name & Phone:</span>
+            <span class="ereceipt-meta-val" id="receipt-customer-info">Tiffany Kiprono (0782662542)</span>
+          </div>
+          <div class="ereceipt-meta-item">
+            <span class="ereceipt-meta-label">Fulfillment / Site:</span>
+            <span class="ereceipt-meta-val" id="receipt-delivery-info">Delivery to Site (Nairobi)</span>
+          </div>
+        </div>
+
+        <table class="ereceipt-items-table">
+          <thead>
+            <tr>
+              <th>Item Description</th>
+              <th style="text-align:center;">Qty</th>
+              <th style="text-align:right;">Unit Price</th>
+              <th style="text-align:right;">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="receipt-items-rows">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+
+        <div class="ereceipt-totals-block">
+          <div class="ereceipt-total-row">
+            <span>Subtotal (excl. VAT):</span>
+            <span id="receipt-subtotal-excl">KES 2,026.10</span>
+          </div>
+          <div class="ereceipt-total-row">
+            <span>Estimated Weight:</span>
+            <span id="receipt-weight-val">2 kgs</span>
+          </div>
+          <div class="ereceipt-total-row">
+            <span>VAT (16% Statutory):</span>
+            <span id="receipt-vat-val">KES 323.90</span>
+          </div>
+          <div class="ereceipt-total-row grand-total">
+            <span>Total Amount (incl. VAT):</span>
+            <span id="receipt-grand-total">KES 2,350</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ereceipt-seal-footer">
+        <div><i class="fa-solid fa-certificate" style="color:#15803d;"></i> KEBS BS 4449 Standard Certified — Direct from the Mill</div>
+        <div>Blue Nile Rolling Mills Ltd &copy; 2026</div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="ereceipt-actions-row">
+      <a href="javascript:void(0)" class="btn-proceed-green" id="btn-success-wa" style="width:auto; padding:14px 28px; font-size:15px;" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Chat / Confirm with Sales Desk on WhatsApp
+      </a>
+      <button type="button" class="btn-receipt-action" onclick="window.print()">
+        <i class="fa-solid fa-print"></i> Print E-Receipt
+      </button>
+      <a href="shop.html" class="btn-receipt-action">
+        <i class="fa-solid fa-store"></i> Continue Shopping
+      </a>
+    </div>
+
+  </main>
+
+  <!-- MINIMAL CHECKOUT FOOTER (Screenshots 3, 4, 5) -->
   <footer class="checkout-bottom-footer">
     Need Help? Call or <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-left:4px;"></i> WhatsApp: 
     <a href="https://wa.me/254755724090" target="_blank">(+254) 755 724 090</a> / 
@@ -345,29 +483,16 @@
     </div>
   </div>
 
-  <!-- ORDER SUCCESS MODAL -->
-  <div class="custom-alert-overlay" id="orderSuccessModal">
-    <div class="order-success-modal">
-      <div class="order-success-icon"><i class="fa-solid fa-check"></i></div>
-      <h2 style="font-size:22px; font-weight:800; color:#0f172a; margin-bottom:8px;">Order Successfully Placed!</h2>
-      <p style="color:#475569; font-size:14px; margin-bottom:16px;">Your order reference is <strong id="success-ref-code" style="color:#15803d; font-size:16px;"></strong>.</p>
-      <p style="color:#64748b; font-size:13px; line-height:1.5; margin-bottom:24px;">Your order information has been transferred to our WhatsApp sales desk at <strong>(+254) 755 724 090</strong> for immediate confirmation and loading scheduling.</p>
-      <div style="display:flex; gap:12px; justify-content:center;">
-        <button type="button" class="btn-proceed-green" id="reopen-wa-btn" style="width:auto; padding:12px 24px;">
-          <i class="fa-brands fa-whatsapp"></i> Reopen WhatsApp
-        </button>
-        <a href="shop.html" class="btn" style="background:#f1f5f9; color:#334155; font-weight:600; padding:12px 20px; border-radius:6px; text-decoration:none;">
-          Continue Shopping
-        </a>
-      </div>
-    </div>
+  <!-- TOAST NOTIFICATION -->
+  <div class="copy-toast" id="copyToast">
+    <i class="fa-solid fa-check"></i> Copied to clipboard!
   </div>
 
   <script src="script.js"></script>
   <script>
   let currentStep = 1;
   const WHATSAPP_PHONE = "254755724090";
-  let lastWhatsAppUrl = "";
+  let lastCompletedOrder = null;
 
   function getOrderRef() {
     let ref = sessionStorage.getItem('kifaru_order_ref');
@@ -377,7 +502,7 @@
       for (let i = 0; i < 7; i++) {
         ref += chars.charAt(Math.floor(Math.random() * chars.length));
       }
-      ref += 'LVA';
+      ref += 'VYG';
       sessionStorage.setItem('kifaru_order_ref', ref);
     }
     return ref;
@@ -423,16 +548,23 @@
     const subtotalExcl = (total / 1.16).toFixed(2);
     const weight = calculateEstimatedWeight(items);
 
-    document.getElementById('sidebar-ref-tag').textContent = `Ref: ${ref}`;
+    const refTag = document.getElementById('sidebar-ref-tag');
+    if (refTag) refTag.textContent = `Ref: ${ref}`;
+    
     const mpesaAcc = document.getElementById('mpesa-acc-num');
     if (mpesaAcc) mpesaAcc.textContent = ref;
     
     const mpesaAmt = document.getElementById('mpesa-amount-val');
     if (mpesaAmt) mpesaAmt.textContent = `KES ${total.toLocaleString()}`;
 
-    document.getElementById('checkout-subtotal-excl').textContent = `KES ${Number(subtotalExcl).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-    document.getElementById('checkout-weight-val').textContent = `${weight} kgs`;
-    document.getElementById('checkout-total-val').textContent = `KES ${total.toLocaleString()}`;
+    const subEl = document.getElementById('checkout-subtotal-excl');
+    if (subEl) subEl.textContent = `KES ${Number(subtotalExcl).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+    
+    const wEl = document.getElementById('checkout-weight-val');
+    if (wEl) wEl.textContent = `${weight} kgs`;
+    
+    const totEl = document.getElementById('checkout-total-val');
+    if (totEl) totEl.textContent = `KES ${total.toLocaleString()}`;
   }
 
   function goToStep(step) {
@@ -478,6 +610,9 @@
     }
 
     currentStep = step;
+    document.getElementById('checkout-main-flow').style.display = 'block';
+    document.getElementById('order-success-view').style.display = 'none';
+
     document.getElementById('step-1-view').style.display = step === 1 ? 'block' : 'none';
     document.getElementById('step-2-view').style.display = step === 2 ? 'block' : 'none';
     document.getElementById('step-3-view').style.display = step === 3 ? 'block' : 'none';
@@ -631,6 +766,28 @@
     alert("Blue Nile Rolling Mills Ltd Trading Terms:\n\n1. All steel is KEBS Certified (BS 4449).\n2. Stock is reserved for 48 hours upon order placement.\n3. Dispatch occurs upon payment verification or agreed credit terms.\n4. Direct factory prices include statutory taxes.");
   }
 
+  function copyText(str, btn) {
+    if (!str) return;
+    navigator.clipboard.writeText(str).then(() => {
+      const origText = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+      btn.classList.add('copied');
+      showToast();
+      setTimeout(() => {
+        btn.innerHTML = origText;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  function showToast() {
+    const toast = document.getElementById('copyToast');
+    if (toast) {
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+  }
+
   function submitFinalOrder() {
     const items = Cart.get();
     if (!items.length) {
@@ -640,19 +797,19 @@
     }
 
     const ref = getOrderRef();
-    const fName = document.getElementById('checkoutFirstName').value.trim();
-    const lName = document.getElementById('checkoutLastName').value.trim();
-    const email = document.getElementById('checkoutEmail').value.trim();
-    const phone = document.getElementById('checkoutPhone').value.trim();
+    const fName = document.getElementById('checkoutFirstName').value.trim() || "Valued";
+    const lName = document.getElementById('checkoutLastName').value.trim() || "Customer";
+    const email = document.getElementById('checkoutEmail').value.trim() || "client@gmail.com";
+    const phone = document.getElementById('checkoutPhone').value.trim() || "0700000000";
 
     const isBusiness = document.querySelector('input[name="purchasingType"]:checked')?.value === 'business';
     const company = isBusiness ? document.getElementById('checkoutCompany').value.trim() : '';
     const kraPin = isBusiness ? document.getElementById('checkoutKraPin').value.trim() : '';
 
     const fulfillmentType = document.querySelector('input[name="fulfillmentOption"]:checked')?.value || 'delivery';
-    const county = document.getElementById('checkoutCounty').value;
-    const city = document.getElementById('checkoutCity').value.trim();
-    const address = document.getElementById('checkoutAddress').value.trim();
+    const county = document.getElementById('checkoutCounty').value || 'Nairobi';
+    const city = document.getElementById('checkoutCity').value.trim() || 'Nairobi';
+    const address = document.getElementById('checkoutAddress').value.trim() || 'Site Address';
     const notes = document.getElementById('checkoutNotes').value.trim();
     const pickupDate = document.getElementById('checkoutPickupDate').value;
 
@@ -660,6 +817,7 @@
 
     const total = Cart.total();
     const subtotalExcl = (total / 1.16).toFixed(2);
+    const vatVal = (total - Number(subtotalExcl)).toFixed(2);
     const weight = calculateEstimatedWeight(items);
 
     // Build structured WhatsApp message
@@ -710,25 +868,84 @@
     msg += `I confirm this order and agree to Blue Nile Group trading terms. Please confirm dispatch & payment.`;
 
     const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
-    lastWhatsAppUrl = waUrl;
 
-    // Show success modal
-    document.getElementById('success-ref-code').textContent = ref;
-    document.getElementById('orderSuccessModal').classList.add('open');
-    document.getElementById('reopen-wa-btn').onclick = () => window.open(waUrl, '_blank');
+    // Store completed order snapshot for page display
+    lastCompletedOrder = {
+      ref, fName, lName, email, phone, isBusiness, company, kraPin,
+      fulfillmentType, county, city, address, notes, pickupDate,
+      paymentMethod, total, subtotalExcl, vatVal, weight,
+      items: [...items],
+      waUrl,
+      dateFormatted: new Date().toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' })
+    };
+    sessionStorage.setItem('kifaru_last_order', JSON.stringify(lastCompletedOrder));
 
-    // Open WhatsApp
-    window.open(waUrl, '_blank');
+    // Render Order Confirmed Page (Screenshot 4)
+    showOrderSuccessView(lastCompletedOrder);
 
     // Clear cart and generate fresh ref for future
     sessionStorage.removeItem('kifaru_order_ref');
     Cart.save([]);
   }
 
+  function showOrderSuccessView(order) {
+    document.getElementById('checkout-main-flow').style.display = 'none';
+    document.getElementById('order-success-view').style.display = 'block';
+    document.getElementById('checkout-step-badge').textContent = 'Order Confirmed';
+
+    const topBackBtn = document.getElementById('checkout-top-back-btn');
+    topBackBtn.href = 'shop.html';
+    topBackBtn.onclick = null;
+
+    window.location.hash = 'success';
+
+    // Fill Payment Details (Screenshot 4)
+    document.getElementById('success-greeting-text').textContent = `Hi ${order.fName.toLowerCase()} ${order.lName.toLowerCase()},`;
+    document.getElementById('pay-summary-method').textContent = order.paymentMethod;
+    document.getElementById('pay-summary-paybill').textContent = `Paybill: 522522 / Acc: ${order.ref}`;
+    document.getElementById('pay-summary-ref').textContent = order.ref;
+    document.getElementById('pay-summary-amt').textContent = `KES ${order.total.toLocaleString()}`;
+
+    // Fill E-Receipt Details
+    document.getElementById('receipt-ref-code').textContent = `#${order.ref}`;
+    document.getElementById('receipt-date-time').textContent = order.dateFormatted;
+    document.getElementById('receipt-customer-info').textContent = `${order.fName} ${order.lName} (${order.phone})`;
+    document.getElementById('receipt-delivery-info').textContent = order.fulfillmentType === 'delivery' 
+      ? `Delivery to Site (${order.city}, ${order.county})`
+      : `Factory Self-Collection (Thika Mill)`;
+
+    const tbody = document.getElementById('receipt-items-rows');
+    tbody.innerHTML = order.items.map(item => `
+      <tr>
+        <td><strong>${item.name}</strong><br><span style="font-size:12px;color:#64748b;">${item.variant}</span></td>
+        <td style="text-align:center;">${item.qty}</td>
+        <td class="num-col">KES ${item.price.toLocaleString()}</td>
+        <td class="num-col">KES ${(item.price * item.qty).toLocaleString()}</td>
+      </tr>
+    `).join('');
+
+    document.getElementById('receipt-subtotal-excl').textContent = `KES ${Number(order.subtotalExcl).toLocaleString()}`;
+    document.getElementById('receipt-weight-val').textContent = `${order.weight} kgs`;
+    document.getElementById('receipt-vat-val').textContent = `KES ${Number(order.vatVal).toLocaleString()}`;
+    document.getElementById('receipt-grand-total').textContent = `KES ${order.total.toLocaleString()}`;
+
+    const waBtn = document.getElementById('btn-success-wa');
+    if (waBtn) waBtn.href = order.waUrl;
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   // Handle URL hash on initial load
   document.addEventListener('DOMContentLoaded', () => {
     renderCheckoutSummary();
     const hash = window.location.hash;
+    if (hash === '#success') {
+      const saved = sessionStorage.getItem('kifaru_last_order');
+      if (saved) {
+        showOrderSuccessView(JSON.parse(saved));
+        return;
+      }
+    }
     if (hash === '#payment') {
       goToStep(3);
     } else if (hash === '#fulfillment') {

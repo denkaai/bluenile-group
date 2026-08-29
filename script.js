@@ -805,9 +805,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('cart-overlay')?.addEventListener('click', closeCartDrawer);
   document.getElementById('cart-close-btn')?.addEventListener('click', closeCartDrawer);
 
-  // WhatsApp order from drawer
-  document.getElementById('drawer-wa-btn')?.addEventListener('click', () => Cart.openWhatsApp());
-  document.getElementById('wa-order-btn')?.addEventListener('click', () => Cart.openWhatsApp());
+  // Drawer checkout and cart review buttons
+  document.getElementById('drawer-wa-btn')?.addEventListener('click', () => {
+    const items = Cart.get();
+    if (!items.length) {
+      alert('Your cart is empty. Please add items before proceeding.');
+      return;
+    }
+    closeCartDrawer();
+    window.location.href = 'checkout.html#customer-details-step';
+  });
+
+  document.getElementById('wa-order-btn')?.addEventListener('click', () => {
+    window.location.href = 'checkout.html#customer-details-step';
+  });
 
   // Cart view button
   document.getElementById('cart-view-btn')?.addEventListener('click', () => {
@@ -832,6 +843,19 @@ document.addEventListener('DOMContentLoaded', () => {
     Cart.add(prodId, label, price, qty);
     closeQuickView();
     openCartDrawer();
+  });
+
+  // Quick view direct proceed to checkout
+  document.getElementById('modal-checkout-btn')?.addEventListener('click', () => {
+    const modal = document.getElementById('quick-view-modal');
+    const prodId = parseInt(modal.dataset.productId);
+    const sel = modal.querySelector('.modal-variant-select');
+    const price = parseInt(sel.value);
+    const label = sel.options[sel.selectedIndex].dataset.label;
+    const qty = parseInt(modal.querySelector('.modal-qty-val').value) || 1;
+    Cart.add(prodId, label, price, qty);
+    closeQuickView();
+    window.location.href = 'checkout.html#customer-details-step';
   });
 
   // Modal qty buttons

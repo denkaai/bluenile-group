@@ -612,6 +612,8 @@ const Cart = {
     this.updateBadge();
     if (typeof renderCartDrawer === 'function') renderCartDrawer();
     if (typeof renderCartPage === 'function') renderCartPage();
+    if (typeof renderCartReviewPage === 'function') renderCartReviewPage();
+    if (typeof renderCheckoutSummary === 'function') renderCheckoutSummary();
   },
 
   add(productId, variantLabel, variantPrice, qty = 1) {
@@ -671,20 +673,7 @@ const Cart = {
       alert('Your cart is empty. Please add items before ordering.');
       return;
     }
-    const form = document.getElementById('bnDeliveryForm');
-    if (form) {
-      if (typeof closeCartDrawer === 'function') closeCartDrawer();
-      form.scrollIntoView({ behavior: 'smooth' });
-      const status = document.getElementById('bnStatus');
-      if (status) {
-        status.textContent = "Please fill in your Company & Contact details below to complete your order via WhatsApp.";
-        status.className = "bn-status bn-error";
-      }
-      const firstInput = document.getElementById('bnFirstName') || document.getElementById('bnCompany');
-      if (firstInput) firstInput.focus();
-    } else {
-      window.location.href = 'cart.html#checkout';
-    }
+    window.location.href = 'cart.html';
   }
 };
 

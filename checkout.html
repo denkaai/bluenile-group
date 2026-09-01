@@ -127,6 +127,11 @@
     <h1 class="co-page-title">Checkout</h1>
     <div class="co-grid">
 
+      <!-- INFO BANNER -->
+      <div style="grid-column: 1 / -1; background-color: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; text-align: center;">
+        Please click on complete order, and wait for the Purchase Order Invoice confirmation to ensure we receive your order information correctly.
+      </div>
+
       <!-- LEFT: BILLING DETAILS -->
       <div class="co-billing-card">
         <h2 class="co-section-heading">Billing Details</h2>
@@ -350,31 +355,60 @@
 
         <div class="co-payment-card">
           <h3 class="co-payment-title">Payment Method</h3>
-          <div style="display:flex; flex-direction:column; gap:10px;">
-            <label class="co-payment-option">
-              <input type="radio" name="co-payment" value="iPay" checked>
-              <div class="co-payment-option-body">
-                <div class="co-ipay-logo" style="margin-bottom:8px; display:flex; align-items:center; gap:8px;">
-                  <span style="background:#1d4ed8; color:#fff; padding:3px 8px; border-radius:4px; font-weight:bold; font-size:11px;">iPay</span>
-                  <i class="fa-solid fa-mobile-screen" style="color:#15803d; font-size:16px;" title="Safaricom M-Pesa / Airtel Money"></i>
-                  <i class="fa-solid fa-link" style="color:#f59e0b; font-size:16px;" title="Pesalink"></i>
-                  <i class="fa-solid fa-building-columns" style="color:#374151; font-size:16px;" title="Bank Transfer"></i>
-                </div>
-                <div class="co-payment-option-name">iPay (Secure Gateway)</div>
-                <div class="co-payment-option-desc">Pay with Mobile Money (Safaricom M-Pesa, Airtel Money), Pesalink, or Bank Transfer.</div>
-                <div class="co-payment-option-note">Please ensure you click use the correct reference and finalise the transaction on the payment screen to complete your order with us.</div>
-              </div>
-            </label>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:16px;">
+            <select id="co-payment-method" style="width:100%; padding:10px; border:1px solid #d1d5db; border-radius:4px; font-size:14px; color:#1f2937;" onchange="updatePaymentIcons()">
+              <option value="iPay">iPay (Secure Gateway)</option>
+              <option value="M-Pesa">Safaricom M-Pesa</option>
+              <option value="Airtel Money">Airtel Money</option>
+              <option value="Pesalink">Pesalink</option>
+              <option value="Bank Transfer">Bank Transfer</option>
+            </select>
           </div>
+          <div id="co-payment-icons" style="display:flex; gap:15px; font-size:24px; color:#374151; margin-bottom:12px; align-items:center;">
+            <span style="background:#1d4ed8; color:#fff; padding:3px 8px; border-radius:4px; font-weight:bold; font-size:12px;">iPay</span>
+            <i class="fa-solid fa-mobile-screen" style="color:#15803d;" title="M-Pesa / Airtel Money"></i>
+            <i class="fa-solid fa-link" style="color:#f59e0b;" title="Pesalink"></i>
+            <i class="fa-solid fa-building-columns" title="Bank Transfer"></i>
+          </div>
+          <div class="co-payment-option-note">Please ensure you click use the correct reference and finalise the transaction on the payment screen to complete your order with us.</div>
         </div>
 
         <div class="co-payment-card">
           <p class="co-privacy-notice">
-            Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="javascript:void(0)">privacy policy</a>.
+            Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
           </p>
+          
+          <!-- TERMS & CONDITIONS COLLAPSIBLE -->
+          <label class="co-collapsible-toggle" for="co-terms-view-chk" style="font-size:13px; margin-bottom:8px; display:inline-block; font-weight:600; color:#1d4ed8; cursor:pointer;">
+            <input type="checkbox" id="co-terms-view-chk" onchange="toggleCoSection('co-terms-body',this)" style="display:none;">
+            <i class="fa-solid fa-book-open"></i> Read Terms &amp; Conditions
+          </label>
+          <div class="co-collapsible-body" id="co-terms-body" style="background:#f9fafb; border:1px solid #e5e7eb; padding:12px; border-radius:4px; margin-bottom:16px; font-size:12px; color:#4b5563; max-height:250px; overflow-y:auto;">
+            <h4 style="margin-top:0; color:#1f2937;">TERMS &amp; CONDITIONS</h4>
+            <p style="font-weight:bold; margin-bottom:10px;">For Purchase Orders / Quotations – Blue Nile Rolling Mills Limited</p>
+            <p><strong>1. Quotation Validity:</strong> All quotations issued by Blue Nile Rolling Mills Limited shall remain valid for the period stated on the quotation. Prices and availability are subject to change after the expiry of the validity period.</p>
+            <p><strong>2. Order Confirmation:</strong> A purchase order shall only be considered confirmed upon written acceptance by Blue Nile Rolling Mills Limited and agreement on the applicable price, quantity, specifications and delivery arrangements.</p>
+            <p><strong>3. Prices &amp; Taxes:</strong> Prices shall be as stated in the quotation or proforma invoice. Unless expressly indicated as inclusive, applicable VAT and other statutory charges shall be added in accordance with Kenyan law.</p>
+            <p><strong>4. Product Specifications:</strong> All steel products shall be supplied according to the agreed grade, size, quantity and specifications stated in the purchase order or quotation.</p>
+            <p><strong>5. Quality &amp; Standards:</strong> Blue Nile Rolling Mills Limited shall supply products meeting the applicable Kenyan standards and the specifications agreed with the purchaser. Relevant quality certificates may be provided where applicable and requested.</p>
+            <p><strong>6. Payment Terms:</strong> Payment shall be made according to the terms stated in the quotation, proforma invoice or purchase order. Where an advance payment is required, production, allocation or dispatch may be subject to receipt of the agreed deposit.</p>
+            <p><strong>7. Delivery:</strong> Delivery shall be made to the agreed destination and within the agreed delivery period, subject to stock availability, production schedules and transport arrangements.</p>
+            <p><strong>8. Transport &amp; Off-Loading:</strong> Unless otherwise specified, transportation, loading, off-loading and related charges shall be borne by the party identified in the quotation or purchase order.</p>
+            <p><strong>9. Inspection &amp; Acceptance:</strong> The purchaser shall inspect the goods upon delivery and verify quantities, sizes and visible condition. Any discrepancy or visible damage should be reported promptly to Blue Nile Rolling Mills Limited.</p>
+            <p><strong>10. Shortages, Damage &amp; Non-Conforming Goods:</strong> Where a verified shortage, damage or material deviation from the agreed specification occurs, Blue Nile Rolling Mills Limited shall, where applicable, arrange an appropriate remedy such as replacement, adjustment or credit.</p>
+            <p><strong>11. Changes &amp; Cancellation:</strong> Any change or cancellation of a confirmed order must be agreed in writing. Where materials have already been produced, reserved or dispatched specifically for the order, reasonable costs incurred may be charged to the purchaser.</p>
+            <p><strong>12. Documentation:</strong> The supplier shall provide applicable commercial documents, including invoices and delivery notes, together with relevant tax documentation and product certificates where applicable.</p>
+            <p><strong>13. Payment Default:</strong> Where payment is not made within the agreed period, Blue Nile Rolling Mills Limited reserves the right to suspend delivery or further processing of the order until the outstanding amount is settled.</p>
+            <p><strong>14. Risk &amp; Title:</strong> Responsibility for the goods and transfer of ownership shall be governed by the payment and delivery terms stated in the applicable quotation, purchase order or invoice.</p>
+            <p><strong>15. Force Majeure:</strong> Neither party shall be liable for delays caused by circumstances beyond its reasonable control, including strikes, natural disasters, government restrictions, transport disruptions, shortages of raw materials or other unforeseen events.</p>
+            <p><strong>16. Dispute Resolution:</strong> Any dispute shall first be addressed through good-faith negotiations between the parties. If the matter cannot be resolved amicably, it shall be dealt with in accordance with the applicable laws of Kenya.</p>
+            <p><strong>17. Compliance with Kenyan Law:</strong> Both parties shall comply with all applicable Kenyan laws, taxation requirements, statutory requirements and relevant product standards.</p>
+            <p><strong>18. Acceptance of Terms:</strong> Acceptance of the quotation, issuance of a purchase order, payment of a deposit, or acceptance of delivery shall constitute acceptance of these Terms &amp; Conditions, unless otherwise agreed in writing.</p>
+          </div>
+
           <label class="co-terms-row">
             <input type="checkbox" id="co-terms-chk">
-            <span>I have read and agree to the website <a href="javascript:void(0)">terms and conditions</a> <span style="color:#dc2626;">*</span></span>
+            <span>I have read and agree to the website terms and conditions <span style="color:#dc2626;">*</span></span>
           </label>
           <label class="co-terms-row">
             <input type="checkbox" id="co-updates-chk">
@@ -579,14 +613,15 @@
     });
     msg += '\n*Subtotal (excl. VAT):* KES ' + subtotalExcl.toLocaleString() + '\n';
     msg += '*VAT (16%):* KES ' + vat.toLocaleString() + '\n';
+    var paymentMethod = document.getElementById('co-payment-method').value;
     msg += '*TOTAL:* KES ' + total.toLocaleString() + '\n';
-    msg += '*Payment:* iPay (Mobile Money / Pesalink / Card)\n';
+    msg += '*Payment:* ' + paymentMethod + '\n';
     msg += '====================================\nI confirm this order. Please confirm dispatch & payment.';
 
     var waUrl = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(msg);
 
     var orderSnap = {
-      ref: ref, fName: fName, lName: lName, company: company,
+      ref: ref, fName: fName, lName: lName, company: compName || '',
       phone: phone, email: email, address: fullAddress,
       city: city, county: county, notes: notes,
       total: total, vat: vat, subtotalExcl: subtotalExcl,
@@ -630,9 +665,32 @@
     var hash = window.location.hash;
     if (hash === '#success') {
       var saved = sessionStorage.getItem('kifaru_last_order');
-      if (saved) { showCoSuccessView(JSON.parse(saved)); }
+      if (saved) {
+        showCoSuccessView(JSON.parse(saved));
+      }
     }
+    updatePaymentIcons();
   });
+
+  function updatePaymentIcons() {
+    var val = document.getElementById('co-payment-method').value;
+    var icons = document.getElementById('co-payment-icons');
+    if (!icons) return;
+    if (val === 'iPay') {
+      icons.innerHTML = '<span style="background:#1d4ed8; color:#fff; padding:3px 8px; border-radius:4px; font-weight:bold; font-size:12px;">iPay</span>' +
+                        '<i class="fa-solid fa-mobile-screen" style="color:#15803d;" title="M-Pesa / Airtel Money"></i>' +
+                        '<i class="fa-solid fa-link" style="color:#f59e0b;" title="Pesalink"></i>' +
+                        '<i class="fa-solid fa-building-columns" title="Bank Transfer"></i>';
+    } else if (val === 'M-Pesa') {
+      icons.innerHTML = '<i class="fa-solid fa-mobile-screen" style="color:#25D366; font-size:32px;" title="M-Pesa"></i>';
+    } else if (val === 'Airtel Money') {
+      icons.innerHTML = '<i class="fa-solid fa-mobile-screen" style="color:#ef4444; font-size:32px;" title="Airtel Money"></i>';
+    } else if (val === 'Pesalink') {
+      icons.innerHTML = '<i class="fa-solid fa-link" style="color:#f59e0b; font-size:32px;" title="Pesalink"></i>';
+    } else if (val === 'Bank Transfer') {
+      icons.innerHTML = '<i class="fa-solid fa-building-columns" style="color:#374151; font-size:32px;" title="Bank Transfer"></i>';
+    }
+  }
 </script>
 </body>
 </html>

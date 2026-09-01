@@ -1040,7 +1040,7 @@ document.addEventListener('DOMContentLoaded', () => {
    BILLING & DELIVERY INFORMATION FORM LOGIC
    ========================================================= */
 (function () {
-  var WHATSAPP_NUMBER = "254755724090";
+  var WHATSAPP_NUMBER = "254755627028";
   var form = document.getElementById('bnDeliveryForm');
   if (!form) return;
 

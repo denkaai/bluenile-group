@@ -91,9 +91,12 @@
               </div>
             </div>
 
-            <p class="trading-terms-notice">
-              By entering your details you accept our <a href="javascript:void(0)" onclick="openTermsModal()">trading terms and conditions</a>.
-            </p>
+            <div class="trading-terms-notice" style="display:flex; gap:8px; align-items:flex-start; margin-top:15px;">
+              <input type="checkbox" id="acceptTerms" required style="margin-top:4px;">
+              <label for="acceptTerms" style="font-size:13px; color:var(--muted); line-height:1.4;">
+                I accept the <a href="javascript:void(0)" onclick="openTermsModal()" style="color:var(--primary); text-decoration:underline;">trading terms and conditions</a>.
+              </label>
+            </div>
           </form>
         </section>
 
@@ -186,11 +189,6 @@
                 <label for="checkoutAddress">Street Address / Site Location *</label>
                 <input type="text" id="checkoutAddress" placeholder="Building name, estate, plot number, or landmark">
               </div>
-
-              <div class="form-field-group">
-                <label for="checkoutNotes">Site Offloading / Delivery Instructions (Optional)</label>
-                <textarea id="checkoutNotes" rows="2" placeholder="e.g. Crane access required, deliver on Monday morning"></textarea>
-              </div>
             </div>
 
             <!-- Factory Pickup Details -->
@@ -219,45 +217,40 @@
 
           <form id="paymentForm" onsubmit="event.preventDefault(); submitFinalOrder();">
             <div class="payment-methods-grid">
-              
-              <!-- Lipa na M-Pesa Paybill (Selected by default) -->
-              <label class="payment-method-card selected" id="pay-card-mpesa" onclick="selectPayment('mpesa')">
+              <!-- iPay: Mobile Money -->
+              <label class="payment-method-card selected" id="pay-card-ipay" onclick="selectPayment('ipay')">
                 <div class="payment-card-left">
-                  <input type="radio" name="paymentOption" value="Lipa na M-Pesa Paybill" checked>
-                  <span class="payment-method-name">Lipa na M-Pesa Paybill</span>
+                  <input type="radio" name="paymentOption" value="iPay: Mobile Money" checked>
+                  <span class="payment-method-name">iPay: Mobile Money</span>
                 </div>
-                <span class="payment-badge-mpesa">M-PESA</span>
+                <span class="payment-badge-mpesa">M-PESA / AIRTEL</span>
               </label>
 
-              <!-- Credit or Debit Card -->
+              <!-- Pesalink -->
+              <label class="payment-method-card" id="pay-card-pesalink" onclick="selectPayment('pesalink')">
+                <div class="payment-card-left">
+                  <input type="radio" name="paymentOption" value="Pesalink">
+                  <span class="payment-method-name">Pesalink</span>
+                </div>
+                <i class="fa-solid fa-building-columns payment-badge-icon"></i>
+              </label>
+
+              <!-- Card Online -->
               <label class="payment-method-card" id="pay-card-card" onclick="selectPayment('card')">
                 <div class="payment-card-left">
-                  <input type="radio" name="paymentOption" value="Credit or Debit Card">
-                  <span class="payment-method-name">Credit or Debit Card</span>
+                  <input type="radio" name="paymentOption" value="Card Online">
+                  <span class="payment-method-name">Card Online</span>
                 </div>
                 <div class="payment-badge-cards">
                   <span>VISA</span>
                   <i class="fa-brands fa-cc-mastercard" style="color:#f59e0b; font-size:16px;"></i>
                 </div>
               </label>
+            </div>
 
-              <!-- Bank Transfer Payment -->
-              <label class="payment-method-card" id="pay-card-bank" onclick="selectPayment('bank')">
-                <div class="payment-card-left">
-                  <input type="radio" name="paymentOption" value="Bank Transfer Payment">
-                  <span class="payment-method-name">Bank Transfer Payment</span>
-                </div>
-                <i class="fa-solid fa-right-left payment-badge-icon"></i>
-              </label>
-
-              <!-- Bank Cash Deposit -->
-              <label class="payment-method-card" id="pay-card-cash" onclick="selectPayment('cash')">
-                <div class="payment-card-left">
-                  <input type="radio" name="paymentOption" value="Bank Cash Deposit">
-                  <span class="payment-method-name">Bank Cash Deposit</span>
-                </div>
-                <i class="fa-solid fa-building-columns payment-badge-icon"></i>
-              </label>
+            <div class="form-field-group" style="margin-top:20px;">
+              <label for="checkoutNotes">Order Notes (Optional)</label>
+              <textarea id="checkoutNotes" rows="2" placeholder="e.g. Special delivery instructions or notes for the team"></textarea>
             </div>
 
             <!-- Dynamic Payment Instructions Box -->
@@ -465,11 +458,9 @@
 
   </main>
 
-  <!-- MINIMAL CHECKOUT FOOTER (Screenshots 3, 4, 5) -->
   <footer class="checkout-bottom-footer">
     Need Help? Call or <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-left:4px;"></i> WhatsApp: 
-    <a href="https://wa.me/254755724090" target="_blank">(+254) 755 724 090</a> / 
-    <a href="tel:+254762270475">(+254) 762 270 475</a>
+    <a href="https://wa.me/254755627028" target="_blank">(+254) 755 627 028</a>
   </footer>
 
   <!-- CUSTOM VALIDATION MODAL ALERT (Screenshot 4) -->
@@ -491,7 +482,7 @@
   <script src="script.js"></script>
   <script>
   let currentStep = 1;
-  const WHATSAPP_PHONE = "254755724090";
+  const WHATSAPP_PHONE = "254755627028";
   let lastCompletedOrder = null;
 
   function getOrderRef() {
@@ -585,8 +576,13 @@
         }
       });
 
+      const terms = document.getElementById('acceptTerms');
+      if (terms && !terms.checked) {
+        isValid = false;
+      }
+
       if (!isValid) {
-        showCustomAlert("Please complete all required contact fields (*).");
+        showCustomAlert("Please complete all required contact fields (*) and accept the trading terms.");
         return;
       }
     } else if (step === 3) {
@@ -640,7 +636,7 @@
     } else if (step === 2) {
       actionBtn.innerHTML = `Proceed to Payment &rarr;`;
     } else if (step === 3) {
-      actionBtn.innerHTML = `Complete Order & Secure Stock &rarr;`;
+      actionBtn.innerHTML = `Place Order &rarr;`;
     }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -687,10 +683,9 @@
 
   function selectPayment(type) {
     const cards = {
-      mpesa: document.getElementById('pay-card-mpesa'),
-      card: document.getElementById('pay-card-card'),
-      bank: document.getElementById('pay-card-bank'),
-      cash: document.getElementById('pay-card-cash')
+      ipay: document.getElementById('pay-card-ipay'),
+      pesalink: document.getElementById('pay-card-pesalink'),
+      card: document.getElementById('pay-card-card')
     };
 
     Object.keys(cards).forEach(k => {
@@ -705,38 +700,20 @@
     const ref = getOrderRef();
     const total = Cart.total();
 
-    if (type === 'mpesa') {
+    if (type === 'ipay') {
       box.innerHTML = `
-        <strong><i class="fa-solid fa-mobile-screen" style="color:#15803d;"></i> Lipa na M-Pesa Instructions:</strong>
-        <ul>
-          <li>Go to M-PESA &gt; Lipa na M-PESA &gt; Paybill</li>
-          <li>Enter Business Number: <strong>522522</strong></li>
-          <li>Enter Account Number: <strong>${ref}</strong></li>
-          <li>Enter Total Amount: <strong>KES ${total.toLocaleString()}</strong></li>
-          <li>Enter your M-PESA PIN and submit.</li>
-        </ul>
-        <p style="margin-top:8px; font-size:12px; color:#64748b;">Submitting this order sends your reservation details to our WhatsApp sales desk for immediate allocation and receipt confirmation.</p>
+        <strong><i class="fa-solid fa-mobile-screen" style="color:#15803d;"></i> iPay: Mobile Money (M-Pesa/Airtel):</strong>
+        <p style="margin-top:6px;">You will be redirected to iPay to securely complete your mobile money payment. Please have your phone ready.</p>
+      `;
+    } else if (type === 'pesalink') {
+      box.innerHTML = `
+        <strong><i class="fa-solid fa-building-columns" style="color:#1e293b;"></i> Pesalink Transfer:</strong>
+        <p style="margin-top:6px;">You will be given our Pesalink details to send funds instantly from your mobile banking app.</p>
       `;
     } else if (type === 'card') {
       box.innerHTML = `
         <strong><i class="fa-solid fa-credit-card" style="color:#1e40af;"></i> Credit / Debit Card Payment:</strong>
-        <p style="margin-top:6px;">We accept Visa, Mastercard, and American Express. Once you complete the order, a secure 3D-Secure payment link will be sent to your WhatsApp and Email, or you can pay upon factory dispatch.</p>
-      `;
-    } else if (type === 'bank') {
-      box.innerHTML = `
-        <strong><i class="fa-solid fa-right-left" style="color:#1e293b;"></i> Bank Transfer / RTGS / EFT:</strong>
-        <ul>
-          <li><strong>Bank:</strong> Standard Chartered Bank / KCB Bank Kenya</li>
-          <li><strong>Account Name:</strong> Blue Nile Rolling Mills Limited</li>
-          <li><strong>Account Number:</strong> 0102094837200</li>
-          <li><strong>Branch:</strong> Thika Branch</li>
-          <li><strong>Payment Reference:</strong> ${ref}</li>
-        </ul>
-      `;
-    } else if (type === 'cash') {
-      box.innerHTML = `
-        <strong><i class="fa-solid fa-building-columns" style="color:#1e293b;"></i> Direct Bank Cash Deposit:</strong>
-        <p style="margin-top:6px;">Deposit funds at any KCB or Standard Chartered Bank branch countrywide using Account Reference <strong>${ref}</strong>. Present the deposit slip upon loading or forward via WhatsApp.</p>
+        <p style="margin-top:6px;">We accept Visa, Mastercard, and American Express. Secure 3D-Secure payment process.</p>
       `;
     }
   }
@@ -813,7 +790,7 @@
     const notes = document.getElementById('checkoutNotes').value.trim();
     const pickupDate = document.getElementById('checkoutPickupDate').value;
 
-    const paymentMethod = document.querySelector('input[name="paymentOption"]:checked')?.value || 'Lipa na M-Pesa Paybill';
+    const paymentMethod = document.querySelector('input[name="paymentOption"]:checked')?.value || 'iPay: Mobile Money';
 
     const total = Cart.total();
     const subtotalExcl = (total / 1.16).toFixed(2);
@@ -847,9 +824,6 @@
 
     msg += `*PAYMENT SELECTION:*\n`;
     msg += `• *Method:* ${paymentMethod}\n`;
-    if (paymentMethod.includes('M-Pesa')) {
-      msg += `• *Paybill:* 522522 | *Account:* ${ref}\n`;
-    }
     msg += `\n`;
 
     msg += `*ORDER ITEMS (${items.length}):*\n`;

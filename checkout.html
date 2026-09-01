@@ -1,933 +1,596 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout | Blue Nile Group — KIFARU™ Steel</title>
+  <title>Checkout | Blue Nile Group â€” KIFARUâ„¢ Steel</title>
+  <meta name="description" content="Secure checkout for KIFARUâ„¢ Steel and building materials.">
   <link rel="icon" href="assets/logo-2.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="checkout-page-wrap">
+<style>
+  .co-top-header{background:#fff;border-bottom:1px solid #e5e7eb;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06);}
+  .co-logo-wrap{display:flex;align-items:center;gap:12px;}
+  .co-back-btn{color:#6b7280;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;transition:background .2s;}
+  .co-back-btn:hover{background:#f3f4f6;}
+  .co-header-logo{height:40px;}
+  .co-secure-badge{font-size:12px;color:#6b7280;display:flex;align-items:center;gap:6px;}
+  .co-secure-badge i{color:#15803d;}
+  .co-main{max-width:1100px;margin:0 auto;padding:32px 20px 60px;}
+  .co-page-title{font-size:22px;font-weight:700;color:#111827;margin-bottom:24px;}
+  .co-grid{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:start;}
+  @media(max-width:860px){.co-grid{grid-template-columns:1fr;}.co-right-col{order:-1;}}
+  .co-billing-card{background:#fff;border-radius:10px;border:1px solid #e5e7eb;padding:28px 28px 32px;}
+  .co-section-heading{font-size:18px;font-weight:700;color:#111827;margin:0 0 22px;padding-bottom:14px;border-bottom:2px solid #e5e7eb;}
+  .co-form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .co-form-row.full{grid-template-columns:1fr;}
+  @media(max-width:540px){.co-form-row{grid-template-columns:1fr;}}
+  .co-field{display:flex;flex-direction:column;gap:5px;}
+  .co-field label{font-size:13px;font-weight:600;color:#374151;}
+  .co-field label .req{color:#dc2626;margin-left:2px;}
+  .co-field input,.co-field select,.co-field textarea{border:1px solid #d1d5db;border-radius:6px;padding:9px 12px;font-size:14px;color:#111827;background:#fff;outline:none;transition:border-color .2s,box-shadow .2s;width:100%;box-sizing:border-box;}
+  .co-field input:focus,.co-field select:focus,.co-field textarea:focus{border-color:#1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,.1);}
+  .co-field input::placeholder,.co-field textarea::placeholder{color:#9ca3af;}
+  .co-country-static{border:1px solid #d1d5db;border-radius:6px;padding:9px 12px;font-size:14px;color:#374151;background:#f9fafb;font-weight:600;}
+  .co-street2-input{border:1px solid #d1d5db;border-radius:6px;padding:9px 12px;font-size:14px;color:#111827;background:#fff;outline:none;width:100%;box-sizing:border-box;margin-top:8px;}
+  .co-street2-input:focus{border-color:#1d4ed8;box-shadow:0 0 0 3px rgba(29,78,216,.1);}
+  .co-collapsible-toggle{display:flex;align-items:center;gap:8px;cursor:pointer;margin-top:18px;font-size:13.5px;color:#111827;user-select:none;}
+  .co-collapsible-toggle input[type=checkbox]{width:16px;height:16px;accent-color:#1d4ed8;cursor:pointer;}
+  .co-collapsible-body{display:none;margin-top:16px;padding-top:16px;border-top:1px dashed #e5e7eb;}
+  .co-collapsible-body.open{display:block;}
+  .co-divider{border:none;border-top:1px solid #e5e7eb;margin:20px 0;}
+  .co-promos-row{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;color:#374151;}
+  .co-promos-row input[type=checkbox]{width:16px;height:16px;accent-color:#1d4ed8;}
+  .co-right-col{position:sticky;top:80px;}
+  .co-order-card{background:#fff;border-radius:10px;border:1px solid #e5e7eb;padding:24px;margin-bottom:20px;}
+  .co-order-card-title{font-size:17px;font-weight:700;color:#111827;margin:0 0 16px;padding-bottom:12px;border-bottom:2px solid #e5e7eb;}
+  .co-order-table{width:100%;border-collapse:collapse;}
+  .co-order-table th{text-align:left;font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;padding:0 0 10px;border-bottom:1px solid #e5e7eb;}
+  .co-order-table th:last-child{text-align:right;}
+  .co-order-table td{padding:12px 0;border-bottom:1px solid #f3f4f6;vertical-align:top;font-size:13.5px;}
+  .co-order-table td:last-child{text-align:right;font-weight:600;white-space:nowrap;}
+  .co-item-name{font-weight:600;color:#111827;display:block;margin-bottom:2px;}
+  .co-item-meta{font-size:12px;color:#6b7280;display:block;}
+  .co-item-qty{font-size:12px;color:#374151;background:#f3f4f6;padding:2px 7px;border-radius:4px;display:inline-block;margin-top:4px;}
+  .co-totals-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;font-size:14px;color:#374151;}
+  .co-totals-row.grand{font-size:17px;font-weight:700;color:#111827;padding-top:14px;border-top:2px solid #e5e7eb;margin-top:4px;}
+  .co-free{color:#15803d;font-weight:600;}
+  .co-totals-vat{font-size:11.5px;color:#6b7280;margin-left:4px;font-weight:400;}
+  .co-payment-card{background:#fff;border-radius:10px;border:1px solid #e5e7eb;padding:20px 24px 22px;margin-bottom:20px;}
+  .co-payment-title{font-size:15px;font-weight:700;color:#111827;margin:0 0 14px;}
+  .co-payment-option{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:2px solid #1d4ed8;border-radius:8px;background:#eff6ff;cursor:pointer;}
+  .co-payment-option input[type=radio]{margin-top:3px;accent-color:#1d4ed8;width:16px;height:16px;}
+  .co-payment-option-body{flex:1;}
+  .co-payment-option-name{font-weight:700;color:#1d4ed8;font-size:14px;}
+  .co-payment-option-desc{font-size:12.5px;color:#374151;margin-top:4px;line-height:1.5;}
+  .co-payment-option-note{font-size:11.5px;color:#6b7280;margin-top:6px;line-height:1.5;}
+  .co-ipay-logo{font-size:11px;background:#1d4ed8;color:#fff;padding:2px 7px;border-radius:4px;font-weight:700;margin-bottom:4px;display:inline-block;}
+  .co-privacy-notice{font-size:12px;color:#6b7280;line-height:1.6;margin:16px 0 12px;}
+  .co-privacy-notice a{color:#1d4ed8;}
+  .co-terms-row{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#374151;margin-bottom:10px;line-height:1.5;}
+  .co-terms-row input[type=checkbox]{width:16px;height:16px;margin-top:2px;accent-color:#1d4ed8;flex-shrink:0;}
+  .co-terms-row a{color:#1d4ed8;}
+  .co-place-order-btn{width:100%;padding:15px;background:#1d4ed8;color:#fff;font-size:16px;font-weight:700;border:none;border-radius:8px;cursor:pointer;letter-spacing:.03em;transition:background .2s,transform .1s,box-shadow .2s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:6px;}
+  .co-place-order-btn:hover{background:#1e40af;box-shadow:0 4px 18px rgba(29,78,216,.35);transform:translateY(-1px);}
+  .co-place-order-btn:active{transform:translateY(0);}
+  .co-secure-note{text-align:center;font-size:12px;color:#6b7280;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:5px;}
+  .co-secure-note i{color:#15803d;}
+  #co-success-view{display:none;}
+  .co-success-wrap{max-width:700px;margin:40px auto;padding:0 20px 60px;}
+  .co-success-banner{background:linear-gradient(135deg,#15803d,#16a34a);border-radius:12px;color:#fff;padding:32px 28px;text-align:center;margin-bottom:28px;}
+  .co-success-banner i{font-size:48px;margin-bottom:12px;}
+  .co-success-banner h2{font-size:24px;margin:0 0 8px;font-weight:700;}
+  .co-success-banner p{font-size:15px;opacity:.9;margin:0;}
+  .co-pay-instructions{background:#fff;border-radius:10px;border:1px solid #e5e7eb;padding:24px 28px;margin-bottom:24px;}
+  .co-pay-instructions h3{font-size:16px;font-weight:700;color:#111827;margin:0 0 16px;}
+  .co-pay-step{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f3f4f6;font-size:14px;color:#374151;}
+  .co-pay-step:last-child{border-bottom:none;}
+  .co-pay-step-num{width:26px;height:26px;border-radius:50%;background:#1d4ed8;color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .co-receipt{background:#fff;border-radius:10px;border:1px solid #e5e7eb;overflow:hidden;margin-bottom:24px;}
+  .co-receipt-header{background:#f8fafc;padding:16px 24px;border-bottom:1px solid #e5e7eb;}
+  .co-receipt-header h3{margin:0;font-size:15px;font-weight:700;color:#111827;}
+  .co-receipt-body{padding:20px 24px;}
+  .co-receipt-row{display:flex;justify-content:space-between;padding:7px 0;font-size:13.5px;color:#374151;border-bottom:1px solid #f3f4f6;}
+  .co-receipt-row:last-child{border-bottom:none;}
+  .co-receipt-row.total{font-weight:700;color:#111827;font-size:15px;padding-top:12px;}
+  .co-receipt-items table{width:100%;border-collapse:collapse;font-size:13px;}
+  .co-receipt-items th{text-align:left;font-size:11px;font-weight:700;color:#6b7280;text-transform:uppercase;padding:8px 0;border-bottom:1px solid #e5e7eb;}
+  .co-receipt-items td{padding:8px 0;border-bottom:1px solid #f9fafb;vertical-align:top;}
+  .co-receipt-items td:last-child,.co-receipt-items th:last-child{text-align:right;}
+  .co-success-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .co-success-actions a,.co-success-actions button{flex:1;min-width:160px;padding:13px;border-radius:8px;font-size:14px;font-weight:600;text-align:center;text-decoration:none;cursor:pointer;border:none;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .2s;}
+  .co-btn-wa{background:#25D366;color:#fff;}
+  .co-btn-shop{background:#f3f4f6;color:#374151;}
+  .co-btn-wa:hover,.co-btn-shop:hover{opacity:.9;}
+</style>
 
-  <!-- TOP MINIMAL CHECKOUT HEADER -->
-  <header class="checkout-top-header">
-    <div class="checkout-header-inner">
-      <div class="checkout-logo-link">
-        <a href="cart.html" class="checkout-back-link" id="checkout-top-back-btn" title="Back">
-          <i class="fa-solid fa-arrow-left"></i>
-        </a>
-        <a href="index.html">
-          <img src="assets/logo-2.png" alt="Blue Nile Group" class="checkout-header-logo">
-        </a>
+<!-- TOP HEADER -->
+<header class="co-top-header">
+  <div class="co-logo-wrap">
+    <a href="cart.html" class="co-back-btn" id="co-back-btn" title="Back to Cart">
+      <i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+    <a href="index.html">
+      <img src="assets/logo-2.png" alt="Blue Nile Group" class="co-header-logo">
+    </a>
+  </div>
+  <div class="co-secure-badge">
+    <i class="fa-solid fa-lock"></i> Secure Checkout
+  </div>
+</header>
+
+<!-- CHECKOUT FORM VIEW -->
+<div id="co-checkout-view">
+  <main class="co-main">
+    <h1 class="co-page-title">Checkout</h1>
+    <div class="co-grid">
+
+      <!-- LEFT: BILLING DETAILS -->
+      <div class="co-billing-card">
+        <h2 class="co-section-heading">Billing Details</h2>
+        <form id="co-billing-form" onsubmit="return false;">
+
+          <div class="co-form-row">
+            <div class="co-field">
+              <label for="co-first-name">First name <span class="req">*</span></label>
+              <input type="text" id="co-first-name" placeholder="e.g. John" required>
+            </div>
+            <div class="co-field">
+              <label for="co-last-name">Last name <span class="req">*</span></label>
+              <input type="text" id="co-last-name" placeholder="e.g. Kamau" required>
+            </div>
+          </div>
+
+          <div class="co-form-row full">
+            <div class="co-field">
+              <label for="co-company">Company name <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+              <input type="text" id="co-company" placeholder="e.g. Apex Contractors Ltd">
+            </div>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <label style="font-size:13px;font-weight:600;color:#374151;display:block;margin-bottom:5px;">Country / Region <span style="color:#dc2626;">*</span></label>
+            <div class="co-country-static"><i class="fa-solid fa-flag" style="color:#006600;margin-right:6px;"></i>Kenya</div>
+          </div>
+
+          <div style="margin-bottom:16px;">
+            <div class="co-field">
+              <label for="co-street">Street address <span class="req">*</span></label>
+              <input type="text" id="co-street" placeholder="House number and street name" required>
+            </div>
+            <input type="text" id="co-street2" class="co-street2-input" placeholder="Flat, suite, unit, etc. (optional)">
+          </div>
+
+          <div class="co-form-row full">
+            <div class="co-field">
+              <label for="co-city">Town / City <span class="req">*</span></label>
+              <input type="text" id="co-city" placeholder="e.g. Nairobi" required>
+            </div>
+          </div>
+
+          <div class="co-form-row full">
+            <div class="co-field">
+              <label for="co-county">State / County <span class="req">*</span></label>
+              <select id="co-county" required>
+                <option value="">Select an option&hellip;</option>
+                <option>Baringo</option><option>Bomet</option><option>Bungoma</option>
+                <option>Busia</option><option>Elgeyo-Marakwet</option><option>Embu</option>
+                <option>Garissa</option><option>Homa Bay</option><option>Isiolo</option>
+                <option>Kajiado</option><option>Kakamega</option><option>Kericho</option>
+                <option>Kiambu</option><option>Kilifi</option><option>Kirinyaga</option>
+                <option>Kisii</option><option>Kisumu</option><option>Kitui</option>
+                <option>Kwale</option><option>Laikipia</option><option>Lamu</option>
+                <option>Machakos</option><option>Makueni</option><option>Mandera</option>
+                <option>Marsabit</option><option>Meru</option><option>Migori</option>
+                <option>Mombasa</option><option>Murang'a</option><option selected>Nairobi County</option>
+                <option>Nakuru</option><option>Nandi</option><option>Narok</option>
+                <option>Nyamira</option><option>Nyandarua</option><option>Nyeri</option>
+                <option>Samburu</option><option>Siaya</option><option>Taita-Taveta</option>
+                <option>Tana River</option><option>Tharaka-Nithi</option><option>Trans Nzoia</option>
+                <option>Turkana</option><option>Uasin Gishu</option><option>Vihiga</option>
+                <option>Wajir</option><option>West Pokot</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="co-form-row">
+            <div class="co-field">
+              <label for="co-postcode">Postcode / ZIP <span class="req">*</span></label>
+              <input type="text" id="co-postcode" placeholder="e.g. 00100" required>
+            </div>
+            <div class="co-field">
+              <label for="co-phone">Phone <span class="req">*</span></label>
+              <input type="tel" id="co-phone" placeholder="e.g. 0755 627 028" required>
+            </div>
+          </div>
+
+          <div class="co-form-row full">
+            <div class="co-field">
+              <label for="co-email">Email address <span class="req">*</span></label>
+              <input type="email" id="co-email" placeholder="e.g. john@example.com" required>
+            </div>
+          </div>
+
+          <!-- Create account toggle -->
+          <label class="co-collapsible-toggle" for="co-create-account-chk">
+            <input type="checkbox" id="co-create-account-chk" onchange="toggleCoSection('co-create-account-body',this)">
+            Create an account?
+          </label>
+          <div class="co-collapsible-body" id="co-create-account-body">
+            <div class="co-field">
+              <label for="co-password">Create account password <span class="req">*</span></label>
+              <input type="password" id="co-password" placeholder="Choose a password">
+            </div>
+          </div>
+
+          <hr class="co-divider">
+
+          <!-- Deliver to different address toggle -->
+          <label class="co-collapsible-toggle" for="co-diff-address-chk">
+            <input type="checkbox" id="co-diff-address-chk" onchange="toggleCoSection('co-diff-address-body',this)">
+            Deliver to a different address?
+          </label>
+          <div class="co-collapsible-body" id="co-diff-address-body">
+            <div class="co-form-row">
+              <div class="co-field">
+                <label for="co-ship-first">First name <span class="req">*</span></label>
+                <input type="text" id="co-ship-first" placeholder="e.g. Jane">
+              </div>
+              <div class="co-field">
+                <label for="co-ship-last">Last name <span class="req">*</span></label>
+                <input type="text" id="co-ship-last" placeholder="e.g. Wanjiru">
+              </div>
+            </div>
+            <div class="co-form-row full" style="margin-top:16px;">
+              <div class="co-field">
+                <label for="co-ship-company">Company name <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+                <input type="text" id="co-ship-company" placeholder="Company name">
+              </div>
+            </div>
+            <div style="margin:16px 0;">
+              <label style="font-size:13px;font-weight:600;color:#374151;display:block;margin-bottom:5px;">Country / Region <span style="color:#dc2626;">*</span></label>
+              <div class="co-country-static"><i class="fa-solid fa-flag" style="color:#006600;margin-right:6px;"></i>Kenya</div>
+            </div>
+            <div style="margin-bottom:16px;">
+              <div class="co-field">
+                <label for="co-ship-street">Street address <span class="req">*</span></label>
+                <input type="text" id="co-ship-street" placeholder="House number and street name">
+              </div>
+              <input type="text" id="co-ship-street2" class="co-street2-input" placeholder="Flat, suite, unit, etc. (optional)">
+            </div>
+            <div class="co-form-row full">
+              <div class="co-field">
+                <label for="co-ship-city">Town / City <span class="req">*</span></label>
+                <input type="text" id="co-ship-city" placeholder="e.g. Mombasa">
+              </div>
+            </div>
+            <div class="co-form-row full" style="margin-top:16px;">
+              <div class="co-field">
+                <label for="co-ship-county">State / County <span class="req">*</span></label>
+                <select id="co-ship-county">
+                  <option value="">Select an option&hellip;</option>
+                  <option>Baringo</option><option>Bomet</option><option>Bungoma</option>
+                  <option>Busia</option><option>Elgeyo-Marakwet</option><option>Embu</option>
+                  <option>Garissa</option><option>Homa Bay</option><option>Isiolo</option>
+                  <option>Kajiado</option><option>Kakamega</option><option>Kericho</option>
+                  <option>Kiambu</option><option>Kilifi</option><option>Kirinyaga</option>
+                  <option>Kisii</option><option>Kisumu</option><option>Kitui</option>
+                  <option>Kwale</option><option>Laikipia</option><option>Lamu</option>
+                  <option>Machakos</option><option>Makueni</option><option>Mandera</option>
+                  <option>Marsabit</option><option>Meru</option><option>Migori</option>
+                  <option>Mombasa</option><option>Murang'a</option><option>Nairobi County</option>
+                  <option>Nakuru</option><option>Nandi</option><option>Narok</option>
+                  <option>Nyamira</option><option>Nyandarua</option><option>Nyeri</option>
+                  <option>Samburu</option><option>Siaya</option><option>Taita-Taveta</option>
+                  <option>Tana River</option><option>Tharaka-Nithi</option><option>Trans Nzoia</option>
+                  <option>Turkana</option><option>Uasin Gishu</option><option>Vihiga</option>
+                  <option>Wajir</option><option>West Pokot</option>
+                </select>
+              </div>
+            </div>
+            <div class="co-form-row full" style="margin-top:16px;">
+              <div class="co-field">
+                <label for="co-ship-postcode">Postcode / ZIP <span class="req">*</span></label>
+                <input type="text" id="co-ship-postcode" placeholder="e.g. 80100">
+              </div>
+            </div>
+          </div>
+
+          <hr class="co-divider">
+
+          <!-- Order Notes -->
+          <div class="co-field">
+            <label for="co-order-notes">Order notes <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+            <textarea id="co-order-notes" style="min-height:80px;resize:vertical;" placeholder="Notes about your order, e.g. special delivery instructions."></textarea>
+          </div>
+
+          <!-- Promos -->
+          <label class="co-promos-row">
+            <input type="checkbox" id="co-promos-chk">
+            Send me promos and product updates.
+          </label>
+
+        </form>
       </div>
-      <div class="checkout-step-badge" id="checkout-step-badge">
-        Step 1 of 3
-      </div>
-    </div>
-  </header>
 
-  <!-- MAIN CHECKOUT CONTENT (Steps 1, 2, 3) -->
-  <main class="checkout-main-content" id="checkout-main-flow">
-    <div class="checkout-grid">
-      
-      <!-- LEFT COLUMN: MULTI-STEP FORMS -->
-      <div class="checkout-form-card">
-        
-        <!-- STEP 1: CUSTOMER DETAILS (Screenshot 3 & 4) -->
-        <section id="step-1-view" class="checkout-step-view">
-          <h1 class="checkout-step-title">Please enter your details to secure your order.</h1>
-          <p class="checkout-step-subtitle">Complete contact information.</p>
+      <!-- RIGHT: ORDER SUMMARY + PAYMENT -->
+      <div class="co-right-col">
 
-          <form id="customerDetailsForm" onsubmit="event.preventDefault(); goToStep(2);">
-            <div class="form-grid-2">
-              <div class="form-field-group">
-                <label for="checkoutFirstName">First Name *</label>
-                <input type="text" id="checkoutFirstName" placeholder="e.g. Tiffany" required>
-              </div>
-              <div class="form-field-group">
-                <label for="checkoutLastName">Last Name *</label>
-                <input type="text" id="checkoutLastName" placeholder="e.g. Kiprono" required>
-              </div>
+        <div class="co-order-card">
+          <h2 class="co-order-card-title">Your Order</h2>
+          <table class="co-order-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th style="text-align:right;">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="co-order-items-body"></tbody>
+          </table>
+          <div style="margin-top:12px;">
+            <div class="co-totals-row">
+              <span>Subtotal</span>
+              <span id="co-subtotal-val">KES 0</span>
             </div>
-
-            <div class="form-grid-2">
-              <div class="form-field-group">
-                <label for="checkoutEmail">Email Address *</label>
-                <input type="email" id="checkoutEmail" placeholder="e.g. tiffany@gmail.com" required>
-              </div>
-              <div class="form-field-group">
-                <label for="checkoutPhone">Phone Number *</label>
-                <input type="tel" id="checkoutPhone" placeholder="e.g. 0782662542" required>
-              </div>
+            <div class="co-totals-row">
+              <span>Shipping</span>
+              <span class="co-free">Free shipping</span>
             </div>
-
-            <!-- Purchasing Choice -->
-            <div class="purchasing-choice-wrap">
-              <div class="purchasing-choice-title">Purchasing:</div>
-              <div class="radio-inline-group">
-                <label class="radio-choice-label">
-                  <input type="radio" name="purchasingType" value="individual" checked onchange="toggleBusinessFields(false)">
-                  <span>As An Individual</span>
-                </label>
-                <label class="radio-choice-label">
-                  <input type="radio" name="purchasingType" value="business" onchange="toggleBusinessFields(true)">
-                  <span>For A Business</span>
-                </label>
-              </div>
+            <div class="co-totals-row grand">
+              <span>Total</span>
+              <span>
+                <span id="co-total-val">KES 0</span>
+                <span class="co-totals-vat" id="co-vat-note"></span>
+              </span>
             </div>
+          </div>
+        </div>
 
-            <!-- Optional Business Fields -->
-            <div id="business-fields-wrap" style="display:none; margin-bottom:20px;">
-              <div class="form-grid-2">
-                <div class="form-field-group">
-                  <label for="checkoutCompany">Company / Business Name *</label>
-                  <input type="text" id="checkoutCompany" placeholder="e.g. Apex Contractors Ltd">
-                </div>
-                <div class="form-field-group">
-                  <label for="checkoutKraPin">Company KRA PIN (Optional)</label>
-                  <input type="text" id="checkoutKraPin" placeholder="P051234567Z">
-                </div>
-              </div>
+        <div class="co-payment-card">
+          <h3 class="co-payment-title">Payment Method</h3>
+          <label class="co-payment-option">
+            <input type="radio" name="co-payment" value="iPay" checked>
+            <div class="co-payment-option-body">
+              <div class="co-ipay-logo">iPay</div>
+              <div class="co-payment-option-name">iPay</div>
+              <div class="co-payment-option-desc">Pay with Mobile Money, Pesalink or Card Online.</div>
+              <div class="co-payment-option-note">Please ensure you click use the correct reference and finalise the transaction on the payment screen to complete your order with us.</div>
             </div>
+          </label>
+        </div>
 
-            <div class="trading-terms-notice" style="display:flex; gap:8px; align-items:flex-start; margin-top:15px;">
-              <input type="checkbox" id="acceptTerms" required style="margin-top:4px;">
-              <label for="acceptTerms" style="font-size:13px; color:var(--muted); line-height:1.4;">
-                I accept the <a href="javascript:void(0)" onclick="openTermsModal()" style="color:var(--primary); text-decoration:underline;">trading terms and conditions</a>.
-              </label>
-            </div>
-          </form>
-        </section>
-
-        <!-- STEP 2: DELIVERY / COLLECTION (FULFILLMENT) -->
-        <section id="step-2-view" class="checkout-step-view" style="display:none;">
-          <h1 class="checkout-step-title">How would you like to receive your order?</h1>
-          <p class="checkout-step-subtitle">Select your fulfillment method.</p>
-
-          <form id="fulfillmentForm" onsubmit="event.preventDefault(); goToStep(3);">
-            <div class="payment-methods-grid" style="margin-bottom:20px;">
-              <label class="payment-method-card selected" id="method-card-delivery" onclick="selectFulfillment('delivery')">
-                <div class="payment-card-left">
-                  <input type="radio" name="fulfillmentOption" value="delivery" checked>
-                  <span class="payment-method-name">Delivery to Site / Address</span>
-                </div>
-                <i class="fa-solid fa-truck-fast payment-badge-icon" style="color:#15803d;"></i>
-              </label>
-
-              <label class="payment-method-card" id="method-card-pickup" onclick="selectFulfillment('pickup')">
-                <div class="payment-card-left">
-                  <input type="radio" name="fulfillmentOption" value="pickup">
-                  <span class="payment-method-name">Factory Self Collection</span>
-                </div>
-                <i class="fa-solid fa-warehouse payment-badge-icon"></i>
-              </label>
-            </div>
-
-            <!-- Delivery Address Fields -->
-            <div id="fulfillment-delivery-fields">
-              <div class="form-grid-2">
-                <div class="form-field-group">
-                  <label for="checkoutCounty">State / County *</label>
-                  <select id="checkoutCounty">
-                    <option value="" disabled selected>Select county</option>
-                    <option value="Nairobi">Nairobi</option>
-                    <option value="Kiambu">Kiambu</option>
-                    <option value="Machakos">Machakos</option>
-                    <option value="Nakuru">Nakuru</option>
-                    <option value="Mombasa">Mombasa</option>
-                    <option value="Kisumu">Kisumu</option>
-                    <option value="Uasin Gishu">Uasin Gishu</option>
-                    <option value="Kajiado">Kajiado</option>
-                    <option value="Murang'a">Murang'a</option>
-                    <option value="Nyeri">Nyeri</option>
-                    <option value="Meru">Meru</option>
-                    <option value="Embu">Embu</option>
-                    <option value="Kilifi">Kilifi</option>
-                    <option value="Kwale">Kwale</option>
-                    <option value="Kakamega">Kakamega</option>
-                    <option value="Bungoma">Bungoma</option>
-                    <option value="Kisii">Kisii</option>
-                    <option value="Kericho">Kericho</option>
-                    <option value="Bomet">Bomet</option>
-                    <option value="Nyandarua">Nyandarua</option>
-                    <option value="Laikipia">Laikipia</option>
-                    <option value="Trans Nzoia">Trans Nzoia</option>
-                    <option value="Nandi">Nandi</option>
-                    <option value="Homa Bay">Homa Bay</option>
-                    <option value="Migori">Migori</option>
-                    <option value="Siaya">Siaya</option>
-                    <option value="Kitui">Kitui</option>
-                    <option value="Makueni">Makueni</option>
-                    <option value="Garissa">Garissa</option>
-                    <option value="Isiolo">Isiolo</option>
-                    <option value="Marsabit">Marsabit</option>
-                    <option value="Turkana">Turkana</option>
-                    <option value="Samburu">Samburu</option>
-                    <option value="Baringo">Baringo</option>
-                    <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
-                    <option value="West Pokot">West Pokot</option>
-                    <option value="Vihiga">Vihiga</option>
-                    <option value="Busia">Busia</option>
-                    <option value="Nyamira">Nyamira</option>
-                    <option value="Narok">Narok</option>
-                    <option value="Taita-Taveta">Taita-Taveta</option>
-                    <option value="Tana River">Tana River</option>
-                    <option value="Lamu">Lamu</option>
-                    <option value="Tharaka-Nithi">Tharaka-Nithi</option>
-                    <option value="Wajir">Wajir</option>
-                    <option value="Mandera">Mandera</option>
-                  </select>
-                </div>
-                <div class="form-field-group">
-                  <label for="checkoutCity">Town / City *</label>
-                  <input type="text" id="checkoutCity" placeholder="e.g. Thika / Westlands / Ruiru">
-                </div>
-              </div>
-
-              <div class="form-field-group">
-                <label for="checkoutAddress">Street Address / Site Location *</label>
-                <input type="text" id="checkoutAddress" placeholder="Building name, estate, plot number, or landmark">
-              </div>
-            </div>
-
-            <!-- Factory Pickup Details -->
-            <div id="fulfillment-pickup-fields" style="display:none;">
-              <div class="payment-instructions-box">
-                <strong><i class="fa-solid fa-location-dot" style="color:#15803d;"></i> Free Factory Collection Location:</strong>
-                <p style="margin-top:4px;">Blue Nile Rolling Mills Ltd — Factory / Main Mill, Thika, Kenya.<br>Alternative Depot: Nairobi Industrial Area Dispatch Office.</p>
-                <p style="margin-top:8px; font-size:12.5px; color:#64748b;">Materials will be tagged with your Order Reference Number upon confirmation.</p>
-              </div>
-              <div class="form-field-group">
-                <label for="checkoutPickupDate">Preferred Pickup Date</label>
-                <input type="date" id="checkoutPickupDate">
-              </div>
-            </div>
-
-            <button type="button" class="back-to-step-link" onclick="goToStep(1)">
-              &larr; Back to Customer Details
-            </button>
-          </form>
-        </section>
-
-        <!-- STEP 3: PAYMENT (Screenshot 3 / 5) -->
-        <section id="step-3-view" class="checkout-step-view" style="display:none;">
-          <h1 class="checkout-step-title">How would you like to pay?</h1>
-          <p class="checkout-step-subtitle">Choose a payment option to proceed.</p>
-
-          <form id="paymentForm" onsubmit="event.preventDefault(); submitFinalOrder();">
-            <div class="payment-methods-grid">
-              <!-- iPay: Mobile Money -->
-              <label class="payment-method-card selected" id="pay-card-ipay" onclick="selectPayment('ipay')">
-                <div class="payment-card-left">
-                  <input type="radio" name="paymentOption" value="iPay: Mobile Money" checked>
-                  <span class="payment-method-name">iPay: Mobile Money</span>
-                </div>
-                <span class="payment-badge-mpesa">M-PESA / AIRTEL</span>
-              </label>
-
-              <!-- Pesalink -->
-              <label class="payment-method-card" id="pay-card-pesalink" onclick="selectPayment('pesalink')">
-                <div class="payment-card-left">
-                  <input type="radio" name="paymentOption" value="Pesalink">
-                  <span class="payment-method-name">Pesalink</span>
-                </div>
-                <i class="fa-solid fa-building-columns payment-badge-icon"></i>
-              </label>
-
-              <!-- Card Online -->
-              <label class="payment-method-card" id="pay-card-card" onclick="selectPayment('card')">
-                <div class="payment-card-left">
-                  <input type="radio" name="paymentOption" value="Card Online">
-                  <span class="payment-method-name">Card Online</span>
-                </div>
-                <div class="payment-badge-cards">
-                  <span>VISA</span>
-                  <i class="fa-brands fa-cc-mastercard" style="color:#f59e0b; font-size:16px;"></i>
-                </div>
-              </label>
-            </div>
-
-            <div class="form-field-group" style="margin-top:20px;">
-              <label for="checkoutNotes">Order Notes (Optional)</label>
-              <textarea id="checkoutNotes" rows="2" placeholder="e.g. Special delivery instructions or notes for the team"></textarea>
-            </div>
-
-            <!-- Dynamic Payment Instructions Box -->
-            <div class="payment-instructions-box" id="payment-details-box">
-              <strong><i class="fa-solid fa-mobile-screen" style="color:#15803d;"></i> Lipa na M-Pesa Instructions:</strong>
-              <ul>
-                <li>Go to M-PESA &gt; Lipa na M-PESA &gt; Paybill</li>
-                <li>Enter Business Number: <strong>522522</strong></li>
-                <li>Enter Account Number: <strong id="mpesa-acc-num">4954047LVA</strong></li>
-                <li>Enter Total Amount: <strong id="mpesa-amount-val">KES 0</strong></li>
-                <li>Enter your M-PESA PIN and submit.</li>
-              </ul>
-              <p style="margin-top:8px; font-size:12px; color:#64748b;">Submitting this order sends your reservation details to our WhatsApp sales desk for immediate allocation and receipt confirmation.</p>
-            </div>
-
-            <div class="coupon-toggle-wrap" style="margin-top:0; border-top:none; padding-top:0;">
-              <button type="button" class="coupon-toggle-btn" onclick="toggleCouponInput()">
-                <span>Apply Coupon Code</span>
-                <i class="fa-solid fa-chevron-down" style="font-size:11px;"></i>
-              </button>
-              <div class="coupon-input-box" id="coupon-input-box">
-                <input type="text" placeholder="Enter coupon code" id="checkout-coupon-val">
-                <button type="button" onclick="applyCheckoutCoupon()">Apply</button>
-              </div>
-            </div>
-
-            <button type="button" class="back-to-step-link" onclick="goToStep(2)">
-              &larr; Back to Fulfillment
-            </button>
-          </form>
-        </section>
+        <div class="co-payment-card">
+          <p class="co-privacy-notice">
+            Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="javascript:void(0)">privacy policy</a>.
+          </p>
+          <label class="co-terms-row">
+            <input type="checkbox" id="co-terms-chk">
+            <span>I have read and agree to the website <a href="javascript:void(0)">terms and conditions</a> <span style="color:#dc2626;">*</span></span>
+          </label>
+          <label class="co-terms-row">
+            <input type="checkbox" id="co-updates-chk">
+            <span>I want to receive updates about products and promotions.</span>
+          </label>
+          <button class="co-place-order-btn" id="co-place-order-btn" onclick="placeCoOrder()">
+            <i class="fa-solid fa-lock"></i> PLACE ORDER
+          </button>
+          <div class="co-secure-note">
+            <i class="fa-solid fa-shield-halved"></i> Shopping with Blue Nile Group is Safe &amp; Secure
+          </div>
+        </div>
 
       </div>
-
-      <!-- RIGHT COLUMN: ORDER SUMMARY SIDEBAR (Screenshots 3 & 5) -->
-      <aside class="order-summary-card" id="checkout-sidebar-card">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-          <h3 style="margin-bottom:0;">Order Summary</h3>
-          <span style="font-size:12px; color:#64748b; font-weight:600;" id="sidebar-ref-tag">Ref: 4954047LVA</span>
-        </div>
-
-        <div class="summary-detail-row">
-          <span class="summary-label">Subtotal (excl.vat)</span>
-          <span class="summary-val" id="checkout-subtotal-excl">KES 0.00</span>
-        </div>
-
-        <div class="summary-detail-row">
-          <span class="summary-label">Weight:</span>
-          <span class="summary-val" id="checkout-weight-val">2 kgs</span>
-        </div>
-
-        <div class="summary-detail-row total-row">
-          <span class="summary-label">Total (incl. VAT)</span>
-          <span class="summary-val" id="checkout-total-val">KES 0</span>
-        </div>
-
-        <!-- Dynamic Action Button depending on current step -->
-        <button type="button" class="btn-proceed-green" id="checkout-action-btn" onclick="handlePrimaryAction()">
-          Proceed to Delivery / Collection &rarr;
-        </button>
-
-        <div class="security-badge-note">
-          <span class="lock-icon">&#128274;</span> Shopping Online with Blue Nile Group is Safe and Secure
-        </div>
-      </aside>
-
     </div>
   </main>
+</div>
 
-  <!-- STEP 4: ORDER CONFIRMED & E-RECEIPT PAGE (Screenshot 4) -->
-  <main class="success-container" id="order-success-view" style="display:none;">
-    
-    <!-- Hero Banner -->
-    <div class="success-hero-header">
-      <div class="success-check-badge">
-        <i class="fa-solid fa-check"></i>
-      </div>
-      <h1 class="success-hero-title">Complete your purchase and secure your stock</h1>
+<!-- ORDER SUCCESS VIEW -->
+<div id="co-success-view">
+  <div class="co-success-wrap">
+    <div class="co-success-banner">
+      <i class="fa-solid fa-circle-check"></i>
+      <h2>Order Reserved &mdash; Thank You!</h2>
+      <p id="co-success-greeting">Your order has been received and stock is being allocated.</p>
     </div>
-
-    <div class="success-greeting" id="success-greeting-text">Hi Tiffany Kiprono,</div>
-    <div class="success-greeting-sub">To secure your order, complete your payment.</div>
-
-    <!-- Payment Details Box (Screenshot 4) -->
-    <div class="payment-details-card">
-      <div class="payment-details-card-title">Payment Details</div>
-      <table class="payment-table">
-        <tbody>
-          <tr>
-            <td class="label-col">M-Pesa:</td>
-            <td class="val-col" id="pay-summary-method">Lipa na M-Pesa (Buy Goods / Paybill)</td>
-          </tr>
-          <tr>
-            <td class="label-col">Account Name:</td>
-            <td class="val-col">Blue Nile Webstore / Buy Goods</td>
-          </tr>
-          <tr>
-            <td class="label-col">Account / Paybill:</td>
-            <td class="val-col">
-              <span id="pay-summary-paybill">Paybill: 522522 / Acc: 7887821VYG</span>
-              <button type="button" class="btn-copy-tag" onclick="copyText('522522', this)"><i class="fa-regular fa-copy"></i> Copy</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="label-col">Reference:</td>
-            <td class="val-col">
-              <span id="pay-summary-ref">7887821VYG</span>
-              <button type="button" class="btn-copy-tag" onclick="copyText(document.getElementById('pay-summary-ref').textContent, this)"><i class="fa-regular fa-copy"></i> Copy</button>
-            </td>
-          </tr>
-          <tr>
-            <td class="label-col">Amount:</td>
-            <td class="val-col">
-              <span id="pay-summary-amt">KES 2,350</span>
-              <button type="button" class="btn-copy-tag" onclick="copyText(document.getElementById('pay-summary-amt').textContent.replace(/[^0-9]/g,''), this)"><i class="fa-regular fa-copy"></i> Copy</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Official Blue Nile E-Receipt Card (Screenshot 4) -->
-    <div class="ereceipt-card" id="ereceipt-printable">
-      <div class="ereceipt-header-banner">
-        <div class="ereceipt-header-title">
-          <i class="fa-solid fa-lock" style="color:#f59e0b; font-size:16px;"></i> Official Blue Nile E-Receipt
-        </div>
-        <div class="ereceipt-header-sub">
-          Verified electronic receipt issued by Blue Nile Rolling Mills Ltd. Includes official merchant reference and KEBS certification.
-        </div>
+    <div class="co-pay-instructions">
+      <h3><i class="fa-solid fa-mobile-screen-button" style="color:#1d4ed8;margin-right:6px;"></i> Complete Your Payment</h3>
+      <div class="co-pay-step">
+        <div class="co-pay-step-num">1</div>
+        <div>Go to M-Pesa &rarr; Lipa na M-Pesa &rarr; Paybill. Enter <strong>Paybill: 522522</strong></div>
       </div>
-
-      <div class="ereceipt-body">
-        <div class="ereceipt-meta-grid">
-          <div class="ereceipt-meta-item">
-            <span class="ereceipt-meta-label">Order Reference:</span>
-            <span class="ereceipt-meta-val" id="receipt-ref-code">#7887821VYG</span>
-          </div>
-          <div class="ereceipt-meta-item">
-            <span class="ereceipt-meta-label">Issued Date & Time:</span>
-            <span class="ereceipt-meta-val" id="receipt-date-time">30 Aug 2026, 00:05</span>
-          </div>
-          <div class="ereceipt-meta-item">
-            <span class="ereceipt-meta-label">Customer Name & Phone:</span>
-            <span class="ereceipt-meta-val" id="receipt-customer-info">Tiffany Kiprono (0782662542)</span>
-          </div>
-          <div class="ereceipt-meta-item">
-            <span class="ereceipt-meta-label">Fulfillment / Site:</span>
-            <span class="ereceipt-meta-val" id="receipt-delivery-info">Delivery to Site (Nairobi)</span>
-          </div>
-        </div>
-
-        <table class="ereceipt-items-table">
-          <thead>
-            <tr>
-              <th>Item Description</th>
-              <th style="text-align:center;">Qty</th>
-              <th style="text-align:right;">Unit Price</th>
-              <th style="text-align:right;">Subtotal</th>
-            </tr>
-          </thead>
-          <tbody id="receipt-items-rows">
-            <!-- Rendered by JS -->
-          </tbody>
-        </table>
-
-        <div class="ereceipt-totals-block">
-          <div class="ereceipt-total-row">
-            <span>Subtotal (excl. VAT):</span>
-            <span id="receipt-subtotal-excl">KES 2,026.10</span>
-          </div>
-          <div class="ereceipt-total-row">
-            <span>Estimated Weight:</span>
-            <span id="receipt-weight-val">2 kgs</span>
-          </div>
-          <div class="ereceipt-total-row">
-            <span>VAT (16% Statutory):</span>
-            <span id="receipt-vat-val">KES 323.90</span>
-          </div>
-          <div class="ereceipt-total-row grand-total">
-            <span>Total Amount (incl. VAT):</span>
-            <span id="receipt-grand-total">KES 2,350</span>
-          </div>
-        </div>
+      <div class="co-pay-step">
+        <div class="co-pay-step-num">2</div>
+        <div>Enter Account Number: <strong id="co-pay-ref-display">&mdash;</strong></div>
       </div>
-
-      <div class="ereceipt-seal-footer">
-        <div><i class="fa-solid fa-certificate" style="color:#15803d;"></i> KEBS BS 4449 Standard Certified — Direct from the Mill</div>
-        <div>Blue Nile Rolling Mills Ltd &copy; 2026</div>
+      <div class="co-pay-step">
+        <div class="co-pay-step-num">3</div>
+        <div>Enter Amount: <strong id="co-pay-amount-display">&mdash;</strong></div>
+      </div>
+      <div class="co-pay-step">
+        <div class="co-pay-step-num">4</div>
+        <div>Enter your M-Pesa PIN and confirm. Our team will contact you to arrange dispatch.</div>
       </div>
     </div>
-
-    <!-- Action Buttons -->
-    <div class="ereceipt-actions-row">
-      <a href="javascript:void(0)" class="btn-proceed-green" id="btn-success-wa" style="width:auto; padding:14px 28px; font-size:15px;" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i> Chat / Confirm with Sales Desk on WhatsApp
+    <div class="co-receipt">
+      <div class="co-receipt-header">
+        <h3><i class="fa-solid fa-receipt" style="margin-right:6px;color:#6b7280;"></i> Order Receipt &mdash; Ref: <span id="co-receipt-ref">&mdash;</span></h3>
+      </div>
+      <div class="co-receipt-body">
+        <div class="co-receipt-row"><span>Date / Time</span><span id="co-receipt-date">&mdash;</span></div>
+        <div class="co-receipt-row"><span>Customer</span><span id="co-receipt-customer">&mdash;</span></div>
+        <div class="co-receipt-row"><span>Delivery Address</span><span id="co-receipt-delivery">&mdash;</span></div>
+        <div class="co-receipt-row"><span>Payment Method</span><span>iPay (Mobile Money / Card)</span></div>
+        <div style="margin-top:14px;" class="co-receipt-items">
+          <table>
+            <thead><tr><th>Item</th><th>Qty</th><th>Unit</th><th>Subtotal</th></tr></thead>
+            <tbody id="co-receipt-items-body"></tbody>
+          </table>
+        </div>
+        <div class="co-receipt-row" style="margin-top:10px;"><span>Subtotal (excl. VAT)</span><span id="co-receipt-subtotal">&mdash;</span></div>
+        <div class="co-receipt-row"><span>VAT (16%)</span><span id="co-receipt-vat">&mdash;</span></div>
+        <div class="co-receipt-row total"><span>TOTAL</span><span id="co-receipt-total">&mdash;</span></div>
+      </div>
+    </div>
+    <div class="co-success-actions">
+      <a href="#" id="co-wa-btn" class="co-btn-wa" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Confirm via WhatsApp
       </a>
-      <button type="button" class="btn-receipt-action" onclick="window.print()">
-        <i class="fa-solid fa-print"></i> Print E-Receipt
-      </button>
-      <a href="shop.html" class="btn-receipt-action">
+      <a href="shop.html" class="co-btn-shop">
         <i class="fa-solid fa-store"></i> Continue Shopping
       </a>
     </div>
-
-  </main>
-
-  <footer class="checkout-bottom-footer">
-    Need Help? Call or <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-left:4px;"></i> WhatsApp: 
-    <a href="https://wa.me/254755627028" target="_blank">(+254) 755 627 028</a>
-  </footer>
-
-  <!-- CUSTOM VALIDATION MODAL ALERT (Screenshot 4) -->
-  <div class="custom-alert-overlay" id="customAlertModal">
-    <div class="custom-alert-dialog">
-      <div class="custom-alert-site">bluenile-group says</div>
-      <div class="custom-alert-message" id="customAlertMsg">Please complete all required contact fields (*).</div>
-      <div class="custom-alert-actions">
-        <button class="custom-alert-ok-btn" onclick="closeCustomAlert()">OK</button>
-      </div>
-    </div>
   </div>
+</div>
 
-  <!-- TOAST NOTIFICATION -->
-  <div class="copy-toast" id="copyToast">
-    <i class="fa-solid fa-check"></i> Copied to clipboard!
-  </div>
+<script src="script.js"></script>
+<script>
+  var WHATSAPP_PHONE = '254755627028';
 
-  <script src="script.js"></script>
-  <script>
-  let currentStep = 1;
-  const WHATSAPP_PHONE = "254755627028";
-  let lastCompletedOrder = null;
-
-  function getOrderRef() {
-    let ref = sessionStorage.getItem('kifaru_order_ref');
+  function getCoOrderRef() {
+    var ref = sessionStorage.getItem('kifaru_order_ref');
     if (!ref) {
-      const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       ref = '';
-      for (let i = 0; i < 7; i++) {
-        ref += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      ref += 'VYG';
+      for (var i = 0; i < 7; i++) ref += chars.charAt(Math.floor(Math.random() * chars.length));
+      ref += 'LVA';
       sessionStorage.setItem('kifaru_order_ref', ref);
     }
     return ref;
   }
 
-  function calculateEstimatedWeight(items) {
-    let totalWeight = 0;
-    items.forEach(item => {
-      const nameLower = (item.name || '').toLowerCase();
-      const varLower = (item.variant || '').toLowerCase();
-      let unitWeight = 2;
-      if (nameLower.includes('tmt') || nameLower.includes('bar') || nameLower.includes('round')) {
-        if (varLower.includes('d8') || varLower.includes('6mm') || varLower.includes('8mm')) unitWeight = 4.74;
-        else if (varLower.includes('d10') || varLower.includes('10mm')) unitWeight = 7.40;
-        else if (varLower.includes('d12') || varLower.includes('12mm')) unitWeight = 10.65;
-        else if (varLower.includes('d16') || varLower.includes('16mm')) unitWeight = 18.96;
-        else if (varLower.includes('d20') || varLower.includes('20mm')) unitWeight = 29.60;
-        else unitWeight = 15;
-      } else if (nameLower.includes('cement')) {
-        unitWeight = 50;
-      } else if (nameLower.includes('mesh') || nameLower.includes('brc')) {
-        unitWeight = 18;
-      } else if (nameLower.includes('chain link') || nameLower.includes('wire')) {
-        unitWeight = 25;
-      } else if (nameLower.includes('nail')) {
-        if (varLower.includes('25kg')) unitWeight = 25;
-        else if (varLower.includes('50kg')) unitWeight = 50;
-        else unitWeight = 1;
-      } else if (nameLower.includes('tank')) {
-        unitWeight = 45;
-      } else if (nameLower.includes('tile')) {
-        unitWeight = 15;
-      }
-      totalWeight += unitWeight * item.qty;
-    });
-    return Math.round(totalWeight) || 2;
+  function calcVAT(total) { return Math.round(total - total / 1.16); }
+
+  function toggleCoSection(id, chk) {
+    var el = document.getElementById(id);
+    if (el) el.classList.toggle('open', chk.checked);
   }
 
-  function renderCheckoutSummary() {
-    const items = Cart.get();
-    const ref = getOrderRef();
-    const total = Cart.total();
-    const subtotalExcl = (total / 1.16).toFixed(2);
-    const weight = calculateEstimatedWeight(items);
-
-    const refTag = document.getElementById('sidebar-ref-tag');
-    if (refTag) refTag.textContent = `Ref: ${ref}`;
-    
-    const mpesaAcc = document.getElementById('mpesa-acc-num');
-    if (mpesaAcc) mpesaAcc.textContent = ref;
-    
-    const mpesaAmt = document.getElementById('mpesa-amount-val');
-    if (mpesaAmt) mpesaAmt.textContent = `KES ${total.toLocaleString()}`;
-
-    const subEl = document.getElementById('checkout-subtotal-excl');
-    if (subEl) subEl.textContent = `KES ${Number(subtotalExcl).toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
-    
-    const wEl = document.getElementById('checkout-weight-val');
-    if (wEl) wEl.textContent = `${weight} kgs`;
-    
-    const totEl = document.getElementById('checkout-total-val');
-    if (totEl) totEl.textContent = `KES ${total.toLocaleString()}`;
-  }
-
-  function goToStep(step) {
-    if (step === 2) {
-      // Validate Step 1
-      const fName = document.getElementById('checkoutFirstName');
-      const lName = document.getElementById('checkoutLastName');
-      const email = document.getElementById('checkoutEmail');
-      const phone = document.getElementById('checkoutPhone');
-
-      let isValid = true;
-      [fName, lName, email, phone].forEach(input => {
-        if (!input.value.trim()) {
-          input.classList.add('field-error');
-          isValid = false;
-        } else {
-          input.classList.remove('field-error');
-        }
-      });
-
-      const terms = document.getElementById('acceptTerms');
-      if (terms && !terms.checked) {
-        isValid = false;
-      }
-
-      if (!isValid) {
-        showCustomAlert("Please complete all required contact fields (*) and accept the trading terms.");
-        return;
-      }
-    } else if (step === 3) {
-      // Validate Step 2 if Delivery selected
-      const fulfillmentType = document.querySelector('input[name="fulfillmentOption"]:checked')?.value || 'delivery';
-      if (fulfillmentType === 'delivery') {
-        const county = document.getElementById('checkoutCounty');
-        const city = document.getElementById('checkoutCity');
-        const addr = document.getElementById('checkoutAddress');
-
-        let isValid = true;
-        if (!county.value) { county.classList.add('field-error'); isValid = false; } else { county.classList.remove('field-error'); }
-        if (!city.value.trim()) { city.classList.add('field-error'); isValid = false; } else { city.classList.remove('field-error'); }
-        if (!addr.value.trim()) { addr.classList.add('field-error'); isValid = false; } else { addr.classList.remove('field-error'); }
-
-        if (!isValid) {
-          showCustomAlert("Please enter your delivery County, City, and Street Address (*).");
-          return;
-        }
-      }
-    }
-
-    currentStep = step;
-    document.getElementById('checkout-main-flow').style.display = 'block';
-    document.getElementById('order-success-view').style.display = 'none';
-
-    document.getElementById('step-1-view').style.display = step === 1 ? 'block' : 'none';
-    document.getElementById('step-2-view').style.display = step === 2 ? 'block' : 'none';
-    document.getElementById('step-3-view').style.display = step === 3 ? 'block' : 'none';
-
-    document.getElementById('checkout-step-badge').textContent = `Step ${step} of 3`;
-
-    const topBackBtn = document.getElementById('checkout-top-back-btn');
-    if (step === 1) {
-      topBackBtn.href = 'cart.html';
-      topBackBtn.onclick = null;
-      window.location.hash = 'customer-details-step';
-    } else if (step === 2) {
-      topBackBtn.href = 'javascript:void(0)';
-      topBackBtn.onclick = () => goToStep(1);
-      window.location.hash = 'fulfillment';
-    } else if (step === 3) {
-      topBackBtn.href = 'javascript:void(0)';
-      topBackBtn.onclick = () => goToStep(2);
-      window.location.hash = 'payment';
-    }
-
-    const actionBtn = document.getElementById('checkout-action-btn');
-    if (step === 1) {
-      actionBtn.innerHTML = `Proceed to Delivery / Collection &rarr;`;
-    } else if (step === 2) {
-      actionBtn.innerHTML = `Proceed to Payment &rarr;`;
-    } else if (step === 3) {
-      actionBtn.innerHTML = `Place Order &rarr;`;
-    }
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function handlePrimaryAction() {
-    if (currentStep === 1) {
-      goToStep(2);
-    } else if (currentStep === 2) {
-      goToStep(3);
-    } else if (currentStep === 3) {
-      submitFinalOrder();
-    }
-  }
-
-  function toggleBusinessFields(show) {
-    const wrap = document.getElementById('business-fields-wrap');
-    if (wrap) wrap.style.display = show ? 'block' : 'none';
-  }
-
-  function selectFulfillment(type) {
-    const cardDelivery = document.getElementById('method-card-delivery');
-    const cardPickup = document.getElementById('method-card-pickup');
-    const delFields = document.getElementById('fulfillment-delivery-fields');
-    const pickFields = document.getElementById('fulfillment-pickup-fields');
-
-    const radioDel = cardDelivery.querySelector('input[type="radio"]');
-    const radioPick = cardPickup.querySelector('input[type="radio"]');
-
-    if (type === 'delivery') {
-      cardDelivery.classList.add('selected');
-      cardPickup.classList.remove('selected');
-      if (radioDel) radioDel.checked = true;
-      if (delFields) delFields.style.display = 'block';
-      if (pickFields) pickFields.style.display = 'none';
+  function renderCoOrderSummary() {
+    var items = Cart.get();
+    var tbody = document.getElementById('co-order-items-body');
+    var subtotalEl = document.getElementById('co-subtotal-val');
+    var totalEl = document.getElementById('co-total-val');
+    var vatNote = document.getElementById('co-vat-note');
+    if (!tbody) return;
+    var total = Cart.total();
+    var vat = calcVAT(total);
+    if (items.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="2" style="color:#9ca3af;font-size:13px;padding:14px 0;">Your cart is empty.</td></tr>';
     } else {
-      cardPickup.classList.add('selected');
-      cardDelivery.classList.remove('selected');
-      if (radioPick) radioPick.checked = true;
-      if (pickFields) pickFields.style.display = 'block';
-      if (delFields) delFields.style.display = 'none';
+      tbody.innerHTML = items.map(function(item) {
+        return '<tr><td><span class="co-item-name">' + item.name + '</span><span class="co-item-meta">' + item.variant + '</span><span class="co-item-qty">&times; ' + item.qty + '</span></td><td>KES ' + (item.price * item.qty).toLocaleString() + '</td></tr>';
+      }).join('');
     }
+    if (subtotalEl) subtotalEl.textContent = 'KES ' + total.toLocaleString();
+    if (totalEl) totalEl.textContent = 'KES ' + total.toLocaleString();
+    if (vatNote) vatNote.textContent = '(includes KES ' + vat.toLocaleString() + ' VAT)';
   }
 
-  function selectPayment(type) {
-    const cards = {
-      ipay: document.getElementById('pay-card-ipay'),
-      pesalink: document.getElementById('pay-card-pesalink'),
-      card: document.getElementById('pay-card-card')
+  function placeCoOrder() {
+    var fName    = document.getElementById('co-first-name').value.trim();
+    var lName    = document.getElementById('co-last-name').value.trim();
+    var company  = document.getElementById('co-company').value.trim();
+    var street   = document.getElementById('co-street').value.trim();
+    var street2  = document.getElementById('co-street2').value.trim();
+    var city     = document.getElementById('co-city').value.trim();
+    var county   = document.getElementById('co-county').value.trim();
+    var postcode = document.getElementById('co-postcode').value.trim();
+    var phone    = document.getElementById('co-phone').value.trim();
+    var email    = document.getElementById('co-email').value.trim();
+    var notes    = document.getElementById('co-order-notes').value.trim();
+    var termsChk = document.getElementById('co-terms-chk');
+
+    if (!fName || !lName) { alert('Please enter your first and last name.'); return; }
+    if (!street) { alert('Please enter your street address.'); return; }
+    if (!city) { alert('Please enter your town / city.'); return; }
+    if (!county) { alert('Please select your county.'); return; }
+    if (!postcode) { alert('Please enter your postcode.'); return; }
+    if (!phone) { alert('Please enter your phone number.'); return; }
+    if (!email || email.indexOf('@') < 0) { alert('Please enter a valid email address.'); return; }
+    if (!termsChk.checked) { alert('Please read and agree to the terms and conditions to proceed.'); return; }
+
+    var items = Cart.get();
+    if (!items.length) { alert('Your cart is empty.'); return; }
+
+    var ref = getCoOrderRef();
+    var total = Cart.total();
+    var vat = calcVAT(total);
+    var subtotalExcl = total - vat;
+    var fullAddress = street + (street2 ? ', ' + street2 : '') + ', ' + city + ', ' + county + ' ' + postcode + ', Kenya';
+    var dateStr = new Date().toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+
+    var msg = '*NEW ORDER â€” BLUE NILE GROUP*\n====================================\n';
+    msg += '*Order Ref:* #' + ref + '\n';
+    msg += '*Date:* ' + dateStr + '\n\n';
+    msg += '*BILLING DETAILS:*\n';
+    msg += 'â€¢ *Name:* ' + fName + ' ' + lName + '\n';
+    if (company) msg += 'â€¢ *Company:* ' + company + '\n';
+    msg += 'â€¢ *Phone:* ' + phone + '\n';
+    msg += 'â€¢ *Email:* ' + email + '\n';
+    msg += 'â€¢ *Address:* ' + fullAddress + '\n';
+    if (notes) msg += 'â€¢ *Notes:* ' + notes + '\n';
+    msg += '\n*ORDER ITEMS:*\n';
+    items.forEach(function(item, i) {
+      msg += (i+1) + '. *' + item.name + '* â€” ' + item.variant + ' x' + item.qty + ' = KES ' + (item.price * item.qty).toLocaleString() + '\n';
+    });
+    msg += '\n*Subtotal (excl. VAT):* KES ' + subtotalExcl.toLocaleString() + '\n';
+    msg += '*VAT (16%):* KES ' + vat.toLocaleString() + '\n';
+    msg += '*TOTAL:* KES ' + total.toLocaleString() + '\n';
+    msg += '*Payment:* iPay (Mobile Money / Pesalink / Card)\n';
+    msg += '====================================\nI confirm this order. Please confirm dispatch & payment.';
+
+    var waUrl = 'https://wa.me/' + WHATSAPP_PHONE + '?text=' + encodeURIComponent(msg);
+
+    var orderSnap = {
+      ref: ref, fName: fName, lName: lName, company: company,
+      phone: phone, email: email, address: fullAddress,
+      city: city, county: county, notes: notes,
+      total: total, vat: vat, subtotalExcl: subtotalExcl,
+      items: items.slice(), waUrl: waUrl, dateFormatted: dateStr
     };
-
-    Object.keys(cards).forEach(k => {
-      if (cards[k]) {
-        cards[k].classList.toggle('selected', k === type);
-        const radio = cards[k].querySelector('input[type="radio"]');
-        if (radio) radio.checked = (k === type);
-      }
-    });
-
-    const box = document.getElementById('payment-details-box');
-    const ref = getOrderRef();
-    const total = Cart.total();
-
-    if (type === 'ipay') {
-      box.innerHTML = `
-        <strong><i class="fa-solid fa-mobile-screen" style="color:#15803d;"></i> iPay: Mobile Money (M-Pesa/Airtel):</strong>
-        <p style="margin-top:6px;">You will be redirected to iPay to securely complete your mobile money payment. Please have your phone ready.</p>
-      `;
-    } else if (type === 'pesalink') {
-      box.innerHTML = `
-        <strong><i class="fa-solid fa-building-columns" style="color:#1e293b;"></i> Pesalink Transfer:</strong>
-        <p style="margin-top:6px;">You will be given our Pesalink details to send funds instantly from your mobile banking app.</p>
-      `;
-    } else if (type === 'card') {
-      box.innerHTML = `
-        <strong><i class="fa-solid fa-credit-card" style="color:#1e40af;"></i> Credit / Debit Card Payment:</strong>
-        <p style="margin-top:6px;">We accept Visa, Mastercard, and American Express. Secure 3D-Secure payment process.</p>
-      `;
-    }
-  }
-
-  function showCustomAlert(msg) {
-    document.getElementById('customAlertMsg').textContent = msg;
-    document.getElementById('customAlertModal').classList.add('open');
-  }
-
-  function closeCustomAlert() {
-    document.getElementById('customAlertModal').classList.remove('open');
-  }
-
-  function toggleCouponInput() {
-    const box = document.getElementById('coupon-input-box');
-    if (box) box.classList.toggle('open');
-  }
-
-  function applyCheckoutCoupon() {
-    const val = document.getElementById('checkout-coupon-val')?.value?.trim();
-    if (val) {
-      alert(`Coupon code "${val}" applied successfully!`);
-    }
-  }
-
-  function openTermsModal() {
-    alert("Blue Nile Rolling Mills Ltd Trading Terms:\n\n1. All steel is KEBS Certified (BS 4449).\n2. Stock is reserved for 48 hours upon order placement.\n3. Dispatch occurs upon payment verification or agreed credit terms.\n4. Direct factory prices include statutory taxes.");
-  }
-
-  function copyText(str, btn) {
-    if (!str) return;
-    navigator.clipboard.writeText(str).then(() => {
-      const origText = btn.innerHTML;
-      btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
-      btn.classList.add('copied');
-      showToast();
-      setTimeout(() => {
-        btn.innerHTML = origText;
-        btn.classList.remove('copied');
-      }, 2000);
-    });
-  }
-
-  function showToast() {
-    const toast = document.getElementById('copyToast');
-    if (toast) {
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2200);
-    }
-  }
-
-  function submitFinalOrder() {
-    const items = Cart.get();
-    if (!items.length) {
-      alert("Your cart is empty. Please add items before placing an order.");
-      window.location.href = "shop.html";
-      return;
-    }
-
-    const ref = getOrderRef();
-    const fName = document.getElementById('checkoutFirstName').value.trim() || "Valued";
-    const lName = document.getElementById('checkoutLastName').value.trim() || "Customer";
-    const email = document.getElementById('checkoutEmail').value.trim() || "client@gmail.com";
-    const phone = document.getElementById('checkoutPhone').value.trim() || "0700000000";
-
-    const isBusiness = document.querySelector('input[name="purchasingType"]:checked')?.value === 'business';
-    const company = isBusiness ? document.getElementById('checkoutCompany').value.trim() : '';
-    const kraPin = isBusiness ? document.getElementById('checkoutKraPin').value.trim() : '';
-
-    const fulfillmentType = document.querySelector('input[name="fulfillmentOption"]:checked')?.value || 'delivery';
-    const county = document.getElementById('checkoutCounty').value || 'Nairobi';
-    const city = document.getElementById('checkoutCity').value.trim() || 'Nairobi';
-    const address = document.getElementById('checkoutAddress').value.trim() || 'Site Address';
-    const notes = document.getElementById('checkoutNotes').value.trim();
-    const pickupDate = document.getElementById('checkoutPickupDate').value;
-
-    const paymentMethod = document.querySelector('input[name="paymentOption"]:checked')?.value || 'iPay: Mobile Money';
-
-    const total = Cart.total();
-    const subtotalExcl = (total / 1.16).toFixed(2);
-    const vatVal = (total - Number(subtotalExcl)).toFixed(2);
-    const weight = calculateEstimatedWeight(items);
-
-    // Build structured WhatsApp message
-    let msg = `*NEW ORDER & RESERVATION — BLUE NILE GROUP*\n`;
-    msg += `====================================\n`;
-    msg += `*Order Reference:* #${ref}\n`;
-    msg += `*Date:* ${new Date().toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' })}\n\n`;
-
-    msg += `*CUSTOMER DETAILS:*\n`;
-    msg += `• *Name:* ${fName} ${lName}\n`;
-    msg += `• *Phone:* ${phone}\n`;
-    msg += `• *Email:* ${email}\n`;
-    msg += `• *Purchasing As:* ${isBusiness ? 'Business (' + (company || 'Company') + (kraPin ? ', PIN: ' + kraPin : '') + ')' : 'Individual'}\n\n`;
-
-    msg += `*FULFILLMENT / DELIVERY:*\n`;
-    if (fulfillmentType === 'delivery') {
-      msg += `• *Method:* Delivery to Site / Address\n`;
-      msg += `• *County:* ${county}\n`;
-      msg += `• *Town/City:* ${city}\n`;
-      msg += `• *Address/Site:* ${address}\n`;
-      if (notes) msg += `• *Notes:* ${notes}\n`;
-    } else {
-      msg += `• *Method:* Self Collection / Factory Pickup (Thika Mill / Nairobi Depot)\n`;
-      if (pickupDate) msg += `• *Pickup Date:* ${pickupDate}\n`;
-    }
-    msg += `\n`;
-
-    msg += `*PAYMENT SELECTION:*\n`;
-    msg += `• *Method:* ${paymentMethod}\n`;
-    msg += `\n`;
-
-    msg += `*ORDER ITEMS (${items.length}):*\n`;
-    items.forEach((item, i) => {
-      msg += `${i + 1}. *${item.name}*\n`;
-      msg += `   - Size/Spec: ${item.variant}\n`;
-      msg += `   - Qty: ${item.qty}\n`;
-      msg += `   - Price: KES ${item.price.toLocaleString()}\n`;
-      msg += `   - Subtotal: KES ${(item.price * item.qty).toLocaleString()}\n`;
-    });
-    msg += `\n------------------------------------\n`;
-    msg += `*Subtotal (excl. VAT):* KES ${Number(subtotalExcl).toLocaleString()}\n`;
-    msg += `*Estimated Weight:* ${weight} kgs\n`;
-    msg += `*TOTAL ORDER (incl. VAT):* KES ${total.toLocaleString()}\n`;
-    msg += `====================================\n\n`;
-    msg += `I confirm this order and agree to Blue Nile Group trading terms. Please confirm dispatch & payment.`;
-
-    const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`;
-
-    // Store completed order snapshot for page display
-    lastCompletedOrder = {
-      ref, fName, lName, email, phone, isBusiness, company, kraPin,
-      fulfillmentType, county, city, address, notes, pickupDate,
-      paymentMethod, total, subtotalExcl, vatVal, weight,
-      items: [...items],
-      waUrl,
-      dateFormatted: new Date().toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' })
-    };
-    sessionStorage.setItem('kifaru_last_order', JSON.stringify(lastCompletedOrder));
-
-    // Render Order Confirmed Page (Screenshot 4)
-    showOrderSuccessView(lastCompletedOrder);
-
-    // Clear cart and generate fresh ref for future
+    sessionStorage.setItem('kifaru_last_order', JSON.stringify(orderSnap));
+    showCoSuccessView(orderSnap);
     sessionStorage.removeItem('kifaru_order_ref');
     Cart.save([]);
   }
 
-  function showOrderSuccessView(order) {
-    document.getElementById('checkout-main-flow').style.display = 'none';
-    document.getElementById('order-success-view').style.display = 'block';
-    document.getElementById('checkout-step-badge').textContent = 'Order Confirmed';
+  function showCoSuccessView(order) {
+    document.getElementById('co-checkout-view').style.display = 'none';
+    document.getElementById('co-success-view').style.display = 'block';
+    var backBtn = document.getElementById('co-back-btn');
+    backBtn.href = 'shop.html';
 
-    const topBackBtn = document.getElementById('checkout-top-back-btn');
-    topBackBtn.href = 'shop.html';
-    topBackBtn.onclick = null;
+    document.getElementById('co-success-greeting').textContent = 'Hi ' + order.fName + ' ' + order.lName + ', your order #' + order.ref + ' has been received!';
+    document.getElementById('co-pay-ref-display').textContent = order.ref;
+    document.getElementById('co-pay-amount-display').textContent = 'KES ' + order.total.toLocaleString();
+    document.getElementById('co-receipt-ref').textContent = '#' + order.ref;
+    document.getElementById('co-receipt-date').textContent = order.dateFormatted;
+    document.getElementById('co-receipt-customer').textContent = order.fName + ' ' + order.lName + ' (' + order.phone + ')';
+    document.getElementById('co-receipt-delivery').textContent = order.address;
+    document.getElementById('co-receipt-subtotal').textContent = 'KES ' + order.subtotalExcl.toLocaleString();
+    document.getElementById('co-receipt-vat').textContent = 'KES ' + order.vat.toLocaleString();
+    document.getElementById('co-receipt-total').textContent = 'KES ' + order.total.toLocaleString();
 
-    window.location.hash = 'success';
+    var tbody = document.getElementById('co-receipt-items-body');
+    tbody.innerHTML = order.items.map(function(item) {
+      return '<tr><td><strong>' + item.name + '</strong><br><span style="font-size:12px;color:#6b7280;">' + item.variant + '</span></td><td>' + item.qty + '</td><td>KES ' + item.price.toLocaleString() + '</td><td>KES ' + (item.price * item.qty).toLocaleString() + '</td></tr>';
+    }).join('');
 
-    // Fill Payment Details (Screenshot 4)
-    document.getElementById('success-greeting-text').textContent = `Hi ${order.fName.toLowerCase()} ${order.lName.toLowerCase()},`;
-    document.getElementById('pay-summary-method').textContent = order.paymentMethod;
-    document.getElementById('pay-summary-paybill').textContent = `Paybill: 522522 / Acc: ${order.ref}`;
-    document.getElementById('pay-summary-ref').textContent = order.ref;
-    document.getElementById('pay-summary-amt').textContent = `KES ${order.total.toLocaleString()}`;
-
-    // Fill E-Receipt Details
-    document.getElementById('receipt-ref-code').textContent = `#${order.ref}`;
-    document.getElementById('receipt-date-time').textContent = order.dateFormatted;
-    document.getElementById('receipt-customer-info').textContent = `${order.fName} ${order.lName} (${order.phone})`;
-    document.getElementById('receipt-delivery-info').textContent = order.fulfillmentType === 'delivery' 
-      ? `Delivery to Site (${order.city}, ${order.county})`
-      : `Factory Self-Collection (Thika Mill)`;
-
-    const tbody = document.getElementById('receipt-items-rows');
-    tbody.innerHTML = order.items.map(item => `
-      <tr>
-        <td><strong>${item.name}</strong><br><span style="font-size:12px;color:#64748b;">${item.variant}</span></td>
-        <td style="text-align:center;">${item.qty}</td>
-        <td class="num-col">KES ${item.price.toLocaleString()}</td>
-        <td class="num-col">KES ${(item.price * item.qty).toLocaleString()}</td>
-      </tr>
-    `).join('');
-
-    document.getElementById('receipt-subtotal-excl').textContent = `KES ${Number(order.subtotalExcl).toLocaleString()}`;
-    document.getElementById('receipt-weight-val').textContent = `${order.weight} kgs`;
-    document.getElementById('receipt-vat-val').textContent = `KES ${Number(order.vatVal).toLocaleString()}`;
-    document.getElementById('receipt-grand-total').textContent = `KES ${order.total.toLocaleString()}`;
-
-    const waBtn = document.getElementById('btn-success-wa');
+    var waBtn = document.getElementById('co-wa-btn');
     if (waBtn) waBtn.href = order.waUrl;
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({top:0, behavior:'smooth'});
   }
 
-  // Handle URL hash on initial load
-  document.addEventListener('DOMContentLoaded', () => {
-    renderCheckoutSummary();
-    const hash = window.location.hash;
+  document.addEventListener('DOMContentLoaded', function() {
+    renderCoOrderSummary();
+    var hash = window.location.hash;
     if (hash === '#success') {
-      const saved = sessionStorage.getItem('kifaru_last_order');
-      if (saved) {
-        showOrderSuccessView(JSON.parse(saved));
-        return;
-      }
-    }
-    if (hash === '#payment') {
-      goToStep(3);
-    } else if (hash === '#fulfillment') {
-      goToStep(2);
-    } else {
-      goToStep(1);
+      var saved = sessionStorage.getItem('kifaru_last_order');
+      if (saved) { showCoSuccessView(JSON.parse(saved)); }
     }
   });
-  </script>
+</script>
 </body>
 </html>

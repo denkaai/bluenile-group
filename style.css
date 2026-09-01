@@ -3995,3 +3995,227 @@ transition:var(--transition);
     text-align: center;
   }
 }
+
+/* =========================================================
+   MOBILE & RESPONSIVE NAVIGATION SYSTEM
+   ========================================================= */
+
+@media (max-width: 992px) {
+  .top-bar {
+    display: none;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 500;
+  }
+
+  .header-main {
+    padding: 10px 0;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-logo img {
+    height: 42px;
+  }
+
+  .header-search {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 4px;
+  }
+
+  .header-actions {
+    gap: 4px;
+  }
+
+  .header-action-btn span {
+    display: none;
+  }
+
+  .header-action-btn {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .header-nav {
+    padding: 4px 0;
+  }
+
+  .mobile-nav-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--accent);
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s;
+  }
+
+  .mobile-nav-toggle:hover {
+    background: var(--accent-d);
+  }
+
+  .header-nav .container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  /* Slide-out Mobile Navigation Menu */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 290px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--primary);
+    z-index: 1050;
+    flex-direction: column;
+    padding: 70px 0 30px 0;
+    transition: left 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    gap: 0;
+  }
+
+  .nav-menu.mobile-open {
+    left: 0;
+  }
+
+  .nav-menu > li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-menu > li > a {
+    padding: 15px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .nav-menu > li > a:hover,
+  .nav-menu > li > a.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+  }
+
+  /* Dark Backdrop Overlay */
+  .mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1040;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(2px);
+  }
+
+  .mobile-nav-backdrop.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+/* Sticky Bottom Navigation Bar for Mobile */
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 65px;
+  }
+
+  .mobile-bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    z-index: 990;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.08);
+    padding: 0 4px;
+  }
+
+  .m-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex: 1;
+    height: 100%;
+    color: #475569;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    background: none;
+    border: none;
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .m-nav-item i {
+    font-size: 1.2rem;
+    color: #475569;
+    transition: color 0.2s ease;
+  }
+
+  .m-nav-item.active,
+  .m-nav-item:active {
+    color: var(--accent);
+  }
+
+  .m-nav-item.active i {
+    color: var(--accent);
+  }
+
+  .m-nav-item .cart-count {
+    top: 2px;
+    right: 50%;
+    margin-right: -16px;
+  }
+
+  /* Responsive layout adjustments for mobile */
+  .hero-content h1 {
+    font-size: 24px !important;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .shop-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)) !important;
+    gap: 12px !important;
+  }
+}

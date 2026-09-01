@@ -789,14 +789,79 @@ document.addEventListener('DOMContentLoaded', () => {
     header?.classList.toggle('scrolled', window.scrollY > 60);
   });
 
-  // Mobile nav
-  const mobileToggle = document.getElementById('mobile-nav-toggle');
-  const navMenu = document.getElementById('nav-menu');
-  mobileToggle?.addEventListener('click', () => {
-    navMenu?.classList.toggle('mobile-open');
-    mobileToggle.innerHTML = navMenu?.classList.contains('mobile-open')
-      ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  // Dynamic Mobile Nav Backdrop
+  let backdrop = document.getElementById('mobile-nav-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.id = 'mobile-nav-backdrop';
+    backdrop.className = 'mobile-nav-backdrop';
+    document.body.appendChild(backdrop);
+  }
+
+  // Dynamic Mobile Bottom Nav Bar
+  if (!document.getElementById('mobile-bottom-nav')) {
+    const bottomNav = document.createElement('nav');
+    bottomNav.id = 'mobile-bottom-nav';
+    bottomNav.className = 'mobile-bottom-nav';
+    const pageName = window.location.pathname.split('/').pop() || 'index.html';
+    bottomNav.innerHTML = `
+      <a href="index.html" class="m-nav-item ${pageName === 'index.html' ? 'active' : ''}">
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+      </a>
+      <a href="shop.html" class="m-nav-item ${pageName.includes('shop') ? 'active' : ''}">
+        <i class="fa-solid fa-store"></i>
+        <span>Shop</span>
+      </a>
+      <button class="m-nav-item" id="m-nav-cart-btn">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span>Cart</span>
+        <span class="cart-count" style="display:none;">0</span>
+      </button>
+      <a href="https://wa.me/254755627028" target="_blank" class="m-nav-item" style="color:#25D366;">
+        <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i>
+        <span>WhatsApp</span>
+      </a>
+      <button class="m-nav-item" id="m-nav-menu-btn">
+        <i class="fa-solid fa-bars"></i>
+        <span>Menu</span>
+      </button>
+    `;
+    document.body.appendChild(bottomNav);
+
+    document.getElementById('m-nav-cart-btn')?.addEventListener('click', openCartDrawer);
+    document.getElementById('m-nav-menu-btn')?.addEventListener('click', toggleMobileNav);
+  }
+
+  function toggleMobileNav() {
+    const navMenu = document.getElementById('nav-menu');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+    if (!navMenu) return;
+    const isOpen = navMenu.classList.toggle('mobile-open');
+    backdrop?.classList.toggle('open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    const mobileToggle = document.getElementById('mobile-nav-toggle');
+    if (mobileToggle) {
+      mobileToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    }
+  }
+
+  // Bind toggle clicks & backdrop click
+  document.getElementById('mobile-nav-toggle')?.addEventListener('click', toggleMobileNav);
+  document.getElementById('mobile-nav-backdrop')?.addEventListener('click', toggleMobileNav);
+
+  // Close mobile menu when links inside it are clicked
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      const navMenu = document.getElementById('nav-menu');
+      if (navMenu?.classList.contains('mobile-open')) {
+        toggleMobileNav();
+      }
+    });
   });
+
+  // Call updateBadge again to ensure the newly added bottom nav gets the count
+  Cart.updateBadge();
 
   // Cart icon opens drawer
   document.getElementById('cart-icon-btn')?.addEventListener('click', openCartDrawer);

@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checkout | Blue Nile Group â€” KIFARUâ„¢ Steel</title>
-  <meta name="description" content="Secure checkout for KIFARUâ„¢ Steel and building materials.">
+  <title>Checkout | Blue Nile Group — KIFARU™ Steel</title>
+  <meta name="description" content="Secure checkout for KIFARU™ Steel and building materials.">
   <link rel="icon" href="assets/logo-2.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
@@ -143,13 +143,6 @@
             </div>
           </div>
 
-          <div class="co-form-row full">
-            <div class="co-field">
-              <label for="co-company">Company name <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
-              <input type="text" id="co-company" placeholder="e.g. Apex Contractors Ltd">
-            </div>
-          </div>
-
           <div style="margin-bottom:16px;">
             <label style="font-size:13px;font-weight:600;color:#374151;display:block;margin-bottom:5px;">Country / Region <span style="color:#dc2626;">*</span></label>
             <div class="co-country-static"><i class="fa-solid fa-flag" style="color:#006600;margin-right:6px;"></i>Kenya</div>
@@ -160,7 +153,7 @@
               <label for="co-street">Street address <span class="req">*</span></label>
               <input type="text" id="co-street" placeholder="House number and street name" required>
             </div>
-            <input type="text" id="co-street2" class="co-street2-input" placeholder="Flat, suite, unit, etc. (optional)">
+            <input type="text" id="co-street2" class="co-street2-input" placeholder="Order notes e.g landmark for direction (optional)">
           </div>
 
           <div class="co-form-row full">
@@ -227,73 +220,80 @@
 
           <hr class="co-divider">
 
-          <!-- Deliver to different address toggle -->
-          <label class="co-collapsible-toggle" for="co-diff-address-chk">
-            <input type="checkbox" id="co-diff-address-chk" onchange="toggleCoSection('co-diff-address-body',this)">
-            Deliver to a different address?
+          <!-- RECEIVER DETAILS toggle -->
+          <label class="co-collapsible-toggle" for="co-receiver-chk">
+            <input type="checkbox" id="co-receiver-chk" onchange="toggleCoSection('co-receiver-body',this)">
+            RECEIVER DETAILS (If someone else is collecting)
           </label>
-          <div class="co-collapsible-body" id="co-diff-address-body">
+          <div class="co-collapsible-body" id="co-receiver-body">
             <div class="co-form-row">
               <div class="co-field">
-                <label for="co-ship-first">First name <span class="req">*</span></label>
-                <input type="text" id="co-ship-first" placeholder="e.g. Jane">
+                <label for="co-recv-first">First name <span class="req">*</span></label>
+                <input type="text" id="co-recv-first" placeholder="e.g. Jane">
               </div>
               <div class="co-field">
-                <label for="co-ship-last">Last name <span class="req">*</span></label>
-                <input type="text" id="co-ship-last" placeholder="e.g. Wanjiru">
+                <label for="co-recv-last">Last name <span class="req">*</span></label>
+                <input type="text" id="co-recv-last" placeholder="e.g. Wanjiru">
               </div>
             </div>
-            <div class="co-form-row full" style="margin-top:16px;">
+            <div class="co-form-row" style="margin-top:16px;">
               <div class="co-field">
-                <label for="co-ship-company">Company name <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
-                <input type="text" id="co-ship-company" placeholder="Company name">
+                <label for="co-recv-phone">Active phone number <span class="req">*</span></label>
+                <input type="text" id="co-recv-phone" placeholder="e.g. 0712345678">
               </div>
-            </div>
-            <div style="margin:16px 0;">
-              <label style="font-size:13px;font-weight:600;color:#374151;display:block;margin-bottom:5px;">Country / Region <span style="color:#dc2626;">*</span></label>
-              <div class="co-country-static"><i class="fa-solid fa-flag" style="color:#006600;margin-right:6px;"></i>Kenya</div>
-            </div>
-            <div style="margin-bottom:16px;">
               <div class="co-field">
-                <label for="co-ship-street">Street address <span class="req">*</span></label>
-                <input type="text" id="co-ship-street" placeholder="House number and street name">
-              </div>
-              <input type="text" id="co-ship-street2" class="co-street2-input" placeholder="Flat, suite, unit, etc. (optional)">
-            </div>
-            <div class="co-form-row full">
-              <div class="co-field">
-                <label for="co-ship-city">Town / City <span class="req">*</span></label>
-                <input type="text" id="co-ship-city" placeholder="e.g. Mombasa">
+                <label for="co-recv-alt-phone">Alternative number <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+                <input type="text" id="co-recv-alt-phone" placeholder="e.g. 0722345678">
               </div>
             </div>
             <div class="co-form-row full" style="margin-top:16px;">
               <div class="co-field">
-                <label for="co-ship-county">State / County <span class="req">*</span></label>
-                <select id="co-ship-county">
-                  <option value="">Select an option&hellip;</option>
-                  <option>Baringo</option><option>Bomet</option><option>Bungoma</option>
-                  <option>Busia</option><option>Elgeyo-Marakwet</option><option>Embu</option>
-                  <option>Garissa</option><option>Homa Bay</option><option>Isiolo</option>
-                  <option>Kajiado</option><option>Kakamega</option><option>Kericho</option>
-                  <option>Kiambu</option><option>Kilifi</option><option>Kirinyaga</option>
-                  <option>Kisii</option><option>Kisumu</option><option>Kitui</option>
-                  <option>Kwale</option><option>Laikipia</option><option>Lamu</option>
-                  <option>Machakos</option><option>Makueni</option><option>Mandera</option>
-                  <option>Marsabit</option><option>Meru</option><option>Migori</option>
-                  <option>Mombasa</option><option>Murang'a</option><option>Nairobi County</option>
-                  <option>Nakuru</option><option>Nandi</option><option>Narok</option>
-                  <option>Nyamira</option><option>Nyandarua</option><option>Nyeri</option>
-                  <option>Samburu</option><option>Siaya</option><option>Taita-Taveta</option>
-                  <option>Tana River</option><option>Tharaka-Nithi</option><option>Trans Nzoia</option>
-                  <option>Turkana</option><option>Uasin Gishu</option><option>Vihiga</option>
-                  <option>Wajir</option><option>West Pokot</option>
-                </select>
+                <label for="co-recv-county">County &amp; Subcounty <span class="req">*</span></label>
+                <input type="text" id="co-recv-county" placeholder="e.g. Nairobi, Westlands">
+              </div>
+            </div>
+          </div>
+
+          <hr class="co-divider">
+
+          <!-- COMPANY DETAILS toggle -->
+          <label class="co-collapsible-toggle" for="co-company-chk">
+            <input type="checkbox" id="co-company-chk" onchange="toggleCoSection('co-company-body',this)">
+            COMPANY DETAILS
+          </label>
+          <div class="co-collapsible-body" id="co-company-body">
+            <div class="co-form-row">
+              <div class="co-field">
+                <label for="co-comp-first">First name <span class="req">*</span></label>
+                <input type="text" id="co-comp-first" placeholder="e.g. John">
+              </div>
+              <div class="co-field">
+                <label for="co-comp-last">Last name <span class="req">*</span></label>
+                <input type="text" id="co-comp-last" placeholder="e.g. Kamau">
               </div>
             </div>
             <div class="co-form-row full" style="margin-top:16px;">
               <div class="co-field">
-                <label for="co-ship-postcode">Postcode / ZIP <span class="req">*</span></label>
-                <input type="text" id="co-ship-postcode" placeholder="e.g. 80100">
+                <label for="co-comp-name">Company name <span class="req">*</span></label>
+                <input type="text" id="co-comp-name" placeholder="e.g. Apex Contractors Ltd">
+              </div>
+            </div>
+            <div class="co-form-row full" style="margin-top:16px;">
+              <div class="co-field">
+                <label for="co-comp-county">County &amp; Subcounty <span class="req">*</span></label>
+                <input type="text" id="co-comp-county" placeholder="e.g. Mombasa, Nyali">
+              </div>
+            </div>
+            <div class="co-form-row full" style="margin-top:16px;">
+              <div class="co-field">
+                <label for="co-comp-postcode">Postcode / ZIP <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+                <input type="text" id="co-comp-postcode" placeholder="e.g. 80100">
+              </div>
+            </div>
+            <div class="co-form-row full" style="margin-top:16px;">
+              <div class="co-field">
+                <label for="co-comp-notes">Order notes (landmark/direction)</label>
+                <input type="text" id="co-comp-notes" placeholder="e.g. Next to the main highway">
               </div>
             </div>
           </div>
@@ -350,15 +350,22 @@
 
         <div class="co-payment-card">
           <h3 class="co-payment-title">Payment Method</h3>
-          <label class="co-payment-option">
-            <input type="radio" name="co-payment" value="iPay" checked>
-            <div class="co-payment-option-body">
-              <div class="co-ipay-logo">iPay</div>
-              <div class="co-payment-option-name">iPay</div>
-              <div class="co-payment-option-desc">Pay with Mobile Money, Pesalink or Card Online.</div>
-              <div class="co-payment-option-note">Please ensure you click use the correct reference and finalise the transaction on the payment screen to complete your order with us.</div>
-            </div>
-          </label>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <label class="co-payment-option">
+              <input type="radio" name="co-payment" value="iPay" checked>
+              <div class="co-payment-option-body">
+                <div class="co-ipay-logo" style="margin-bottom:8px; display:flex; align-items:center; gap:8px;">
+                  <span style="background:#1d4ed8; color:#fff; padding:3px 8px; border-radius:4px; font-weight:bold; font-size:11px;">iPay</span>
+                  <i class="fa-solid fa-mobile-screen" style="color:#15803d; font-size:16px;" title="Safaricom M-Pesa / Airtel Money"></i>
+                  <i class="fa-solid fa-link" style="color:#f59e0b; font-size:16px;" title="Pesalink"></i>
+                  <i class="fa-solid fa-building-columns" style="color:#374151; font-size:16px;" title="Bank Transfer"></i>
+                </div>
+                <div class="co-payment-option-name">iPay (Secure Gateway)</div>
+                <div class="co-payment-option-desc">Pay with Mobile Money (Safaricom M-Pesa, Airtel Money), Pesalink, or Bank Transfer.</div>
+                <div class="co-payment-option-note">Please ensure you click use the correct reference and finalise the transaction on the payment screen to complete your order with us.</div>
+              </div>
+            </label>
+          </div>
         </div>
 
         <div class="co-payment-card">
@@ -491,7 +498,6 @@
   function placeCoOrder() {
     var fName    = document.getElementById('co-first-name').value.trim();
     var lName    = document.getElementById('co-last-name').value.trim();
-    var company  = document.getElementById('co-company').value.trim();
     var street   = document.getElementById('co-street').value.trim();
     var street2  = document.getElementById('co-street2').value.trim();
     var city     = document.getElementById('co-city').value.trim();
@@ -502,6 +508,21 @@
     var notes    = document.getElementById('co-order-notes').value.trim();
     var termsChk = document.getElementById('co-terms-chk');
 
+    var recvChk  = document.getElementById('co-receiver-chk').checked;
+    var recvFirst = document.getElementById('co-recv-first').value.trim();
+    var recvLast  = document.getElementById('co-recv-last').value.trim();
+    var recvPhone = document.getElementById('co-recv-phone').value.trim();
+    var recvAlt   = document.getElementById('co-recv-alt-phone').value.trim();
+    var recvCty   = document.getElementById('co-recv-county').value.trim();
+
+    var compChk   = document.getElementById('co-company-chk').checked;
+    var compFirst = document.getElementById('co-comp-first').value.trim();
+    var compLast  = document.getElementById('co-comp-last').value.trim();
+    var compName  = document.getElementById('co-comp-name').value.trim();
+    var compCty   = document.getElementById('co-comp-county').value.trim();
+    var compZip   = document.getElementById('co-comp-postcode').value.trim();
+    var compNotes = document.getElementById('co-comp-notes').value.trim();
+
     if (!fName || !lName) { alert('Please enter your first and last name.'); return; }
     if (!street) { alert('Please enter your street address.'); return; }
     if (!city) { alert('Please enter your town / city.'); return; }
@@ -511,6 +532,13 @@
     if (!email || email.indexOf('@') < 0) { alert('Please enter a valid email address.'); return; }
     if (!termsChk.checked) { alert('Please read and agree to the terms and conditions to proceed.'); return; }
 
+    if (recvChk && (!recvFirst || !recvLast || !recvPhone || !recvCty)) {
+      alert('Please fill all required Receiver Details.'); return;
+    }
+    if (compChk && (!compFirst || !compLast || !compName || !compCty)) {
+      alert('Please fill all required Company Details.'); return;
+    }
+
     var items = Cart.get();
     if (!items.length) { alert('Your cart is empty.'); return; }
 
@@ -518,22 +546,36 @@
     var total = Cart.total();
     var vat = calcVAT(total);
     var subtotalExcl = total - vat;
-    var fullAddress = street + (street2 ? ', ' + street2 : '') + ', ' + city + ', ' + county + ' ' + postcode + ', Kenya';
+    var fullAddress = street + (street2 ? ' (Notes: ' + street2 + ')' : '') + ', ' + city + ', ' + county + ' ' + postcode + ', Kenya';
     var dateStr = new Date().toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
 
-    var msg = '*NEW ORDER â€” BLUE NILE GROUP*\n====================================\n';
+    var msg = '*NEW ORDER — BLUE NILE GROUP*\n====================================\n';
     msg += '*Order Ref:* #' + ref + '\n';
     msg += '*Date:* ' + dateStr + '\n\n';
     msg += '*BILLING DETAILS:*\n';
-    msg += 'â€¢ *Name:* ' + fName + ' ' + lName + '\n';
-    if (company) msg += 'â€¢ *Company:* ' + company + '\n';
-    msg += 'â€¢ *Phone:* ' + phone + '\n';
-    msg += 'â€¢ *Email:* ' + email + '\n';
-    msg += 'â€¢ *Address:* ' + fullAddress + '\n';
-    if (notes) msg += 'â€¢ *Notes:* ' + notes + '\n';
+    msg += '• *Name:* ' + fName + ' ' + lName + '\n';
+    msg += '• *Phone:* ' + phone + '\n';
+    msg += '• *Email:* ' + email + '\n';
+    msg += '• *Address:* ' + fullAddress + '\n';
+    if (notes) msg += '• *Notes:* ' + notes + '\n';
+
+    if (recvChk) {
+      msg += '\n*RECEIVER DETAILS:*\n';
+      msg += '• *Name:* ' + recvFirst + ' ' + recvLast + '\n';
+      msg += '• *Phone:* ' + recvPhone + (recvAlt ? ' (Alt: ' + recvAlt + ')' : '') + '\n';
+      msg += '• *Location:* ' + recvCty + '\n';
+    }
+
+    if (compChk) {
+      msg += '\n*COMPANY DETAILS:*\n';
+      msg += '• *Name:* ' + compFirst + ' ' + compLast + '\n';
+      msg += '• *Company:* ' + compName + '\n';
+      msg += '• *Location:* ' + compCty + (compZip ? ' (' + compZip + ')' : '') + '\n';
+      if (compNotes) msg += '• *Notes:* ' + compNotes + '\n';
+    }
     msg += '\n*ORDER ITEMS:*\n';
     items.forEach(function(item, i) {
-      msg += (i+1) + '. *' + item.name + '* â€” ' + item.variant + ' x' + item.qty + ' = KES ' + (item.price * item.qty).toLocaleString() + '\n';
+      msg += (i+1) + '. *' + item.name + '* — ' + item.variant + ' x' + item.qty + ' = KES ' + (item.price * item.qty).toLocaleString() + '\n';
     });
     msg += '\n*Subtotal (excl. VAT):* KES ' + subtotalExcl.toLocaleString() + '\n';
     msg += '*VAT (16%):* KES ' + vat.toLocaleString() + '\n';

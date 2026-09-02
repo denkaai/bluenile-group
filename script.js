@@ -833,69 +833,166 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('m-nav-menu-btn')?.addEventListener('click', toggleMobileNav);
   }
 
-  function ensureNavMenu() {
-    let navMenu = document.getElementById('nav-menu');
-    if (!navMenu) {
-      navMenu = document.createElement('ul');
-      navMenu.id = 'nav-menu';
-      navMenu.className = 'nav-menu';
-      navMenu.innerHTML = `
-        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="shop.html"><i class="fa-solid fa-store"></i> Shop</a></li>
-        <li><a href="shop.html?cat=TMT Bars"><i class="fa-solid fa-bars-staggered"></i> TMT Bars</a></li>
-        <li><a href="shop.html?cat=BRC Mesh"><i class="fa-solid fa-border-all"></i> BRC Mesh</a></li>
-        <li><a href="shop.html?cat=Chain Link"><i class="fa-solid fa-link"></i> Chain Link</a></li>
-        <li><a href="shop.html?cat=Nails"><i class="fa-solid fa-thumbtack"></i> Nails</a></li>
-        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
-        <li><a href="index.html#contact"><i class="fa-solid fa-phone-volume"></i> Contact</a></li>
+  // Dedicated Crystal-Clear Mobile Navigation Drawer
+  function ensureMobileNavDrawer() {
+    let drawer = document.getElementById('mobile-nav-drawer');
+    if (!drawer) {
+      drawer = document.createElement('div');
+      drawer.id = 'mobile-nav-drawer';
+      drawer.className = 'mobile-nav-drawer';
+
+      // Detect active page accurately
+      const path = window.location.pathname.toLowerCase();
+      const isShop = path.includes('shop');
+      const isCart = path.includes('cart');
+      const isCheckout = path.includes('checkout');
+      const isHome = !isShop && !isCart && !isCheckout;
+
+      drawer.innerHTML = `
+        <div class="m-drawer-header">
+          <div class="m-drawer-brand">
+            <img src="assets/logo-2.png" alt="Blue Nile" onerror="this.style.display='none'">
+            <span class="m-drawer-title">Navigation</span>
+          </div>
+          <button class="m-drawer-close" id="mobile-drawer-close-btn" aria-label="Close Menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="m-drawer-body">
+          <ul class="m-drawer-links">
+            <li>
+              <a href="index.html" class="m-link ${isHome ? 'active' : ''}">
+                <span class="m-icon-box"><i class="fa-solid fa-house"></i></span>
+                <span class="m-link-text">Home</span>
+                <i class="fa-solid fa-chevron-right m-arrow"></i>
+              </a>
+            </li>
+            <li>
+              <a href="shop.html" class="m-link ${isShop ? 'active' : ''}">
+                <span class="m-icon-box"><i class="fa-solid fa-store"></i></span>
+                <span class="m-link-text">Shop</span>
+                <i class="fa-solid fa-chevron-right m-arrow"></i>
+              </a>
+            </li>
+            <li class="m-divider-label">Product Categories</li>
+            <li>
+              <a href="shop.html?cat=TMT Bars" class="m-link sub-link">
+                <span class="m-icon-box"><i class="fa-solid fa-bars-staggered"></i></span>
+                <span class="m-link-text">TMT Bars</span>
+              </a>
+            </li>
+            <li>
+              <a href="shop.html?cat=BRC Mesh" class="m-link sub-link">
+                <span class="m-icon-box"><i class="fa-solid fa-border-all"></i></span>
+                <span class="m-link-text">BRC Mesh</span>
+              </a>
+            </li>
+            <li>
+              <a href="shop.html?cat=Chain Link" class="m-link sub-link">
+                <span class="m-icon-box"><i class="fa-solid fa-link"></i></span>
+                <span class="m-link-text">Chain Link</span>
+              </a>
+            </li>
+            <li>
+              <a href="shop.html?cat=Nails" class="m-link sub-link">
+                <span class="m-icon-box"><i class="fa-solid fa-thumbtack"></i></span>
+                <span class="m-link-text">Wire Nails</span>
+              </a>
+            </li>
+            <li class="m-divider-label">Cart & Orders</li>
+            <li>
+              <a href="cart.html" class="m-link ${isCart ? 'active' : ''}">
+                <span class="m-icon-box"><i class="fa-solid fa-cart-shopping"></i></span>
+                <span class="m-link-text">Cart</span>
+                <span class="m-badge cart-count" id="m-drawer-cart-badge" style="display:none;">0</span>
+                <i class="fa-solid fa-chevron-right m-arrow"></i>
+              </a>
+            </li>
+            <li>
+              <a href="index.html#contact" class="m-link" id="m-drawer-contact-link">
+                <span class="m-icon-box"><i class="fa-solid fa-phone-volume"></i></span>
+                <span class="m-link-text">Contact</span>
+                <i class="fa-solid fa-chevron-right m-arrow"></i>
+              </a>
+            </li>
+          </ul>
+
+          <div class="m-drawer-footer">
+            <a href="https://wa.me/254755627028?text=Hello%20KIFARU%20Steel!%20I%20want%20to%20place%20an%20order." target="_blank" class="m-footer-wa-btn">
+              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <a href="tel:0762270475" class="m-footer-call-btn">
+              <i class="fa-solid fa-phone"></i> Call: 0762 270 475
+            </a>
+          </div>
+        </div>
       `;
-      document.body.appendChild(navMenu);
+      document.body.appendChild(drawer);
+
+      // Close button listener
+      drawer.querySelector('#mobile-drawer-close-btn')?.addEventListener('click', closeMobileNav);
+
+      // Handle navigation clicks cleanly
+      drawer.querySelectorAll('.m-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (href === 'index.html#contact') {
+            const currentPath = window.location.pathname.toLowerCase();
+            if (currentPath.endsWith('index.html') || currentPath.endsWith('/') || currentPath === '') {
+              e.preventDefault();
+              closeMobileNav();
+              const contactSection = document.getElementById('contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+              }
+              return;
+            }
+          }
+          closeMobileNav();
+        });
+      });
     }
-    
-    if (!navMenu.querySelector('.mobile-drawer-header')) {
-      const headerDiv = document.createElement('div');
-      headerDiv.className = 'mobile-drawer-header';
-      headerDiv.innerHTML = `
-        <span class="mobile-drawer-title"><i class="fa-solid fa-compass"></i> Menu</span>
-        <button class="mobile-drawer-close" id="mobile-drawer-close-btn" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
-      `;
-      navMenu.insertBefore(headerDiv, navMenu.firstChild);
-      headerDiv.querySelector('#mobile-drawer-close-btn')?.addEventListener('click', toggleMobileNav);
+    return drawer;
+  }
+
+  function openMobileNav() {
+    const drawer = ensureMobileNavDrawer();
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+    drawer.classList.add('mobile-open');
+    backdrop?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    const mobileToggle = document.getElementById('mobile-nav-toggle');
+    if (mobileToggle) {
+      mobileToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
     }
-    return navMenu;
+  }
+
+  function closeMobileNav() {
+    const drawer = document.getElementById('mobile-nav-drawer');
+    const backdrop = document.getElementById('mobile-nav-backdrop');
+    drawer?.classList.remove('mobile-open');
+    backdrop?.classList.remove('open');
+    document.body.style.overflow = '';
+    const mobileToggle = document.getElementById('mobile-nav-toggle');
+    if (mobileToggle) {
+      mobileToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    }
   }
 
   function toggleMobileNav() {
-    const navMenu = ensureNavMenu();
-    const backdrop = document.getElementById('mobile-nav-backdrop');
-    if (!navMenu) return;
-    const isOpen = navMenu.classList.toggle('mobile-open');
-    backdrop?.classList.toggle('open', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    const mobileToggle = document.getElementById('mobile-nav-toggle');
-    if (mobileToggle) {
-      mobileToggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    const drawer = ensureMobileNavDrawer();
+    if (drawer.classList.contains('mobile-open')) {
+      closeMobileNav();
+    } else {
+      openMobileNav();
     }
   }
 
   // Bind toggle clicks & backdrop click
   document.getElementById('mobile-nav-toggle')?.addEventListener('click', toggleMobileNav);
-  document.getElementById('mobile-nav-backdrop')?.addEventListener('click', () => {
-    const navMenu = document.getElementById('nav-menu');
-    if (navMenu?.classList.contains('mobile-open')) {
-      toggleMobileNav();
-    }
-  });
-
-  // Close mobile menu when links inside it are clicked
-  document.addEventListener('click', (e) => {
-    const link = e.target.closest('#nav-menu a');
-    if (link) {
-      const navMenu = document.getElementById('nav-menu');
-      if (navMenu?.classList.contains('mobile-open')) {
-        toggleMobileNav();
-      }
-    }
+  document.getElementById('mobile-nav-backdrop')?.addEventListener('click', closeMobileNav);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMobileNav();
   });
 
   // Call updateBadge again to ensure the newly added bottom nav gets the count

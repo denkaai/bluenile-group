@@ -196,8 +196,8 @@
 
           <div class="co-form-row">
             <div class="co-field">
-              <label for="co-postcode">Postcode / ZIP <span class="req">*</span></label>
-              <input type="text" id="co-postcode" placeholder="e.g. 00100" required>
+              <label for="co-postcode">Postcode / ZIP <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+              <input type="text" id="co-postcode" placeholder="e.g. 00100">
             </div>
             <div class="co-field">
               <label for="co-phone">Phone <span class="req">*</span></label>
@@ -207,8 +207,8 @@
 
           <div class="co-form-row full">
             <div class="co-field">
-              <label for="co-email">Email address <span class="req">*</span></label>
-              <input type="email" id="co-email" placeholder="e.g. john@example.com" required>
+              <label for="co-email">Email address <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+              <input type="email" id="co-email" placeholder="e.g. john@example.com">
             </div>
           </div>
 
@@ -282,6 +282,16 @@
               <div class="co-field">
                 <label for="co-comp-name">Company name <span class="req">*</span></label>
                 <input type="text" id="co-comp-name" placeholder="e.g. Apex Contractors Ltd">
+              </div>
+            </div>
+            <div class="co-form-row" style="margin-top:16px;">
+              <div class="co-field">
+                <label for="co-comp-phone">Company phone number <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+                <input type="tel" id="co-comp-phone" placeholder="e.g. 0712 345 678">
+              </div>
+              <div class="co-field">
+                <label for="co-comp-email">Company email address <span style="font-weight:400;color:#9ca3af;">(optional)</span></label>
+                <input type="email" id="co-comp-email" placeholder="e.g. info@company.com">
               </div>
             </div>
             <div class="co-form-row full" style="margin-top:16px;">
@@ -411,7 +421,7 @@
             <input type="checkbox" id="co-terms-chk">
             <span>I have read and agree to the website terms and conditions <span style="color:#dc2626;">*</span></span>
           </label>
-          <label class="co-terms-row">
+          <label class="co-promos-row">
             <input type="checkbox" id="co-updates-chk">
             <span>I want to receive updates about products and promotions.</span>
           </label>
@@ -436,28 +446,9 @@
       <h2>Order Reserved &mdash; Thank You!</h2>
       <p id="co-success-greeting">Your order has been received and stock is being allocated.</p>
     </div>
-    <div class="co-pay-instructions">
-      <h3><i class="fa-solid fa-mobile-screen-button" style="color:#1d4ed8;margin-right:6px;"></i> Complete Your Payment</h3>
-      <div class="co-pay-step">
-        <div class="co-pay-step-num">1</div>
-        <div>Go to M-Pesa &rarr; Lipa na M-Pesa &rarr; Paybill. Enter <strong>Paybill: 522522</strong></div>
-      </div>
-      <div class="co-pay-step">
-        <div class="co-pay-step-num">2</div>
-        <div>Enter Account Number: <strong id="co-pay-ref-display">&mdash;</strong></div>
-      </div>
-      <div class="co-pay-step">
-        <div class="co-pay-step-num">3</div>
-        <div>Enter Amount: <strong id="co-pay-amount-display">&mdash;</strong></div>
-      </div>
-      <div class="co-pay-step">
-        <div class="co-pay-step-num">4</div>
-        <div>Enter your M-Pesa PIN and confirm. Our team will contact you to arrange dispatch.</div>
-      </div>
-    </div>
     <div class="co-receipt">
       <div class="co-receipt-header">
-        <h3><i class="fa-solid fa-receipt" style="margin-right:6px;color:#6b7280;"></i> Order Receipt &mdash; Ref: <span id="co-receipt-ref">&mdash;</span></h3>
+        <h3><i class="fa-solid fa-file-invoice" style="margin-right:6px;color:#1d4ed8;"></i> Order Ref: <span id="co-receipt-ref">&mdash;</span></h3>
       </div>
       <div class="co-receipt-body">
         <div class="co-receipt-row"><span>Date / Time</span><span id="co-receipt-date">&mdash;</span></div>
@@ -475,6 +466,13 @@
         <div class="co-receipt-row total"><span>TOTAL</span><span id="co-receipt-total">&mdash;</span></div>
       </div>
     </div>
+
+    <!-- DELIVERY TIME NOTICE -->
+    <div style="background:#fffbe0; border:2px solid #f59e0b; color:#92400e; padding:14px 18px; border-radius:10px; margin-top:20px; margin-bottom:20px; text-align:center; font-size:15px; font-weight:800; box-shadow:0 3px 10px rgba(245,158,11,0.18); line-height:1.5;">
+      <i class="fa-solid fa-truck-fast" style="color:#d97706; margin-right:8px; font-size:18px;"></i>
+      <span style="color:#b45309; text-transform:uppercase; letter-spacing:0.5px;">NB:</span> Immediately after payments delivery takes 24 &ndash; 72 working hours.
+    </div>
+
     <div class="co-success-actions">
       <a href="#" id="co-wa-btn" class="co-btn-wa" target="_blank">
         <i class="fa-brands fa-whatsapp"></i> Confirm via WhatsApp
@@ -554,6 +552,8 @@
     var compFirst = document.getElementById('co-comp-first').value.trim();
     var compLast  = document.getElementById('co-comp-last').value.trim();
     var compName  = document.getElementById('co-comp-name').value.trim();
+    var compPhone = document.getElementById('co-comp-phone') ? document.getElementById('co-comp-phone').value.trim() : '';
+    var compEmail = document.getElementById('co-comp-email') ? document.getElementById('co-comp-email').value.trim() : '';
     var compCty   = document.getElementById('co-comp-county').value.trim();
     var compZip   = document.getElementById('co-comp-postcode').value.trim();
     var compNotes = document.getElementById('co-comp-notes').value.trim();
@@ -562,9 +562,8 @@
     if (!street) { alert('Please enter your street address.'); return; }
     if (!city) { alert('Please enter your town / city.'); return; }
     if (!county) { alert('Please select your county.'); return; }
-    if (!postcode) { alert('Please enter your postcode.'); return; }
     if (!phone) { alert('Please enter your phone number.'); return; }
-    if (!email || email.indexOf('@') < 0) { alert('Please enter a valid email address.'); return; }
+    if (email && email.indexOf('@') < 0) { alert('Please enter a valid email address.'); return; }
     if (!termsChk.checked) { alert('Please read and agree to the terms and conditions to proceed.'); return; }
 
     if (recvChk && (!recvFirst || !recvLast || !recvPhone || !recvCty)) {
@@ -581,7 +580,7 @@
     var total = Cart.total();
     var vat = calcVAT(total);
     var subtotalExcl = total - vat;
-    var fullAddress = street + (street2 ? ' (Notes: ' + street2 + ')' : '') + ', ' + city + ', ' + county + ' ' + postcode + ', Kenya';
+    var fullAddress = street + (street2 ? ' (Notes: ' + street2 + ')' : '') + ', ' + city + ', ' + county + (postcode ? ' ' + postcode : '') + ', Kenya';
     var dateStr = new Date().toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
 
     var msg = '*NEW ORDER — BLUE NILE GROUP*\n====================================\n';
@@ -590,7 +589,7 @@
     msg += '*BILLING DETAILS:*\n';
     msg += '• *Name:* ' + fName + ' ' + lName + '\n';
     msg += '• *Phone:* ' + phone + '\n';
-    msg += '• *Email:* ' + email + '\n';
+    if (email) msg += '• *Email:* ' + email + '\n';
     msg += '• *Address:* ' + fullAddress + '\n';
     if (notes) msg += '• *Notes:* ' + notes + '\n';
 
@@ -605,6 +604,8 @@
       msg += '\n*COMPANY DETAILS:*\n';
       msg += '• *Name:* ' + compFirst + ' ' + compLast + '\n';
       msg += '• *Company:* ' + compName + '\n';
+      if (compPhone) msg += '• *Company Phone:* ' + compPhone + '\n';
+      if (compEmail) msg += '• *Company Email:* ' + compEmail + '\n';
       msg += '• *Location:* ' + compCty + (compZip ? ' (' + compZip + ')' : '') + '\n';
       if (compNotes) msg += '• *Notes:* ' + compNotes + '\n';
     }
@@ -638,11 +639,13 @@
     document.getElementById('co-checkout-view').style.display = 'none';
     document.getElementById('co-success-view').style.display = 'block';
     var backBtn = document.getElementById('co-back-btn');
-    backBtn.href = 'shop.html';
+    if (backBtn) backBtn.href = 'shop.html';
 
     document.getElementById('co-success-greeting').textContent = 'Hi ' + order.fName + ' ' + order.lName + ', your order #' + order.ref + ' has been received!';
-    document.getElementById('co-pay-ref-display').textContent = order.ref;
-    document.getElementById('co-pay-amount-display').textContent = 'KES ' + order.total.toLocaleString();
+    var refDisp = document.getElementById('co-pay-ref-display');
+    if (refDisp) refDisp.textContent = order.ref;
+    var amtDisp = document.getElementById('co-pay-amount-display');
+    if (amtDisp) amtDisp.textContent = 'KES ' + order.total.toLocaleString();
     document.getElementById('co-receipt-ref').textContent = '#' + order.ref;
     document.getElementById('co-receipt-date').textContent = order.dateFormatted;
     document.getElementById('co-receipt-customer').textContent = order.fName + ' ' + order.lName + ' (' + order.phone + ')';

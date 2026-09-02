@@ -833,8 +833,40 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('m-nav-menu-btn')?.addEventListener('click', toggleMobileNav);
   }
 
+  function ensureNavMenu() {
+    let navMenu = document.getElementById('nav-menu');
+    if (!navMenu) {
+      navMenu = document.createElement('ul');
+      navMenu.id = 'nav-menu';
+      navMenu.className = 'nav-menu';
+      navMenu.innerHTML = `
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="shop.html"><i class="fa-solid fa-store"></i> Shop</a></li>
+        <li><a href="shop.html?cat=TMT Bars"><i class="fa-solid fa-bars-staggered"></i> TMT Bars</a></li>
+        <li><a href="shop.html?cat=BRC Mesh"><i class="fa-solid fa-border-all"></i> BRC Mesh</a></li>
+        <li><a href="shop.html?cat=Chain Link"><i class="fa-solid fa-link"></i> Chain Link</a></li>
+        <li><a href="shop.html?cat=Nails"><i class="fa-solid fa-thumbtack"></i> Nails</a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i> Cart</a></li>
+        <li><a href="index.html#contact"><i class="fa-solid fa-phone-volume"></i> Contact</a></li>
+      `;
+      document.body.appendChild(navMenu);
+    }
+    
+    if (!navMenu.querySelector('.mobile-drawer-header')) {
+      const headerDiv = document.createElement('div');
+      headerDiv.className = 'mobile-drawer-header';
+      headerDiv.innerHTML = `
+        <span class="mobile-drawer-title"><i class="fa-solid fa-compass"></i> Menu</span>
+        <button class="mobile-drawer-close" id="mobile-drawer-close-btn" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+      `;
+      navMenu.insertBefore(headerDiv, navMenu.firstChild);
+      headerDiv.querySelector('#mobile-drawer-close-btn')?.addEventListener('click', toggleMobileNav);
+    }
+    return navMenu;
+  }
+
   function toggleMobileNav() {
-    const navMenu = document.getElementById('nav-menu');
+    const navMenu = ensureNavMenu();
     const backdrop = document.getElementById('mobile-nav-backdrop');
     if (!navMenu) return;
     const isOpen = navMenu.classList.toggle('mobile-open');
@@ -848,16 +880,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Bind toggle clicks & backdrop click
   document.getElementById('mobile-nav-toggle')?.addEventListener('click', toggleMobileNav);
-  document.getElementById('mobile-nav-backdrop')?.addEventListener('click', toggleMobileNav);
+  document.getElementById('mobile-nav-backdrop')?.addEventListener('click', () => {
+    const navMenu = document.getElementById('nav-menu');
+    if (navMenu?.classList.contains('mobile-open')) {
+      toggleMobileNav();
+    }
+  });
 
   // Close mobile menu when links inside it are clicked
-  document.querySelectorAll('#nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('#nav-menu a');
+    if (link) {
       const navMenu = document.getElementById('nav-menu');
       if (navMenu?.classList.contains('mobile-open')) {
         toggleMobileNav();
       }
-    });
+    }
   });
 
   // Call updateBadge again to ensure the newly added bottom nav gets the count

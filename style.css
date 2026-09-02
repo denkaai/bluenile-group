@@ -4080,12 +4080,12 @@ transition:var(--transition);
     width: 290px;
     max-width: 85vw;
     height: 100vh;
-    background: var(--primary);
-    z-index: 1050;
+    background: #0f1826;
+    z-index: 1100;
     flex-direction: column;
-    padding: 70px 0 30px 0;
+    padding: 20px 0 30px 0;
     transition: left 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
     gap: 0;
   }
@@ -4094,9 +4094,47 @@ transition:var(--transition);
     left: 0;
   }
 
+  .mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    margin-bottom: 10px;
+  }
+
+  .mobile-drawer-title {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mobile-drawer-close {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .mobile-drawer-close:hover {
+    background: var(--accent);
+    color: #ffffff;
+  }
+
   .nav-menu > li {
     width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .nav-menu > li > a {
@@ -4116,16 +4154,15 @@ transition:var(--transition);
     color: var(--accent);
   }
 
-  /* Dark Backdrop Overlay */
+  /* Solid Dark Backdrop Overlay (No blur for Android performance) */
   .mobile-nav-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1040;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1090;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    backdrop-filter: blur(2px);
   }
 
   .mobile-nav-backdrop.open {

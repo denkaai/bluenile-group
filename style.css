@@ -71,7 +71,8 @@ button {
   font: inherit;
 }
 
-ul {
+ul,
+ol {
   list-style: none;
 }
 
@@ -1231,11 +1232,12 @@ textarea {
 
 .shop-sidebar {
   background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
   position: sticky;
   top: calc(var(--header-h) + 10px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar-block {
@@ -1247,7 +1249,7 @@ textarea {
 }
 
 .sidebar-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--primary);
   padding-bottom: 10px;
@@ -1255,6 +1257,87 @@ textarea {
   margin-bottom: 14px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-title-large {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.04em;
+  padding-bottom: 12px;
+  color: var(--primary);
+}
+
+.sidebar-wa-desc {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.btn-chat-now-green {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 20px !important;
+  background: #25D366 !important;
+  color: #ffffff !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-chat-now-green i {
+  font-size: 1.35rem;
+}
+
+.btn-chat-now-green:hover {
+  background: #1da851 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+}
+
+.sidebar-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-contact-list a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--primary);
+  transition: all 0.2s ease;
+}
+
+.sidebar-contact-list a i {
+  color: var(--accent);
+  font-size: 1.15rem;
+  width: 20px;
+  text-align: center;
+}
+
+.sidebar-contact-list a:hover {
+  background: #ffffff;
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(3px);
 }
 
 .sidebar-cats li {
@@ -1683,20 +1766,41 @@ textarea {
 .breadcrumb {
   background: var(--card-bg);
   border-bottom: 1px solid var(--border);
-  padding: 10px 0;
-  font-size: 13px;
+  padding: 12px 0;
+  font-size: 13.5px;
+  width: 100%;
 }
 
 .breadcrumb ol {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
   flex-wrap: wrap;
+  list-style: none !important;
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none !important;
+  list-style-type: none !important;
+  color: var(--muted);
+}
+
+.breadcrumb li::marker {
+  content: none !important;
+  display: none !important;
 }
 
 .breadcrumb li+li::before {
-  content: '/';
+  content: '/' !important;
   color: var(--muted);
+  font-weight: 400;
+  margin-right: 4px;
 }
 
 .breadcrumb a {
@@ -2125,20 +2229,41 @@ transition:var(--transition);
 .breadcrumb {
   background: var(--card-bg);
   border-bottom: 1px solid var(--border);
-  padding: 10px 0;
-  font-size: 13px;
+  padding: 12px 0;
+  font-size: 13.5px;
+  width: 100%;
 }
 
 .breadcrumb ol {
   display: flex;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
   flex-wrap: wrap;
+  list-style: none !important;
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none !important;
+  list-style-type: none !important;
+  color: var(--muted);
+}
+
+.breadcrumb li::marker {
+  content: none !important;
+  display: none !important;
 }
 
 .breadcrumb li+li::before {
-  content: '/';
+  content: '/' !important;
   color: var(--muted);
+  font-weight: 400;
+  margin-right: 4px;
 }
 
 .breadcrumb a {

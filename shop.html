@@ -8,7 +8,7 @@
   <link rel="icon" href="assets/logo-2.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-  <link rel="stylesheet" href="style.css?v=1.0.2">
+  <link rel="stylesheet" href="style.css?v=1.0.3">
 </head>
 <body>
 
@@ -59,7 +59,10 @@
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
   <div class="container">
-    <ol><li><a href="index.html">Home</a></li><li>Shop</li></ol>
+    <ol style="list-style:none; margin:0; padding:0; display:flex; align-items:center; gap:8px;">
+      <li style="list-style:none;"><a href="index.html">Home</a></li>
+      <li style="list-style:none;">Shop</li>
+    </ol>
   </div>
 </div>
 
@@ -71,15 +74,23 @@
       <!-- SIDEBAR -->
       <aside class="shop-sidebar">
         <div class="sidebar-block">
-          <div class="sidebar-title">Order via WhatsApp</div>
-          <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Prefer to order directly? Chat with our sales team on WhatsApp.</p>
-          <a href="https://wa.me/254755627028?text=Hello%20KIFARU%20Steel!%20I%20want%20to%20place%20an%20order." target="_blank" class="btn btn-accent" style="width:100%;justify-content:center;gap:8px;"><i class="fa-brands fa-whatsapp"></i> Chat Now</a>
+          <div class="sidebar-title sidebar-title-large">
+            <i class="fa-brands fa-whatsapp" style="color:#25D366; font-size:1.35rem;"></i>
+            <span>Order via WhatsApp</span>
+          </div>
+          <p class="sidebar-wa-desc">Prefer to order directly? Chat with our sales team on WhatsApp.</p>
+          <a href="https://wa.me/254755627028?text=Hello%20KIFARU%20Steel!%20I%20want%20to%20place%20an%20order." target="_blank" class="btn btn-chat-now-green" id="shop-chat-now-btn">
+            <i class="fa-brands fa-whatsapp"></i> <span>Chat Now</span>
+          </a>
         </div>
-        <div class="sidebar-block">
-          <div class="sidebar-title">Call Sales</div>
-          <ul class="sidebar-cats">
-            <li><a href="tel:0762270475"><i class="fa-solid fa-phone" style="color:var(--accent);width:16px;"></i> 0762 270 475</a></li>
-            <li><a href="tel:+254202013800"><i class="fa-solid fa-headset" style="color:var(--accent);width:16px;"></i> Helpline: 202 013 800</a></li>
+        <div class="sidebar-block" style="margin-top:24px;">
+          <div class="sidebar-title sidebar-title-large">
+            <i class="fa-solid fa-headset" style="color:var(--accent); font-size:1.15rem;"></i>
+            <span>Call Sales</span>
+          </div>
+          <ul class="sidebar-contact-list">
+            <li><a href="tel:0762270475"><i class="fa-solid fa-phone"></i> <span>0762 270 475</span></a></li>
+            <li><a href="tel:+254202013800"><i class="fa-solid fa-headset"></i> <span>Helpline: 202 013 800</span></a></li>
           </ul>
         </div>
       </aside>
@@ -87,7 +98,7 @@
       <!-- MAIN GRID -->
       <div>
         <div class="shop-toolbar">
-          <span class="shop-count">Showing <strong>41</strong> products</span>
+          <span class="shop-count">Showing all <strong>41</strong> products</span>
           <select id="shop-sort">
             <option value="default">Default Sorting</option>
             <option value="price-asc">Price: Low to High</option>
@@ -97,7 +108,7 @@
         <div class="shop-grid" id="shop-grid">
           <!-- Rendered by JS -->
         </div>
-        <div class="pagination">
+        <div class="pagination" style="display:none;">
           <span class="page-btn active">1</span>
         </div>
       </div>
@@ -194,7 +205,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script src="script.js?v=1.0.2"></script>
+<script src="script.js?v=1.0.3"></script>
 <script>
 // Render all products in shop grid
 const shopGrid = document.getElementById('shop-grid');

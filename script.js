@@ -996,7 +996,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentSearch = '';
   let currentSort = 'default';
   let currentPage = 1;
-  const itemsPerPage = 20;
+
+  // Read category from URL query if present (?cat=...)
+  const urlParamCat = new URLSearchParams(window.location.search).get('cat');
+  if (urlParamCat) {
+    currentCat = urlParamCat;
+  }
 
   const filterLinks = document.querySelectorAll('.sidebar-cats a[data-cat]');
   const searchInput = document.getElementById('shop-search');
@@ -1032,37 +1037,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Re-append to preserve sort order in DOM
     visibleCards.forEach(c => shopGrid.appendChild(c));
 
-    // 3. Paginate
-    const totalPages = Math.ceil(visibleCards.length / itemsPerPage) || 1;
-    if (currentPage > totalPages) currentPage = totalPages;
-    
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-
-    visibleCards.forEach((card, index) => {
-      if (index >= startIndex && index < endIndex) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
+    // 3. Show All Products (display all matching products)
+    visibleCards.forEach(card => {
+      card.style.display = '';
     });
 
-    // 4. Update Pagination UI
+    // 4. Update Pagination UI - hide pagination since all products are shown
     if (paginationContainer) {
-      let html = '';
-      for (let i = 1; i <= totalPages; i++) {
-        html += `<span class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}" style="cursor:pointer">${i}</span>`;
-      }
-      paginationContainer.innerHTML = html;
-      
-      // Attach events
-      paginationContainer.querySelectorAll('.page-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          currentPage = parseInt(btn.dataset.page);
-          applyFilters();
-          window.scrollTo({ top: shopGrid.offsetTop - 100, behavior: 'smooth' });
-        });
-      });
+      paginationContainer.innerHTML = '';
+      paginationContainer.style.display = 'none';
     }
 
     // 5. Update Toolbar Count
@@ -1071,7 +1054,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (visibleCards.length === 0) {
         shopCount.innerHTML = `Showing <strong>0</strong> products`;
       } else {
-        shopCount.innerHTML = `Showing <strong>${startIndex + 1}-${Math.min(endIndex, visibleCards.length)}</strong> of <strong>${visibleCards.length}</strong> products`;
+        shopCount.innerHTML = `Showing all <strong>${visibleCards.length}</strong> products`;
       }
     }
   }

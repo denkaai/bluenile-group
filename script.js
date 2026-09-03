@@ -1,6 +1,6 @@
 /* =========================================================
    BLUE NILE GROUP | KIFARU STEEL
-   Shared JavaScript — Cart, UI, Animations
+   Shared JavaScript ï¿½ Cart, UI, Animations
    ========================================================= */
 
 // ============================================================
@@ -209,7 +209,7 @@ const PRODUCTS = [
   {
     id: 13, category: 'Concrete Nails', name: 'Concrete Nails â€” Hardened Steel', badge: 'Hardened',
     image: 'assets/products/concrete-nails-1.jpg',
-    images: ['assets/products/concrete-nails-1.jpg', 'assets/products/concrete-nails-2.jpg'],
+    images: ['assets/products/concrete-nails-1.jpg', 'assets/products/concrete-nails-2.jpg', 'assets/products/concrete-nails-3.png.png', 'assets/products/concrete-nails-4.png.png'],
     description: 'Hardened steel concrete nails for masonry, concrete walls and brick fixing.',
     fromPrice: 245,
     variants: [
@@ -340,7 +340,7 @@ const PRODUCTS = [
   {
     id: 23, category: 'Chain Link', name: 'PVC Coated Chain Link (Green, Black, Brown)', badge: '18m Length',
     image: 'assets/products/pvc-coated-chain-link-1.jpeg',
-    images: ['assets/products/pvc-coated-chain-link-1.jpeg', 'assets/products/pvc-coated-chain-link-2.jpeg', 'assets/products/pvc-coated-chain-link-3.jpeg', 'assets/products/pvc-chainlink-1.jpg', 'assets/products/pvc-chainlink-2.jpg'],
+    images: ['assets/products/pvc-coated-chain-link-1.jpeg', 'assets/products/pvc-coated-chain-link-2.jpeg', 'assets/products/pvc-coated-chain-link-3.jpeg'],
     description: 'Premium PVC Coated Chain link (available in Green, Black, Brown). Length 18 meters roll.',
     fromPrice: 2450,
     variants: [
@@ -648,7 +648,7 @@ const PRODUCTS = [
   {
     id: 44, category: 'Toilets & Urinals', name: 'Boston White Rimless Wall-Hung Pan', badge: 'Wall-Hung',
     image: 'assets/products/toilets&urinals/toilet-1.jpg',
-    images: ['assets/products/toilets&urinals/toilet-1.jpg'],
+    images: ['assets/products/toilets&urinals/toilet (2).jpg', 'assets/products/toilets&urinals/toilet (3).jpg', 'assets/products/toilets&urinals/toilet-1.jpg'],
     description: 'Sleek Boston white rimless wall-hung pan with ergonomic design and hygienic flush.',
     fromPrice: 10498,
     variants: [
@@ -688,7 +688,7 @@ const PRODUCTS = [
   {
     id: 48, category: 'Toilets & Urinals', name: 'Cotto Simply Modish Dual Top-Flush Toilet Suite', badge: 'Cotto',
     image: 'assets/products/toilets&urinals/toilet (2).jpg',
-    images: ['assets/products/toilets&urinals/toilet (2).jpg'],
+    images: ['assets/products/toilets&urinals/toilet (2).jpg', 'assets/products/toilets&urinals/toilet (3).jpg', 'assets/products/toilets&urinals/toilet-1.jpg'],
     description: 'Top-of-the-line Cotto Simply Modish dual top-flush designer toilet suite.',
     fromPrice: 16767,
     variants: [
@@ -718,7 +718,7 @@ const PRODUCTS = [
   {
     id: 51, category: 'Toilets & Urinals', name: 'Cotto Chrome Urinal Flush Valve', badge: 'Chrome',
     image: 'assets/products/toilets&urinals/toilet (3).jpg',
-    images: ['assets/products/toilets&urinals/toilet (3).jpg'],
+    images: ['assets/products/toilets&urinals/toilet (2).jpg', 'assets/products/toilets&urinals/toilet (3).jpg', 'assets/products/toilets&urinals/toilet-1.jpg'],
     description: 'Heavy duty chrome-plated brass urinal flush valve engineered for high traffic use.',
     fromPrice: 3249,
     variants: [
@@ -728,7 +728,7 @@ const PRODUCTS = [
   {
     id: 52, category: 'Toilets & Urinals', name: 'Unix Push-Button Urinal Flush Valve', badge: 'Push Button',
     image: 'assets/products/toilets&urinals/toilet (2).jpg',
-    images: ['assets/products/toilets&urinals/toilet (2).jpg'],
+    images: ['assets/products/toilets&urinals/toilet (2).jpg', 'assets/products/toilets&urinals/toilet (3).jpg', 'assets/products/toilets&urinals/toilet-1.jpg'],
     description: 'Reliable Unix push-button mechanical urinal flush valve for commercial restrooms.',
     fromPrice: 2678,
     variants: [
@@ -788,7 +788,7 @@ const PRODUCTS = [
   {
     id: 58, category: 'Cabinets', name: 'Deluxe Modern Bathroom Vanity Cabinet Suite', badge: 'Suite',
     image: 'assets/products/cabinets/cabinets.jpg',
-    images: ['assets/products/cabinets/cabinets.jpg'],
+    images: ['assets/products/cabinets/cabinets.jpg', 'assets/products/cabinets/casa-white-mirror-cabinet.webp', 'assets/products/cabinets/ekos-cabinet-basin.webp', 'assets/products/cabinets/le-luxe-wh-mirror-cabinet.jpg', 'assets/products/cabinets/spazio-grey-mirror-cabinet.webp'],
     description: 'Complete deluxe modular bathroom vanity and mirror cabinet set with maximum storage.',
     fromPrice: 24500,
     variants: [

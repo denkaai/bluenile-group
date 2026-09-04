@@ -1,6 +1,6 @@
 /* =========================================================
    BLUE NILE GROUP | KIFARU STEEL
-   Shared JavaScript � Cart, UI, Animations
+   Shared JavaScript ï¿½ Cart, UI, Animations
    ========================================================= */
 
 // ============================================================
@@ -8,111 +8,111 @@
 // ============================================================
 const PRODUCTS = [
   {
-    id: 1, category: 'TMT Bars', name: 'KIFARU™ TMT Bars', badge: 'Grade BS 4449',
+    id: 1, category: 'TMT Bars', name: 'KIFARUâ„¢ TMT Bars', badge: 'Grade BS 4449',
     image: 'assets/products/tmt-bars-1.jpg',
     images: ['assets/products/tmt-bars-1.jpg', 'assets/products/tmt-bars-2.png'],
     description: 'Premium concrete reinforcement rebars with thermo-mechanical treatment for superior strength and seismic resistance.',
     fromPrice: 430,
     variants: [
-      { label: 'D8 (8mm) — 12m piece', price: 430 },
-      { label: 'D10 (10mm) — 12m piece', price: 650 },
-      { label: 'D12 (12mm) — 12m piece', price: 850 },
-      { label: 'D16 (16mm) — 12m piece', price: 1490 },
-      { label: 'D20 (20mm) — 12m piece', price: 2250 },
-      { label: 'D25 (25mm) — 12m piece', price: 3190 },
-      { label: 'D32 (32mm) — 12m piece', price: 4390 },
+      { label: 'D8 (8mm) â€” 12m piece', price: 430 },
+      { label: 'D10 (10mm) â€” 12m piece', price: 650 },
+      { label: 'D12 (12mm) â€” 12m piece', price: 850 },
+      { label: 'D16 (16mm) â€” 12m piece', price: 1490 },
+      { label: 'D20 (20mm) â€” 12m piece', price: 2250 },
+      { label: 'D25 (25mm) â€” 12m piece', price: 3190 },
+      { label: 'D32 (32mm) â€” 12m piece', price: 4390 },
     ]
   },
   {
-    id: 2, category: 'TMT Rings', name: 'KIFARU™ TMT Rings / Stirrups', badge: 'KEBS Certified',
+    id: 2, category: 'TMT Rings', name: 'KIFARUâ„¢ TMT Rings / Stirrups', badge: 'KEBS Certified',
     image: 'assets/products/tmt-rings-1.jpg',
     images: ['assets/products/tmt-rings-1.jpg', 'assets/products/tmt-rings-2.jpg'],
     description: 'Pre-bent column rings and stirrups for structural concrete reinforcement.',
     fromPrice: 30,
     variants: [
-      { label: '6×6" — per piece', price: 30 },
-      { label: '8×8" — per piece', price: 40 },
-      { label: '9×9" — per piece', price: 50 },
-      { label: '10×10" — per piece', price: 60 },
-      { label: '12×12" — per piece', price: 70 },
-      { label: '16×16" — per piece', price: 80 },
-      { label: '18×18" — per piece', price: 90 },
+      { label: '6Ã—6" â€” per piece', price: 30 },
+      { label: '8Ã—8" â€” per piece', price: 40 },
+      { label: '9Ã—9" â€” per piece', price: 50 },
+      { label: '10Ã—10" â€” per piece', price: 60 },
+      { label: '12Ã—12" â€” per piece', price: 70 },
+      { label: '16Ã—16" â€” per piece', price: 80 },
+      { label: '18Ã—18" â€” per piece', price: 90 },
     ]
   },
   {
-    id: 3, category: 'BRC Mesh', name: 'KIFARU™ BRC Mesh', badge: 'KEBS Certified',
+    id: 3, category: 'BRC Mesh', name: 'KIFARUâ„¢ BRC Mesh', badge: 'KEBS Certified',
     image: 'assets/products/kifaru-brc-mesh-1.jpeg',
     images: ['assets/products/kifaru-brc-mesh-1.jpeg', 'assets/products/kifaru-brc-mesh-2.jpeg'],
     description: 'Reinforced concrete mesh panels for slabs, floors and structural reinforcement.',
     fromPrice: 5700,
     variants: [
-      { label: 'A610 (2.5mm) — per sheet', price: 5700 },
-      { label: 'A66 (3.0mm) — per sheet', price: 7900 },
-      { label: 'A65 (4.0mm) — per sheet', price: 9800 },
-      { label: 'A98 (5.0mm) — per sheet', price: 11900 },
-      { label: 'A142 (6.0mm) — per sheet', price: 15900 },
+      { label: 'A610 (2.5mm) â€” per sheet', price: 5700 },
+      { label: 'A66 (3.0mm) â€” per sheet', price: 7900 },
+      { label: 'A65 (4.0mm) â€” per sheet', price: 9800 },
+      { label: 'A98 (5.0mm) â€” per sheet', price: 11900 },
+      { label: 'A142 (6.0mm) â€” per sheet', price: 15900 },
     ]
   },
   {
-    id: 4, category: 'Chain Link', name: 'KIFARU™ Chain Link (Wholesale Galvanized)', badge: '18m Roll',
+    id: 4, category: 'Chain Link', name: 'KIFARUâ„¢ Chain Link (Wholesale Galvanized)', badge: '18m Roll',
     image: 'assets/products/chainlink-galvanized-1.jpg',
     images: ['assets/products/chainlink-galvanized-1.jpg', 'assets/products/chainlink-galvanized-2.jpg', 'assets/products/chainlink-galvanized-3.png'],
     description: 'Wholesale prices for Galvanized Chain Link (Length 18 meters). High-durability boundary fencing.',
     fromPrice: 1250,
     variants: [
-      { label: '16G (1.6mm) — 4 ft (18m)', price: 1250 },
-      { label: '16G (1.6mm) — 5 ft (18m)', price: 1870 },
-      { label: '16G (1.6mm) — 6 ft (18m)', price: 2490 },
-      { label: '16G (1.6mm) — 7 ft (18m)', price: 2960 },
-      { label: '16G (1.6mm) — 8 ft (18m)', price: 3740 },
-      { label: '16G (1.6mm) — 9 ft (18m)', price: 4340 },
-      { label: '16G (1.6mm) — 10 ft (18m)', price: 4825 },
-      { label: '16G (1.6mm) — 11 ft (18m)', price: 5285 },
-      { label: '16G (1.6mm) — 12 ft (18m)', price: 5680 },
-      { label: '15G (1.8mm) — 4 ft (18m)', price: 1850 },
-      { label: '15G (1.8mm) — 5 ft (18m)', price: 2270 },
-      { label: '15G (1.8mm) — 6 ft (18m)', price: 2650 },
-      { label: '15G (1.8mm) — 7 ft (18m)', price: 2980 },
-      { label: '15G (1.8mm) — 8 ft (18m)', price: 3540 },
-      { label: '15G (1.8mm) — 9 ft (18m)', price: 3950 },
-      { label: '15G (1.8mm) — 10 ft (18m)', price: 4540 },
-      { label: '15G (1.8mm) — 11 ft (18m)', price: 4960 },
-      { label: '15G (1.8mm) — 12 ft (18m)', price: 5420 },
-      { label: '14G (2.0mm) — 4 ft (18m)', price: 2380 },
-      { label: '14G (2.0mm) — 5 ft (18m)', price: 2960 },
-      { label: '14G (2.0mm) — 6 ft (18m)', price: 3465 },
-      { label: '14G (2.0mm) — 7 ft (18m)', price: 3965 },
-      { label: '14G (2.0mm) — 8 ft (18m)', price: 4460 },
-      { label: '14G (2.0mm) — 9 ft (18m)', price: 4950 },
-      { label: '14G (2.0mm) — 10 ft (18m)', price: 5360 },
-      { label: '14G (2.0mm) — 11 ft (18m)', price: 5970 },
-      { label: '14G (2.0mm) — 12 ft (18m)', price: 6450 },
-      { label: '12.5G (2.5mm) — 4 ft (18m)', price: 3270 },
-      { label: '12.5G (2.5mm) — 5 ft (18m)', price: 3755 },
-      { label: '12.5G (2.5mm) — 6 ft (18m)', price: 3970 },
-      { label: '12.5G (2.5mm) — 7 ft (18m)', price: 4180 },
-      { label: '12.5G (2.5mm) — 8 ft (18m)', price: 4780 },
-      { label: '12.5G (2.5mm) — 9 ft (18m)', price: 5460 },
-      { label: '12.5G (2.5mm) — 10 ft (18m)', price: 5945 },
-      { label: '12.5G (2.5mm) — 11 ft (18m)', price: 6650 },
-      { label: '12.5G (2.5mm) — 12 ft (18m)', price: 7170 },
+      { label: '16G (1.6mm) â€” 4 ft (18m)', price: 1250 },
+      { label: '16G (1.6mm) â€” 5 ft (18m)', price: 1870 },
+      { label: '16G (1.6mm) â€” 6 ft (18m)', price: 2490 },
+      { label: '16G (1.6mm) â€” 7 ft (18m)', price: 2960 },
+      { label: '16G (1.6mm) â€” 8 ft (18m)', price: 3740 },
+      { label: '16G (1.6mm) â€” 9 ft (18m)', price: 4340 },
+      { label: '16G (1.6mm) â€” 10 ft (18m)', price: 4825 },
+      { label: '16G (1.6mm) â€” 11 ft (18m)', price: 5285 },
+      { label: '16G (1.6mm) â€” 12 ft (18m)', price: 5680 },
+      { label: '15G (1.8mm) â€” 4 ft (18m)', price: 1850 },
+      { label: '15G (1.8mm) â€” 5 ft (18m)', price: 2270 },
+      { label: '15G (1.8mm) â€” 6 ft (18m)', price: 2650 },
+      { label: '15G (1.8mm) â€” 7 ft (18m)', price: 2980 },
+      { label: '15G (1.8mm) â€” 8 ft (18m)', price: 3540 },
+      { label: '15G (1.8mm) â€” 9 ft (18m)', price: 3950 },
+      { label: '15G (1.8mm) â€” 10 ft (18m)', price: 4540 },
+      { label: '15G (1.8mm) â€” 11 ft (18m)', price: 4960 },
+      { label: '15G (1.8mm) â€” 12 ft (18m)', price: 5420 },
+      { label: '14G (2.0mm) â€” 4 ft (18m)', price: 2380 },
+      { label: '14G (2.0mm) â€” 5 ft (18m)', price: 2960 },
+      { label: '14G (2.0mm) â€” 6 ft (18m)', price: 3465 },
+      { label: '14G (2.0mm) â€” 7 ft (18m)', price: 3965 },
+      { label: '14G (2.0mm) â€” 8 ft (18m)', price: 4460 },
+      { label: '14G (2.0mm) â€” 9 ft (18m)', price: 4950 },
+      { label: '14G (2.0mm) â€” 10 ft (18m)', price: 5360 },
+      { label: '14G (2.0mm) â€” 11 ft (18m)', price: 5970 },
+      { label: '14G (2.0mm) â€” 12 ft (18m)', price: 6450 },
+      { label: '12.5G (2.5mm) â€” 4 ft (18m)', price: 3270 },
+      { label: '12.5G (2.5mm) â€” 5 ft (18m)', price: 3755 },
+      { label: '12.5G (2.5mm) â€” 6 ft (18m)', price: 3970 },
+      { label: '12.5G (2.5mm) â€” 7 ft (18m)', price: 4180 },
+      { label: '12.5G (2.5mm) â€” 8 ft (18m)', price: 4780 },
+      { label: '12.5G (2.5mm) â€” 9 ft (18m)', price: 5460 },
+      { label: '12.5G (2.5mm) â€” 10 ft (18m)', price: 5945 },
+      { label: '12.5G (2.5mm) â€” 11 ft (18m)', price: 6650 },
+      { label: '12.5G (2.5mm) â€” 12 ft (18m)', price: 7170 },
     ]
   },
   {
-    id: 5, category: 'Round Bars', name: 'KIFARU™ Round Bars', badge: 'KEBS Certified',
+    id: 5, category: 'Round Bars', name: 'KIFARUâ„¢ Round Bars', badge: 'KEBS Certified',
     image: 'assets/products/round-bars-1.jpeg',
     images: ['assets/products/round-bars-1.jpeg', 'assets/products/round-bars-2.jpg'],
     description: 'High-quality mild steel round bars for fabrication, fencing and general construction.',
     fromPrice: 130,
     variants: [
-      { label: 'R6 (6mm) — 12m piece', price: 130 },
-      { label: 'R8 (8mm) — 12m piece', price: 330 },
-      { label: 'R10 (10mm) — 12m piece', price: 480 },
-      { label: 'R12 (12mm) — 12m piece', price: 680 },
-      { label: 'R16 (16mm) — 12m piece', price: 860 },
-      { label: 'R20 (20mm) — 12m piece', price: 1180 },
-      { label: 'R25 (25mm) — 12m piece', price: 1790 },
-      { label: 'R32 (32mm) — 12m piece', price: 2350 },
+      { label: 'R6 (6mm) â€” 12m piece', price: 130 },
+      { label: 'R8 (8mm) â€” 12m piece', price: 330 },
+      { label: 'R10 (10mm) â€” 12m piece', price: 480 },
+      { label: 'R12 (12mm) â€” 12m piece', price: 680 },
+      { label: 'R16 (16mm) â€” 12m piece', price: 860 },
+      { label: 'R20 (20mm) â€” 12m piece', price: 1180 },
+      { label: 'R25 (25mm) â€” 12m piece', price: 1790 },
+      { label: 'R32 (32mm) â€” 12m piece', price: 2350 },
     ]
   },
   {
@@ -122,27 +122,27 @@ const PRODUCTS = [
     description: 'Galvanized hexagonal wire mesh opening for poultry enclosures, agricultural fences and partitions.',
     fromPrice: 1080,
     variants: [
-      { label: 'Gauge 22 ½" (13 mm) — 3ft × 30m', price: 1180 },
-      { label: 'Gauge 22 ½" (13 mm) — 4ft × 30m', price: 1650 },
-      { label: 'Gauge 20 1" (25 mm) — 3ft × 30m', price: 1080 },
-      { label: 'Gauge 20 1" (25 mm) — 4ft × 30m', price: 1550 },
-      { label: 'Gauge 20 1" (25 mm) — 6ft × 30m', price: 2150 },
-      { label: '18 Gauge 2" (50 mm) — 4ft × 30m', price: 2100 },
-      { label: '18 Gauge 2" (50 mm) — 6ft × 30m', price: 2950 },
+      { label: 'Gauge 22 Â½" (13 mm) â€” 3ft Ã— 30m', price: 1180 },
+      { label: 'Gauge 22 Â½" (13 mm) â€” 4ft Ã— 30m', price: 1650 },
+      { label: 'Gauge 20 1" (25 mm) â€” 3ft Ã— 30m', price: 1080 },
+      { label: 'Gauge 20 1" (25 mm) â€” 4ft Ã— 30m', price: 1550 },
+      { label: 'Gauge 20 1" (25 mm) â€” 6ft Ã— 30m', price: 2150 },
+      { label: '18 Gauge 2" (50 mm) â€” 4ft Ã— 30m', price: 2100 },
+      { label: '18 Gauge 2" (50 mm) â€” 6ft Ã— 30m', price: 2950 },
     ]
   },
   {
-    id: 7, category: 'Mild Plate', name: 'KIFARU™ Mild Plate', badge: 'KEBS Certified',
+    id: 7, category: 'Mild Plate', name: 'KIFARUâ„¢ Mild Plate', badge: 'KEBS Certified',
     image: 'assets/products/mild-plate-1.jpg',
     images: ['assets/products/mild-plate-1.jpg', 'assets/products/mild-plate-2.jpg'],
     description: 'Versatile mild steel plates for fabrication, construction and industrial applications.',
     fromPrice: 2970,
     variants: [
-      { label: '16G 1.6mm — 4ft×8ft sheet', price: 2970 },
-      { label: '14G 2.0mm — 4ft×8ft sheet', price: 3780 },
-      { label: '13G 2.5mm — 4ft×8ft sheet', price: 4850 },
-      { label: '11G 3.0mm — 4ft×8ft sheet', price: 5900 },
-      { label: '8G 4.0mm — 4ft×8ft sheet', price: 6500 },
+      { label: '16G 1.6mm â€” 4ftÃ—8ft sheet', price: 2970 },
+      { label: '14G 2.0mm â€” 4ftÃ—8ft sheet', price: 3780 },
+      { label: '13G 2.5mm â€” 4ftÃ—8ft sheet', price: 4850 },
+      { label: '11G 3.0mm â€” 4ftÃ—8ft sheet', price: 5900 },
+      { label: '8G 4.0mm â€” 4ftÃ—8ft sheet', price: 6500 },
     ]
   },
   {
@@ -152,22 +152,22 @@ const PRODUCTS = [
     description: 'High-tensile common wire nails for general construction, roofing and carpentry.',
     fromPrice: 90,
     variants: [
-      { label: '1 inch — per kg', price: 90 },
-      { label: '4 inch — per kg', price: 140 },
-      { label: '1 inch — 25kg bag', price: 2250 },
-      { label: '4 inch — 25kg bag', price: 3500 },
+      { label: '1 inch â€” per kg', price: 90 },
+      { label: '4 inch â€” per kg', price: 140 },
+      { label: '1 inch â€” 25kg bag', price: 2250 },
+      { label: '4 inch â€” 25kg bag', price: 3500 },
     ]
   },
   {
-    id: 9, category: 'Roofing Nails', name: 'Roofing Nails — Galvanized', badge: 'Galvanized',
+    id: 9, category: 'Roofing Nails', name: 'Roofing Nails â€” Galvanized', badge: 'Galvanized',
     image: 'assets/products/roofing-nails-1.jpg',
     images: ['assets/products/roofing-nails-1.jpg', 'assets/products/roofing-nails-2.jpg', 'assets/products/roofing-nails-3.jpg'],
     description: 'Galvanized roofing nails with leak-proof washers for corrugated and tile roofing sheets.',
     fromPrice: 190,
     variants: [
-      { label: '2½ inch — per kg', price: 190 },
-      { label: '2½ inch — 25kg bag', price: 4750 },
-      { label: '2½ inch — 50kg bag', price: 9500 },
+      { label: '2Â½ inch â€” per kg', price: 190 },
+      { label: '2Â½ inch â€” 25kg bag', price: 4750 },
+      { label: '2Â½ inch â€” 50kg bag', price: 9500 },
     ]
   },
   {
@@ -177,8 +177,8 @@ const PRODUCTS = [
     description: 'Galvanized U-shaped staple nails for fencing, wire attachment and agricultural post fastening.',
     fromPrice: 240,
     variants: [
-      { label: '1"–3" — per kg', price: 240 },
-      { label: '1"–3" — 25kg bag', price: 6000 },
+      { label: '1"â€“3" â€” per kg', price: 240 },
+      { label: '1"â€“3" â€” 25kg bag', price: 6000 },
     ]
   },
   {
@@ -188,9 +188,9 @@ const PRODUCTS = [
     description: 'High-security anti-climb perimeter fencing panels for residential estates, factories and institutions.',
     fromPrice: 5800,
     variants: [
-      { label: '1.8m height — 3m panel', price: 5800 },
-      { label: '2.1m height — 3m panel', price: 7900 },
-      { label: '2.4m height — 3m panel', price: 10900 },
+      { label: '1.8m height â€” 3m panel', price: 5800 },
+      { label: '2.1m height â€” 3m panel', price: 7900 },
+      { label: '2.4m height â€” 3m panel', price: 10900 },
     ]
   },
   {
@@ -200,55 +200,55 @@ const PRODUCTS = [
     description: 'Hot-rolled wire rods used as raw material for nail, mesh and wire manufacturing.',
     fromPrice: 97,
     variants: [
-      { label: '5.5mm — per kg', price: 97 },
-      { label: '6.0mm — per kg', price: 101 },
-      { label: '6.5mm — per kg', price: 107 },
-      { label: '8.0mm — per kg', price: 114 },
+      { label: '5.5mm â€” per kg', price: 97 },
+      { label: '6.0mm â€” per kg', price: 101 },
+      { label: '6.5mm â€” per kg', price: 107 },
+      { label: '8.0mm â€” per kg', price: 114 },
     ]
   },
   {
-    id: 13, category: 'Concrete Nails', name: 'Concrete Nails — Hardened Steel', badge: 'Hardened',
+    id: 13, category: 'Concrete Nails', name: 'Concrete Nails â€” Hardened Steel', badge: 'Hardened',
     image: 'assets/products/concrete-nails-1.jpg',
     images: ['assets/products/concrete-nails-1.jpg', 'assets/products/concrete-nails-2.jpg', 'assets/products/concrete-nails-3.png.png', 'assets/products/concrete-nails-4.png.png'],
     description: 'Hardened steel concrete nails for masonry, concrete walls and brick fixing.',
     fromPrice: 245,
     variants: [
-      { label: '1"–4" — per kg', price: 245 },
-      { label: '1"–4" — 25kg bag', price: 6125 },
+      { label: '1"â€“4" â€” per kg', price: 245 },
+      { label: '1"â€“4" â€” 25kg bag', price: 6125 },
     ]
   },
   {
-    id: 14, category: 'Weld Mesh', name: 'KIFARU™ Weld Mesh', badge: 'KEBS Certified',
+    id: 14, category: 'Weld Mesh', name: 'KIFARUâ„¢ Weld Mesh', badge: 'KEBS Certified',
     image: 'assets/products/kifaru-weld-mesh-1.jpg',
     images: ['assets/products/kifaru-weld-mesh-1.jpg', 'assets/products/kifaru-weld-mesh-2.jpg', 'assets/products/kifaru-weld-mesh-3.jpg'],
     description: 'Welded wire mesh panels for partitions, cages, security grilles and floor reinforcement.',
     fromPrice: 350,
     variants: [
-      { label: 'Light 2.0mm — 2.4m×1.2m sheet', price: 350 },
-      { label: 'Medium 2.5mm — 2.4m×1.2m sheet', price: 450 },
-      { label: 'Heavy 3.0mm — 2.4m×1.2m sheet', price: 650 },
+      { label: 'Light 2.0mm â€” 2.4mÃ—1.2m sheet', price: 350 },
+      { label: 'Medium 2.5mm â€” 2.4mÃ—1.2m sheet', price: 450 },
+      { label: 'Heavy 3.0mm â€” 2.4mÃ—1.2m sheet', price: 650 },
     ]
   },
   {
-    id: 15, category: 'Expanded Metal', name: 'KIFARU™ Expanded Metal', badge: 'Heavy Duty',
+    id: 15, category: 'Expanded Metal', name: 'KIFARUâ„¢ Expanded Metal', badge: 'Heavy Duty',
     image: 'assets/products/kifaru-expanded-metal-1.jpg',
     images: ['assets/products/kifaru-expanded-metal-1.jpg', 'assets/products/kifaru-expanded-metal-2.jpg', 'assets/products/kifaru-expanded-metal-3.jpg'],
     description: 'Heavy-duty expanded metal sheets for security doors, window grilles and industrial walkways.',
     fromPrice: 1500,
     variants: [
-      { label: 'Standard 2.0mm — 8ft×4ft sheet', price: 1500 },
-      { label: 'Heavy Duty 3.0mm — 8ft×4ft sheet', price: 2500 },
+      { label: 'Standard 2.0mm â€” 8ftÃ—4ft sheet', price: 1500 },
+      { label: 'Heavy Duty 3.0mm â€” 8ftÃ—4ft sheet', price: 2500 },
     ]
   },
   {
-    id: 16, category: 'Copper Gas Rods', name: 'KIFARU™ Copper Gas Rods', badge: 'Premium Grade',
+    id: 16, category: 'Copper Gas Rods', name: 'KIFARUâ„¢ Copper Gas Rods', badge: 'Premium Grade',
     image: 'assets/products/copper-gas-rods-1.jpg',
     images: ['assets/products/copper-gas-rods-1.jpg', 'assets/products/copper-gas-rods-2.jpg', 'assets/products/copper-gas-rods-3.jpg'],
     description: 'High-quality copper coated gas welding rods for industrial steel and pipe fabrication.',
     fromPrice: 1200,
     variants: [
-      { label: '1.6mm — 5kg pack', price: 1200 },
-      { label: '2.4mm — 5kg pack', price: 1200 },
+      { label: '1.6mm â€” 5kg pack', price: 1200 },
+      { label: '2.4mm â€” 5kg pack', price: 1200 },
     ]
   },
   {
@@ -258,18 +258,18 @@ const PRODUCTS = [
     description: 'High-quality Rectangular Hollow Sections (RHS) for structural steel frameworks and gates.',
     fromPrice: 790,
     variants: [
-      { label: '20×40 mm 1.5 mm — 6m piece', price: 790 },
-      { label: '20×40 mm 2.0 mm — 6m piece', price: 970 },
-      { label: '25×50 mm 1.5 mm — 6m piece', price: 970 },
-      { label: '25×50 mm 2.0 mm — 6m piece', price: 1350 },
-      { label: '40×40 mm 1.5 mm — 6m piece', price: 1350 },
-      { label: '40×40 mm 2.0 mm — 6m piece', price: 1670 },
-      { label: '40×60 mm 2.0 mm — 6m piece', price: 1890 },
-      { label: '50×50 mm 2.0 mm — 6m piece', price: 2150 },
-      { label: '50×75 mm 2.5 mm — 6m piece', price: 2650 },
-      { label: '75×75 mm 2.5 mm — 6m piece', price: 2950 },
-      { label: '100×50 mm 2.5 mm — 6m piece', price: 3150 },
-      { label: '100×100 mm 3.0 mm — 6m piece', price: 3870 },
+      { label: '20Ã—40 mm 1.5 mm â€” 6m piece', price: 790 },
+      { label: '20Ã—40 mm 2.0 mm â€” 6m piece', price: 970 },
+      { label: '25Ã—50 mm 1.5 mm â€” 6m piece', price: 970 },
+      { label: '25Ã—50 mm 2.0 mm â€” 6m piece', price: 1350 },
+      { label: '40Ã—40 mm 1.5 mm â€” 6m piece', price: 1350 },
+      { label: '40Ã—40 mm 2.0 mm â€” 6m piece', price: 1670 },
+      { label: '40Ã—60 mm 2.0 mm â€” 6m piece', price: 1890 },
+      { label: '50Ã—50 mm 2.0 mm â€” 6m piece', price: 2150 },
+      { label: '50Ã—75 mm 2.5 mm â€” 6m piece', price: 2650 },
+      { label: '75Ã—75 mm 2.5 mm â€” 6m piece', price: 2950 },
+      { label: '100Ã—50 mm 2.5 mm â€” 6m piece', price: 3150 },
+      { label: '100Ã—100 mm 3.0 mm â€” 6m piece', price: 3870 },
     ]
   },
   {
@@ -279,17 +279,17 @@ const PRODUCTS = [
     description: 'Durable Square Hollow Sections (SHS) ideal for construction and structural frameworks.',
     fromPrice: 490,
     variants: [
-      { label: '20×20 mm 1.5 mm — 6m piece', price: 490 },
-      { label: '25×25 mm 1.5 mm — 6m piece', price: 550 },
-      { label: '25×25 mm 2.0 mm — 6m piece', price: 690 },
-      { label: '30×30 mm 1.5 mm — 6m piece', price: 790 },
-      { label: '30×30 mm 2.0 mm — 6m piece', price: 930 },
-      { label: '40×40 mm 1.5 mm — 6m piece', price: 1090 },
-      { label: '40×40 mm 2.0 mm — 6m piece', price: 1490 },
-      { label: '50×50 mm 2.0 mm — 6m piece', price: 1850 },
-      { label: '60×60 mm 2.5 mm — 6m piece', price: 2490 },
-      { label: '75×75 mm 2.5 mm — 6m piece', price: 2980 },
-      { label: '100×100 mm 3.0 mm — 6m piece', price: 3470 },
+      { label: '20Ã—20 mm 1.5 mm â€” 6m piece', price: 490 },
+      { label: '25Ã—25 mm 1.5 mm â€” 6m piece', price: 550 },
+      { label: '25Ã—25 mm 2.0 mm â€” 6m piece', price: 690 },
+      { label: '30Ã—30 mm 1.5 mm â€” 6m piece', price: 790 },
+      { label: '30Ã—30 mm 2.0 mm â€” 6m piece', price: 930 },
+      { label: '40Ã—40 mm 1.5 mm â€” 6m piece', price: 1090 },
+      { label: '40Ã—40 mm 2.0 mm â€” 6m piece', price: 1490 },
+      { label: '50Ã—50 mm 2.0 mm â€” 6m piece', price: 1850 },
+      { label: '60Ã—60 mm 2.5 mm â€” 6m piece', price: 2490 },
+      { label: '75Ã—75 mm 2.5 mm â€” 6m piece', price: 2980 },
+      { label: '100Ã—100 mm 3.0 mm â€” 6m piece', price: 3470 },
     ]
   },
   {
@@ -334,7 +334,7 @@ const PRODUCTS = [
     description: 'Premium quality Bamburi cement for solid concrete foundations, columns and slabs.',
     fromPrice: 630,
     variants: [
-      { label: 'Bamburi Cement — 50kg bag', price: 630 },
+      { label: 'Bamburi Cement â€” 50kg bag', price: 630 },
     ]
   },
   {
@@ -344,24 +344,24 @@ const PRODUCTS = [
     description: 'Premium PVC Coated Chain link (available in Green, Black, Brown). Length 18 meters roll.',
     fromPrice: 2450,
     variants: [
-      { label: '10 Gauge (3.2mm) — 4 ft', price: 2450 },
-      { label: '10 Gauge (3.2mm) — 5 ft', price: 2850 },
-      { label: '10 Gauge (3.2mm) — 6 ft', price: 3150 },
-      { label: '10 Gauge (3.2mm) — 7 ft', price: 3350 },
-      { label: '10 Gauge (3.2mm) — 8 ft', price: 3850 },
-      { label: '10 Gauge (3.2mm) — 9 ft', price: 4350 },
-      { label: '10 Gauge (3.2mm) — 10 ft', price: 4750 },
-      { label: '10 Gauge (3.2mm) — 11 ft', price: 5350 },
-      { label: '10 Gauge (3.2mm) — 12 ft', price: 6150 },
-      { label: '8 Gauge (4.0mm) — 4 ft', price: 3450 },
-      { label: '8 Gauge (4.0mm) — 5 ft', price: 3950 },
-      { label: '8 Gauge (4.0mm) — 6 ft', price: 4350 },
-      { label: '8 Gauge (4.0mm) — 7 ft', price: 4750 },
-      { label: '8 Gauge (4.0mm) — 8 ft', price: 5350 },
-      { label: '8 Gauge (4.0mm) — 9 ft', price: 5630 },
-      { label: '8 Gauge (4.0mm) — 10 ft', price: 5970 },
-      { label: '8 Gauge (4.0mm) — 11 ft', price: 6340 },
-      { label: '8 Gauge (4.0mm) — 12 ft', price: 6885 },
+      { label: '10 Gauge (3.2mm) â€” 4 ft', price: 2450 },
+      { label: '10 Gauge (3.2mm) â€” 5 ft', price: 2850 },
+      { label: '10 Gauge (3.2mm) â€” 6 ft', price: 3150 },
+      { label: '10 Gauge (3.2mm) â€” 7 ft', price: 3350 },
+      { label: '10 Gauge (3.2mm) â€” 8 ft', price: 3850 },
+      { label: '10 Gauge (3.2mm) â€” 9 ft', price: 4350 },
+      { label: '10 Gauge (3.2mm) â€” 10 ft', price: 4750 },
+      { label: '10 Gauge (3.2mm) â€” 11 ft', price: 5350 },
+      { label: '10 Gauge (3.2mm) â€” 12 ft', price: 6150 },
+      { label: '8 Gauge (4.0mm) â€” 4 ft', price: 3450 },
+      { label: '8 Gauge (4.0mm) â€” 5 ft', price: 3950 },
+      { label: '8 Gauge (4.0mm) â€” 6 ft', price: 4350 },
+      { label: '8 Gauge (4.0mm) â€” 7 ft', price: 4750 },
+      { label: '8 Gauge (4.0mm) â€” 8 ft', price: 5350 },
+      { label: '8 Gauge (4.0mm) â€” 9 ft', price: 5630 },
+      { label: '8 Gauge (4.0mm) â€” 10 ft', price: 5970 },
+      { label: '8 Gauge (4.0mm) â€” 11 ft', price: 6340 },
+      { label: '8 Gauge (4.0mm) â€” 12 ft', price: 6885 },
     ]
   },
   {
@@ -371,7 +371,7 @@ const PRODUCTS = [
     description: 'High quality Savannah cement for reliable construction work.',
     fromPrice: 580,
     variants: [
-      { label: 'Savannah Cement — 50kg bag', price: 580 },
+      { label: 'Savannah Cement â€” 50kg bag', price: 580 },
     ]
   },
   {
@@ -381,7 +381,7 @@ const PRODUCTS = [
     description: 'Premium quality Rai cement for residential and commercial masonry.',
     fromPrice: 560,
     variants: [
-      { label: 'Rai Cement — 50kg bag', price: 560 },
+      { label: 'Rai Cement â€” 50kg bag', price: 560 },
     ]
   },
   {
@@ -455,11 +455,11 @@ const PRODUCTS = [
     description: 'Heavy duty Gabion Boxes (Typical Mesh 80x100mm) for river bank protection and soil retention.',
     fromPrice: 1350,
     variants: [
-      { label: '1 × 1 × 1 meter', price: 1350 },
-      { label: '2 × 1 × 0.5 meter', price: 1850 },
-      { label: '2 × 1 × 1 meter', price: 2350 },
-      { label: '3 × 1 × 1 meter', price: 3150 },
-      { label: '4 × 1 × 1 meter', price: 4250 }
+      { label: '1 Ã— 1 Ã— 1 meter', price: 1350 },
+      { label: '2 Ã— 1 Ã— 0.5 meter', price: 1850 },
+      { label: '2 Ã— 1 Ã— 1 meter', price: 2350 },
+      { label: '3 Ã— 1 Ã— 1 meter', price: 3150 },
+      { label: '4 Ã— 1 Ã— 1 meter', price: 4250 }
     ]
   },
   {
@@ -533,15 +533,15 @@ const PRODUCTS = [
     description: 'High quality structural angle lines. Factory price per 6m length.',
     fromPrice: 280,
     variants: [
-      { label: '20 × 20 mm (3 mm) — 6m', price: 280 },
-      { label: '25 × 25 mm (3 mm) — 6m', price: 375 },
-      { label: '30 × 30 mm (3 mm) — 6m', price: 495 },
-      { label: '40 × 40 mm (4 mm) — 6m', price: 740 },
-      { label: '50 × 50 mm (5 mm) — 6m', price: 965 },
-      { label: '65 × 65 mm (6 mm) — 6m', price: 1487 },
-      { label: '75 × 75 mm (6 mm) — 6m', price: 1939 },
-      { label: '90 × 90 mm (8 mm) — 6m', price: 2680 },
-      { label: '100 × 100 mm (10 mm) — 6m', price: 3470 }
+      { label: '20 Ã— 20 mm (3 mm) â€” 6m', price: 280 },
+      { label: '25 Ã— 25 mm (3 mm) â€” 6m', price: 375 },
+      { label: '30 Ã— 30 mm (3 mm) â€” 6m', price: 495 },
+      { label: '40 Ã— 40 mm (4 mm) â€” 6m', price: 740 },
+      { label: '50 Ã— 50 mm (5 mm) â€” 6m', price: 965 },
+      { label: '65 Ã— 65 mm (6 mm) â€” 6m', price: 1487 },
+      { label: '75 Ã— 75 mm (6 mm) â€” 6m', price: 1939 },
+      { label: '90 Ã— 90 mm (8 mm) â€” 6m', price: 2680 },
+      { label: '100 Ã— 100 mm (10 mm) â€” 6m', price: 3470 }
     ]
   },
   {
@@ -551,15 +551,15 @@ const PRODUCTS = [
     description: 'Durable round steel pipes. Factory price per 6m length.',
     fromPrice: 250,
     variants: [
-      { label: '½" (18G) — 6m', price: 250 },
-      { label: '¾" (18G) — 6m', price: 330 },
-      { label: '1" (16G) — 6m', price: 480 },
-      { label: '1¼" (16G) — 6m', price: 640 },
-      { label: '1½" (16G) — 6m', price: 880 },
-      { label: '2" (14G) — 6m', price: 1080 },
-      { label: '2½" (14G) — 6m', price: 1390 },
-      { label: '3" (14G) — 6m', price: 1840 },
-      { label: '4" (12G) — 6m', price: 2450 }
+      { label: 'Â½" (18G) â€” 6m', price: 250 },
+      { label: 'Â¾" (18G) â€” 6m', price: 330 },
+      { label: '1" (16G) â€” 6m', price: 480 },
+      { label: '1Â¼" (16G) â€” 6m', price: 640 },
+      { label: '1Â½" (16G) â€” 6m', price: 880 },
+      { label: '2" (14G) â€” 6m', price: 1080 },
+      { label: '2Â½" (14G) â€” 6m', price: 1390 },
+      { label: '3" (14G) â€” 6m', price: 1840 },
+      { label: '4" (12G) â€” 6m', price: 2450 }
     ]
   },
   {
@@ -569,13 +569,13 @@ const PRODUCTS = [
     description: 'Stainless Steel Chrome Pipes for handrails, balustrades and furniture. Factory price per 6m.',
     fromPrice: 580,
     variants: [
-      { label: '19 mm / ¾" (0.8 mm) — 6m', price: 580 },
-      { label: '25 mm / 1" (0.8 mm) — 6m', price: 780 },
-      { label: '32 mm / 1¼" (1.0 mm) — 6m', price: 990 },
-      { label: '38 mm / 1½" (1.0 mm) — 6m', price: 1340 },
-      { label: '50 mm / 2" (1.2 mm) — 6m', price: 1870 },
-      { label: '63 mm / 2½" (1.2 mm) — 6m', price: 2390 },
-      { label: '76 mm / 3" (1.5 mm) — 6m', price: 2830 }
+      { label: '19 mm / Â¾" (0.8 mm) â€” 6m', price: 580 },
+      { label: '25 mm / 1" (0.8 mm) â€” 6m', price: 780 },
+      { label: '32 mm / 1Â¼" (1.0 mm) â€” 6m', price: 990 },
+      { label: '38 mm / 1Â½" (1.0 mm) â€” 6m', price: 1340 },
+      { label: '50 mm / 2" (1.2 mm) â€” 6m', price: 1870 },
+      { label: '63 mm / 2Â½" (1.2 mm) â€” 6m', price: 2390 },
+      { label: '76 mm / 3" (1.5 mm) â€” 6m', price: 2830 }
     ]
   },
   {
@@ -585,10 +585,10 @@ const PRODUCTS = [
     description: 'High quality durable ceramic and porcelain Floor Tiles.',
     fromPrice: 470,
     variants: [
-      { label: '30×30 (17 Pcs per box)', price: 470 },
-      { label: '40×40 (12 Pcs per box)', price: 640 },
-      { label: '50×50 (7 Pcs per box)', price: 830 },
-      { label: '60×60 (4 Pcs per box)', price: 1150 }
+      { label: '30Ã—30 (17 Pcs per box)', price: 470 },
+      { label: '40Ã—40 (12 Pcs per box)', price: 640 },
+      { label: '50Ã—50 (7 Pcs per box)', price: 830 },
+      { label: '60Ã—60 (4 Pcs per box)', price: 1150 }
     ]
   },
   {
@@ -598,8 +598,8 @@ const PRODUCTS = [
     description: 'Beautiful glazed ceramic Wall Tiles for kitchens and bathrooms.',
     fromPrice: 530,
     variants: [
-      { label: '25×40 (15 Pcs per box)', price: 530 },
-      { label: '30×60 (8 Pcs per box)', price: 790 }
+      { label: '25Ã—40 (15 Pcs per box)', price: 530 },
+      { label: '30Ã—60 (8 Pcs per box)', price: 790 }
     ]
   },
   {
@@ -631,8 +631,8 @@ const PRODUCTS = [
     description: 'Durable Plastic Poultry Mesh (HDPE). UV stabilized, rust-proof, ideal for poultry runs and garden enclosures.',
     fromPrice: 3500,
     variants: [
-      { label: '1 m × 25 m roll', price: 3500 },
-      { label: '1 m × 50 m roll', price: 4800 }
+      { label: '1 m Ã— 25 m roll', price: 3500 },
+      { label: '1 m Ã— 50 m roll', price: 4800 }
     ]
   },
   {
@@ -797,48 +797,48 @@ const PRODUCTS = [
   },
   {
     id: 59, category: 'Kitchen Sinks', name: 'Trendy Black Quartz Double Bowl Kitchen Sink', badge: 'Quartz',
-    image: 'assets/products/kitchen sinks/trendy-black-quartz.jpg',
-    images: ['assets/products/kitchen sinks/trendy-black-quartz.jpg'],
+    image: 'assets/products/kitchen sinks/trendy-black-kitchen-sink.webp',
+    images: ['assets/products/kitchen sinks/trendy-black-kitchen-sink.webp'],
     description: 'High-quality Trendy Black Quartz Double Bowl Kitchen Sink.',
     fromPrice: 18600,
     variants: [{ label: 'Trendy Black Quartz Double Bowl', price: 18600 }]
   },
   {
     id: 60, category: 'Kitchen Sinks', name: 'SUS304 Stainless Steel Double Bowl Sink with Board', badge: 'SUS304',
-    image: 'assets/products/kitchen sinks/sus304-stainless-steel.jpg',
-    images: ['assets/products/kitchen sinks/sus304-stainless-steel.jpg'],
+    image: 'assets/products/kitchen sinks/stainless-kitchen-sinks.webp',
+    images: ['assets/products/kitchen sinks/stainless-kitchen-sinks.webp'],
     description: 'Premium SUS304 Stainless Steel Double Bowl Sink with drain board.',
     fromPrice: 9200,
     variants: [{ label: 'SUS304 Double Bowl Sink with Board', price: 9200 }]
   },
   {
     id: 61, category: 'Kitchen Sinks', name: 'Stainless Steel Deep Single Bowl Undermount Sink', badge: 'Undermount',
-    image: 'assets/products/kitchen sinks/stainless-deep-single.jpg',
-    images: ['assets/products/kitchen sinks/stainless-deep-single.jpg'],
+    image: 'assets/products/kitchen sinks/steel-kitchen-sink.jpg',
+    images: ['assets/products/kitchen sinks/steel-kitchen-sink.jpg'],
     description: 'Durable Stainless Steel Deep Single Bowl Undermount Sink.',
     fromPrice: 5500,
     variants: [{ label: 'Deep Single Bowl Undermount', price: 5500 }]
   },
   {
     id: 62, category: 'Kitchen Sinks', name: 'Stainless Steel Double Bowl Drop-In Sink with Board', badge: 'Drop-In',
-    image: 'assets/products/kitchen sinks/stainless-double-dropin.jpg',
-    images: ['assets/products/kitchen sinks/stainless-double-dropin.jpg'],
+    image: 'assets/products/kitchen sinks/kitchen-sink-2.jpg',
+    images: ['assets/products/kitchen sinks/kitchen-sink-2.jpg'],
     description: 'Convenient Stainless Steel Double Bowl Drop-In Sink with drain board.',
     fromPrice: 7800,
     variants: [{ label: 'Double Bowl Drop-In with Board', price: 7800 }]
   },
   {
     id: 63, category: 'Kitchen Sinks', name: 'Commercial Grade Satin Stainless Steel Double Bowl Sink', badge: 'Commercial',
-    image: 'assets/products/kitchen sinks/commercial-satin-stainless.jpg',
-    images: ['assets/products/kitchen sinks/commercial-satin-stainless.jpg'],
+    image: 'assets/products/kitchen sinks/sinks.jpg',
+    images: ['assets/products/kitchen sinks/sinks.jpg'],
     description: 'Heavy-duty Commercial Grade Satin Stainless Steel Double Bowl Sink.',
     fromPrice: 10900,
     variants: [{ label: 'Satin Stainless Steel Double Bowl', price: 10900 }]
   },
   {
     id: 64, category: 'Kitchen Sinks', name: 'Fantasy Composite Granite Kitchen Sink (Grey)', badge: 'Granite',
-    image: 'assets/products/kitchen sinks/fantasy-composite-granite.jpg',
-    images: ['assets/products/kitchen sinks/fantasy-composite-granite.jpg'],
+    image: 'assets/products/kitchen sinks/fantasy-kitchen-sink.jpg',
+    images: ['assets/products/kitchen sinks/fantasy-kitchen-sink.jpg'],
     description: 'Elegant Fantasy Composite Granite Kitchen Sink in Grey finish.',
     fromPrice: 16800,
     variants: [{ label: 'Fantasy Composite Granite (Grey)', price: 16800 }]
@@ -846,32 +846,32 @@ const PRODUCTS = [
 
   {
     id: 65, category: 'Anti-Twist', name: 'Shaka Black & Chrome Nylon-Silicone Anti-Twist Hose', badge: 'Anti-Twist',
-    image: 'assets/products/anti-twist/shaka-black-chrome.jpg',
-    images: ['assets/products/anti-twist/shaka-black-chrome.jpg'],
+    image: 'assets/products/anti-twist/shaka-black-anti-twist-nickel-plate.jpg',
+    images: ['assets/products/anti-twist/shaka-black-anti-twist-nickel-plate.jpg'],
     description: 'Flexible Shaka Black & Chrome Nylon-Silicone Anti-Twist Shower Hose.',
     fromPrice: 980,
     variants: [{ label: 'Black & Chrome Nylon-Silicone', price: 980 }]
   },
   {
     id: 66, category: 'Anti-Twist', name: 'Shaka Chrome Luxe Spyral Anti-Twist Shower Hose', badge: 'Luxe',
-    image: 'assets/products/anti-twist/shaka-chrome-luxe.jpg',
-    images: ['assets/products/anti-twist/shaka-chrome-luxe.jpg'],
+    image: 'assets/products/anti-twist/shaka-chrome-black-nyl-sil-anti-twist.jpg',
+    images: ['assets/products/anti-twist/shaka-chrome-black-nyl-sil-anti-twist.jpg'],
     description: 'Premium Shaka Chrome Luxe Spyral Anti-Twist Shower Hose.',
     fromPrice: 1150,
     variants: [{ label: 'Chrome Luxe Spyral', price: 1150 }]
   },
   {
     id: 67, category: 'Anti-Twist', name: 'Shaka White & Chrome Anti-Twist Shower Hose', badge: 'Anti-Twist',
-    image: 'assets/products/anti-twist/shaka-white-chrome.jpg',
-    images: ['assets/products/anti-twist/shaka-white-chrome.jpg'],
+    image: 'assets/products/anti-twist/shaka-chrome-white-anti-twist.jpg',
+    images: ['assets/products/anti-twist/shaka-chrome-white-anti-twist.jpg'],
     description: 'Durable Shaka White & Chrome Anti-Twist Shower Hose.',
     fromPrice: 1050,
     variants: [{ label: 'White & Chrome', price: 1050 }]
   },
   {
     id: 68, category: 'Anti-Twist', name: 'Shaka White Anti-Twist Hose with Nickel Plated Nuts', badge: 'Nickel Plated',
-    image: 'assets/products/anti-twist/shaka-white-nickel.jpg',
-    images: ['assets/products/anti-twist/shaka-white-nickel.jpg'],
+    image: 'assets/products/anti-twist/shaka-white-anti-twist-nickel-plate.jpg',
+    images: ['assets/products/anti-twist/shaka-white-anti-twist-nickel-plate.jpg'],
     description: 'Shaka White Anti-Twist Hose with durable Nickel Plated Nuts.',
     fromPrice: 970,
     variants: [{ label: 'White with Nickel Plated Nuts', price: 970 }]
@@ -879,60 +879,245 @@ const PRODUCTS = [
 
   {
     id: 69, category: 'Showers', name: 'Corner Pentagon Glass Shower Enclosure with Tray', badge: 'Enclosure',
-    image: 'assets/products/showers/corner-pentagon-glass.jpg',
-    images: ['assets/products/showers/corner-pentagon-glass.jpg'],
+    image: 'assets/products/showers/shower-enclosure-pentagon-chrome-frame.jpg',
+    images: ['assets/products/showers/shower-enclosure-pentagon-chrome-frame.jpg'],
     description: 'Modern Corner Pentagon Glass Shower Enclosure complete with Tray.',
     fromPrice: 19600,
     variants: [{ label: 'Corner Pentagon Glass Enclosure', price: 19600 }]
   },
   {
     id: 70, category: 'Showers', name: 'Chrome Adjustable Pivot Shower Door', badge: 'Pivot Door',
-    image: 'assets/products/showers/chrome-adjustable-pivot.jpg',
+    image: 'assets/products/showers/shower-1.jpg',
     description: 'Sleek Chrome Adjustable Pivot Shower Door for modern bathrooms.',
     fromPrice: 14500,
     variants: [{ label: 'Chrome Adjustable Pivot Door', price: 14500 }]
   },
   {
     id: 71, category: 'Showers', name: 'Square Corner Glass Shower Enclosure (White Frame)', badge: 'Enclosure',
-    image: 'assets/products/showers/square-corner-glass.jpg',
-    images: ['assets/products/showers/square-corner-glass.jpg'],
+    image: 'assets/products/showers/square-shower-enclosure-white.jpg',
+    images: ['assets/products/showers/square-shower-enclosure-white.jpg'],
     description: 'Stylish Square Corner Glass Shower Enclosure with White Frame.',
     fromPrice: 18500,
     variants: [{ label: 'Square Corner Glass (White Frame)', price: 18500 }]
   },
   {
     id: 72, category: 'Showers', name: 'Ekos Pentagon Acrylic Shower Tray', badge: 'Shower Tray',
-    image: 'assets/products/showers/ekos-pentagon-acrylic.jpg',
-    images: ['assets/products/showers/ekos-pentagon-acrylic.jpg'],
+    image: 'assets/products/showers/ekos-shower-tray-pentagon.webp',
+    images: ['assets/products/showers/ekos-shower-tray-pentagon.webp'],
     description: 'High-quality Ekos Pentagon Acrylic Shower Tray.',
     fromPrice: 6500,
     variants: [{ label: 'Ekos Pentagon Acrylic Tray', price: 6500 }]
   },
   {
     id: 73, category: 'Showers', name: 'Shaka Chrome Luxe Spyral Anti-Twist Shower Hose (Showers)', badge: 'Luxe',
-    image: 'assets/products/showers/shaka-chrome-luxe-shower.jpg',
-    images: ['assets/products/showers/shaka-chrome-luxe-shower.jpg'],
+    image: 'assets/products/showers/shaka-chrome-black-nyl-sil-anti-twist.jpg',
+    images: ['assets/products/showers/shaka-chrome-black-nyl-sil-anti-twist.jpg'],
     description: 'Premium Shaka Chrome Luxe Spyral Anti-Twist Shower Hose.',
     fromPrice: 1100,
     variants: [{ label: 'Chrome Luxe Spyral', price: 1100 }]
   },
   {
     id: 74, category: 'Showers', name: 'Shaka White & Chrome Anti-Twist Shower Hose (Showers)', badge: 'Anti-Twist',
-    image: 'assets/products/showers/shaka-white-chrome-shower.jpg',
-    images: ['assets/products/showers/shaka-white-chrome-shower.jpg'],
+    image: 'assets/products/showers/shaka-white-anti-twist-nickel-plate.jpg',
+    images: ['assets/products/showers/shaka-white-anti-twist-nickel-plate.jpg'],
     description: 'Durable Shaka White & Chrome Anti-Twist Shower Hose.',
     fromPrice: 1030,
     variants: [{ label: 'White & Chrome', price: 1030 }]
   },
   {
     id: 75, category: 'Showers', name: 'Matte Black Aluminum Corner Shower Caddy Shelf', badge: 'Caddy',
-    image: 'assets/products/showers/matte-black-aluminum.jpg',
-    images: ['assets/products/showers/matte-black-aluminum.jpg'],
+    image: 'assets/products/showers/shower-enclosure-pentagon-chrome-frame-.jpg',
+    images: ['assets/products/showers/shower-enclosure-pentagon-chrome-frame-.jpg'],
     description: 'Convenient Matte Black Aluminum Corner Shower Caddy Shelf.',
     fromPrice: 2080,
     variants: [{ label: 'Matte Black Corner Caddy', price: 2080 }]
   }
 
+,
+  {
+    id: 76, category: 'Cabinets', name: 'Premium Bathroom Cabinets', badge: 'New',
+    image: 'assets/products/cabinets/cabinets.jpg',
+    images: ['assets/products/cabinets/cabinets.jpg'],
+    description: 'High-quality Premium Bathroom Cabinets for your home.',
+    fromPrice: 15000,
+    variants: [{ label: 'Bathroom Cabinet', price: 15000 }]
+  },
+  {
+    id: 77, category: 'Cabinets', name: 'Casa White Mirror Cabinet', badge: 'Mirror',
+    image: 'assets/products/cabinets/casa-white-mirror-cabinet.webp',
+    images: ['assets/products/cabinets/casa-white-mirror-cabinet.webp'],
+    description: 'High-quality Casa White Mirror Cabinet for your home.',
+    fromPrice: 18500,
+    variants: [{ label: 'White Mirror Cabinet', price: 18500 }]
+  },
+  {
+    id: 78, category: 'Cabinets', name: 'Ekos Cabinet Basin', badge: 'Basin',
+    image: 'assets/products/cabinets/ekos-cabinet-basin.webp',
+    images: ['assets/products/cabinets/ekos-cabinet-basin.webp'],
+    description: 'High-quality Ekos Cabinet Basin for your home.',
+    fromPrice: 21000,
+    variants: [{ label: 'Cabinet Basin', price: 21000 }]
+  },
+  {
+    id: 79, category: 'Cabinets', name: 'Le Luxe White Mirror Cabinet', badge: 'Luxe',
+    image: 'assets/products/cabinets/le-luxe-wh-mirror-cabinet.jpg',
+    images: ['assets/products/cabinets/le-luxe-wh-mirror-cabinet.jpg'],
+    description: 'High-quality Le Luxe White Mirror Cabinet for your home.',
+    fromPrice: 24500,
+    variants: [{ label: 'White Mirror Cabinet', price: 24500 }]
+  },
+  {
+    id: 80, category: 'Cabinets', name: 'Spazio Grey Mirror Cabinet', badge: 'Grey',
+    image: 'assets/products/cabinets/spazio-grey-mirror-cabinet.webp',
+    images: ['assets/products/cabinets/spazio-grey-mirror-cabinet.webp'],
+    description: 'High-quality Spazio Grey Mirror Cabinet for your home.',
+    fromPrice: 22000,
+    variants: [{ label: 'Grey Mirror Cabinet', price: 22000 }]
+  },
+  {
+    id: 81, category: 'Taps', name: 'Chrome Bidet Mixer Tap', badge: 'Chrome',
+    image: 'assets/products/taps/chrome_bidet_mixer_tap.jpg',
+    images: ['assets/products/taps/chrome_bidet_mixer_tap.jpg'],
+    description: 'High-quality Chrome Bidet Mixer Tap for your home.',
+    fromPrice: 4500,
+    variants: [{ label: 'Chrome Bidet Mixer', price: 4500 }]
+  },
+  {
+    id: 82, category: 'Taps', name: 'Classico Single Lever Sink Mixer Chrome', badge: 'Classico',
+    image: 'assets/products/taps/classico-single-lever-sink-mixer-chrome.webp',
+    images: ['assets/products/taps/classico-single-lever-sink-mixer-chrome.webp'],
+    description: 'High-quality Classico Single Lever Sink Mixer Chrome for your home.',
+    fromPrice: 5800,
+    variants: [{ label: 'Classico Sink Mixer', price: 5800 }]
+  },
+  {
+    id: 83, category: 'Taps', name: 'Cross Chrome Sink Mixer Pillar Tap', badge: 'Cross Chrome',
+    image: 'assets/products/taps/cross-chrome-sink-mixer-pillar-tap.webp',
+    images: ['assets/products/taps/cross-chrome-sink-mixer-pillar-tap.webp'],
+    description: 'High-quality Cross Chrome Sink Mixer Pillar Tap for your home.',
+    fromPrice: 5200,
+    variants: [{ label: 'Cross Chrome Mixer', price: 5200 }]
+  },
+  {
+    id: 84, category: 'Taps', name: 'Diamond Sink Mixer Pillar', badge: 'Diamond',
+    image: 'assets/products/taps/diamond-sink-mixer-pillar.webp',
+    images: ['assets/products/taps/diamond-sink-mixer-pillar.webp'],
+    description: 'High-quality Diamond Sink Mixer Pillar for your home.',
+    fromPrice: 6500,
+    variants: [{ label: 'Diamond Sink Mixer', price: 6500 }]
+  },
+  {
+    id: 85, category: 'Taps', name: 'Margot Bronze Pre-rinse Bowl Tap', badge: 'Bronze',
+    image: 'assets/products/taps/margot-bronze-preb-bowl.jpg',
+    images: ['assets/products/taps/margot-bronze-preb-bowl.jpg'],
+    description: 'High-quality Margot Bronze Pre-rinse Bowl Tap for your home.',
+    fromPrice: 8900,
+    variants: [{ label: 'Margot Bronze Tap', price: 8900 }]
+  },
+  {
+    id: 86, category: 'Taps', name: 'Marot Sink Mixer Bronze', badge: 'Bronze',
+    image: 'assets/products/taps/marot_sink_mixer_bronze.jpg',
+    images: ['assets/products/taps/marot_sink_mixer_bronze.jpg'],
+    description: 'High-quality Marot Sink Mixer Bronze for your home.',
+    fromPrice: 7800,
+    variants: [{ label: 'Marot Bronze Mixer', price: 7800 }]
+  },
+  {
+    id: 87, category: 'Taps', name: 'Moderna Lever Sink Mixer Chrome', badge: 'Moderna',
+    image: 'assets/products/taps/moderna-lever-sink-mixer-chrome.webp',
+    images: ['assets/products/taps/moderna-lever-sink-mixer-chrome.webp'],
+    description: 'High-quality Moderna Lever Sink Mixer Chrome for your home.',
+    fromPrice: 6200,
+    variants: [{ label: 'Moderna Sink Mixer', price: 6200 }]
+  },
+  {
+    id: 88, category: 'Taps', name: 'Sink Mixer Spout Tap', badge: 'Spout',
+    image: 'assets/products/taps/sink-mixer-spout-tap.webp',
+    images: ['assets/products/taps/sink-mixer-spout-tap.webp'],
+    description: 'High-quality Sink Mixer Spout Tap for your home.',
+    fromPrice: 4800,
+    variants: [{ label: 'Sink Mixer Spout', price: 4800 }]
+  },
+  {
+    id: 89, category: 'Taps', name: 'Snello Sink Mixer Dark Mirror', badge: 'Dark Mirror',
+    image: 'assets/products/taps/snello-sink-mixer-dark-mirror.webp',
+    images: ['assets/products/taps/snello-sink-mixer-dark-mirror.webp'],
+    description: 'High-quality Snello Sink Mixer Dark Mirror for your home.',
+    fromPrice: 7500,
+    variants: [{ label: 'Snello Dark Mirror Mixer', price: 7500 }]
+  },
+  {
+    id: 90, category: 'Toilets & Urinals', name: 'Inca Maya Toilet Suite', badge: 'Suite',
+    image: 'assets/products/toilets&urinals/inca-maya-toilet-suite.webp',
+    images: ['assets/products/toilets&urinals/inca-maya-toilet-suite.webp'],
+    description: 'High-quality Inca Maya Toilet Suite for your home.',
+    fromPrice: 18500,
+    variants: [{ label: 'Inca Maya Suite', price: 18500 }]
+  },
+  {
+    id: 91, category: 'Toilets & Urinals', name: 'Novo Wall Hung Urinal', badge: 'Urinal',
+    image: 'assets/products/toilets&urinals/novo-wall-hung-urinal.jpg',
+    images: ['assets/products/toilets&urinals/novo-wall-hung-urinal.jpg'],
+    description: 'High-quality Novo Wall Hung Urinal for your home.',
+    fromPrice: 12500,
+    variants: [{ label: 'Novo Urinal', price: 12500 }]
+  },
+  {
+    id: 92, category: 'Toilets & Urinals', name: 'Senso Wall Hung Sensor Urinal', badge: 'Sensor',
+    image: 'assets/products/toilets&urinals/senso-whung-sensor-urinal.jpg',
+    images: ['assets/products/toilets&urinals/senso-whung-sensor-urinal.jpg'],
+    description: 'High-quality Senso Wall Hung Sensor Urinal for your home.',
+    fromPrice: 28000,
+    variants: [{ label: 'Senso Sensor Urinal', price: 28000 }]
+  },
+  {
+    id: 93, category: 'Toilets & Urinals', name: 'Soul Wall Hung Pan', badge: 'Wall Hung',
+    image: 'assets/products/toilets&urinals/soul-wall-hung-pan.webp',
+    images: ['assets/products/toilets&urinals/soul-wall-hung-pan.webp'],
+    description: 'High-quality Soul Wall Hung Pan for your home.',
+    fromPrice: 14500,
+    variants: [{ label: 'Soul Wall Hung Pan', price: 14500 }]
+  },
+  {
+    id: 94, category: 'Toilets & Urinals', name: 'Premium Toilet Suite (2)', badge: 'Premium',
+    image: 'assets/products/toilets&urinals/toilet (2).jpg',
+    images: ['assets/products/toilets&urinals/toilet (2).jpg'],
+    description: 'High-quality Premium Toilet Suite (2) for your home.',
+    fromPrice: 16500,
+    variants: [{ label: 'Premium Toilet Suite', price: 16500 }]
+  },
+  {
+    id: 95, category: 'Toilets & Urinals', name: 'Premium Toilet Suite (3)', badge: 'Premium',
+    image: 'assets/products/toilets&urinals/toilet (3).jpg',
+    images: ['assets/products/toilets&urinals/toilet (3).jpg'],
+    description: 'High-quality Premium Toilet Suite (3) for your home.',
+    fromPrice: 17500,
+    variants: [{ label: 'Premium Toilet Suite', price: 17500 }]
+  },
+  {
+    id: 96, category: 'Toilets & Urinals', name: 'Standard Toilet Suite', badge: 'Standard',
+    image: 'assets/products/toilets&urinals/toilet-1.jpg',
+    images: ['assets/products/toilets&urinals/toilet-1.jpg'],
+    description: 'High-quality Standard Toilet Suite for your home.',
+    fromPrice: 12000,
+    variants: [{ label: 'Standard Toilet Suite', price: 12000 }]
+  },
+  {
+    id: 97, category: 'Toilets & Urinals', name: 'White Beta Bidet', badge: 'Bidet',
+    image: 'assets/products/toilets&urinals/white-beta-bidet.jpg',
+    images: ['assets/products/toilets&urinals/white-beta-bidet.jpg'],
+    description: 'High-quality White Beta Bidet for your home.',
+    fromPrice: 9500,
+    variants: [{ label: 'White Beta Bidet', price: 9500 }]
+  },
+  {
+    id: 98, category: 'Toilets & Urinals', name: 'White Maya Toilet Suite', badge: 'Suite',
+    image: 'assets/products/toilets&urinals/white-maya-toilet-suite.webp',
+    images: ['assets/products/toilets&urinals/white-maya-toilet-suite.webp'],
+    description: 'High-quality White Maya Toilet Suite for your home.',
+    fromPrice: 19500,
+    variants: [{ label: 'White Maya Suite', price: 19500 }]
+  }
 ];
 
 
@@ -1023,7 +1208,7 @@ function renderCartDrawer() {
           <div class="cart-item-variant">${item.variant}</div>
           <div class="cart-item-price">${fmtPrice(item.price)}</div>
           <div class="cart-item-qty">
-            <button class="qty-btn" onclick="Cart.updateQty('${item.key}', ${item.qty - 1})">−</button>
+            <button class="qty-btn" onclick="Cart.updateQty('${item.key}', ${item.qty - 1})">âˆ’</button>
             <input class="qty-input" type="number" value="${item.qty}" min="1" onchange="Cart.updateQty('${item.key}', parseInt(this.value)||1)">
             <button class="qty-btn" onclick="Cart.updateQty('${item.key}', ${item.qty + 1})">+</button>
           </div>
@@ -1071,7 +1256,7 @@ function openQuickView(productId) {
   modal.querySelector('.modal-desc').textContent = prod.description;
 
   const sel = modal.querySelector('.modal-variant-select');
-  sel.innerHTML = prod.variants.map(v => `<option value="${v.price}" data-label="${v.label}">${v.label} — ${fmtPrice(v.price)}</option>`).join('');
+  sel.innerHTML = prod.variants.map(v => `<option value="${v.price}" data-label="${v.label}">${v.label} â€” ${fmtPrice(v.price)}</option>`).join('');
   modal.querySelector('.modal-qty-val').value = 1;
   modal.dataset.productId = productId;
   modal.classList.add('open');
@@ -1709,7 +1894,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
     window.open(url, "_blank");
-    status.textContent = "Opening WhatsApp… Order details sent!";
+    status.textContent = "Opening WhatsAppâ€¦ Order details sent!";
     status.className = "bn-status bn-ok";
   });
 })();

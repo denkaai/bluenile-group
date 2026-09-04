@@ -611,17 +611,17 @@ const PRODUCTS = [
     variants: [
       { label: '500 Ltrs', price: 3300 },
       { label: '1000 Ltrs', price: 6500 },
-      { label: '1500 Ltrs', price: 8500 },
-      { label: '2000 Ltrs', price: 10500 },
-      { label: '3000 Ltrs', price: 14500 },
-      { label: '4000 Ltrs', price: 18500 },
-      { label: '5000 Ltrs', price: 26500 },
-      { label: '6000 Ltrs', price: 28500 },
-      { label: '8000 Ltrs', price: 32500 },
-      { label: '10000 Ltrs', price: 48500 },
-      { label: '16000 Ltrs', price: 69500 },
-      { label: '20000 Ltrs', price: 99500 },
-      { label: '24000 Ltrs', price: 146500 }
+      { label: '1500 Ltrs', price: 9500 },
+      { label: '2000 Ltrs', price: 12500 },
+      { label: '3000 Ltrs', price: 18500 },
+      { label: '4000 Ltrs', price: 23500 },
+      { label: '5000 Ltrs', price: 27500 },
+      { label: '6000 Ltrs', price: 31500 },
+      { label: '8000 Ltrs', price: 46500 },
+      { label: '10000 Ltrs', price: 62500 },
+      { label: '16000 Ltrs', price: 92500 },
+      { label: '20000 Ltrs', price: 126500 },
+      { label: '24000 Ltrs', price: 189500 }
     ]
   },
   {

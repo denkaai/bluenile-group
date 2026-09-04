@@ -294,8 +294,8 @@ const PRODUCTS = [
   },
   {
     id: 19, category: 'Corrugated Mabati', name: 'KIFARU Corrugated Mabati (Gauge 30)', badge: 'Gauge 30',
-    image: 'assets/products/corrugated-mabati-1.jpg',
-    images: ['assets/products/corrugated-mabati-1.jpg'],
+    image: 'assets/products/corrugated-mabati-1.jpeg',
+    images: ['assets/products/corrugated-mabati-1.jpeg', 'assets/products/corrugated-mabati-2.jpeg', 'assets/products/corrugated-mabati-3.jpeg'],
     description: 'High-quality corrugated roofing sheets. Gauge 30 @ Ksh 300 per meter.',
     fromPrice: 600,
     variants: [
@@ -307,7 +307,7 @@ const PRODUCTS = [
   {
     id: 20, category: 'Box Profile', name: 'KIFARU Box Profile Mabati (Gauge 30)', badge: 'Gauge 30',
     image: 'assets/products/box-profile-1.jpg',
-    images: ['assets/products/box-profile-1.jpg', 'assets/products/box-profile-2.jpg'],
+    images: ['assets/products/box-profile-1.jpg', 'assets/products/box-profile-2.jpeg', 'assets/products/box-profile-3.jpeg'],
     description: 'Durable modern box profile roofing sheets. Gauge 30 @ Ksh 350 per meter.',
     fromPrice: 700,
     variants: [
@@ -387,7 +387,7 @@ const PRODUCTS = [
   {
     id: 26, category: 'Tile Mabati', name: 'Roman, Elegant & Eurotile Mabati', badge: 'Gauge 28',
     image: 'assets/products/roman-tile-1.jpg',
-    images: ['assets/products/roman-tile-1.jpg', 'assets/products/roman-tile-2.jpg', 'assets/products/roman-tile-3.jpg', 'assets/products/roman-tile-4.jpg'],
+    images: ['assets/products/roman-tile-1.jpg', 'assets/products/roman-tile-2.jpg'],
     description: 'Roman tile, Elegant tile, and Eurotile Mabati. Gauge 28 @ Ksh 450 per meter.',
     fromPrice: 900,
     variants: [
@@ -410,8 +410,8 @@ const PRODUCTS = [
   },
   {
     id: 28, category: 'Roofing Accessories', name: 'Ridge and Valley (Gauge 28)', badge: 'Gauge 28',
-    image: 'assets/products/ridge-valley-mabati-1.jpg',
-    images: ['assets/products/ridge-valley-mabati-1.jpg', 'assets/products/ridge-valley-mabati-2.jpg', 'assets/products/ridge-valley-mabati-3.jpg', 'assets/products/ridge-valley-mabati-4.jpg'],
+    image: 'assets/products/ridge-valley-1.jpeg',
+    images: ['assets/products/ridge-valley-1.jpeg', 'assets/products/ridge-valley-2.jpeg', 'assets/products/ridge-valley-3.jpeg'],
     description: 'Ridge and Valley Gauge 28 for roof finishing and weatherproofing.',
     fromPrice: 350,
     variants: [
@@ -627,7 +627,7 @@ const PRODUCTS = [
   {
     id: 42, category: 'Chicken Mesh', name: 'Plastic Poultry Mesh (HDPE)', badge: 'HDPE Mesh',
     image: 'assets/products/plastic-poultry-mesh-1.jpeg',
-    images: ['assets/products/plastic-poultry-mesh-1.jpeg', 'assets/products/plastic-poultry-mesh-2.jpeg', 'assets/products/plastic-poultry-mesh-3.jpg'],
+    images: ['assets/products/plastic-poultry-mesh-1.jpeg', 'assets/products/plastic-poultry-mesh-2.jpeg', 'assets/products/plastic-poultry-mesh-3.jpg', 'assets/products/plastic-poultry-mesh-4.jpeg'],
     description: 'Durable Plastic Poultry Mesh (HDPE). UV stabilized, rust-proof, ideal for poultry runs and garden enclosures.',
     fromPrice: 3500,
     variants: [

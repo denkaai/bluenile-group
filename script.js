@@ -122,8 +122,8 @@ const PRODUCTS = [
     description: 'Galvanized hexagonal wire mesh opening for poultry enclosures, agricultural fences and partitions.',
     fromPrice: 1080,
     variants: [
-      { label: 'Gauge 22 Â½" (13 mm) - 3ft x 30m', price: 1180 },
-      { label: 'Gauge 22 Â½" (13 mm) - 4ft x 30m', price: 1650 },
+      { label: 'Gauge 22 ½" (13 mm) - 3ft x 30m', price: 1180 },
+      { label: 'Gauge 22 ½" (13 mm) - 4ft x 30m', price: 1650 },
       { label: 'Gauge 20 1" (25 mm) - 3ft x 30m', price: 1080 },
       { label: 'Gauge 20 1" (25 mm) - 4ft x 30m', price: 1550 },
       { label: 'Gauge 20 1" (25 mm) - 6ft x 30m', price: 2150 },
@@ -165,9 +165,9 @@ const PRODUCTS = [
     description: 'Galvanized roofing nails with leak-proof washers for corrugated and tile roofing sheets.',
     fromPrice: 190,
     variants: [
-      { label: '2Â½ inch - per kg', price: 190 },
-      { label: '2Â½ inch - 25kg bag', price: 4750 },
-      { label: '2Â½ inch - 50kg bag', price: 9500 },
+      { label: '2½ inch - per kg', price: 190 },
+      { label: '2½ inch - 25kg bag', price: 4750 },
+      { label: '2½ inch - 50kg bag', price: 9500 },
     ]
   },
   {
@@ -409,16 +409,28 @@ const PRODUCTS = [
     ]
   },
   {
-    id: 28, category: 'Roofing Accessories', name: 'Ridge and Valleys (Gauge 28)', badge: 'Gauge 28',
-    image: 'assets/products/ridge-valley-1.jpg',
-    images: ['assets/products/ridge-valley-1.jpg', 'assets/products/ridge-valley-2.jpeg', 'assets/products/ridge-valley-3.jpeg'],
-    description: 'Ridge and Valleys Gauge 28 for roof finishing and weatherproofing.',
+    id: 28, category: 'Roofing Accessories', name: 'Ridges and Valleys (Gauge 28)', badge: 'Gauge 28',
+    image: 'assets/products/ridge-valleys-1.jpeg',
+    images: ['assets/products/ridge-valleys-1.jpeg', 'assets/products/ridge-valleys-2.jpeg', 'assets/products/ridge-valleys-3.jpeg'],
+    description: 'Ridges and Valleys Gauge 28 for roof finishing and weatherproofing.',
     fromPrice: 350,
     variants: [
       { label: 'Glazed Ridges (per piece)', price: 450 },
       { label: 'Flat Ridges (per piece)', price: 400 },
       { label: 'Valley Trays (per piece)', price: 350 },
-      { label: 'Plain Sheets (per meter)', price: 350 },
+    ]
+  },
+  {
+    id: 99, category: 'Roofing Accessories', name: 'Plain Sheets', badge: 'Per Meter',
+    image: 'assets/products/plain-sheets-1.jpeg',
+    images: ['assets/products/plain-sheets-1.jpeg', 'assets/products/plain-sheets-2.jpeg', 'assets/products/plain-sheets-3.jpeg'],
+    description: 'Plain galvanized steel sheets for roofing, walling and general construction.',
+    fromPrice: 350,
+    variants: [
+      { label: 'G32 ~0.25mm - per meter', price: 350 },
+      { label: 'G30 ~0.30mm - per meter', price: 450 },
+      { label: 'G28 ~0.30-0.32mm - per meter', price: 550 },
+      { label: 'G26 ~0.40mm - per meter', price: 650 },
     ]
   },
   {
@@ -549,13 +561,13 @@ const PRODUCTS = [
     description: 'Durable round steel pipes. Factory price per 6m length.',
     fromPrice: 250,
     variants: [
-      { label: 'Â½" (18G) - 6m', price: 250 },
-      { label: 'Â¾" (18G) - 6m', price: 330 },
+      { label: '½" (18G) - 6m', price: 250 },
+      { label: '¾" (18G) - 6m', price: 330 },
       { label: '1" (16G) - 6m', price: 480 },
-      { label: '1Â¼" (16G) - 6m', price: 640 },
-      { label: '1Â½" (16G) - 6m', price: 880 },
+      { label: '1¼" (16G) - 6m', price: 640 },
+      { label: '1½" (16G) - 6m', price: 880 },
       { label: '2" (14G) - 6m', price: 1080 },
-      { label: '2Â½" (14G) - 6m', price: 1390 },
+      { label: '2½" (14G) - 6m', price: 1390 },
       { label: '3" (14G) - 6m', price: 1840 },
       { label: '4" (12G) - 6m', price: 2450 }
     ]
@@ -567,12 +579,12 @@ const PRODUCTS = [
     description: 'Stainless Steel Chrome Pipes for handrails, balustrades and furniture. Factory price per 6m.',
     fromPrice: 580,
     variants: [
-      { label: '19 mm / Â¾" (0.8 mm) - 6m', price: 580 },
+      { label: '19 mm / ¾" (0.8 mm) - 6m', price: 580 },
       { label: '25 mm / 1" (0.8 mm) - 6m', price: 780 },
-      { label: '32 mm / 1Â¼" (1.0 mm) - 6m', price: 990 },
-      { label: '38 mm / 1Â½" (1.0 mm) - 6m', price: 1340 },
+      { label: '32 mm / 1¼" (1.0 mm) - 6m', price: 990 },
+      { label: '38 mm / 1½" (1.0 mm) - 6m', price: 1340 },
       { label: '50 mm / 2" (1.2 mm) - 6m', price: 1870 },
-      { label: '63 mm / 2Â½" (1.2 mm) - 6m', price: 2390 },
+      { label: '63 mm / 2½" (1.2 mm) - 6m', price: 2390 },
       { label: '76 mm / 3" (1.5 mm) - 6m', price: 2830 }
     ]
   },

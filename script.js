@@ -177,8 +177,8 @@ const PRODUCTS = [
     description: 'Galvanized U-shaped staple nails for fencing, wire attachment and agricultural post fastening.',
     fromPrice: 240,
     variants: [
-      { label: '1"â€“3" - per kg', price: 240 },
-      { label: '1"â€“3" - 25kg bag', price: 6000 },
+      { label: '1"-3" - per kg', price: 240 },
+      { label: '1"-3" - 25kg bag', price: 6000 },
     ]
   },
   {
@@ -213,8 +213,8 @@ const PRODUCTS = [
     description: 'Hardened steel concrete nails for masonry, concrete walls and brick fixing.',
     fromPrice: 245,
     variants: [
-      { label: '1"â€“4" - per kg', price: 245 },
-      { label: '1"â€“4" - 25kg bag', price: 6125 },
+      { label: '1"-4" - per kg', price: 245 },
+      { label: '1"-4" - 25kg bag', price: 6125 },
     ]
   },
   {
@@ -409,10 +409,10 @@ const PRODUCTS = [
     ]
   },
   {
-    id: 28, category: 'Roofing Accessories', name: 'Ridge and Valley (Gauge 28)', badge: 'Gauge 28',
-    image: 'assets/products/ridge-valley-1.jpeg',
-    images: ['assets/products/ridge-valley-1.jpeg', 'assets/products/ridge-valley-2.jpeg', 'assets/products/ridge-valley-3.jpeg'],
-    description: 'Ridge and Valley Gauge 28 for roof finishing and weatherproofing.',
+    id: 28, category: 'Roofing Accessories', name: 'Ridge and Valleys (Gauge 28)', badge: 'Gauge 28',
+    image: 'assets/products/ridge-valley-1.jpg',
+    images: ['assets/products/ridge-valley-1.jpg', 'assets/products/ridge-valley-2.jpeg', 'assets/products/ridge-valley-3.jpeg'],
+    description: 'Ridge and Valleys Gauge 28 for roof finishing and weatherproofing.',
     fromPrice: 350,
     variants: [
       { label: 'Glazed Ridges (per piece)', price: 450 },
@@ -1192,7 +1192,7 @@ function renderCartDrawer() {
           <div class="cart-item-variant">${item.variant}</div>
           <div class="cart-item-price">${fmtPrice(item.price)}</div>
           <div class="cart-item-qty">
-            <button class="qty-btn" onclick="Cart.updateQty('${item.key}', ${item.qty - 1})">âˆ’</button>
+            <button class="qty-btn" onclick="Cart.updateQty('${item.key}', ${item.qty - 1})">-</button>
             <input class="qty-input" type="number" value="${item.qty}" min="1" onchange="Cart.updateQty('${item.key}', parseInt(this.value)||1)">
             <button class="qty-btn" onclick="Cart.updateQty('${item.key}', ${item.qty + 1})">+</button>
           </div>
@@ -1878,7 +1878,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     var url = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(lines.join("\n"));
     window.open(url, "_blank");
-    status.textContent = "Opening WhatsAppâ€¦ Order details sent!";
+    status.textContent = "Opening WhatsApp... Order details sent!";
     status.className = "bn-status bn-ok";
   });
 })();

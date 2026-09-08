@@ -192,15 +192,15 @@ $newProductsStr = @"
 
 $lines = $scriptContent -split "`r`n"
 if ($lines.Length -eq 1) {
-    $lines = $scriptContent -split "`n"
+  $lines = $scriptContent -split "`n"
 }
 
 $newLines = @()
 foreach ($line in $lines) {
-    if ($line -match "^\s*];\s*$") {
-        $newLines += $newProductsStr
-    }
-    $newLines += $line
+  if ($line -match "^\s*];\s*$") {
+    $newLines += $newProductsStr
+  }
+  $newLines += $line
 }
 
 $finalStr = $newLines -join "`r`n"

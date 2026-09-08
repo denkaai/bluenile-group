@@ -250,10 +250,17 @@ const PRODUCTS = [
     image: 'assets/products/copper-gas-rods-1.jpg',
     images: ['assets/products/copper-gas-rods-1.jpg', 'assets/products/copper-gas-rods-2.jpg', 'assets/products/copper-gas-rods-3.jpg'],
     description: 'High-quality copper coated gas welding rods for industrial steel and pipe fabrication.',
-    fromPrice: 1200,
+    fromPrice: 40,
     variants: [
-      { label: '1.6mm - 5kg pack', price: 1200 },
-      { label: '2.4mm - 5kg pack', price: 1200 },
+      { label: 'Per Rod (All Diameters) @Ksh 40', price: 40 },
+      { label: '1.6mm (60 pcs/kg) - 1kg pack', price: 2400 },
+      { label: '1.6mm - 25kg carton', price: 60000 },
+      { label: '2.0mm (40 pcs/kg) - 1kg pack', price: 1600 },
+      { label: '2.0mm - 25kg carton', price: 40000 },
+      { label: '2.5mm (25 pcs/kg) - 1kg pack', price: 1000 },
+      { label: '2.5mm - 25kg carton', price: 25000 },
+      { label: '3.2mm (15 pcs/kg) - 1kg pack', price: 600 },
+      { label: '3.2mm - 25kg carton', price: 15000 },
     ]
   },
   {
@@ -322,14 +329,14 @@ const PRODUCTS = [
     ]
   },
   {
-    id: 21, category: 'Cement', name: 'National Cement (Simba Brand)', badge: 'KEBS Approved',
+    id: 21, category: 'Cement', name: 'National Simba Cement', badge: 'KEBS Approved',
     image: 'assets/products/simba-cement-1.jpg',
     images: ['assets/products/simba-cement-1.jpg', 'assets/products/simba-cement-2.jpg', 'assets/products/simba-cement-3.jpg', 'assets/products/simba-cement-4.jpg'],
-    description: 'National Cement - Simba Brand. High-strength cement for structural and general construction.',
+    description: 'National Simba Cement. High-strength cement for structural and general construction.',
     fromPrice: 550,
     variants: [
-      { label: 'National Cement (Simba 32.5R)', price: 550 },
-      { label: 'National Cement (Simba Power 42.5N / 42.5R)', price: 580 },
+      { label: 'National Simba Cement (32.5R)', price: 550 },
+      { label: 'National Simba Cement (Power 42.5N / 42.5R)', price: 580 },
     ]
   },
   {
@@ -1138,6 +1145,39 @@ const PRODUCTS = [
     variants: [
       { label: 'GripMaster Plus Porcelain (25kg)', price: 870 },
     ]
+  },
+  {
+    id: 102, category: 'Wall Tile', name: 'Ariana White Ceramic Wall Tile', badge: 'Wall Tile',
+    image: 'assets/products/ariana-white-ceramic-wall-tile.webp',
+    images: ['assets/products/ariana-white-ceramic-wall-tile.webp'],
+    description: 'Premium Ariana White Ceramic Wall Tile with a clean, modern aesthetic for interior walls.',
+    fromPrice: 550,
+    variants: [
+      { label: '25x40 cm (15 Pcs per box)', price: 550 },
+      { label: '30x60 cm (8 Pcs per box)', price: 820 }
+    ]
+  },
+  {
+    id: 103, category: 'Wall Tile', name: 'Space Mix White Pattern Gloss Ceramic Decor Wall Tile', badge: 'Decor Tile',
+    image: 'assets/products/space-mix-white-pattern-look-gloss-ceramic-decor-wall-tile.webp',
+    images: ['assets/products/space-mix-white-pattern-look-gloss-ceramic-decor-wall-tile.webp'],
+    description: 'Gloss ceramic feature decor wall tile with sophisticated geometric and textured pattern accents.',
+    fromPrice: 650,
+    variants: [
+      { label: '25x40 cm Decor (15 Pcs per box)', price: 650 },
+      { label: '30x60 cm Decor (8 Pcs per box)', price: 950 }
+    ]
+  },
+  {
+    id: 104, category: 'Wall Tile', name: 'Nature Honey Ceramic Wall Tile', badge: 'Wall Tile',
+    image: 'assets/products/nature-honey-wall-tile.jpg',
+    images: ['assets/products/nature-honey-wall-tile.jpg'],
+    description: 'Warm Nature Honey Ceramic Wall Tile for elegant and inviting interior living spaces.',
+    fromPrice: 550,
+    variants: [
+      { label: '25x40 cm (15 Pcs per box)', price: 550 },
+      { label: '30x60 cm (8 Pcs per box)', price: 820 }
+    ]
   }
 ];
 
@@ -1678,8 +1718,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!matchCat) {
         if (cTarget === 'nails') {
           matchCat = cardCat.includes('nail');
-        } else if (cTarget === 'tile' || cTarget === 'tiles') {
-          matchCat = cardCat.includes('tile');
+        } else if (cTarget === 'tile' || cTarget === 'tiles' || cTarget === 'floor tile' || cTarget === 'wall tile') {
+          matchCat = (cardCat.includes('tile') || cardCat.includes('floor') || cardCat.includes('wall')) && !cardCat.includes('mabati');
         } else if (cTarget === 'mabati') {
           matchCat = cardCat.includes('mabati') || cardCat.includes('profile') || cardCat.includes('roof') || cardCat.includes('corrugated') || cardCat.includes('tile mabati') || cardCat.includes('versatile') || cardCat.includes('plain sheets');
         } else if (cTarget === 'tmt' || cTarget === 'tmt bars' || cTarget === 'steel') {

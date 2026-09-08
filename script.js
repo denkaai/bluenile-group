@@ -152,10 +152,15 @@ const PRODUCTS = [
     description: 'High-tensile common wire nails for general construction, roofing and carpentry.',
     fromPrice: 90,
     variants: [
-      { label: '1 inch - per kg', price: 90 },
-      { label: '4 inch - per kg', price: 140 },
-      { label: '1 inch - 25kg bag', price: 2250 },
-      { label: '4 inch - 25kg bag', price: 3500 },
+      { label: '1" & 1.5" - per Kg', price: 90 },
+      { label: '1" & 1.5" - 25Kg bag', price: 2250 },
+      { label: '1" & 1.5" - 50Kg bag', price: 4500 },
+      { label: '2", 2.5", 3", 4", 5" - per Kg', price: 130 },
+      { label: '2", 2.5", 3", 4", 5" - 25Kg bag', price: 3250 },
+      { label: '2", 2.5", 3", 4", 5" - 50Kg bag', price: 6500 },
+      { label: '6" - per Kg', price: 170 },
+      { label: '6" - 25Kg bag', price: 4250 },
+      { label: '6" - 50Kg bag', price: 8500 },
     ]
   },
   {
@@ -421,7 +426,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id: 99, category: 'Roofing Accessories', name: 'Plain Sheets', badge: 'Per Meter',
+    id: 99, category: 'Plain Sheets Mabati', name: 'Plain Sheets', badge: 'Per Meter',
     image: 'assets/products/plain-sheets-1.jpeg',
     images: ['assets/products/plain-sheets-1.jpeg', 'assets/products/plain-sheets-2.jpeg', 'assets/products/plain-sheets-3.jpeg'],
     description: 'Plain galvanized steel sheets for roofing, walling and general construction.',
@@ -1113,6 +1118,26 @@ const PRODUCTS = [
     description: 'High-quality White Maya Toilet Suite for your home.',
     fromPrice: 19500,
     variants: [{ label: 'White Maya Suite', price: 19500 }]
+  },
+  {
+    id: 100, category: 'Tile Adhesive', name: 'GripMaster Quality Ceramic & Porcelain Tile Adhesive (25kg)', badge: '25kg',
+    image: 'assets/products/gripmaster-quality-ceramic-porcelain-tile-1.jpeg',
+    images: ['assets/products/gripmaster-quality-ceramic-porcelain-tile-1.jpeg', 'assets/products/gripmaster-quality-ceramic-porcelain-tile-2.jpeg', 'assets/products/gripmaster-quality-ceramic-porcelain-tile-3.jpeg'],
+    description: 'GripMaster Quality Ceramic & Porcelain Tile Adhesive - 25kg bag for professional tile installation.',
+    fromPrice: 650,
+    variants: [
+      { label: 'GripMaster Quality Ceramic & Porcelain (25kg)', price: 650 },
+    ]
+  },
+  {
+    id: 101, category: 'Tile Adhesive', name: 'GripMaster Plus Porcelain Tile Adhesive (25kg)', badge: '25kg',
+    image: 'assets/products/gripmaster-plus-porcelain-tile-adhesive-1.jpeg',
+    images: ['assets/products/gripmaster-plus-porcelain-tile-adhesive-1.jpeg', 'assets/products/gripmaster-plus-porcelain-tile-adhesive-2.jpeg', 'assets/products/gripmaster-plus-porcelain-tile-adhesive-3.jpeg'],
+    description: 'GripMaster Plus Porcelain Tile Adhesive - premium 25kg bag for porcelain and large format tiles.',
+    fromPrice: 870,
+    variants: [
+      { label: 'GripMaster Plus Porcelain (25kg)', price: 870 },
+    ]
   }
 ];
 
@@ -1656,9 +1681,9 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (cTarget === 'tile' || cTarget === 'tiles') {
           matchCat = cardCat.includes('tile');
         } else if (cTarget === 'mabati') {
-          matchCat = cardCat.includes('mabati') || cardCat.includes('profile') || cardCat.includes('roof');
-        } else if (cTarget === 'tmt' || cTarget === 'tmt bars') {
-          matchCat = cardCat.includes('tmt');
+          matchCat = cardCat.includes('mabati') || cardCat.includes('profile') || cardCat.includes('roof') || cardCat.includes('corrugated') || cardCat.includes('tile mabati') || cardCat.includes('versatile') || cardCat.includes('plain sheets');
+        } else if (cTarget === 'tmt' || cTarget === 'tmt bars' || cTarget === 'steel') {
+          matchCat = cardCat.includes('tmt') || cardCat.includes('round bars') || cardCat.includes('rectangular hollow') || cardCat.includes('square hollow');
         } else if (cTarget === 'toilets' || cTarget === 'urinals' || cTarget.includes('toilet')) {
           matchCat = cardCat.includes('toilet');
         } else if (cTarget === 'cabinets' || cTarget.includes('cabinet')) {
@@ -1667,6 +1692,12 @@ document.addEventListener('DOMContentLoaded', () => {
           matchCat = cardCat.includes('tank');
         } else if (cTarget === 'chicken mesh' || cTarget.includes('mesh')) {
           matchCat = cardCat.includes('mesh');
+        } else if (cTarget === 'fencing' || cTarget === 'chain link') {
+          matchCat = cardCat.includes('chain link') || cardCat.includes('gabion') || cardCat.includes('chicken mesh') || cardCat.includes('poultry') || cardCat.includes('anti-climb');
+        } else if (cTarget === 'wire mesh' || cTarget === 'brc') {
+          matchCat = cardCat.includes('brc') || cardCat.includes('weld mesh') || cardCat.includes('expanded');
+        } else if (cTarget === 'tile adhesive' || cTarget.includes('adhesive')) {
+          matchCat = cardCat.includes('adhesive');
         } else {
           matchCat = cardCat === cTarget || cardCat.includes(cTarget) || cTarget.includes(cardCat);
         }

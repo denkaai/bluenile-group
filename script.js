@@ -409,10 +409,10 @@ const PRODUCTS = [
     ]
   },
   {
-    id: 28, category: 'Roofing Accessories', name: 'Ridges and Valleys (Gauge 28)', badge: 'Gauge 28',
+    id: 28, category: 'Roofing Accessories', name: "Ridge's and Valley's (Gauge 28)", badge: 'Gauge 28',
     image: 'assets/products/ridge-valleys-1.jpeg',
     images: ['assets/products/ridge-valleys-1.jpeg', 'assets/products/ridge-valleys-2.jpeg', 'assets/products/ridge-valleys-3.jpeg'],
-    description: 'Ridges and Valleys Gauge 28 for roof finishing and weatherproofing.',
+    description: "Ridge's and Valley's Gauge 28 for roof finishing and weatherproofing.",
     fromPrice: 350,
     variants: [
       { label: 'Glazed Ridges (per piece)', price: 450 },

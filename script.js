@@ -54,7 +54,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id: 4, category: 'Chain Link', name: 'KIFARU Chain Link (Wholesale Galvanized)', badge: '18m Roll',
+    id: 4, category: 'Chain Link', name: 'KIFARU Chain Link (Galvanized)', badge: '18m Roll',
     image: 'assets/products/chainlink-galvanized-1.jpg',
     images: ['assets/products/chainlink-galvanized-1.jpg', 'assets/products/chainlink-galvanized-2.jpg', 'assets/products/chainlink-galvanized-3.png'],
     description: 'Wholesale prices for Galvanized Chain Link (Length 18 meters). High-durability boundary fencing.',
@@ -116,7 +116,7 @@ const PRODUCTS = [
     ]
   },
   {
-    id: 6, category: 'Chicken Mesh', name: 'Galvanized Hexagonal Chicken Mesh', badge: 'Hexagonal',
+    id: 6, category: 'Chicken Mesh', name: 'Chicken Mesh (Galvanized Hexagonal)', badge: 'Hexagonal',
     image: 'assets/products/chicken-mesh-1.jpg',
     images: ['assets/products/chicken-mesh-1.jpg', 'assets/products/chicken-mesh-2.jpg'],
     description: 'Galvanized hexagonal wire mesh opening for poultry enclosures, agricultural fences and partitions.',
@@ -1690,12 +1690,16 @@ document.addEventListener('DOMContentLoaded', () => {
           matchCat = cardCat.includes('cabinet');
         } else if (cTarget === 'tanks' || cTarget.includes('tank')) {
           matchCat = cardCat.includes('tank');
-        } else if (cTarget === 'chicken mesh' || cTarget.includes('mesh')) {
-          matchCat = cardCat.includes('mesh');
+        } else if (cTarget === 'chicken mesh') {
+          matchCat = cardCat.includes('chicken mesh') || cardCat.includes('poultry');
         } else if (cTarget === 'fencing' || cTarget === 'chain link') {
           matchCat = cardCat.includes('chain link') || cardCat.includes('gabion') || cardCat.includes('chicken mesh') || cardCat.includes('poultry') || cardCat.includes('anti-climb');
-        } else if (cTarget === 'wire mesh' || cTarget === 'brc') {
+        } else if (cTarget === 'wire mesh' || cTarget === 'brc' || cTarget === 'brc mesh' || cTarget.includes('brc') || cTarget === 'kifaru brc mesh') {
           matchCat = cardCat.includes('brc') || cardCat.includes('weld mesh') || cardCat.includes('expanded');
+        } else if (cTarget === 'weld mesh') {
+          matchCat = cardCat.includes('weld mesh');
+        } else if (cTarget === 'expanded metal') {
+          matchCat = cardCat.includes('expanded');
         } else if (cTarget === 'tile adhesive' || cTarget.includes('adhesive')) {
           matchCat = cardCat.includes('adhesive');
         } else {

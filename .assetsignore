@@ -1,0 +1,11 @@
+.git
+.git/**
+.vscode
+.vscode/**
+scratch
+scratch/**
+.github
+.github/**
+*.md
+node_modules
+node_modules/**

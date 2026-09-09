@@ -1178,6 +1178,25 @@ const PRODUCTS = [
       { label: '25x40 cm (15 Pcs per box)', price: 550 },
       { label: '30x60 cm (8 Pcs per box)', price: 820 }
     ]
+  },
+  {
+    id: 105, category: 'Z-Purlin Mabati', name: 'KIFARU Z-Purlin', badge: 'Structural Steel',
+    image: 'assets/products/z-purlin-1.jpeg',
+    images: ['assets/products/z-purlin-1.jpeg', 'assets/products/z-purlin-2.jpeg', 'assets/products/z-purlin-3.jpeg'],
+    description: 'High-strength cold-formed galvanized Z-Purlin sections for roofing, wall claddings and structural steel buildings.',
+    fromPrice: 1450,
+    variants: [
+      { label: '3" × 2" (2.0 mm)', price: 1450 },
+      { label: '4" × 2" (2.0 mm)', price: 1870 },
+      { label: '4½" × 2" (2.0 mm)', price: 2470 },
+      { label: '5" × 2" (2.0 mm)', price: 2830 },
+      { label: '5½" × 2" (2.0 mm)', price: 3160 },
+      { label: '6" × 2" (2.0 mm)', price: 3470 },
+      { label: '6½" × 2" (2.0 mm)', price: 3765 },
+      { label: '7" × 2" (2.0 mm)', price: 4120 },
+      { label: '7" × 2½" (2.0 mm)', price: 4350 },
+      { label: '7" × 2" (2.5 mm)', price: 4710 }
+    ]
   }
 ];
 
@@ -1721,9 +1740,11 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (cTarget === 'tile' || cTarget === 'tiles' || cTarget === 'floor tile' || cTarget === 'wall tile') {
           matchCat = (cardCat.includes('tile') || cardCat.includes('floor') || cardCat.includes('wall')) && !cardCat.includes('mabati');
         } else if (cTarget === 'mabati') {
-          matchCat = cardCat.includes('mabati') || cardCat.includes('profile') || cardCat.includes('roof') || cardCat.includes('corrugated') || cardCat.includes('tile mabati') || cardCat.includes('versatile') || cardCat.includes('plain sheets');
+          matchCat = cardCat.includes('mabati') || cardCat.includes('profile') || cardCat.includes('roof') || cardCat.includes('corrugated') || cardCat.includes('tile mabati') || cardCat.includes('versatile') || cardCat.includes('plain sheets') || cardCat.includes('purlin');
         } else if (cTarget === 'tmt' || cTarget === 'tmt bars' || cTarget === 'steel') {
-          matchCat = cardCat.includes('tmt') || cardCat.includes('round bars') || cardCat.includes('rectangular hollow') || cardCat.includes('square hollow');
+          matchCat = cardCat.includes('tmt') || cardCat.includes('round bars') || cardCat.includes('rectangular hollow') || cardCat.includes('square hollow') || cardCat.includes('purlin');
+        } else if (cTarget === 'z-purlin' || cTarget === 'purlin') {
+          matchCat = cardCat.includes('purlin');
         } else if (cTarget === 'toilets' || cTarget === 'urinals' || cTarget.includes('toilet')) {
           matchCat = cardCat.includes('toilet');
         } else if (cTarget === 'cabinets' || cTarget.includes('cabinet')) {

@@ -146,10 +146,10 @@ const PRODUCTS = [
     ]
   },
   {
-    id: 8, category: 'Common Nails', name: 'Common Wire Nails', badge: 'Wholesale',
+    id: 8, category: 'Common Nails', name: 'Common Nails', badge: 'Wholesale',
     image: 'assets/products/common-nails-1.jpg',
     images: ['assets/products/common-nails-1.jpg', 'assets/products/common-nails-2.jpg'],
-    description: 'High-tensile common wire nails for general construction, roofing and carpentry.',
+    description: 'High-tensile common nails for general construction, roofing and carpentry.',
     fromPrice: 90,
     variants: [
       { label: '1" & 1.5" - per Kg', price: 90 },

@@ -412,8 +412,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Blue Nile Group of Companies. All Rights Reserved. <a href="#">KIFARU™</a> is a registered
-          trademark.<br>Designed and developed by Denkaai copyrights 2026.</p>
+        <p>&copy; 2026 Blue Nile Group of Companies. All Rights Reserved. <a href="#">KIFARU™</a> is a registered trademark.</p>
         <span
           style="background:var(--accent);color:#fff;padding:3px 10px;border-radius:3px;font-size:11px;font-weight:700;">KEBS
           APPROVED</span>
@@ -447,19 +446,19 @@
           <h2 class="modal-title"></h2>
           <div class="price modal-price"></div>
           <p class="modal-desc"></p>
-          <p class="variant-label">Select Size / Type:</p>
-          <select class="variant-select modal-variant-select"></select>
-          <div class="modal-qty-row">
-            <div class="modal-qty">
-              <button id="modal-qty-minus">−</button>
-              <input type="number" value="1" min="1" id="modal-qty-val" class="modal-qty-val">
-              <button id="modal-qty-plus">+</button>
-            </div>
-            <button class="modal-add-btn" id="modal-add-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          <div class="modal-variants">
+            <label>Select Size / Type:</label>
+            <select class="modal-variant-select"></select>
           </div>
-          <button class="cart-wa-btn" id="modal-checkout-btn"
-            style="margin-top:0; width:100%; justify-content:center; cursor:pointer;"><i
-              class="fa-solid fa-arrow-right"></i> Proceed to Checkout</button>
+          <div class="modal-qty-wrap">
+            <label>Quantity:</label>
+            <div class="modal-qty-controls">
+              <button class="modal-qty-btn modal-qty-minus"><i class="fa-solid fa-minus"></i></button>
+              <input type="number" class="modal-qty-val" value="1" min="1">
+              <button class="modal-qty-btn modal-qty-plus"><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+          <button class="btn btn-accent modal-add-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
         </div>
       </div>
     </div>
@@ -467,12 +466,12 @@
 
   <!-- ===================== WHATSAPP FLOAT ===================== -->
   <div class="wa-float">
-    <a href="https://wa.me/254755627028?text=Hello%20KIFARU%20Steel!%20I%20would%20like%20to%20inquire%20about%20your%20products."
-      target="_blank" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://wa.me/254755627028?text=Hello%20KIFARU%20Steel!%20I%20would%20like%20to%20place%20an%20order."
+      target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="script.js?v=1.1.3"></script>
+  <script src="script.js?v=1.1.4"></script>
   <script>
     // Render 8 featured products on homepage
     const featuredIds = [1, 3, 51, 58, 4, 20, 43, 54];

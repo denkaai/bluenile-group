@@ -155,7 +155,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Blue Nile Group of Companies. All Rights Reserved. <a href="#">KIFARU™</a> is a registered trademark.<br>Designed and developed by Denkaai copyrights 2026.</p>
+      <p>&copy; 2026 Blue Nile Group of Companies. All Rights Reserved. <a href="#">KIFARU™</a> is a registered trademark.</p>
       <span style="background:var(--accent);color:#fff;padding:3px 10px;border-radius:3px;font-size:11px;font-weight:700;">KEBS APPROVED</span>
     </div>
   </div>
@@ -171,8 +171,8 @@
   <div class="cart-drawer-items" id="cart-drawer-items"></div>
   <div class="cart-drawer-footer">
     <div class="cart-subtotal"><span>Subtotal</span><span id="cart-subtotal-amount">Ksh 0</span></div>
-    <button class="cart-wa-btn" id="drawer-wa-btn"><i class="fa-solid fa-arrow-right"></i> Proceed to Checkout</button>
-    <button class="cart-view-btn" id="cart-view-btn"><i class="fa-solid fa-cart-shopping"></i> Review Cart</button>
+    <button class="cart-wa-btn" id="drawer-wa-btn" onclick="window.location.href='checkout.html'"><i class="fa-solid fa-arrow-right"></i> Proceed to Checkout</button>
+    <button class="cart-view-btn" id="cart-view-btn" onclick="window.location.href='cart.html'"><i class="fa-solid fa-cart-shopping"></i> Review Cart</button>
   </div>
 </aside>
 
@@ -196,7 +196,7 @@
           </div>
           <button class="modal-add-btn" id="modal-add-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
         </div>
-        <button class="cart-wa-btn" id="modal-checkout-btn" style="margin-top:0; width:100%; justify-content:center; cursor:pointer;"><i class="fa-solid fa-arrow-right"></i> Proceed to Checkout</button>
+        <button class="cart-wa-btn" id="modal-checkout-btn" style="margin-top:0; width:100%; justify-content:center; cursor:pointer;" onclick="window.location.href='checkout.html'"><i class="fa-solid fa-arrow-right"></i> Proceed to Checkout</button>
       </div>
     </div>
   </div>
@@ -207,7 +207,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-<script src="script.js?v=1.1.3"></script>
+<script src="script.js?v=1.1.4"></script>
 <script>
 // Render all products in shop grid
 const shopGrid = document.getElementById('shop-grid');

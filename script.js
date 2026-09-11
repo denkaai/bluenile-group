@@ -1197,6 +1197,48 @@ const PRODUCTS = [
       { label: '7" × 2½" (2.0 mm)', price: 4350 },
       { label: '7" × 2" (2.5 mm)', price: 4710 }
     ]
+  },
+  {
+    id: 106, category: 'DPC', name: 'DPC — Damp Proof Course', badge: '30m Roll',
+    image: 'assets/products/dpc-1.jpeg',
+    images: ['assets/products/dpc-1.jpeg', 'assets/products/dpc-2.jpeg', 'assets/products/dpc-3.jpeg'],
+    description: 'High-quality polyethylene Damp Proof Course (DPC) rolls for preventing moisture ingress through walls and foundations. Available in various widths in 30-metre rolls.',
+    fromPrice: 1180,
+    variants: [
+      { label: '100 mm × 30 m', price: 1180 },
+      { label: '150 mm × 30 m', price: 1570 },
+      { label: '225 mm × 30 m', price: 2290 },
+      { label: '300 mm × 30 m', price: 2760 },
+      { label: '450 mm × 30 m', price: 3380 },
+      { label: '600 mm × 30 m', price: 4170 }
+    ]
+  },
+  {
+    id: 107, category: 'DPM', name: 'DPM — Damp Proof Membrane', badge: '4m × 25m',
+    image: 'assets/products/dpm-1.jpeg',
+    images: ['assets/products/dpm-1.jpeg', 'assets/products/dpm-2.jpeg', 'assets/products/dpm-3.jpeg'],
+    description: 'Heavy-duty polyethylene Damp Proof Membrane (DPM) for sub-floor and ground-floor moisture protection. Available in multiple gauges in 4 m × 25 m rolls.',
+    fromPrice: 2250,
+    variants: [
+      { label: '500 Gauge — 4 m × 25 m', price: 2250 },
+      { label: '750 Gauge — 4 m × 25 m', price: 2840 },
+      { label: '1,000 Gauge — 4 m × 25 m', price: 3370 },
+      { label: '1,200 Gauge — 4 m × 25 m', price: 3850 },
+      { label: '1,500 Gauge — 4 m × 25 m', price: 4450 },
+      { label: '2,000 Gauge — 4 m × 25 m', price: 4960 }
+    ]
+  },
+  {
+    id: 108, category: 'Waterproofing', name: 'Gladiator 4TC', badge: 'Waterproofing',
+    image: 'assets/products/gladiator-4tc-1.jpeg',
+    images: ['assets/products/gladiator-4tc-1.jpeg', 'assets/products/gladiator-4tc-2.jpeg'],
+    description: 'Gladiator 4TC is a premium-quality waterproofing compound for concrete, masonry and roofing applications. Provides long-lasting protection against water ingress.',
+    fromPrice: 1300,
+    variants: [
+      { label: '1 Litre', price: 1300 },
+      { label: '5 Litres', price: 4350 },
+      { label: '20 Litres', price: 15450 }
+    ]
   }
 ];
 
